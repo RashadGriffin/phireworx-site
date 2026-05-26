@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Media Images | Phireworx Photography</title>
+  <meta name="description" content="Special team pricing on digital images for social media, senior spotlights, and digital projects. Web-ready files delivered fast.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/css/styles.css?v=30">
+  <style>
+    /* ── NAV ── */
+    .tm-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(13,13,13,0.94); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate);
+      padding: 14px var(--gutter);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    /* ── HERO ── */
+    .tm-hero {
+      min-height: 86vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px var(--gutter) 72px;
+      position: relative; overflow: hidden;
+    }
+    .tm-hero-glow {
+      position: absolute; bottom: -160px; right: -160px;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(255,179,71,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .tm-hero-glow2 {
+      position: absolute; top: -80px; left: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,179,71,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .tm-hero-inner { max-width: var(--content-max); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+    /* animated badge */
+    .tm-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,179,71,0.1); border: 1px solid rgba(255,179,71,0.25);
+      padding: 6px 16px; margin-bottom: 28px;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.2em; color: var(--ember); text-transform: uppercase;
+    }
+    .tm-badge-dot { width: 6px; height: 6px; background: var(--ember); border-radius: 50%; animation: tm-pulse 2s infinite; }
+    @keyframes tm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .tm-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(46px, 6.5vw, 96px);
+      font-weight: 700; line-height: 0.92;
+      text-transform: uppercase; letter-spacing: -0.01em;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .tm-h1 em { font-style: normal; color: var(--ember); }
+    .tm-h1 .amber { color: var(--ember); }
+    .tm-lead {
+      font-size: clamp(15px, 1.7vw, 18px); color: var(--silver);
+      max-width: 580px; line-height: 1.7; margin-bottom: 44px;
+    }
+    .tm-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── USE CASE TILES ── */
+    .use-cases {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 56px;
+    }
+    .use-case {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--slate);
+      padding: 28px 28px 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .use-case:hover { border-color: var(--ember); background: rgba(255,179,71,0.04); }
+    .use-case-icon {
+      width: 40px; height: 40px;
+      background: rgba(255,179,71,0.1); border: 1px solid rgba(255,179,71,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ember);
+    }
+    .use-case-icon.ember-icon {
+      background: rgba(255,179,71,0.08); border-color: rgba(255,179,71,0.2);
+      color: var(--ember);
+    }
+    .use-case-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .use-case-label {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 0.18em; color: var(--iron); text-transform: uppercase;
+    }
+    .use-case-title {
+      font-family: var(--font-display); font-size: 18px; font-weight: 700;
+      color: var(--white); text-transform: uppercase; letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .use-case-desc { font-size: 13px; color: var(--mist); line-height: 1.65; }
+
+    /* ── PRICING ── */
+    .tm-pricing-wrap {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 2px; max-width: 900px;
+    }
+    .tm-pricing-main { background: var(--ash); padding: 40px 44px; border-top: 4px solid var(--ember); }
+    .tm-pricing-side { background: var(--steel); padding: 40px 36px; }
+    .tm-pricing-eyebrow {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+      color: var(--ember); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .tm-tier-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+    .tm-tier-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .tm-tier-name {
+      font-family: var(--font-display); font-size: 18px; font-weight: 700;
+      color: var(--white); text-transform: uppercase; letter-spacing: 0.02em;
+    }
+    .tm-tier-sub { font-size: 11px; color: var(--iron); font-family: var(--font-mono); letter-spacing: 0.06em; margin-top: 3px; }
+    .tm-tier-price {
+      font-family: var(--font-display); font-size: 26px; font-weight: 700;
+      color: var(--ember); white-space: nowrap; flex-shrink: 0;
+    }
+    .tm-tier-price span { font-size: 13px; color: var(--iron); font-family: var(--font-mono); font-weight: 400; }
+
+    /* addons */
+    .tm-addon {
+      padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+    }
+    .tm-addon:first-of-type { padding-top: 0; }
+    .tm-addon:last-child { border-bottom: none; padding-bottom: 0; }
+    .tm-addon-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 3px; }
+    .tm-addon-desc { font-size: 11px; color: var(--iron); line-height: 1.5; }
+    .tm-addon-price { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--ember); white-space: nowrap; flex-shrink: 0; }
+
+    /* ── USAGE TERMS ── */
+    .tm-terms {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 2px; max-width: 900px;
+    }
+    .tm-term {
+      background: var(--ash); padding: 26px 30px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .tm-term-icon { color: var(--ember); flex-shrink: 0; }
+    .tm-term-icon.e { color: var(--ember); }
+    .tm-term-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .tm-term-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 3px; }
+    .tm-term-desc { font-size: 13px; color: var(--mist); line-height: 1.6; }
+
+    /* ── FORM ── */
+    .mf-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .mf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .mf-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--silver); }
+    .mf-label span { color: var(--ember); }
+    .mf-input, .mf-textarea, .mf-select {
+      background: var(--steel); border: 1px solid var(--iron); color: var(--white);
+      font-family: var(--font-body); font-size: 14px; padding: 12px 16px;
+      outline: none; transition: border-color 0.2s; width: 100%; box-sizing: border-box;
+    }
+    .mf-input:focus, .mf-textarea:focus, .mf-select:focus { border-color: var(--ember); }
+    .mf-textarea { resize: vertical; min-height: 100px; }
+    .mf-select option { background: var(--steel); }
+
+    /* ── INVOICE NOTE ── */
+    .invoice-note {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: rgba(255,179,71,0.07); border: 1px solid rgba(255,179,71,0.2);
+      border-left: 3px solid var(--ember);
+      padding: 18px 22px; max-width: 680px; margin-top: 24px;
+    }
+    .invoice-note svg { width: 18px; height: 18px; stroke: var(--ember); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+    .invoice-note p { font-size: 13px; color: var(--silver); line-height: 1.65; margin: 0; }
+    .invoice-note strong { color: var(--white); }
+
+    /* ── STICKY BAR ── */
+    .sticky-cta-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(13,13,13,0.95); border-top: 1px solid var(--slate);
+      backdrop-filter: blur(12px); padding: 14px var(--gutter);
+      z-index: 100; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .sticky-cta-text { font-size: 14px; color: var(--silver); }
+    .sticky-cta-text strong { color: var(--white); }
+    .sticky-cta-btns { display: flex; gap: 10px; flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .use-cases { grid-template-columns: 1fr 1fr; }
+      .tm-pricing-wrap { grid-template-columns: 1fr; }
+      .tm-terms { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .use-cases { grid-template-columns: 1fr; }
+      .mf-row { grid-template-columns: 1fr; }
+      .sticky-cta-text { display: none; }
+    }
+  </style>
+</head>
+<body style="padding-bottom: 72px;">
+
+<!-- NAV -->
+<div class="tm-nav">
+  <a href="index.html" aria-label="Phireworx Photography">
+    <img src="assets/images/logo-full.png" alt="Phireworx Photography" style="height:34px;width:auto;display:block;mix-blend-mode:screen;">
+  </a>
+  <a href="#order" class="btn-primary" style="font-size:12px;">Request Images &rarr;</a>
+</div>
+
+<!-- HERO -->
+<section class="tm-hero">
+  <div class="tm-hero-glow" aria-hidden="true"></div>
+  <div class="tm-hero-glow2" aria-hidden="true"></div>
+  <div class="tm-hero-inner">
+
+    <div class="tm-badge">
+      <div class="tm-badge-dot"></div>
+      Exclusive Team Pricing &nbsp;&middot;&nbsp; Digital Delivery
+    </div>
+
+    <h1 class="tm-h1">
+      TEAM IMAGES<br>
+      FOR <em>SOCIAL</em> &amp;<br>
+      <span class="amber">SPECIAL</span> PROJECTS.
+    </h1>
+
+    <p class="tm-lead">Special pricing on professional digital images for coaches, athletic directors, and booster clubs. Web-ready files — perfect for social media, senior spotlights, flyers, and digital programs.</p>
+
+    <div class="tm-hero-btns">
+      <a href="#order" class="btn-primary">Request Your Images &rarr;</a>
+      <a href="#pricing" class="btn-ghost">See Pricing</a>
+    </div>
+
+    <!-- USE CASE TILES -->
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="use-case-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="3"/></svg>
+        </div>
+        <div class="use-case-label">Use Case 01</div>
+        <div class="use-case-title">Social Media Posts</div>
+        <p class="use-case-desc">Instagram, Twitter/X, Facebook — player features, game day posts, and season recaps that actually look great.</p>
+      </div>
+      <div class="use-case">
+        <div class="use-case-icon ember-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="use-case-label">Use Case 02</div>
+        <div class="use-case-title">Senior Spotlights</div>
+        <p class="use-case-desc">Senior night tributes, senior boards, booster club callouts, and custom graphics for your graduating athletes.</p>
+      </div>
+      <div class="use-case">
+        <div class="use-case-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="use-case-label">Use Case 03</div>
+        <div class="use-case-title">Digital Flyers &amp; Programs</div>
+        <p class="use-case-desc">Game programs, booster flyers, school newsletters, and digital media guides that represent your program well.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<div id="pricing" class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">What It Costs</p>
+    <h2 class="section-title">Team <span>Pricing</span></h2>
+    <p class="section-desc" style="margin-bottom:36px;">The more images you need, the lower the per-image rate. All images are web-resolution (72 DPI) — ideal for every digital use case. Print-ready upgrades available.</p>
+
+    <div class="tm-pricing-wrap">
+      <div class="tm-pricing-main">
+        <div class="tm-pricing-eyebrow">Per-Image Rate</div>
+
+        <div class="tm-tier-row">
+          <div>
+            <div class="tm-tier-name">1–9 Images</div>
+            <div class="tm-tier-sub">Standard rate</div>
+          </div>
+          <div class="tm-tier-price">$15 <span>/ image</span></div>
+        </div>
+
+        <div class="tm-tier-row">
+          <div>
+            <div class="tm-tier-name">10–19 Images</div>
+            <div class="tm-tier-sub">Volume rate</div>
+          </div>
+          <div class="tm-tier-price">$12 <span>/ image</span></div>
+        </div>
+
+        <div class="tm-tier-row">
+          <div>
+            <div class="tm-tier-name">20+ Images</div>
+            <div class="tm-tier-sub">Best value</div>
+          </div>
+          <div class="tm-tier-price">$10 <span>/ image</span></div>
+        </div>
+      </div>
+
+      <div class="tm-pricing-side">
+        <div class="tm-pricing-eyebrow">Optional Add-Ons</div>
+
+        <div class="tm-addon">
+          <div>
+            <div class="tm-addon-name">Hi-Res Upgrade</div>
+            <div class="tm-addon-desc">300 DPI — print-ready</div>
+          </div>
+          <div class="tm-addon-price">+$5 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
+        </div>
+
+        <div class="tm-addon">
+          <div>
+            <div class="tm-addon-name">Transparent Cutout</div>
+            <div class="tm-addon-desc">Background removed — PNG, ideal for graphics &amp; posters</div>
+          </div>
+          <div class="tm-addon-price">+$2 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
+        </div>
+
+        <div class="tm-addon">
+          <div>
+            <div class="tm-addon-name">Player Headshots</div>
+            <div class="tm-addon-desc">Clean headshot — entire team, web-res</div>
+          </div>
+          <div class="tm-addon-price">$40 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">flat</span></div>
+        </div>
+
+        <div class="tm-addon">
+          <div>
+            <div class="tm-addon-name">Full Team Gallery</div>
+            <div class="tm-addon-desc">Every player, every pose — hi-res, complete delivery</div>
+          </div>
+          <div class="tm-addon-price" style="color:var(--ember);">Custom</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE TERMS -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Good to Know</p>
+    <h2 class="section-title">Usage <span>Details</span></h2>
+    <div class="tm-terms" style="max-width:900px;">
+      <div class="tm-term">
+        <div class="tm-term-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div>
+          <div class="tm-term-title">Web Resolution (72 DPI)</div>
+          <p class="tm-term-desc">All images are delivered web-ready. Perfect for social media, websites, and digital programs. Add the hi-res upgrade (+$5/image) if you need print-quality files.</p>
+        </div>
+      </div>
+      <div class="tm-term">
+        <div class="tm-term-icon e">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="tm-term-title">Team &amp; Org Use Only</div>
+          <p class="tm-term-desc">Licensed for team and organizational use — social media, promotions, and digital content. Not for individual resale or parent distribution unless upgraded to hi-res.</p>
+        </div>
+      </div>
+      <div class="tm-term">
+        <div class="tm-term-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </div>
+        <div>
+          <div class="tm-term-title">Secure Cloud Delivery</div>
+          <p class="tm-term-desc">Images delivered via a private download link. No login, no app. Share with your coaching staff or social manager as needed.</p>
+        </div>
+      </div>
+      <div class="tm-term">
+        <div class="tm-term-icon e">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="tm-term-title">1–2 Week Turnaround</div>
+          <p class="tm-term-desc">Orders fulfilled within 1–2 weeks. Need something sooner? Note it in your request and we'll do our best to accommodate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<div id="order" class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Let's Get Started</p>
+    <h2 class="section-title">Request <span>Your Images</span></h2>
+    <p class="section-desc" style="margin-bottom:36px;">Fill out the form below. We'll review your request and send over an invoice — no payment until you've confirmed the details with us.</p>
+
+    <form style="max-width:680px;" name="team-media-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="team-media-order">
+      <p style="display:none;"><input name="bot-field"></p>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="tm-name">Your Name <span>*</span></label>
+          <input type="text" id="tm-name" name="name" class="mf-input" placeholder="First and last name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="tm-email">Email <span>*</span></label>
+          <input type="email" id="tm-email" name="email" class="mf-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="tm-phone">Phone</label>
+          <input type="tel" id="tm-phone" name="phone" class="mf-input" placeholder="(480) 000-0000">
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="tm-role">Your Role</label>
+          <select id="tm-role" name="role" class="mf-select">
+            <option value="" disabled selected>Select your role</option>
+            <option>Head Coach</option>
+            <option>Athletic Director</option>
+            <option>Assistant Coach</option>
+            <option>Club / Travel Team Director</option>
+            <option>Booster Club Member</option>
+            <option>Parent</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="tm-school">School or Organization <span>*</span></label>
+          <input type="text" id="tm-school" name="school" class="mf-input" placeholder="School or team name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="tm-sport">Sport / Program <span>*</span></label>
+          <input type="text" id="tm-sport" name="sport" class="mf-input" placeholder="e.g. Varsity Basketball" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="tm-qty">How Many Images? <span>*</span></label>
+          <select id="tm-qty" name="image_count" class="mf-select" required>
+            <option value="" disabled selected>Select a range</option>
+            <option value="1-9">1–9 images ($15 each)</option>
+            <option value="10-19">10–19 images ($12 each)</option>
+            <option value="20+">20+ images ($10 each)</option>
+            <option value="headshots">Player Headshots — full team ($40 flat)</option>
+            <option value="full-gallery">Full Team Gallery (custom quote)</option>
+            <option value="unsure">Not sure — help me figure it out</option>
+          </select>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="tm-photoday">Your Photo Day Date</label>
+          <input type="text" id="tm-photoday" name="photoday_date" class="mf-input" placeholder="e.g. March 15, 2025">
+        </div>
+      </div>
+
+      <div class="mf-group">
+        <label class="mf-label">Add-Ons</label>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:16px 18px;background:var(--steel);border:1px solid var(--iron);">
+          <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
+            <input type="checkbox" name="addon_hires" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
+            Hi-res upgrade (+$5/image) — 300 DPI, print-ready
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
+            <input type="checkbox" name="addon_cutout" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
+            Transparent PNG cutouts (+$2/image) — background removed
+          </label>
+        </div>
+      </div>
+
+      <div class="mf-group">
+        <label class="mf-label" for="tm-details">What are these images for?</label>
+        <textarea id="tm-details" name="details" class="mf-textarea" placeholder="e.g. Senior night graphics, Instagram posts, booster flyer, game program..."></textarea>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <button type="submit" class="btn-primary" style="cursor:pointer;border:none;font-size:14px;">Send My Request &rarr;</button>
+      </div>
+
+      <!-- INVOICE NOTE -->
+      <div class="invoice-note">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>No payment yet.</strong> Once we receive your request we'll review it and send you an invoice directly. Payment is due before image delivery.</p>
+      </div>
+    </form>
+
+    <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--steel);max-width:680px;">
+      <p style="font-size:13px;color:var(--mist);margin-bottom:14px;">Prefer to reach us directly?</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="tel:4807099969" class="btn-ghost">(480) 709-9969</a>
+        <a href="mailto:service@phireworxphoto.com" class="btn-ghost">service@phireworxphoto.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--steel);border-top:1px solid var(--slate);">
+  <div style="max-width:var(--content-max);margin:0 auto;padding:28px var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <img src="assets/images/logo-full.png" alt="Phireworx Photography" style="height:24px;width:auto;mix-blend-mode:screen;opacity:0.35;">
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="index.html" style="font-size:12px;color:var(--iron);">Home</a>
+      <a href="photo-day.html" style="font-size:12px;color:var(--iron);">Photo Day</a>
+      <a href="media-day.html" style="font-size:12px;color:var(--iron);">Media Day</a>
+      <a href="banners.html" style="font-size:12px;color:var(--iron);">Banners</a>
+      <a href="faq.html" style="font-size:12px;color:var(--iron);">FAQ</a>
+      <a href="policies.html" style="font-size:12px;color:var(--iron);">Policies</a>
+    </div>
+    <p style="font-size:11px;color:var(--iron);">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ</p>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-cta-bar">
+  <div class="sticky-cta-text"><strong>Team Media Images</strong> — Special pricing for social, senior spotlights &amp; digital projects.</div>
+  <div class="sticky-cta-btns">
+    <a href="tel:4807099969" class="btn-ghost" style="font-size:12px;">(480) 709-9969</a>
+    <a href="#order" class="btn-primary" style="font-size:12px;">Request Now &rarr;</a>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap"><img src="" alt="" id="lb-img"></div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+<script>
+  (function() {
+    const overlay = document.getElementById('lb-overlay');
+    const lbImg = document.getElementById('lb-img');
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+    let imgs = [], idx = 0;
+    function collectImgs() { imgs = Array.from(document.querySelectorAll('img[data-lightbox]')); }
+    function open(i) { collectImgs(); idx = i; lbImg.src = imgs[idx].src; lbImg.alt = imgs[idx].alt; overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function close() { overlay.classList.remove('active'); document.body.style.overflow = ''; lbImg.src = ''; }
+    function prev() { collectImgs(); idx = (idx - 1 + imgs.length) % imgs.length; lbImg.src = imgs[idx].src; lbImg.alt = imgs[idx].alt; }
+    function next() { collectImgs(); idx = (idx + 1) % imgs.length; lbImg.src = imgs[idx].src; lbImg.alt = imgs[idx].alt; }
+    document.addEventListener('click', function(e) { const img = e.target.closest('img[data-lightbox]'); if (img) { collectImgs(); open(imgs.indexOf(img)); return; } if (e.target === overlay) close(); });
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', function(e) { e.stopPropagation(); prev(); });
+    lbNext.addEventListener('click', function(e) { e.stopPropagation(); next(); });
+    document.addEventListener('keydown', function(e) { if (!overlay.classList.contains('active')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
+  })();
+</script>
+
+</body>
+</html>
