@@ -1,0 +1,122 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+collections:
+
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "homepage"
+        label: "Homepage Content"
+        file: "data/homepage.json"
+        format: json
+        fields:
+          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero Headline Line 1", name: "hero_line1", widget: "string" }
+          - { label: "Hero Headline Line 2 (amber)", name: "hero_line2", widget: "string" }
+          - { label: "Hero Headline Line 3", name: "hero_line3", widget: "string" }
+          - { label: "Hero Subheadline", name: "hero_sub", widget: "text" }
+          - { label: "Primary Button Text", name: "hero_btn1", widget: "string" }
+          - { label: "Secondary Button Text", name: "hero_btn2", widget: "string" }
+          - { label: "Stat 1 — Number", name: "stat1_num", widget: "string" }
+          - { label: "Stat 1 — Suffix", name: "stat1_suffix", widget: "string" }
+          - { label: "Stat 1 — Label", name: "stat1_label", widget: "string" }
+          - { label: "Stat 2 — Number", name: "stat2_num", widget: "string" }
+          - { label: "Stat 2 — Suffix", name: "stat2_suffix", widget: "string" }
+          - { label: "Stat 2 — Label", name: "stat2_label", widget: "string" }
+          - { label: "Stat 3 — Number", name: "stat3_num", widget: "string" }
+          - { label: "Stat 3 — Suffix", name: "stat3_suffix", widget: "string" }
+          - { label: "Stat 3 — Label", name: "stat3_label", widget: "string" }
+          - { label: "Stat 4 — Number", name: "stat4_num", widget: "string" }
+          - { label: "Stat 4 — Suffix", name: "stat4_suffix", widget: "string" }
+          - { label: "Stat 4 — Label", name: "stat4_label", widget: "string" }
+
+  - name: "reviews"
+    label: "Reviews"
+    folder: "data/reviews"
+    create: true
+    slug: "{{slug}}"
+    label_singular: "Review"
+    format: json
+    fields:
+      - { label: "Reviewer Name", name: "name", widget: "string" }
+      - { label: "Role / Organization", name: "role", widget: "string" }
+      - { label: "Review Text", name: "quote", widget: "text", hint: "Do not include quotation marks" }
+      - { label: "Star Rating", name: "stars", widget: "number", default: 5, value_type: "int", min: 1, max: 5 }
+      - { label: "Show on Homepage", name: "homepage", widget: "boolean", default: false }
+      - { label: "Show on Reviews Page", name: "reviews_page", widget: "boolean", default: true }
+
+  - name: "pricing"
+    label: "Pricing"
+    files:
+
+      - name: "media_day_pricing"
+        label: "Media Day Pricing"
+        file: "data/pricing-mediaday.json"
+        format: json
+        fields:
+          - label: "Pricing Tiers"
+            name: "tiers"
+            widget: "list"
+            label_singular: "Tier"
+            fields:
+              - { label: "Roster Size", name: "range", widget: "string" }
+              - { label: "Price Per Athlete", name: "price", widget: "string" }
+              - { label: "Notes", name: "notes", widget: "string", required: false }
+
+      - name: "banner_pricing"
+        label: "Pro Banner Pricing"
+        file: "data/pricing-banners.json"
+        format: json
+        fields:
+          - label: "Banner Sizes & Prices"
+            name: "bulk"
+            widget: "list"
+            label_singular: "Size"
+            fields:
+              - { label: "Banner Size", name: "size", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Notes", name: "notes", widget: "string", required: false }
+          - { label: "Non-Bulk Upcharge", name: "nonbulk_upcharge", widget: "string" }
+          - { label: "Turnaround Time", name: "turnaround", widget: "string" }
+          - { label: "Shipping Note", name: "shipping", widget: "string" }
+
+      - name: "team_media_pricing"
+        label: "Team Media Image Pricing"
+        file: "data/pricing-teammedia.json"
+        format: json
+        fields:
+          - label: "Per-Image Tiers"
+            name: "tiers"
+            widget: "list"
+            label_singular: "Tier"
+            fields:
+              - { label: "Quantity Range", name: "range", widget: "string" }
+              - { label: "Price Per Image", name: "price", widget: "string" }
+          - label: "Add-Ons"
+            name: "addons"
+            widget: "list"
+            label_singular: "Add-On"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Description", name: "desc", widget: "string" }
+
+  - name: "contact"
+    label: "Contact Info"
+    files:
+      - name: "contact"
+        label: "Contact Details"
+        file: "data/contact.json"
+        format: json
+        fields:
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Phone (Display Format)", name: "phone_display", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram Handle", name: "instagram", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string" }
+          - { label: "City & State", name: "location", widget: "string" }
