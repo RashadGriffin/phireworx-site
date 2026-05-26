@@ -1,0 +1,82 @@
+{
+  "headline": "Frequently Asked Questions",
+  "sub": "Answers to the questions we hear most from coaches, ADs, and families.",
+  "categories": [
+    {
+      "category": "Photo Day \u2014 General",
+      "questions": [
+        {
+          "q": "How much does Photo Day cost our organization?",
+          "a": "Nothing. Photo Day is completely free to your organization. Families pay for the packages and products they want. You provide the athletes and the space \u2014 we handle everything else."
+        },
+        {
+          "q": "How long does Photo Day take?",
+          "a": "It depends on your roster size, but we typically photograph 20-25 athletes per hour. A team of 50 athletes usually takes 2-3 hours including setup and breakdown."
+        },
+        {
+          "q": "What do athletes need to bring?",
+          "a": "Their uniform and any props they want (ball, helmet, etc.). We handle all the lighting, backdrops, and direction."
+        },
+        {
+          "q": "Can we do both individual and team photos?",
+          "a": "Yes. Our standard Photo Day includes individual portraits and a team group shot. Additional poses and styles can be arranged in advance."
+        }
+      ]
+    },
+    {
+      "category": "Ordering & Delivery",
+      "questions": [
+        {
+          "q": "How do families order photos?",
+          "a": "After the shoot, every family receives a secure link to their private online gallery. They can browse, select, and purchase directly from their phone or computer \u2014 no paper forms."
+        },
+        {
+          "q": "How long until galleries are ready?",
+          "a": "Galleries are typically live within 1-2 weeks of your Photo Day. We'll notify you and families as soon as they're ready."
+        },
+        {
+          "q": "What formats are available?",
+          "a": "Digital downloads, prints in various sizes, and custom packages. Families can mix and match based on what they need."
+        },
+        {
+          "q": "What if a family has an issue with their order?",
+          "a": "Contact us directly at service@phireworxphoto.com and we'll make it right. We stand behind every order."
+        }
+      ]
+    },
+    {
+      "category": "Media Day Experience",
+      "questions": [
+        {
+          "q": "What's the difference between Photo Day and Media Day?",
+          "a": "Photo Day is a high-volume individual portrait session \u2014 great for every athlete on the roster. Media Day is a full creative production with advanced lighting, smoke effects, and dramatic setups. It's prepaid by the program and every image is delivered digitally."
+        },
+        {
+          "q": "How is Media Day priced?",
+          "a": "Media Day is priced per athlete based on roster size. The program pays one flat rate upfront \u2014 no packages for families to navigate, no per-image fees."
+        },
+        {
+          "q": "Can we do both Photo Day and Media Day?",
+          "a": "Yes. Many programs book a standard Photo Day for their full roster and add a Media Day shoot for their varsity or featured athletes."
+        }
+      ]
+    },
+    {
+      "category": "Banners",
+      "questions": [
+        {
+          "q": "What sizes do banners come in?",
+          "a": "We offer banners ranging from 2x3 ft. to 4x6 ft. for individuals, and larger formats for team banners. Custom sizes available \u2014 contact us to discuss."
+        },
+        {
+          "q": "How long does banner production take?",
+          "a": "3-7 business days after your order is confirmed and payment received."
+        },
+        {
+          "q": "Do I need to provide photos for a banner?",
+          "a": "Not necessarily. If you've already had a Photo Day or Media Day with us, we can pull from your existing images. If not, we can schedule a quick individual shoot."
+        }
+      ]
+    }
+  ]
+}
