@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phireworx Media Day Experience | Phireworx Photography</title>
+  <meta name="description" content="A prepaid, creative-first team media shoot for Arizona programs that want to elevate their image. Full digitals. Advanced lighting. Your team's visual identity, built right.">
+  <link rel="stylesheet" href="assets/css/styles.css?v=14">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
+  <style>
+
+    /* ── PAGE-SPECIFIC COMPONENTS ── */
+
+    /* SPLIT INTRO BLOCK */
+    .split-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .split-intro-left {
+      background: var(--ash);
+      padding: 56px 52px;
+    }
+    .split-intro-right {
+      background: var(--steel);
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* DIFF TABLE */
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .diff-table thead tr th {
+      padding: 14px 20px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 2px solid var(--slate);
+    }
+    .diff-table thead .th-media { color: var(--ember); border-bottom-color: var(--ember); }
+    .diff-table thead .th-trad  { color: var(--iron); }
+    .diff-table tbody tr {
+      border-bottom: 1px solid var(--slate);
+    }
+    .diff-table tbody tr:last-child { border-bottom: none; }
+    .diff-table tbody td {
+      padding: 16px 20px;
+      font-size: 14px;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+    .diff-table tbody .td-label {
+      color: var(--silver);
+      font-weight: 600;
+      font-family: var(--font-body);
+      width: 22%;
+      white-space: nowrap;
+    }
+    .diff-table tbody .td-media { color: var(--white); width: 39%; }
+    .diff-table tbody .td-trad  { color: var(--iron); width: 39%; }
+    .diff-check { color: var(--ember); font-size: 13px; margin-right: 6px; }
+    .diff-x     { color: var(--iron); font-size: 13px; margin-right: 6px; }
+
+    /* FEATURE TILES */
+    .feature-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .feature-tile {
+      background: var(--ash);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .feature-tile:hover { background: #191919; }
+    .feature-tile-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--ember);
+    }
+    .feature-tile-accent.ember { background: var(--ember); }
+    .feature-tile-num {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--ember);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .feature-tile-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .feature-tile-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    /* PRICING TIERS */
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .pricing-tier {
+      background: var(--ash);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      border-top: 3px solid var(--slate);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pricing-tier:hover {
+      border-top-color: var(--ember);
+      background: #191919;
+    }
+    .pricing-tier.featured {
+      border-top: 3px solid var(--ember);
+      background: var(--steel);
+    }
+    .pricing-tier-badge {
+      position: absolute;
+      top: -1px; right: 20px;
+      background: var(--ember);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    .pricing-tier-range {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--ember);
+      text-transform: uppercase;
+    }
+    .pricing-tier-price {
+      font-family: var(--font-display);
+      font-size: 58px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-tier-price span {
+      font-size: 22px;
+      color: var(--ember);
+      vertical-align: super;
+      font-weight: 600;
+    }
+    .pricing-tier-per {
+      font-size: 12px;
+      color: var(--mist);
+      margin-top: -6px;
+    }
+    .pricing-tier-divider {
+      height: 1px;
+      background: var(--slate);
+    }
+    .pricing-tier-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pricing-tier-item {
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--silver);
+      line-height: 1.4;
+    }
+    .pricing-tier-item::before {
+      content: '✓';
+      color: var(--ember);
+      flex-shrink: 0;
+      font-size: 11px;
+    }
+
+    /* IDEAL USE CARDS */
+    .use-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .use-card {
+      background: var(--steel);
+      padding: 32px 28px;
+      border-bottom: 3px solid var(--slate);
+      transition: border-color 0.2s;
+    }
+    .use-card:hover { border-bottom-color: var(--ember); }
+    .use-card-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .use-card-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .use-card-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.65;
+    }
+
+    /* WHAT YOU GET CHECKLIST */
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .checklist-item {
+      background: var(--ash);
+      padding: 22px 26px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .checklist-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--ember);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #fff;
+      margin-top: 1px;
+    }
+    .checklist-icon.ember { background: var(--ember); }
+    .checklist-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+    .checklist-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+
+    /* PHOTO GALLERY STRIP */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2px;
+      height: 280px;
+    }
+    .photo-strip-cell {
+      background: var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-strip-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover; position: absolute; inset: 0;
+    }
+    .photo-ph {
+      opacity: 0.3;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    .photo-ph-mark {
+      width: 22px; height: 22px;
+      background: var(--ember);
+      clip-path: polygon(50% 0%,62% 32%,98% 22%,78% 50%,90% 85%,50% 68%,10% 85%,22% 50%,2% 22%,38% 32%);
+    }
+    .photo-ph-mark.e { background: var(--ember); }
+    .photo-ph-label {
+      font-family: var(--font-mono);
+      font-size: 8px; letter-spacing: 0.12em;
+      color: var(--iron); text-transform: uppercase;
+    }
+
+    /* FORM */
+    .mf-group { display:flex;flex-direction:column;gap:8px;margin-bottom:20px; }
+    .mf-row { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+    .mf-label { font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--silver); }
+    .mf-label span { color:var(--ember); }
+    .mf-input, .mf-textarea, .mf-select {
+      background:var(--steel);border:1px solid var(--iron);color:var(--white);
+      font-family:var(--font-body);font-size:14px;padding:12px 16px;border-radius:2px;
+      outline:none;transition:border-color 0.2s;width:100%;box-sizing:border-box;
+    }
+    .mf-input:focus,.mf-textarea:focus,.mf-select:focus { border-color:var(--ember); }
+    .mf-textarea { resize:vertical;min-height:110px; }
+    .mf-select option { background:var(--steel); }
+    @media (max-width:600px) { .mf-row { grid-template-columns:1fr; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .split-intro { grid-template-columns: 1fr; }
+      .pricing-tiers { grid-template-columns: 1fr 1fr; }
+      .feature-tiles { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .use-cards { grid-template-columns: 1fr 1fr; }
+      .checklist { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .photo-strip-cell { height: 160px; }
+    }
+    @media (max-width: 600px) {
+      .pricing-tiers { grid-template-columns: 1fr 1fr; }
+      .feature-tiles { grid-template-columns: 1fr; }
+      .use-cards { grid-template-columns: 1fr; }
+      .diff-table tbody .td-trad { display: none; }
+      .diff-table thead .th-trad { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="services.html">All Services Overview</a>
+          </div>
+          <a href="photo-day.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="media-day.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+          <a href="banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#book" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="services.html">All Services</a>
+    <a href="photo-day.html">Team Photo Day</a>
+    <a href="media-day.html">Media Day Experience</a>
+    <a href="banners.html">Pro Banners</a>
+  </div>
+  <a href="testimonials.html">Reviews</a>
+  <a href="support.html">Support</a>
+  <a href="#book" class="nav-mobile-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="padding-bottom:0;">
+  <div class="page-hero-inner" style="padding-bottom:60px;">
+    <p class="page-hero-eyebrow">Premium Service</p>
+    <h1 class="page-hero-title">Phireworx Media Day<br><span>Experience</span></h1>
+    <p class="page-hero-sub" style="max-width:640px;">A prepaid, creative-first media production shoot where the organization—not parents—funds the session. Full digital access. Advanced lighting. A distinct visual identity built for your program.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+      <a href="#pricing" class="btn-primary">See Pricing &rarr;</a>
+      <a href="#gallery" class="btn-ghost">See the Work</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CORE DEFINITION -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <div class="split-intro">
+      <div class="split-intro-left">
+        <p class="section-eyebrow" style="margin-bottom:20px;">What It Is</p>
+        <h2 class="section-title" style="margin-bottom:20px;">Not a Picture Day.<br><span>A Production.</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:20px;">The Phireworx Media Day Experience is a <strong style="color:var(--white);">prepaid, team-funded shoot</strong> where the organization covers the cost upfront — not parents, not individual ordering. No volume sales model. No assembly-line photos. No pay-per-image.</p>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:28px;">Instead, every final image is delivered in full resolution to the team. Your program walks away with a complete library of high-impact visuals ready to use anywhere — social, print, flyers, recruiting, press coverage.</p>
+        <a href="#what-you-get" class="service-link" style="display:inline-flex;align-items:center;gap:6px;">See What You Get &rarr;</a>
+      </div>
+      <div class="split-intro-right">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="14.31" y1="8" x2="20.05" y2="17.94"/><line x1="9.69" y1="8" x2="21.17" y2="8"/><line x1="7.38" y1="12" x2="13.12" y2="2.06"/><line x1="9.69" y1="16" x2="3.95" y2="6.06"/><line x1="14.31" y1="16" x2="2.83" y2="16"/><line x1="16.62" y1="12" x2="10.88" y2="21.94"/></svg></svg></div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Creative-First Approach</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Intentional posing, personality-driven shots, and stylized content — not standardized league documentation.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></svg></div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Advanced Production</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Smoke machines, colored gels, dramatic lighting setups — effects not feasible in high-volume picture day workflows.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></svg></div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Full Digital Ownership</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Every edited image from the shoot is delivered to you. Complete usage rights. Use them however, whenever, for anything.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></svg></div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Flexible Locations</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Gyms, fields, custom setups, or off-site environments. We build the look around your team's environment and identity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA DAY GALLERY -->
+<div class="divider"></div>
+<section class="section" id="gallery">
+  <div class="section-inner">
+    <p class="section-eyebrow">The Work</p>
+    <h2 class="section-title">Media Day <span>Gallery</span></h2>
+    <p class="section-desc">Every image from a Phireworx Media Day is intentional — lit, directed, and built to make your program look elite.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-basketball-chavez-dunk.jpg" alt="Cesar Chavez basketball team dunk — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-track-javelin.jpg" alt="Track athlete with javelin — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-saguaro-locker.jpg" alt="Saguaro player holding jersey in locker room — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item wide">
+        <img data-lightbox src="assets/images/mediaday-basketball-basha-team.jpg" alt="Basha basketball team group — Media Day Experience" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-saguaro-throne.jpg" alt="Saguaro football player on throne — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player dribbling — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-lightbox src="assets/images/mediaday-volleyball-red-smoke.jpg" alt="Volleyball player with red smoke — Media Day" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div id="pricing" class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Transparent Pricing</p>
+    <h2 class="section-title">Per-Athlete <span>Rates</span></h2>
+    <p class="section-desc" style="margin-bottom:40px;">Pricing scales with roster size — the larger the team, the lower the per-athlete rate. All tiers include every digital from the shoot, full editing, and complete usage rights.</p>
+
+    <div class="pricing-tiers">
+      <!-- LARGEST -->
+      <div class="pricing-tier featured">
+        <div class="pricing-tier-badge">Best Value</div>
+        <div class="pricing-tier-range">25+ Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>45</div>
+        <div class="pricing-tier-per">per athlete</div>
+        <div class="pricing-tier-divider"></div>
+        <div class="pricing-tier-includes">
+          <div class="pricing-tier-item">Every edited digital included</div>
+          <div class="pricing-tier-item">Individual portrait per athlete</div>
+          <div class="pricing-tier-item">Team & group shots</div>
+          <div class="pricing-tier-item">Full commercial usage rights</div>
+          <div class="pricing-tier-item">Private gallery delivery</div>
+        </div>
+        <a href="#book" class="btn-primary" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
+      </div>
+
+      <!-- MID-HIGH -->
+      <div class="pricing-tier">
+        <div class="pricing-tier-range">16–24 Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>55</div>
+        <div class="pricing-tier-per">per athlete</div>
+        <div class="pricing-tier-divider"></div>
+        <div class="pricing-tier-includes">
+          <div class="pricing-tier-item">Every edited digital included</div>
+          <div class="pricing-tier-item">Individual portrait per athlete</div>
+          <div class="pricing-tier-item">Team & group shots</div>
+          <div class="pricing-tier-item">Full commercial usage rights</div>
+          <div class="pricing-tier-item">Private gallery delivery</div>
+        </div>
+        <a href="#book" class="btn-ghost" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
+      </div>
+
+      <!-- MID -->
+      <div class="pricing-tier">
+        <div class="pricing-tier-range">11–15 Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>70</div>
+        <div class="pricing-tier-per">per athlete</div>
+        <div class="pricing-tier-divider"></div>
+        <div class="pricing-tier-includes">
+          <div class="pricing-tier-item">Every edited digital included</div>
+          <div class="pricing-tier-item">Individual portrait per athlete</div>
+          <div class="pricing-tier-item">Team & group shots</div>
+          <div class="pricing-tier-item">Full commercial usage rights</div>
+          <div class="pricing-tier-item">Private gallery delivery</div>
+        </div>
+        <a href="#book" class="btn-ghost" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
+      </div>
+
+      <!-- SMALL -->
+      <div class="pricing-tier">
+        <div class="pricing-tier-range">5–10 Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>85</div>
+        <div class="pricing-tier-per">per athlete</div>
+        <div class="pricing-tier-divider"></div>
+        <div class="pricing-tier-includes">
+          <div class="pricing-tier-item">Every edited digital included</div>
+          <div class="pricing-tier-item">Individual portrait per athlete</div>
+          <div class="pricing-tier-item">Team & group shots</div>
+          <div class="pricing-tier-item">Full commercial usage rights</div>
+          <div class="pricing-tier-item">Private gallery delivery</div>
+        </div>
+        <a href="#book" class="btn-ghost" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
+      </div>
+    </div>
+
+    <!-- PRICING FOOTNOTE -->
+    <div style="margin-top:24px;padding:20px 28px;background:var(--ash);border-left:4px solid var(--ember);max-width:780px;">
+      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">How pricing works:</strong> Multiply the per-athlete rate by your roster size to get your total. Payment is collected upfront before the shoot date. The rate is locked at booking — no surprise fees, no per-image charges, no upsells. <strong style="color:var(--white);">Need fewer than 5 athletes or more than 50?</strong> <a href="mailto:service@phireworxphoto.com" style="color:var(--ember);">Contact us</a> for a custom quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<div id="what-you-get" class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Every Shoot Includes</p>
+    <h2 class="section-title">What You <span>Walk Away With</span></h2>
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checklist-icon">✓</div>
+        <div>
+          <div class="checklist-title">Individual Portraits</div>
+          <p class="checklist-desc">One polished individual portrait of every athlete — lit and edited for maximum visual impact. Ready for rosters, press, and program flyers.</p>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-icon ember">✓</div>
+        <div>
+          <div class="checklist-title">Team Group Shots</div>
+          <p class="checklist-desc">Full team compositions — formal and creative setups both available. Your roster captured as a unified force.</p>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-icon ember">✓</div>
+        <div>
+          <div class="checklist-title">Action & Lifestyle Content</div>
+          <p class="checklist-desc">Dynamic, in-sport images built for social performance. The kind of content that gets shared, saved, and re-posted.</p>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-icon">✓</div>
+        <div>
+          <div class="checklist-title">Full Resolution Downloads</div>
+          <p class="checklist-desc">All images delivered at full 4K resolution via a private gallery. Print-ready, web-ready, flyer-ready — no compression, no limits.</p>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-icon">✓</div>
+        <div>
+          <div class="checklist-title">Professional Editing</div>
+          <p class="checklist-desc">Every image is color-corrected and professionally edited before delivery. Consistent, clean, and polished across the entire set.</p>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-icon ember">✓</div>
+        <div>
+          <div class="checklist-title">Full Commercial Usage Rights</div>
+          <p class="checklist-desc">Use your photos on social media, press releases, booster materials, program flyers, recruiting profiles, news coverage — anywhere, anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAL PROGRAMS -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Who It's For</p>
+    <h2 class="section-title">Ideal <span>Programs</span></h2>
+    <p class="section-desc" style="margin-bottom:36px;">The Media Day Experience is built for programs that take their visual identity as seriously as their game.</p>
+    <div class="ideal-programs-grid">
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">01</div>
+        <div class="ideal-program-title">High School Varsity Programs</div>
+        <p class="ideal-program-desc">Give your varsity program the professional visual identity to match their level of competition. Ideal for football, basketball, volleyball, baseball, and soccer programs.</p>
+      </div>
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">02</div>
+        <div class="ideal-program-title">Club &amp; Travel Teams</div>
+        <p class="ideal-program-desc">Stand out in recruiting, attract sponsors, and give your club team the professional look that elite organizations deserve — all in one shoot.</p>
+      </div>
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">03</div>
+        <div class="ideal-program-title">Athletic Departments</div>
+        <p class="ideal-program-desc">Cover multiple programs in a single day. Athletic directors use media shoots to refresh their entire department's visual assets for the season.</p>
+      </div>
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">04</div>
+        <div class="ideal-program-title">Booster &amp; Spirit Groups</div>
+        <p class="ideal-program-desc">Build booster materials, game programs, and spirit merch with professionally licensed photography your whole community will be proud of.</p>
+      </div>
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">05</div>
+        <div class="ideal-program-title">College Recruiting Prep</div>
+        <p class="ideal-program-desc">Athletes with professional-quality photos stand out in recruiting profiles. Give your players the edge with imagery that matches their ambition.</p>
+      </div>
+      <div class="ideal-program-card">
+        <div class="ideal-program-num">06</div>
+        <div class="ideal-program-title">Youth Elite Programs</div>
+        <p class="ideal-program-desc">Top-tier youth programs deserve top-tier photos. Media shoots work for any roster size — we work fast and make every athlete feel like a pro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">The Process</p>
+    <h2 class="section-title">How It <span>Works</span></h2>
+    <div class="how-it-works-list">
+      <div class="how-step">
+        <div class="how-step-num" style="color:var(--ember);">01</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Book &amp; Pay Upfront</div>
+          <p class="how-step-desc">Submit a booking request below. We'll confirm availability, review your program's needs, and invoice you. The shoot is paid upfront — one flat rate, no surprises.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num" style="color:var(--ember);">02</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Pre-Shoot Planning</div>
+          <p class="how-step-desc">We'll connect with you before the shoot to plan setup, location, roster size, and any custom looks or themes. We arrive prepared so your time is used efficiently.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num" style="color:var(--ember);">03</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Media Day</div>
+          <p class="how-step-desc">We handle everything on-site. Professional lighting, equipment, and direction. Athletes move through quickly — we run an efficient, energetic shoot your team will actually enjoy.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num" style="color:var(--ember);">04</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Editing &amp; Delivery</div>
+          <p class="how-step-desc">All images are professionally edited and delivered to your private download gallery within 7–10 business days. Every photo from the shoot. Yours to use however you want.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<div id="book" class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Let's Build Something</p>
+    <h2 class="section-title">Book Your <span>Media Day</span></h2>
+    <p class="section-desc" style="margin-bottom:36px;">Fill out the form below. We'll confirm availability, discuss your vision, and get a date locked in.</p>
+
+    <form style="max-width:700px;" name="media-day-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="media-day-booking">
+      <p style="display:none;"><input name="bot-field"></p>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-name">Your Name <span>*</span></label>
+          <input type="text" id="md-name" name="name" class="mf-input" placeholder="First and last name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-email">Email <span>*</span></label>
+          <input type="email" id="md-email" name="email" class="mf-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-phone">Phone</label>
+          <input type="tel" id="md-phone" name="phone" class="mf-input" placeholder="(480) 000-0000">
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-role">Your Role</label>
+          <select id="md-role" name="role" class="mf-select">
+            <option value="" disabled selected>Select your role</option>
+            <option>Head Coach</option>
+            <option>Athletic Director</option>
+            <option>Club / Travel Team Director</option>
+            <option>Assistant Coach</option>
+            <option>Parent / Booster</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-school">School or Organization <span>*</span></label>
+          <input type="text" id="md-school" name="school" class="mf-input" placeholder="School or team name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-sport">Sport / Program <span>*</span></label>
+          <input type="text" id="md-sport" name="sport" class="mf-input" placeholder="e.g. Varsity Football" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-athletes">Number of Athletes <span>*</span></label>
+          <select id="md-athletes" name="athlete_count" class="mf-select" required>
+            <option value="" disabled selected>Select roster size</option>
+            <option value="5-10">5–10 athletes ($85/athlete)</option>
+            <option value="11-15">11–15 athletes ($70/athlete)</option>
+            <option value="16-24">16–24 athletes ($55/athlete)</option>
+            <option value="25+">25+ athletes ($45/athlete)</option>
+            <option value="custom">Other / Need custom quote</option>
+          </select>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-timing">When Are You Looking? <span>*</span></label>
+          <select id="md-timing" name="timing" class="mf-select" required>
+            <option value="" disabled selected>Select timing</option>
+            <option>ASAP / this month</option>
+            <option>Next 1–2 months</option>
+            <option>Pre-season (fall)</option>
+            <option>Pre-season (winter)</option>
+            <option>Pre-season (spring)</option>
+            <option>Flexible / planning ahead</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mf-group">
+        <label class="mf-label" for="md-vision">Tell Us Your Vision</label>
+        <textarea id="md-vision" name="vision" class="mf-textarea" placeholder="Location ideas, lighting style, theme or vibe, special effects you want, any specific shots needed... the more detail the better."></textarea>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <button type="submit" class="btn-primary">Submit Booking Request &rarr;</button>
+        <span style="font-size:12px;color:var(--iron);">We'll follow up within 1 business day</span>
+      </div>
+    </form>
+
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--steel);max-width:700px;">
+      <p style="font-size:13px;color:var(--mist);margin-bottom:14px;">Prefer to reach us directly?</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="tel:4807099969" class="btn-ghost">(480) 709-9969</a>
+        <a href="mailto:service@phireworxphoto.com" class="btn-ghost">service@phireworxphoto.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="divider"></div>
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2 class="cta-title">Ready to Elevate<br><span>Your Program?</span></h2>
+    <p class="cta-desc">Stop documenting your team. Start building their visual identity. Book a Media Day and walk away with content your program will use all season.</p>
+    <div class="cta-btns">
+      <a href="#book" class="btn-primary">Book Your Media Day &rarr;</a>
+      <a href="tel:4807099969" class="btn-ghost">(480) 709-9969</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="photo-day.html">Team Photo Day</a></li>
+          <li><a href="media-day.html">Media Day Experience</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+      <p class="footer-areas">Serving: Phoenix &middot; Scottsdale &middot; Chandler &middot; Mesa &middot; Gilbert &middot; Peoria &middot; Goodyear &middot; Avondale &middot; Surprise &middot; Buckeye &middot; Litchfield Park &middot; Tolleson &middot; Laveen &middot; Ahwatukee &middot; Fountain Hills &middot; Paradise Valley &middot; El Mirage &middot; Waddell &middot; Maricopa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navMobile.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    navMobile.setAttribute('aria-hidden', !isOpen);
+  });
+
+  // Mobile services accordion
+  const mobTrigger = document.getElementById('mob-svc-trigger');
+  const mobSub = document.getElementById('mob-svc-sub');
+  if (mobTrigger) {
+    mobTrigger.addEventListener('click', () => {
+      mobTrigger.classList.toggle('open');
+      mobSub.classList.toggle('open');
+    });
+  }
+
+  // Desktop dropdown with JS timeout so mouse can cross the gap
+  const ddLi = document.querySelector('.nav-dropdown');
+  const ddMenu = document.querySelector('.nav-dropdown-menu');
+  let ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', () => { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
+    ddMenu.addEventListener('mouseenter', () => clearTimeout(ddTimer));
+    ddMenu.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
+  }
+</script>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+</body>
+</html>
