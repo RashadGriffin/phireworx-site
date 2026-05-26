@@ -1,0 +1,47 @@
+# ── CLEAN URL REDIRECTS ──
+[[redirects]]
+  from = "/mediaday"
+  to = "/media-day.html"
+  status = 200
+
+[[redirects]]
+  from = "/photoday"
+  to = "/photo-day.html"
+  status = 200
+
+[[redirects]]
+  from = "/reviews"
+  to = "/testimonials.html"
+  status = 200
+
+[[redirects]]
+  from = "/book"
+  to = "/booking.html"
+  status = 200
+
+[[redirects]]
+  from = "/teammedia"
+  to = "/teammedia.html"
+  status = 200
+
+[[redirects]]
+  from = "/media"
+  to = "/media.html"
+  status = 200
+
+# ── 404 CATCH-ALL ──
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ── CACHE HEADERS ──
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
