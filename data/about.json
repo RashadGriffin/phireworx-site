@@ -1,0 +1,19 @@
+{
+  "headline": "About Phireworx",
+  "sub": "Phoenix-based sports photography team serving high school programs and youth leagues since 2012.",
+  "story": "Phireworx Photography was founded in 2012 by Rashad Griffin with a simple mission: give every athlete a photo that makes them feel like a pro. What started as a one-person operation has grown into a full team serving hundreds of programs across the Phoenix metro area.",
+  "team": [
+    {
+      "name": "Rashad Griffin",
+      "role": "Owner & Lead Photographer",
+      "bio": "Rashad founded Phireworx in 2012 and has photographed over 50,000 athletes across the Phoenix metro area.",
+      "photo": ""
+    },
+    {
+      "name": "Crystal Griffin",
+      "role": "Operations & Client Relations",
+      "bio": "Crystal manages client relationships, scheduling, and day-of operations to make sure every Photo Day runs smoothly.",
+      "photo": ""
+    }
+  ]
+}
