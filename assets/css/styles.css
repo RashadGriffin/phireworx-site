@@ -6,9 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  --flame:    #FF5A1F;
   --flame-lt: #FF7A45;
-  --flame-dk: #C93D0A;
   --ember-dk: #D4922A;
   --ember:    #FFB347;
   --coal:     #0D0D0D;
