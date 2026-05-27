@@ -3,7 +3,7 @@ backend:
   branch: main
 
 media_folder: "assets/images"
-public_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
 
@@ -16,15 +16,15 @@ collections:
         file: "data/homepage.json"
         format: json
         fields:
-          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string", hint: "Small text above headline" }
-          - { label: "Hero Line 1", name: "hero_line1", widget: "string" }
-          - { label: "Hero Line 2 (amber color)", name: "hero_line2", widget: "string" }
-          - { label: "Hero Line 3", name: "hero_line3", widget: "string" }
+          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero Line 1 (white)", name: "hero_line1", widget: "string" }
+          - { label: "Hero Line 2 (amber)", name: "hero_line2", widget: "string" }
+          - { label: "Hero Line 3 (white)", name: "hero_line3", widget: "string" }
           - { label: "Hero Subheadline", name: "hero_sub", widget: "text" }
           - { label: "Primary Button Text", name: "hero_btn1", widget: "string" }
           - { label: "Secondary Button Text", name: "hero_btn2", widget: "string" }
           - { label: "Stat 1 — Number", name: "stat1_num", widget: "string" }
-          - { label: "Stat 1 — Suffix", name: "stat1_suffix", widget: "string", hint: "e.g. + or K+" }
+          - { label: "Stat 1 — Suffix", name: "stat1_suffix", widget: "string" }
           - { label: "Stat 1 — Label", name: "stat1_label", widget: "string" }
           - { label: "Stat 2 — Number", name: "stat2_num", widget: "string" }
           - { label: "Stat 2 — Suffix", name: "stat2_suffix", widget: "string" }
@@ -35,6 +35,13 @@ collections:
           - { label: "Stat 4 — Number", name: "stat4_num", widget: "string" }
           - { label: "Stat 4 — Suffix", name: "stat4_suffix", widget: "string" }
           - { label: "Stat 4 — Label", name: "stat4_label", widget: "string" }
+          - label: "How It Works Steps"
+            name: "process_steps"
+            widget: "list"
+            label_singular: "Step"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
 
   # ── REVIEWS ──
   - name: "reviews"
@@ -47,13 +54,13 @@ collections:
     summary: "{{name}} — {{role}}"
     fields:
       - { label: "Reviewer Name", name: "name", widget: "string" }
-      - { label: "Role / Organization", name: "role", widget: "string", hint: "e.g. Head Coach · Verrado High School" }
+      - { label: "Role / Organization", name: "role", widget: "string" }
       - { label: "Review Text", name: "quote", widget: "text", hint: "Do not include quotation marks" }
       - { label: "Star Rating", name: "stars", widget: "number", default: 5, value_type: "int", min: 1, max: 5 }
-      - { label: "Show on Homepage", name: "homepage", widget: "boolean", default: false, hint: "Max 3 on homepage" }
+      - { label: "Show on Homepage", name: "homepage", widget: "boolean", default: false }
       - { label: "Show on Reviews Page", name: "reviews_page", widget: "boolean", default: true }
 
-  # ── PHOTO DAY PAGE ──
+  # ── PHOTO DAY ──
   - name: "photo_day"
     label: "📸 Photo Day Page"
     files:
@@ -77,8 +84,8 @@ collections:
             widget: "list"
             label_singular: "Feature"
             fields:
-              - { label: "Feature Title", name: "title", widget: "string" }
-              - { label: "Feature Description", name: "desc", widget: "text" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
           - label: "Shoot Style Cards"
             name: "styles"
             widget: "list"
@@ -87,7 +94,7 @@ collections:
               - { label: "Style Name", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
 
-  # ── MEDIA DAY PAGE ──
+  # ── MEDIA DAY ──
   - name: "media_day"
     label: "🎬 Media Day Page"
     files:
@@ -99,8 +106,17 @@ collections:
           - { label: "Hero Eyebrow", name: "eyebrow", widget: "string" }
           - { label: "Hero Headline", name: "headline", widget: "string" }
           - { label: "Hero Subheadline", name: "sub", widget: "text" }
-          - { label: "Core Definition Heading", name: "core_heading", widget: "string" }
-          - { label: "Core Definition Body", name: "core_body", widget: "text" }
+          - { label: "Core Section Heading", name: "core_heading", widget: "string" }
+          - { label: "Core Section Body", name: "core_body", widget: "text" }
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            label_singular: "Image"
+            hint: "Add, remove, or reorder gallery photos. Recommended: 7 images."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string", hint: "Describe the photo for accessibility" }
+              - { label: "Wide (spans 2 columns)", name: "wide", widget: "boolean", default: false }
           - label: "What You Get Items"
             name: "what_you_get"
             widget: "list"
@@ -123,7 +139,7 @@ collections:
               - { label: "Step Title", name: "title", widget: "string" }
               - { label: "Step Description", name: "desc", widget: "text" }
 
-  # ── BANNERS PAGE ──
+  # ── BANNERS ──
   - name: "banners"
     label: "🖼️ Banners Page"
     files:
@@ -142,9 +158,9 @@ collections:
             fields:
               - { label: "Type Name", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Starting Price", name: "price", widget: "string", hint: "e.g. From $50" }
+              - { label: "Starting Price", name: "price", widget: "string" }
 
-  # ── BOOKING PAGE ──
+  # ── BOOKING ──
   - name: "booking"
     label: "📅 Booking Page"
     files:
@@ -155,14 +171,48 @@ collections:
         fields:
           - { label: "Page Headline", name: "headline", widget: "string" }
           - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "High School Card — Eyebrow", name: "hs_eyebrow", widget: "string", hint: "Small label above title" }
-          - { label: "High School Card — Title", name: "hs_title", widget: "string" }
-          - { label: "High School Card — Description", name: "hs_desc", widget: "text" }
-          - { label: "Youth & Club Card — Eyebrow", name: "youth_eyebrow", widget: "string" }
-          - { label: "Youth & Club Card — Title", name: "youth_title", widget: "string" }
-          - { label: "Youth & Club Card — Description", name: "youth_desc", widget: "text" }
+          - { label: "HS Card Eyebrow", name: "hs_eyebrow", widget: "string" }
+          - { label: "HS Card Title", name: "hs_title", widget: "string" }
+          - { label: "HS Card Description", name: "hs_desc", widget: "text" }
+          - { label: "Youth Card Eyebrow", name: "youth_eyebrow", widget: "string" }
+          - { label: "Youth Card Title", name: "youth_title", widget: "string" }
+          - { label: "Youth Card Description", name: "youth_desc", widget: "text" }
+          - label: "What Happens Next Steps"
+            name: "next_steps"
+            widget: "list"
+            label_singular: "Step"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
 
-  # ── FAQ PAGE ──
+  # ── SERVICES ──
+  - name: "services"
+    label: "📋 Services Page"
+    files:
+      - name: "services"
+        label: "Services Content"
+        file: "data/services.json"
+        format: json
+        fields:
+          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Page Headline", name: "headline", widget: "string" }
+          - { label: "Page Subheadline", name: "sub", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            label_singular: "Service"
+            fields:
+              - { label: "Number", name: "number", widget: "string", hint: "e.g. 01" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Sub-heading", name: "sub", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Feature Bullets"
+                name: "features"
+                widget: "list"
+                label_singular: "Feature"
+                field: { label: "Feature", name: "item", widget: "string" }
+
+  # ── FAQ ──
   - name: "faq"
     label: "❓ FAQ Page"
     files:
@@ -178,7 +228,7 @@ collections:
             widget: "list"
             label_singular: "Category"
             fields:
-              - { label: "Category Name", name: "category", widget: "string", hint: "e.g. Photo Day, Pricing, Delivery" }
+              - { label: "Category Name", name: "category", widget: "string" }
               - label: "Questions"
                 name: "questions"
                 widget: "list"
@@ -187,7 +237,7 @@ collections:
                   - { label: "Question", name: "q", widget: "string" }
                   - { label: "Answer", name: "a", widget: "text" }
 
-  # ── ABOUT PAGE ──
+  # ── ABOUT ──
   - name: "about"
     label: "👥 About Page"
     files:
@@ -209,25 +259,24 @@ collections:
               - { label: "Bio", name: "bio", widget: "text" }
               - { label: "Photo", name: "photo", widget: "image", required: false }
 
-
   # ── HS BOOKING FORM PAGE ──
   - name: "book_hs"
-    label: "📋 HS Picture Day Form Page"
+    label: "📋 HS Booking Form Page"
     files:
       - name: "book_hs"
         label: "High School Booking Page"
         file: "data/book-hs.json"
         format: json
         fields:
-          - { label: "Page Eyebrow", name: "eyebrow", widget: "string", hint: "Small text above headline" }
+          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
           - { label: "Page Headline", name: "headline", widget: "string" }
           - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "Notice Label", name: "notice_label", widget: "string", hint: "e.g. Important Note — Effective 2025–2026 School Year" }
-          - { label: "Notice Title", name: "notice_title", widget: "string", hint: "e.g. Minimum Athlete Requirement" }
-          - { label: "Notice Line 1", name: "notice_line1", widget: "text", hint: "First paragraph of the notice" }
-          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false, hint: "Second paragraph (optional)" }
-          - { label: "Notice Line 3", name: "notice_line3", widget: "text", hint: "e.g. Thank you for your understanding..." }
-          - { label: "Form Label", name: "form_label", widget: "string", hint: "Text above the form" }
+          - { label: "Notice Label", name: "notice_label", widget: "string" }
+          - { label: "Notice Title", name: "notice_title", widget: "string" }
+          - { label: "Notice Line 1", name: "notice_line1", widget: "text" }
+          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false }
+          - { label: "Notice Line 3", name: "notice_line3", widget: "text" }
+          - { label: "Form Label", name: "form_label", widget: "string" }
 
   # ── YOUTH BOOKING FORM PAGE ──
   - name: "book_youth"
@@ -252,7 +301,6 @@ collections:
   - name: "pricing"
     label: "💰 Pricing"
     files:
-
       - name: "media_day_pricing"
         label: "Media Day Pricing"
         file: "data/pricing-mediaday.json"
@@ -263,10 +311,9 @@ collections:
             widget: "list"
             label_singular: "Tier"
             fields:
-              - { label: "Roster Size", name: "range", widget: "string", hint: "e.g. 25+ Athletes" }
-              - { label: "Price Per Athlete", name: "price", widget: "string", hint: "e.g. $45" }
+              - { label: "Roster Size", name: "range", widget: "string" }
+              - { label: "Price Per Athlete", name: "price", widget: "string" }
               - { label: "Notes", name: "notes", widget: "string", required: false }
-
       - name: "banner_pricing"
         label: "Pro Banner Pricing"
         file: "data/pricing-banners.json"
@@ -283,7 +330,6 @@ collections:
           - { label: "Non-Bulk Upcharge", name: "nonbulk_upcharge", widget: "string" }
           - { label: "Turnaround Time", name: "turnaround", widget: "string" }
           - { label: "Shipping Note", name: "shipping", widget: "string" }
-
       - name: "team_media_pricing"
         label: "Team Media Image Pricing"
         file: "data/pricing-teammedia.json"
@@ -314,8 +360,8 @@ collections:
         file: "data/contact.json"
         format: json
         fields:
-          - { label: "Phone Number", name: "phone", widget: "string", hint: "e.g. 480-709-9969" }
-          - { label: "Phone Display Format", name: "phone_display", widget: "string", hint: "e.g. (480) 709-9969" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Phone Display Format", name: "phone_display", widget: "string" }
           - { label: "Email Address", name: "email", widget: "string" }
           - { label: "Instagram Handle", name: "instagram", widget: "string" }
           - { label: "Facebook URL", name: "facebook", widget: "string" }
