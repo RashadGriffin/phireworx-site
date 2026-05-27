@@ -61,6 +61,7 @@ ul { list-style: none; }
 }
 .section {
   padding: var(--section-pad) var(--gutter);
+  isolation: auto;
 }
 .section-inner { max-width: var(--content-max); margin: 0 auto; }
 .divider { height: 1px; background: var(--steel); }
@@ -148,7 +149,7 @@ ul { list-style: none; }
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background: rgba(13,13,13,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -346,6 +347,10 @@ ul { list-style: none; }
 }
 .nav-cta:hover { background: var(--ember-dk); color: #fff; }
 .nav-hamburger {
+  position: relative;
+  z-index: 1002;
+  cursor: pointer;
+  touch-action: manipulation;
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -363,6 +368,8 @@ ul { list-style: none; }
   border-radius: 1px;
 }
 .nav-mobile {
+  position: relative;
+  z-index: 1001;
   display: none;
   flex-direction: column;
   background: var(--ash);
@@ -1972,7 +1979,11 @@ img, video, iframe {
   /* NAV */
   .nav-inner { padding: 0 16px; }
   .nav-links, .nav-cta { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger {
+  position: relative;
+  z-index: 1002;
+  cursor: pointer;
+  touch-action: manipulation; display: flex; }
 
   /* HERO */
   .hero { padding: 72px 16px 48px; }
