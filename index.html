@@ -299,29 +299,62 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
-
-
-
 <script>
-  // ── MOBILE NAV ──
   (function() {
     var hamburger = document.getElementById('hamburger');
     var navMobile = document.getElementById('nav-mobile');
+
+    // Create backdrop dynamically
+    var backdrop = document.createElement('div');
+    backdrop.className = 'nav-mobile-backdrop';
+    backdrop.id = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openMenu() {
+      navMobile.classList.add('open');
+      backdrop.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // prevent page scroll when menu open
+    }
+    function closeMenu() {
+      navMobile.classList.remove('open');
+      backdrop.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     if (hamburger && navMobile) {
-      hamburger.addEventListener('click', function() {
-        var isOpen = navMobile.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', String(isOpen));
-        navMobile.setAttribute('aria-hidden', String(!isOpen));
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (navMobile.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
       });
     }
+
+    // Close when tapping backdrop
+    backdrop.addEventListener('click', closeMenu);
+
+    // Close when a nav link is tapped
+    if (navMobile) {
+      navMobile.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+
+    // Mobile services accordion
     var mobTrigger = document.getElementById('mob-svc-trigger');
     var mobSub = document.getElementById('mob-svc-sub');
     if (mobTrigger && mobSub) {
-      mobTrigger.addEventListener('click', function() {
+      mobTrigger.addEventListener('click', function(e) {
+        e.stopPropagation();
         mobTrigger.classList.toggle('open');
         mobSub.classList.toggle('open');
       });
     }
+
     // Desktop dropdown
     var ddLi = document.querySelector('.nav-dropdown');
     var ddMenu = document.querySelector('.nav-dropdown-menu');
