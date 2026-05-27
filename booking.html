@@ -89,13 +89,13 @@
       <a href="https://phireworx.17hats.com/p#/lcf/rbbxkfpctnznnhtdrcpchtptknhxkffp" target="_blank" rel="noopener" class="booking-card">
         <div class="booking-card-tag">For Boosters, Coaches &amp; ADs</div>
         <h3 class="booking-card-title">High School<br>Picture Day</h3>
-        <p class="booking-card-desc">For high school varsity, JV, and freshman programs. Includes team and individual shoots, natural and composite options. Online gallery and ordering included.</p>
+        <p class="booking-card-desc" id="cms-card-desc-1">For high school varsity, JV, and freshman programs. Includes team and individual shoots, natural and composite options. Online gallery and ordering included.</p>
         <div class="booking-card-action">Open Booking Form &rarr;</div>
       </a>
       <a href="https://phireworx.17hats.com/p#/lcf/khgfxbdxtvdztdpvnwrffsnncgvbdntv" target="_blank" rel="noopener" class="booking-card">
         <div class="booking-card-tag">For Club &amp; Rec Directors</div>
         <h3 class="booking-card-title">Youth Leagues &amp;<br>Club Teams</h3>
-        <p class="booking-card-desc">For travel teams, club programs, rec leagues, and youth organizations. Same professional process and quality, scaled for younger athletes and families.</p>
+        <p class="booking-card-desc" id="cms-card-desc-2">For travel teams, club programs, rec leagues, and youth organizations. Same professional process and quality, scaled for younger athletes and families.</p>
         <div class="booking-card-action">Open Booking Form &rarr;</div>
       </a>
     </div>
@@ -108,13 +108,13 @@
       <a href="https://phireworx.17hats.com/p#/lcf/frtprznfgdcngpbtkfhfdxrbhxhtzwgr" target="_blank" rel="noopener" class="booking-card">
         <div class="booking-card-tag">4 or More Banners</div>
         <h3 class="booking-card-title">Bulk Banner<br>Request</h3>
-        <p class="booking-card-desc">Best pricing available for orders of 4 or more banners. Ideal for full senior classes or team programs. No session minimum when paired with a photo day booking.</p>
+        <p class="booking-card-desc" id="cms-card-desc-3">Best pricing available for orders of 4 or more banners. Ideal for full senior classes or team programs. No session minimum when paired with a photo day booking.</p>
         <div class="booking-card-action">Open Bulk Request Form &rarr;</div>
       </a>
       <a href="https://phireworx.17hats.com/p#/lcf/gfbckfpncvknwkvbzthcshsgpdkvkxkp" target="_blank" rel="noopener" class="booking-card">
         <div class="booking-card-tag">1 to 3 Banners</div>
         <h3 class="booking-card-title">Small Banner<br>Request</h3>
-        <p class="booking-card-desc">For smaller orders of 1–3 banners. Please note that banner-only sessions without a photo day require a minimum $600 order. You will be invoiced the difference if under minimum.</p>
+        <p class="booking-card-desc" id="cms-card-desc-4">For smaller orders of 1–3 banners. Please note that banner-only sessions without a photo day require a minimum $600 order. You will be invoiced the difference if under minimum.</p>
         <div class="booking-card-action">Open Small Request Form &rarr;</div>
       </a>
     </div>
@@ -131,7 +131,7 @@
       <a href="media-day.html" class="booking-card" style="text-decoration:none;">
         <div class="booking-card-tag">Prepaid &middot; All Digitals Included</div>
         <h3 class="booking-card-title">Phireworx Media Day<br>Experience</h3>
-        <p class="booking-card-desc">A creative-first production shoot for programs that want to elevate their visual identity. Advanced lighting, flexible locations, and every final image delivered to your team. Starting at $45/athlete for rosters of 25+.</p>
+        <p class="booking-card-desc" id="cms-card-desc-5">A creative-first production shoot for programs that want to elevate their visual identity. Advanced lighting, flexible locations, and every final image delivered to your team. Starting at $45/athlete for rosters of 25+.</p>
         <div class="booking-card-action">Learn More &amp; Book &rarr;</div>
       </a>
     </div>
@@ -279,5 +279,19 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/booking.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-booking-headline',d.headline);
+  s('cms-card-eyebrow-1',d.hs_eyebrow);
+  s('cms-card-title-1',d.hs_title);
+  s('cms-card-desc-1',d.hs_desc);
+  s('cms-card-eyebrow-2',d.youth_eyebrow);
+  s('cms-card-title-2',d.youth_title);
+  s('cms-card-desc-2',d.youth_desc);
+}).catch(()=>{});
+</script>
 </body>
 </html>
