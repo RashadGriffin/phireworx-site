@@ -371,14 +371,20 @@ ul { list-style: none; }
   border-radius: 1px;
 }
 .nav-mobile {
-  position: relative;
-  z-index: 1001;
   display: none;
+  position: fixed;
+  top: 65px; /* sits exactly below the nav bar */
+  left: 0;
+  right: 0;
+  z-index: 1001;
   flex-direction: column;
   background: var(--ash);
   border-bottom: 1px solid var(--steel);
   padding: 16px var(--gutter) 20px;
   gap: 2px;
+  overflow-y: auto;
+  max-height: calc(100vh - 65px); /* never taller than the screen */
+  -webkit-overflow-scrolling: touch;
 }
 .nav-mobile.open { display: flex; }
 .nav-mobile a {
