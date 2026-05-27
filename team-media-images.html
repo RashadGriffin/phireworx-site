@@ -401,14 +401,65 @@
 <body style="padding-bottom: 72px;">
 
 <!-- MINIMAL NAV — no links, just logo + CTA -->
-<div class="media-nav">
-  <a href="index.html" aria-label="Phireworx Photography">
-    <img src="assets/images/logo-full.png" alt="Phireworx Photography" style="height:36px;max-height:36px;width:auto;max-width:180px;display:block;mix-blend-mode:screen;">
-  </a>
-  <a href="#book" class="btn-primary" style="font-size:12px;">Book a Media Shoot &rarr;</a>
-</div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="/services.html">All Services Overview</a>
+          </div>
+          <a href="/photoday" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="/media" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+          <a href="/banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="/support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/book" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="/">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="/services.html">All Services</a>
+    <a href="/photoday">Team Photo Day</a>
+    <a href="/media">Media Day Experience</a>
+    <a href="/banners.html">Pro Banners</a>
+  </div>
+  <a href="/reviews">Reviews</a>
+  <a href="/support.html">Support</a>
+  <a href="/book" class="nav-mobile-cta">Book Now</a>
+</nav>
 
-<!-- HERO -->
 <section class="media-hero">
   <div class="media-hero-glow" aria-hidden="true"></div>
   <div class="media-hero-glow2" aria-hidden="true"></div>
@@ -832,7 +883,7 @@
 <!-- FOOTER MINIMAL -->
 <footer style="background:var(--steel);border-top:1px solid var(--slate);">
   <div style="max-width:var(--content-max);margin:0 auto;padding:28px var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-    <img src="assets/images/logo-full.png" alt="Phireworx Photography" style="height:24px;width:auto;mix-blend-mode:screen;opacity:0.35;">
+    <img src="/assets/images/logo-full.png" alt="Phireworx Photography" style="height:24px;width:auto;mix-blend-mode:screen;opacity:0.35;">
     <div style="display:flex;gap:24px;flex-wrap:wrap;">
       <a href="index.html" style="font-size:12px;color:var(--iron);">Home</a>
   <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
