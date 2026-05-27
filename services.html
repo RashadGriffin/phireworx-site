@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Services | Phireworx Photography</title>
   <meta name="description" content="Phireworx Photography offers three core services for Arizona sports programs — Team Photo Day, Media Day Experience, and Pro Banners. See what's right for your program.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=14">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
   <style>
     /* Service feature block */
@@ -304,7 +304,17 @@
   letter-spacing: 0.04em !important;
 }
 #mob-svc-sub a:last-child { border-bottom: none !important; }
-</style>
+
+  @media (max-width: 768px) {
+    .svc-nav { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    .svc-nav-inner { min-width: max-content; }
+    .svc-block { overflow: hidden !important; max-width: 100% !important; }
+    .svc-block-visual { max-width: 100% !important; overflow: hidden !important; }
+    .compare-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    .compare-table { min-width: 480px; }
+    section, .section { max-width: 100vw !important; overflow-x: hidden !important; }
+  }
+  </style>
 </head>
 <body>
 
@@ -452,7 +462,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural Photo Day shoot" loading="lazy">
+        <img data-lightbox src="/assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural Photo Day shoot" loading="lazy">
       </div>
     </div>
 
@@ -513,7 +523,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player — Phireworx Media Day Experience" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player — Phireworx Media Day Experience" loading="lazy">
         <div class="svc-block-visual-ph" style="display:none;">
           <div class="svc-block-visual-mark" style="background:var(--ember);"></div>
           <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Media Day Sample</span>
@@ -572,7 +582,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Pro Banner example" loading="lazy">
+        <img data-lightbox src="/assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Pro Banner example" loading="lazy">
         <div class="svc-block-visual-ph" style="display:none;">
           <div class="svc-block-visual-mark" style="background:var(--silver);"></div>
           <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Banner Sample</span>
