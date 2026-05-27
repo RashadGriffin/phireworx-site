@@ -42,6 +42,16 @@
   to = "/book-hs.html"
   status = 200
 
+[[redirects]]
+  from = "/banners/form"
+  to = "/banners-bulk.html"
+  status = 200
+
+[[redirects]]
+  from = "/banners/smallform"
+  to = "/banners-small.html"
+  status = 200
+
 # ── 404 CATCH-ALL ──
 [[redirects]]
   from = "/*"
