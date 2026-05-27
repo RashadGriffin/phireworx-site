@@ -597,28 +597,8 @@
     <p class="section-eyebrow">The Work</p>
     <h2 class="section-title" id="cms-title-1">Media Day <span>Gallery</span></h2>
     <p class="section-desc" id="cms-desc-1">Every image from a Phireworx Media Day is intentional — lit, directed, and built to make your program look elite.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-basketball-chavez-dunk.jpg" alt="Cesar Chavez basketball team dunk — Media Day" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-track-javelin.jpg" alt="Track athlete with javelin — Media Day" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-saguaro-locker.jpg" alt="Saguaro player holding jersey in locker room — Media Day" loading="lazy">
-      </div>
-      <div class="gallery-item wide">
-        <img data-lightbox src="/assets/images/mediaday-basketball-basha-team.jpg" alt="Basha basketball team group — Media Day Experience" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-saguaro-throne.jpg" alt="Saguaro football player on throne — Media Day" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player dribbling — Media Day" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-lightbox src="/assets/images/mediaday-volleyball-red-smoke.jpg" alt="Volleyball player with red smoke — Media Day" loading="lazy">
-      </div>
+    <div class="gallery-grid" id="cms-gallery-grid">
+      <!-- loaded from CMS -->
     </div>
   </div>
 </section>
@@ -1069,10 +1049,21 @@ fetch('/data/media-day.json').then(r=>r.json()).then(d=>{
   s('cms-eyebrow',d.eyebrow);
   s('cms-headline',d.headline);
   s('cms-sub',d.sub);
-  s('cms-title-1',d.core_heading);
-  if(d.core_body){const e=document.getElementById('cms-desc-1');if(e)e.textContent=d.core_body;}
+
+  // Gallery images
+  const grid=document.getElementById('cms-gallery-grid');
+  if(grid&&d.gallery&&d.gallery.length){
+    grid.innerHTML=d.gallery.map(img=>`
+      <div class="gallery-item${img.wide?' wide':''}">
+        <img data-lightbox src="${img.image}" alt="${img.alt||''}" loading="lazy">
+      </div>`).join('');
+    // Re-init lightbox if available
+    if(window.initLightbox) window.initLightbox();
+  }
+
+  // What you get items
   if(d.what_you_get){
-    const items=document.querySelectorAll('.icon-feature, .what-item, [class*="feature"]');
+    const items=document.querySelectorAll('.icon-feature,[class*="what-item"],[class*="included-item"]');
     d.what_you_get.forEach((item,i)=>{
       if(items[i]){
         const t=items[i].querySelector('h3,[class*="title"]');
@@ -1082,6 +1073,8 @@ fetch('/data/media-day.json').then(r=>r.json()).then(d=>{
       }
     });
   }
+
+  // Ideal programs
   if(d.ideal_programs){
     const cards=document.querySelectorAll('.ideal-program-card');
     d.ideal_programs.forEach((p,i)=>{
@@ -1093,17 +1086,20 @@ fetch('/data/media-day.json').then(r=>r.json()).then(d=>{
       }
     });
   }
+
+  // How it works steps
   if(d.steps){
     const steps=document.querySelectorAll('.how-step');
     d.steps.forEach((step,i)=>{
       if(steps[i]){
-        const t=steps[i].querySelector('.how-step-title');
-        const desc=steps[i].querySelector('.how-step-desc');
+        const t=steps[i].querySelector('.how-step-title,[class*="step-title"]');
+        const desc=steps[i].querySelector('.how-step-desc,[class*="step-desc"]');
         if(t)t.textContent=step.title;
         if(desc)desc.textContent=step.desc;
       }
     });
   }
+
 }).catch(()=>{});
 </script>
 
