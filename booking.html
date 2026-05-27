@@ -431,6 +431,12 @@ fetch('/data/booking.json').then(r=>r.json()).then(d=>{
   s('cms-card-eyebrow-2',d.youth_eyebrow);
   s('cms-card-title-2',d.youth_title);
   s('cms-card-desc-2',d.youth_desc);
+  if(d.next_steps){
+    d.next_steps.forEach((step,i)=>{
+      s('cms-next-title-'+(i+1),step.title);
+      s('cms-next-desc-'+(i+1),step.desc);
+    });
+  }
 }).catch(()=>{});
 </script>
 
