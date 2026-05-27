@@ -1,10 +1,30 @@
 {
   "headline": "Book Your Photo Day",
   "sub": "Fill out the form below and we'll confirm your date, review your program's needs, and get everything scheduled.",
-  "hs_eyebrow": "For Boosters, Coaches & Athletic Directors",
-  "hs_title": "High School Photo Day",
+  "hs_eyebrow": "For Boosters, Coaches & ADs",
+  "hs_title": "High School Picture Day",
   "hs_desc": "For high school varsity, JV, and freshman programs. Includes team and individual shoots, natural and composite options. Online gallery and ordering included.",
   "youth_eyebrow": "For Club & Rec Directors",
-  "youth_title": "Youth & Club Photo Day",
-  "youth_desc": "For travel teams, club programs, rec leagues, and youth organizations. Same professional process and quality, scaled for younger athletes and families."
+  "youth_title": "Youth & Club Picture Day",
+  "youth_desc": "For travel teams, club programs, rec leagues, and youth organizations. Same professional process and quality, scaled for younger athletes and families.",
+  "section_titles": {
+    "photoday": "Team Photo Days",
+    "banners": "Pro Banners",
+    "mediaday": "Phireworx Media Day Experience",
+    "next": "What Happens Next"
+  },
+  "next_steps": [
+    {
+      "title": "We Review Your Request",
+      "desc": "We look over your submission and confirm availability for your date."
+    },
+    {
+      "title": "We Reach Out",
+      "desc": "Expect a message within 1 business day to confirm details and answer any questions."
+    },
+    {
+      "title": "We Lock It In",
+      "desc": "Once everything is confirmed, your date is reserved and you'll receive a confirmation."
+    }
+  ]
 }
