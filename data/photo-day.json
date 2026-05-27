@@ -55,5 +55,9 @@
       "title": "Composite Style",
       "desc": "Athletes photographed individually then composited into a dramatic team image. High-impact visuals with professional backgrounds and lighting effects."
     }
-  ]
+  ],
+  "section_titles": {
+    "main": "Picture Day, Done Right.",
+    "upsell": "Want to Take It Further?"
+  }
 }
