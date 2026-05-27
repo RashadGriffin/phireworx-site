@@ -371,9 +371,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Everything We Offer</p>
-    <h1 class="page-hero-title">Our <span>Services</span></h1>
-    <p class="page-hero-sub" style="max-width:620px;">Three distinct services built for different programs and different goals. Read through, find what fits your situation, and go from there — or <a href="general.html" style="color:var(--ember);">reach out</a> if you're not sure which one is right for you.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Everything We Offer</p>
+    <h1 class="page-hero-title" id="cms-headline">Our <span>Services</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Three distinct services built for different programs and different goals. Read through, find what fits your situation, and go from there — or <a href="general.html" style="color:var(--ember);">reach out</a> if you're not sure which one is right for you.</p>
   </div>
 </div>
 
@@ -860,6 +860,41 @@
     });
   }
 })();
+</script>
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/services.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow);
+  s('cms-headline',d.headline);
+  s('cms-sub',d.sub);
+
+  if(d.services){
+    const blocks=document.querySelectorAll('.svc-block');
+    d.services.forEach((svc,i)=>{
+      if(blocks[i]){
+        const num=blocks[i].querySelector('.svc-num');
+        const title=blocks[i].querySelector('.svc-title');
+        const sub=blocks[i].querySelector('.svc-sub');
+        const desc=blocks[i].querySelector('.svc-desc');
+        if(num)num.textContent=svc.number;
+        if(title)title.textContent=svc.title;
+        if(sub)sub.textContent=svc.sub;
+        if(desc)desc.textContent=svc.desc;
+        if(svc.features){
+          const list=blocks[i].querySelector('.svc-features,.feature-list');
+          if(list){
+            const items=list.querySelectorAll('li');
+            svc.features.forEach((feat,j)=>{
+              if(items[j])items[j].textContent=feat.item||feat;
+            });
+          }
+        }
+      }
+    });
+  }
+}).catch(()=>{});
 </script>
 </body>
 </html>
