@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Phireworx Media Day Experience | Phireworx Photography</title>
   <meta name="description" content="A prepaid, creative-first team media shoot for Arizona programs that want to elevate their image. Full digitals. Advanced lighting. Your team's visual identity, built right.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=14">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
   <style>
 
@@ -404,7 +404,6 @@
   letter-spacing: 0.01em !important;
   line-height: 1 !important;
 }
-#nav-mobile > a:first-child { color: #FFB347 !important; }
 #nav-mobile > a:active { color: #FFB347 !important; }
 
 /* Book Now CTA button */
@@ -600,25 +599,25 @@
     <p class="section-desc" id="cms-desc-1">Every image from a Phireworx Media Day is intentional — lit, directed, and built to make your program look elite.</p>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-basketball-chavez-dunk.jpg" alt="Cesar Chavez basketball team dunk — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-basketball-chavez-dunk.jpg" alt="Cesar Chavez basketball team dunk — Media Day" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-track-javelin.jpg" alt="Track athlete with javelin — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-track-javelin.jpg" alt="Track athlete with javelin — Media Day" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-saguaro-locker.jpg" alt="Saguaro player holding jersey in locker room — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-saguaro-locker.jpg" alt="Saguaro player holding jersey in locker room — Media Day" loading="lazy">
       </div>
       <div class="gallery-item wide">
-        <img data-lightbox src="assets/images/mediaday-basketball-basha-team.jpg" alt="Basha basketball team group — Media Day Experience" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-basketball-basha-team.jpg" alt="Basha basketball team group — Media Day Experience" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-saguaro-throne.jpg" alt="Saguaro football player on throne — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-saguaro-throne.jpg" alt="Saguaro football player on throne — Media Day" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player dribbling — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player dribbling — Media Day" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/mediaday-volleyball-red-smoke.jpg" alt="Volleyball player with red smoke — Media Day" loading="lazy">
+        <img data-lightbox src="/assets/images/mediaday-volleyball-red-smoke.jpg" alt="Volleyball player with red smoke — Media Day" loading="lazy">
       </div>
     </div>
   </div>
@@ -1106,6 +1105,51 @@ fetch('/data/media-day.json').then(r=>r.json()).then(d=>{
     });
   }
 }).catch(()=>{});
+</script>
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
+  }
+})();
 </script>
 </body>
 </html>
