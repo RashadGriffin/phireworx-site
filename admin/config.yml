@@ -209,6 +209,45 @@ collections:
               - { label: "Bio", name: "bio", widget: "text" }
               - { label: "Photo", name: "photo", widget: "image", required: false }
 
+
+  # ── HS BOOKING FORM PAGE ──
+  - name: "book_hs"
+    label: "📋 HS Picture Day Form Page"
+    files:
+      - name: "book_hs"
+        label: "High School Booking Page"
+        file: "data/book-hs.json"
+        format: json
+        fields:
+          - { label: "Page Eyebrow", name: "eyebrow", widget: "string", hint: "Small text above headline" }
+          - { label: "Page Headline", name: "headline", widget: "string" }
+          - { label: "Page Subheadline", name: "sub", widget: "text" }
+          - { label: "Notice Label", name: "notice_label", widget: "string", hint: "e.g. Important Note — Effective 2025–2026 School Year" }
+          - { label: "Notice Title", name: "notice_title", widget: "string", hint: "e.g. Minimum Athlete Requirement" }
+          - { label: "Notice Line 1", name: "notice_line1", widget: "text", hint: "First paragraph of the notice" }
+          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false, hint: "Second paragraph (optional)" }
+          - { label: "Notice Line 3", name: "notice_line3", widget: "text", hint: "e.g. Thank you for your understanding..." }
+          - { label: "Form Label", name: "form_label", widget: "string", hint: "Text above the form" }
+
+  # ── YOUTH BOOKING FORM PAGE ──
+  - name: "book_youth"
+    label: "📋 Youth & Club Form Page"
+    files:
+      - name: "book_youth"
+        label: "Youth & Club Booking Page"
+        file: "data/book-youth.json"
+        format: json
+        fields:
+          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Page Headline", name: "headline", widget: "string" }
+          - { label: "Page Subheadline", name: "sub", widget: "text" }
+          - { label: "Notice Label", name: "notice_label", widget: "string" }
+          - { label: "Notice Title", name: "notice_title", widget: "string" }
+          - { label: "Notice Line 1", name: "notice_line1", widget: "text" }
+          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false }
+          - { label: "Notice Line 3", name: "notice_line3", widget: "text" }
+          - { label: "Form Label", name: "form_label", widget: "string" }
+
   # ── PRICING ──
   - name: "pricing"
     label: "💰 Pricing"
