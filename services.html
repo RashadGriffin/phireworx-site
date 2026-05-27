@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Services | Phireworx Photography</title>
   <meta name="description" content="Phireworx Photography offers three core services for Arizona sports programs — Team Photo Day, Media Day Experience, and Pro Banners. See what's right for your program.">
   <link rel="stylesheet" href="assets/css/styles.css?v=14">
@@ -168,7 +168,23 @@
       }
       .svc-block.reversed .svc-block-text { order: 0; }
       .svc-block.reversed .svc-block-visual { order: 0; }
-      .svc-block-visual { min-height: 220px; }
+      .svc-block-visual { min-height: 220px; aspect-ratio: 4/3; }
+    }
+    @media (max-width: 768px) {
+      /* Comparison table — scroll horizontally in a contained box */
+      .compare-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid var(--slate);
+        margin: 0 -4px;
+      }
+      .compare-table { min-width: 480px; }
+      .compare-table thead th,
+      .compare-table tbody td { padding: 12px 14px; font-size: 11px; }
+      /* Service blocks */
+      .svc-block { grid-template-columns: 1fr; gap: 20px; }
+      .svc-block-visual { aspect-ratio: 3/2; min-height: auto; }
+      .svc-cta-strip { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
@@ -465,7 +481,7 @@
     <p class="section-desc" style="margin-bottom:36px;">Here's a quick comparison to help you figure out which service fits your program best.</p>
 
     <div style="overflow-x:auto;">
-      <table class="compare-table">
+      <div class="compare-table-wrap"><div class="compare-table-wrap"><table class="compare-table">
         <thead>
           <tr>
             <th class="th-feature"></th>
@@ -518,7 +534,7 @@
             <td><span class="td-yes">✓</span> Yes — pairs with either</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div style="margin-top:28px;padding:20px 28px;background:var(--steel);border-left:4px solid var(--ember);max-width:700px;">
