@@ -304,45 +304,31 @@
     var hamburger = document.getElementById('hamburger');
     var navMobile = document.getElementById('nav-mobile');
 
-    // Create backdrop dynamically
-    var backdrop = document.createElement('div');
-    backdrop.className = 'nav-mobile-backdrop';
-    backdrop.id = 'nav-backdrop';
-    document.body.appendChild(backdrop);
+    if (!hamburger || !navMobile) return;
 
     function openMenu() {
       navMobile.classList.add('open');
-      backdrop.classList.add('open');
       hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // prevent page scroll when menu open
+      // Change hamburger to X
+      hamburger.innerHTML = '<span style="display:block;width:22px;height:2px;background:currentColor;transform:rotate(45deg) translate(5px,5px)"></span><span style="display:block;width:22px;height:2px;background:currentColor;opacity:0"></span><span style="display:block;width:22px;height:2px;background:currentColor;transform:rotate(-45deg) translate(5px,-5px)"></span>';
     }
+
     function closeMenu() {
       navMobile.classList.remove('open');
-      backdrop.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      // Restore hamburger lines
+      hamburger.innerHTML = '<span></span><span></span><span></span>';
     }
 
-    if (hamburger && navMobile) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (navMobile.classList.contains('open')) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      });
-    }
-
-    // Close when tapping backdrop
-    backdrop.addEventListener('click', closeMenu);
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMobile.classList.contains('open') ? closeMenu() : openMenu();
+    });
 
     // Close when a nav link is tapped
-    if (navMobile) {
-      navMobile.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-      });
-    }
+    navMobile.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
 
     // Mobile services accordion
     var mobTrigger = document.getElementById('mob-svc-trigger');
@@ -368,80 +354,6 @@
   })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-(function() {
-
-  // ── Load Homepage data ──
-  fetch('data/homepage.json')
-    .then(r => r.json())
-    .then(d => {
-      const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
-      const setHtml = (id, val) => { const el = document.getElementById(id); if (el && val) el.innerHTML = val; };
-
-      set('cms-hero-eyebrow', d.hero_eyebrow);
-      set('cms-hero-line1', d.hero_line1);
-      set('cms-hero-line2', d.hero_line2);
-      if (d.hero_line3) {
-        const el = document.getElementById('cms-hero-line3');
-        if (el) {
-          const parts = d.hero_line3.split(' ');
-          const last = parts.pop();
-          el.innerHTML = parts.join(' ') + (parts.length ? ' ' : '') + '<em>' + last + '</em>';
-        }
-      }
-      set('cms-hero-sub', d.hero_sub);
-      set('cms-hero-btn1', d.hero_btn1);
-      set('cms-hero-btn2', d.hero_btn2);
-
-      // Stats — number + suffix together
-      const setStat = (num, suf, label, nVal, sVal, lVal) => {
-        const numEl = document.getElementById(num);
-        const sufEl = document.getElementById(suf);
-        const labEl = document.getElementById(label);
-        if (numEl && nVal) numEl.childNodes[0].textContent = nVal;
-        if (sufEl && sVal) sufEl.textContent = sVal;
-        if (labEl && lVal) labEl.textContent = lVal;
-      };
-
-      setStat('cms-stat1-num','cms-stat1-suffix','cms-stat1-label', d.stat1_num, d.stat1_suffix, d.stat1_label);
-      setStat('cms-stat2-num','cms-stat2-suffix','cms-stat2-label', d.stat2_num, d.stat2_suffix, d.stat2_label);
-      setStat('cms-stat3-num','cms-stat3-suffix','cms-stat3-label', d.stat3_num, d.stat3_suffix, d.stat3_label);
-      setStat('cms-stat4-num','cms-stat4-suffix','cms-stat4-label', d.stat4_num, d.stat4_suffix, d.stat4_label);
-    })
-    .catch(function() {}); // Fail silently — hardcoded fallbacks show
-
-  // ── Load Reviews (homepage featured) ──
-  const reviewFiles = [
-    'dawnyale-m','quinn-tompkins','natali-olveda','basha-boosters',
-    'kapiolani-kaowili','mindy-williams','aaron-upsher','xavier-flores',
-    'jamie-converti','craig-marcus'
-  ];
-
-  const grid = document.getElementById('cms-testimonials-grid');
-  if (grid) {
-    Promise.all(reviewFiles.map(f =>
-      fetch('data/reviews/' + f + '.json').then(r => r.json()).catch(() => null)
-    )).then(reviews => {
-      const featured = reviews.filter(r => r && r.homepage);
-      if (!featured.length) return;
-      grid.innerHTML = featured.map(r => `
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            ${'<div class="star"></div>'.repeat(r.stars || 5)}
-          </div>
-          <p class="testimonial-quote">"${r.quote}"</p>
-          <div class="testimonial-divider"></div>
-          <div class="testimonial-author">
-            <div class="testimonial-name">${r.name}</div>
-            <div class="testimonial-role">${r.role} &middot; Google Review</div>
-          </div>
-        </div>
-      `).join('');
-    }).catch(function() {});
-  }
-
-})();
-</script>
 
 </body>
 </html>
