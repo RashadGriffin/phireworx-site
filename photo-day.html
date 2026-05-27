@@ -10,98 +10,123 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=14">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
 
-<style>
-/* FULLSCREEN MOBILE MENU — highest specificity override */
-#nav-mobile {
-  display: none !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 2147483647 !important; /* max possible z-index */
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  background: #0d0d0d !important;
-  padding: 80px 32px 40px !important;
-  gap: 0 !important;
-  overflow-y: auto !important;
-  box-sizing: border-box !important;
-}
-#nav-mobile.open {
-  display: flex !important;
-}
-#nav-mobile a {
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  font-style: italic !important;
-  letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
-  color: #ffffff !important;
-  padding: 18px 0 !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  width: 100% !important;
-  display: block !important;
-  text-decoration: none !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  transition: color 0.2s !important;
-}
-#nav-mobile a:last-child {
-  border-bottom: none !important;
-}
-#nav-mobile a.nav-mobile-cta {
-  background: #FFB347 !important;
-  color: #000000 !important;
-  text-align: center !important;
-  padding: 18px !important;
-  margin-top: 24px !important;
-  border-bottom: none !important;
-  font-size: 14px !important;
-}
-.nav-mobile-services-trigger {
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  font-style: italic !important;
-  letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
-  color: #ffffff !important;
-  padding: 18px 0 !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  background: none !important;
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  cursor: pointer !important;
-  font-family: 'Rajdhani', sans-serif !important;
-}
-#mob-svc-sub {
-  display: none !important;
-  flex-direction: column !important;
-  padding-left: 16px !important;
-}
-#mob-svc-sub.open {
-  display: flex !important;
-}
-#mob-svc-sub a {
-  font-size: 18px !important;
-  color: #aaaaaa !important;
-  padding: 12px 0 !important;
-  font-style: italic !important;
-}
+
+<style id="mobile-menu-styles">
+/* NAV — always on top */
+#nav { z-index: 2147483645 !important; }
+
+/* HAMBURGER — always visible above menu */
 #hamburger {
   position: relative !important;
   z-index: 2147483647 !important;
   cursor: pointer !important;
   touch-action: manipulation !important;
   -webkit-tap-highlight-color: transparent !important;
+  display: none !important;
 }
+@media (max-width: 768px) {
+  #hamburger { display: flex !important; }
+}
+
+/* FULLSCREEN MENU — starts below nav bar */
+#nav-mobile {
+  display: none !important;
+  position: fixed !important;
+  top: 68px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 68px) !important;
+  z-index: 2147483644 !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  background: #0d0d0d !important;
+  padding: 32px 28px 40px !important;
+  gap: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+#nav-mobile.open { display: flex !important; }
+
+/* Main nav links — large, amber on tap */
+#nav-mobile > a {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+}
+#nav-mobile > a:first-child { color: #FFB347 !important; }
+#nav-mobile > a:active { color: #FFB347 !important; }
+
+/* Book Now CTA button */
+#nav-mobile a.nav-mobile-cta {
+  background: #FFB347 !important;
+  color: #000000 !important;
+  text-align: center !important;
+  padding: 16px !important;
+  margin-top: 28px !important;
+  border: none !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  display: block !important;
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+/* Services trigger button */
+.nav-mobile-services-trigger {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+}
+.nav-mobile-services-trigger.open { color: #FFB347 !important; }
+
+/* Services sub-menu — amber accent links */
+#mob-svc-sub {
+  display: none !important;
+  flex-direction: column !important;
+  padding: 8px 0 8px 16px !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+#mob-svc-sub.open { display: flex !important; }
+#mob-svc-sub a {
+  font-size: 17px !important;
+  font-style: italic !important;
+  color: #FFB347 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,179,71,0.12) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+#mob-svc-sub a:last-child { border-bottom: none !important; }
 </style>
 </head>
 <body>
@@ -488,28 +513,28 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
-<script>
+<script id="mobile-menu-js">
 (function() {
   var hamburger = document.getElementById('hamburger');
   var navMobile = document.getElementById('nav-mobile');
   if (!hamburger || !navMobile) return;
 
-  var lines = hamburger.querySelectorAll('span');
+  var spans = hamburger.querySelectorAll('span');
 
   function openMenu() {
     navMobile.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
-    if (lines[0]) lines[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px)';
-    if (lines[1]) lines[1].style.cssText = 'opacity:0';
-    if (lines[2]) lines[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px)';
+    if (spans[0]) spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px);transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'opacity:0;transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px);transition:all 0.2s';
   }
 
   function closeMenu() {
     navMobile.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
-    if (lines[0]) lines[0].style.cssText = '';
-    if (lines[1]) lines[1].style.cssText = '';
-    if (lines[2]) lines[2].style.cssText = '';
+    if (spans[0]) spans[0].style.cssText = 'transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transition:all 0.2s';
   }
 
   hamburger.addEventListener('click', function(e) {
