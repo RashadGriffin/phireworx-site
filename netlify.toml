@@ -33,6 +33,11 @@
   status = 200
 
 [[redirects]]
+  from = "/book/youth"
+  to = "/book-youth.html"
+  status = 200
+
+[[redirects]]
   from = "/book/hs"
   to = "/book-hs.html"
   status = 200
