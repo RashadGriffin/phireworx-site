@@ -17,5 +17,25 @@
   "stat3_label": "Google Rating",
   "stat4_num": "98",
   "stat4_suffix": "%",
-  "stat4_label": "Client Satisfaction"
+  "stat4_label": "Client Satisfaction",
+  "section_titles": {
+    "services": "Our Services",
+    "portfolio": "Our Portfolio",
+    "process": "Simple Process",
+    "reviews": "Real Reviews"
+  },
+  "process_steps": [
+    {
+      "title": "Book Your Date",
+      "desc": "Fill out a request form and we confirm your date, time, and setup details."
+    },
+    {
+      "title": "We Handle Picture Day",
+      "desc": "We arrive fully equipped. Athletes move through quickly. Coaches don't lift a finger."
+    },
+    {
+      "title": "Gallery Goes Live",
+      "desc": "Families receive a secure link to order prints, digitals, and packages directly online."
+    }
+  ]
 }
