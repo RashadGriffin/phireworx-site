@@ -29,7 +29,7 @@
 # Direct-link only pages
 [[redirects]]
   from = "/teammedia"
-  to = "/teammedia.html"
+  to = "/team-media-images.html"
   status = 200
 
 [[redirects]]
