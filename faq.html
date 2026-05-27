@@ -493,7 +493,7 @@
 </script>
 <!-- CMS DATA LOADER -->
 <script>
-fetch('/data/faq.json').then(r=>r.json()).then(d=>{
+fetch('/data/faq.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
   s('cms-eyebrow',d.eyebrow||'Frequently Asked Questions');
   s('cms-headline',d.headline);
