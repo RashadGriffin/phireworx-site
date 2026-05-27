@@ -65,5 +65,45 @@
       "title": "Editing & Delivery",
       "desc": "All images professionally edited and delivered to your private download gallery within 7-10 business days."
     }
-  ]
+  ],
+  "gallery": [
+    {
+      "image": "/assets/images/mediaday-basketball-chavez-dunk.jpg",
+      "alt": "Cesar Chavez basketball team dunk \u2014 Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-track-javelin.jpg",
+      "alt": "Track athlete with javelin \u2014 Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-locker.jpg",
+      "alt": "Saguaro player holding jersey in locker room \u2014 Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-basha-team.jpg",
+      "alt": "Basha basketball team group \u2014 Media Day Experience",
+      "wide": true
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-throne.jpg",
+      "alt": "Saguaro football player on throne \u2014 Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-tigers-girl.jpg",
+      "alt": "Tigers basketball player dribbling \u2014 Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-volleyball-red-smoke.jpg",
+      "alt": "Volleyball player with red smoke \u2014 Media Day"
+    }
+  ],
+  "section_titles": {
+    "production": "Not a Picture Day. A Production.",
+    "gallery": "Media Day Gallery",
+    "pricing": "Per-Athlete Rates",
+    "included": "What You Walk Away With",
+    "ideal": "Ideal Programs",
+    "how": "How It Works",
+    "book": "Book Your Media Day"
+  }
 }
