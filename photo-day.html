@@ -566,7 +566,7 @@
 </script>
 <!-- CMS DATA LOADER -->
 <script>
-fetch('/data/photo-day.json').then(r=>r.json()).then(d=>{
+fetch('/data/photo-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
   const sh=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.innerHTML=v};
   s('cms-eyebrow', d.eyebrow);
