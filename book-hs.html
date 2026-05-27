@@ -144,9 +144,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Photo Day Bookings</p>
-    <h1 class="page-hero-title">High School <span>Picture Day</span></h1>
-    <p class="page-hero-sub" style="max-width:600px;">For high school varsity, JV, and freshman programs. Fill out the form below and we&rsquo;ll confirm your date, review your program&rsquo;s needs, and get everything scheduled.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Photo Day Bookings</p>
+    <h1 class="page-hero-title" id="cms-headline">High School <span>Picture Day</span></h1>
+    <p class="page-hero-sub" id="cms-sub">For high school varsity, JV, and freshman programs. Fill out the form below and we&rsquo;ll confirm your date, review your program&rsquo;s needs, and get everything scheduled.</p>
   </div>
 </div>
 
@@ -158,8 +158,8 @@
 
     <!-- IMPORTANT NOTICE -->
     <div class="hs-notice">
-      <p class="hs-notice-label">Important Note &mdash; Effective 2025&ndash;2026 School Year</p>
-      <h2 class="hs-notice-title">Minimum Athlete Requirement</h2>
+      <p class="hs-notice-label" id="cms-notice-label">Important Note &mdash; Effective 2025&ndash;2026 School Year</p>
+      <h2 class="hs-notice-title" id="cms-notice-title">Minimum Athlete Requirement</h2>
       <div class="hs-notice-body">
         <p>A session fee of <strong>$250</strong> may apply to programs with fewer than <strong>40 athletes</strong>. This fee helps cover travel, setup, and staff costs.</p>
         <p>To avoid this fee, we encourage schools and organizations to <strong>schedule multiple teams on the same day.</strong></p>
@@ -169,7 +169,7 @@
 
     <!-- 17HATS FORM -->
     <div class="hs-form-section">
-      <span class="hs-form-label">Complete the form below to request a Picture Day with Phireworx</span>
+      <span class="hs-form-label" id="cms-form-label">Complete the form below to request a Picture Day with Phireworx</span>
       <div class="hs-form-embed">
         <iframe name="lc_contact_form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/rbbxkfpctnznnhtdrcpchtptknhxkffp"></iframe>
         <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
@@ -245,6 +245,25 @@ fetch('/data/booking.json').then(r=>r.json()).then(d=>{
   s('cms-card-eyebrow-2',d.youth_eyebrow);
   s('cms-card-title-2',d.youth_title);
   s('cms-card-desc-2',d.youth_desc);
+}).catch(()=>{});
+</script>
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/book-hs.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow);
+  s('cms-headline',d.headline);
+  s('cms-sub',d.sub);
+  s('cms-notice-label',d.notice_label);
+  s('cms-notice-title',d.notice_title);
+  s('cms-form-label',d.form_label);
+  // Update notice body paragraphs
+  const body=document.querySelector('.hs-notice-body');
+  if(body&&(d.notice_line1||d.notice_line2||d.notice_line3)){
+    const lines=[d.notice_line1,d.notice_line2,d.notice_line3].filter(l=>l&&l.trim());
+    body.innerHTML=lines.map(l=>'<p>'+l+'</p>').join('');
+  }
 }).catch(()=>{});
 </script>
 </body>
