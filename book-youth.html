@@ -351,7 +351,7 @@
   </div>
 
 <script>
-fetch('/data/booking.json').then(r=>r.json()).then(d=>{
+fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
   s('cms-booking-headline',d.headline);
   s('cms-card-eyebrow-1',d.hs_eyebrow);
@@ -419,7 +419,7 @@ fetch('/data/booking.json').then(r=>r.json()).then(d=>{
 </script>
 <!-- CMS DATA LOADER -->
 <script>
-fetch('/data/book-youth.json').then(r=>r.json()).then(d=>{
+fetch('/data/book-youth.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
   s('cms-eyebrow',d.eyebrow);
   s('cms-headline',d.headline);
