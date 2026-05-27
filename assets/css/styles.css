@@ -373,20 +373,40 @@ ul { list-style: none; }
 .nav-mobile {
   display: none;
   position: fixed;
-  top: 65px; /* sits exactly below the nav bar */
+  top: 65px;
   left: 0;
   right: 0;
-  z-index: 1001;
+  z-index: 99999;
   flex-direction: column;
   background: var(--ash);
   border-bottom: 1px solid var(--steel);
   padding: 16px var(--gutter) 20px;
   gap: 2px;
   overflow-y: auto;
-  max-height: calc(100vh - 65px); /* never taller than the screen */
+  max-height: calc(100vh - 65px);
   -webkit-overflow-scrolling: touch;
+  /* Force above all page content including transforms/stacking contexts */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
-.nav-mobile.open { display: flex; }
+.nav-mobile.open {
+  display: flex;
+}
+/* Backdrop — dims page content behind open menu */
+.nav-mobile-backdrop {
+  display: none;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99998;
+  background: rgba(0,0,0,0.6);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.nav-mobile-backdrop.open { display: block; }
 .nav-mobile a {
   font-size: 13px;
   font-weight: 600;
