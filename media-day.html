@@ -880,37 +880,6 @@
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('nav-mobile');
-  hamburger.addEventListener('click', () => {
-    const isOpen = navMobile.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', isOpen);
-    navMobile.setAttribute('aria-hidden', !isOpen);
-  });
-
-  // Mobile services accordion
-  const mobTrigger = document.getElementById('mob-svc-trigger');
-  const mobSub = document.getElementById('mob-svc-sub');
-  if (mobTrigger) {
-    mobTrigger.addEventListener('click', () => {
-      mobTrigger.classList.toggle('open');
-      mobSub.classList.toggle('open');
-    });
-  }
-
-  // Desktop dropdown with JS timeout so mouse can cross the gap
-  const ddLi = document.querySelector('.nav-dropdown');
-  const ddMenu = document.querySelector('.nav-dropdown-menu');
-  let ddTimer;
-  if (ddLi && ddMenu) {
-    ddLi.addEventListener('mouseenter', () => { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
-    ddLi.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
-    ddMenu.addEventListener('mouseenter', () => clearTimeout(ddTimer));
-    ddMenu.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
-  }
-</script>
-
 <!-- LIGHTBOX -->
 <div class="lb-overlay" id="lb-overlay">
   <span class="lb-close" id="lb-close">&times;</span>
@@ -922,6 +891,39 @@
 </div>
 
 
+
+<script>
+  // ── MOBILE NAV ──
+  (function() {
+    var hamburger = document.getElementById('hamburger');
+    var navMobile = document.getElementById('nav-mobile');
+    if (hamburger && navMobile) {
+      hamburger.addEventListener('click', function() {
+        var isOpen = navMobile.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        navMobile.setAttribute('aria-hidden', String(!isOpen));
+      });
+    }
+    var mobTrigger = document.getElementById('mob-svc-trigger');
+    var mobSub = document.getElementById('mob-svc-sub');
+    if (mobTrigger && mobSub) {
+      mobTrigger.addEventListener('click', function() {
+        mobTrigger.classList.toggle('open');
+        mobSub.classList.toggle('open');
+      });
+    }
+    // Desktop dropdown
+    var ddLi = document.querySelector('.nav-dropdown');
+    var ddMenu = document.querySelector('.nav-dropdown-menu');
+    var ddTimer;
+    if (ddLi && ddMenu) {
+      ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+      ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+      ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+      ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    }
+  })();
+</script>
 <!-- CMS DATA LOADER -->
 <script>
 fetch('/data/media-day.json').then(r=>r.json()).then(d=>{
