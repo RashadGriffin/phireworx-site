@@ -33,6 +33,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--coal);
   overflow-x: hidden;
+  padding-top: 65px;
   color: var(--white);
   font-family: var(--font-body);
   font-size: 16px;
@@ -147,8 +148,10 @@ ul { list-style: none; }
 
 /* ── NAVIGATION ── */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background: rgba(13,13,13,0.96);
   backdrop-filter: blur(12px);
@@ -1943,7 +1946,10 @@ img[data-lightbox] { cursor: zoom-in; }
 /* ════════════════════════════════════════════════════════
    OVERFLOW PREVENTION — no horizontal scroll on any device
    ════════════════════════════════════════════════════════ */
-html, body {
+html {
+  overflow-x: clip; /* clip not hidden — preserves sticky positioning on iOS */
+}
+body {
   overflow-x: hidden;
   max-width: 100%;
 }
