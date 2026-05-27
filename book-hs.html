@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High School Picture Day Request | Phireworx Photography</title>
+  <meta name="description" content="Request a Team Photo Day for your high school program. Fill out the form below and we'll confirm your date and details.">
+  <link rel="stylesheet" href="assets/css/styles.css?v=42">
+  <style>
+    /* ── NOTICE BOX ── */
+    .hs-notice {
+      background: rgba(255,179,71,0.07);
+      border: 1px solid rgba(255,179,71,0.25);
+      border-left: 4px solid var(--ember);
+      max-width: 780px;
+      margin: 0 auto 48px;
+      padding: 36px 44px;
+    }
+    .hs-notice-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--ember);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hs-notice-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .hs-notice-body {
+      font-size: 15px;
+      color: var(--silver);
+      line-height: 1.75;
+    }
+    .hs-notice-body strong {
+      color: var(--white);
+    }
+    .hs-notice-body p {
+      margin: 0 0 14px 0;
+    }
+    .hs-notice-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FORM SECTION ── */
+    .hs-form-section {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hs-form-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--ember);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .hs-form-embed {
+      background: var(--ash);
+      border: 1px solid var(--slate);
+      padding: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .hs-notice { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="services.html">All Services Overview</a>
+          </div>
+          <a href="photo-day.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="media-day.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+          <a href="banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="booking.html" class="nav-cta" style="background:var(--flame-dk);">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="services.html">All Services</a>
+    <a href="photo-day.html">Team Photo Day</a>
+    <a href="media-day.html">Media Day Experience</a>
+    <a href="banners.html">Pro Banners</a>
+  </div>
+  <a href="testimonials.html">Reviews</a>
+  <a href="support.html">Support</a>
+  <a href="booking.html" class="nav-mobile-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Photo Day Bookings</p>
+    <h1 class="page-hero-title">High School <span>Picture Day</span></h1>
+    <p class="page-hero-sub" style="max-width:600px;">For high school varsity, JV, and freshman programs. Fill out the form below and we&rsquo;ll confirm your date, review your program&rsquo;s needs, and get everything scheduled.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- NOTICE + FORM -->
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+
+    <!-- IMPORTANT NOTICE -->
+    <div class="hs-notice">
+      <p class="hs-notice-label">Important Note &mdash; Effective 2025&ndash;2026 School Year</p>
+      <h2 class="hs-notice-title">Minimum Athlete Requirement</h2>
+      <div class="hs-notice-body">
+        <p>A session fee of <strong>$250</strong> may apply to programs with fewer than <strong>40 athletes</strong>. This fee helps cover travel, setup, and staff costs.</p>
+        <p>To avoid this fee, we encourage schools and organizations to <strong>schedule multiple teams on the same day.</strong></p>
+        <p>Thank you for your understanding and cooperation!</p>
+      </div>
+    </div>
+
+    <!-- 17HATS FORM -->
+    <div class="hs-form-section">
+      <span class="hs-form-label">Complete the form below to request a Picture Day with Phireworx</span>
+      <div class="hs-form-embed">
+        <iframe name="lc_contact_form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/rbbxkfpctnznnhtdrcpchtptknhxkffp"></iframe>
+        <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="photo-day.html">Team Photo Day</a></li>
+          <li><a href="photo-day.html#natural">Natural Shoots</a></li>
+          <li><a href="photo-day.html#composite">Composite Shoots</a></li>
+          <li><a href="banners.html#senior">Senior Banners</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+      <p class="footer-areas">Serving: Phoenix &middot; Scottsdale &middot; Chandler &middot; Mesa &middot; Gilbert &middot; Peoria &middot; Goodyear &middot; Avondale &middot; Surprise &middot; Buckeye &middot; Litchfield Park &middot; Tolleson &middot; Laveen &middot; Ahwatukee &middot; Fountain Hills &middot; Paradise Valley &middot; El Mirage &middot; Waddell &middot; Maricopa</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+
+<script>
+fetch('/data/booking.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-booking-headline',d.headline);
+  s('cms-card-eyebrow-1',d.hs_eyebrow);
+  s('cms-card-title-1',d.hs_title);
+  s('cms-card-desc-1',d.hs_desc);
+  s('cms-card-eyebrow-2',d.youth_eyebrow);
+  s('cms-card-title-2',d.youth_title);
+  s('cms-card-desc-2',d.youth_desc);
+}).catch(()=>{});
+</script>
+</body>
+
+</html>
