@@ -74,9 +74,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Our Story</p>
-    <h1 class="page-hero-title">Built on Three<br><span>Passions</span></h1>
-    <p class="page-hero-sub">Photography. Youth. Sport. When a Phoenix kid fused all three into one vision in 2012, Phireworx was born.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Our Story</p>
+    <h1 class="page-hero-title" id="cms-headline">Built on Three<br><span>Passions</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Photography. Youth. Sport. When a Phoenix kid fused all three into one vision in 2012, Phireworx was born.</p>
   </div>
 </div>
 
@@ -97,7 +97,7 @@
       </div>
       <div class="about-content">
         <p class="section-eyebrow">Founder</p>
-        <h2 class="section-title">Rashad <span>Griffin</span></h2>
+        <h2 class="section-title" id="cms-title-1">Rashad <span>Griffin</span></h2>
         <p style="font-size:16px;color:var(--silver);line-height:1.8;font-weight:400;margin-bottom:20px;">
           Growing up in Phoenix, Rashad Griffin was three things at once: a creator, a youth worker, and a lifelong sports fan. By 2012, he'd been producing music, designing visually, and working directly with youth through parks and recreation and elementary schools — while staying deeply connected to the games he'd always loved.
         </p>
@@ -141,7 +141,7 @@
 <section class="section" style="background:var(--ash);">
   <div class="section-inner">
     <p class="section-eyebrow">By the Numbers</p>
-    <h2 class="section-title">14 years of <span>Excellence</span></h2>
+    <h2 class="section-title" id="cms-title-2">14 years of <span>Excellence</span></h2>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:8px;">
       <div style="background:var(--steel);padding:32px 28px;">
         <div style="font-size:52px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-0.02em;margin-bottom:6px;">12<span style="color:var(--ember);">+</span></div>
@@ -265,5 +265,32 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/about.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow||'About Phireworx');
+  s('cms-headline',d.headline);
+  s('cms-sub',d.sub);
+  if(d.story){
+    const storyEl=document.querySelector('.about-story, .story-text, [class*="story"] p');
+    if(storyEl)storyEl.textContent=d.story;
+  }
+  if(d.team){
+    const members=document.querySelectorAll('.team-member, .staff-card, [class*="team-card"]');
+    d.team.forEach((m,i)=>{
+      if(members[i]){
+        const name=members[i].querySelector('[class*="name"], h3');
+        const role=members[i].querySelector('[class*="role"], [class*="title"]');
+        const bio=members[i].querySelector('[class*="bio"], p');
+        if(name)name.textContent=m.name;
+        if(role)role.textContent=m.role;
+        if(bio)bio.textContent=m.bio;
+      }
+    });
+  }
+}).catch(()=>{});
+</script>
 </body>
 </html>
