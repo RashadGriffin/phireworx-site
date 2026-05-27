@@ -152,7 +152,7 @@ ul { list-style: none; }
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 2147483640;
   background: rgba(13,13,13,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
