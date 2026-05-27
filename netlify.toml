@@ -32,6 +32,11 @@
   to = "/teammedia.html"
   status = 200
 
+[[redirects]]
+  from = "/book/hs"
+  to = "/book-hs.html"
+  status = 200
+
 # ── 404 CATCH-ALL ──
 [[redirects]]
   from = "/*"
