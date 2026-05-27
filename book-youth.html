@@ -247,6 +247,39 @@ fetch('/data/booking.json').then(r=>r.json()).then(d=>{
 }).catch(()=>{});
 </script>
 
+
+<script>
+  // ── MOBILE NAV ──
+  (function() {
+    var hamburger = document.getElementById('hamburger');
+    var navMobile = document.getElementById('nav-mobile');
+    if (hamburger && navMobile) {
+      hamburger.addEventListener('click', function() {
+        var isOpen = navMobile.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        navMobile.setAttribute('aria-hidden', String(!isOpen));
+      });
+    }
+    var mobTrigger = document.getElementById('mob-svc-trigger');
+    var mobSub = document.getElementById('mob-svc-sub');
+    if (mobTrigger && mobSub) {
+      mobTrigger.addEventListener('click', function() {
+        mobTrigger.classList.toggle('open');
+        mobSub.classList.toggle('open');
+      });
+    }
+    // Desktop dropdown
+    var ddLi = document.querySelector('.nav-dropdown');
+    var ddMenu = document.querySelector('.nav-dropdown-menu');
+    var ddTimer;
+    if (ddLi && ddMenu) {
+      ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+      ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+      ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+      ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    }
+  })();
+</script>
 <!-- CMS DATA LOADER -->
 <script>
 fetch('/data/book-youth.json').then(r=>r.json()).then(d=>{
