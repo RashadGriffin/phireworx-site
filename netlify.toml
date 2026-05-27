@@ -1,17 +1,19 @@
 # ── CLEAN URL REDIRECTS ──
-[[redirects]]
-  from = "/mediaday"
-  to = "/media-day.html"
-  status = 200
 
+# Service pages
 [[redirects]]
   from = "/photoday"
   to = "/photo-day.html"
   status = 200
 
 [[redirects]]
-  from = "/reviews"
-  to = "/testimonials.html"
+  from = "/media"
+  to = "/media-day.html"
+  status = 200
+
+[[redirects]]
+  from = "/mediaday"
+  to = "/media-day.html"
   status = 200
 
 [[redirects]]
@@ -20,13 +22,14 @@
   status = 200
 
 [[redirects]]
-  from = "/teammedia"
-  to = "/teammedia.html"
+  from = "/reviews"
+  to = "/testimonials.html"
   status = 200
 
+# Direct-link only pages
 [[redirects]]
-  from = "/media"
-  to = "/media.html"
+  from = "/teammedia"
+  to = "/teammedia.html"
   status = 200
 
 # ── 404 CATCH-ALL ──
