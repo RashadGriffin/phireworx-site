@@ -74,9 +74,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Services</p>
-    <h1 class="page-hero-title">Phireworx<br><span>Pro Banners</span></h1>
-    <p class="page-hero-sub">High-quality custom vinyl banners that make a bold statement. Elite photography, professional graphics, and vibrant print quality that commands attention in any gym or field.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Services</p>
+    <h1 class="page-hero-title" id="cms-headline">Phireworx<br><span>Pro Banners</span></h1>
+    <p class="page-hero-sub" id="cms-sub">High-quality custom vinyl banners that make a bold statement. Elite photography, professional graphics, and vibrant print quality that commands attention in any gym or field.</p>
   </div>
 </div>
 
@@ -84,7 +84,7 @@
 <section class="section">
   <div class="section-inner">
     <p class="section-eyebrow">Our Work</p>
-    <h2 class="section-title">Banner <span>Gallery</span></h2>
+    <h2 class="section-title" id="cms-title-1">Banner <span>Gallery</span></h2>
     <div class="banner-row-grid">
       <div class="banner-row-item">
         <img data-lightbox src="assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Conner Secor individual senior banner" loading="lazy">
@@ -107,8 +107,8 @@
 <section class="section" style="background:var(--ash);">
   <div class="section-inner">
     <p class="section-eyebrow">What We Offer</p>
-    <h2 class="section-title">Banner <span>Types</span></h2>
-    <p class="section-desc">Three distinct banner styles — choose what fits your program. All options include custom design, professional printing, and that 2-business-day turnaround.</p>
+    <h2 class="section-title" id="cms-title-2">Banner <span>Types</span></h2>
+    <p class="section-desc" id="cms-desc-1">Three distinct banner styles — choose what fits your program. All options include custom design, professional printing, and that 2-business-day turnaround.</p>
     <div class="banner-types-grid">
 
       <!-- INDIVIDUAL / SENIOR -->
@@ -174,8 +174,8 @@
 <section class="section" id="pricing">
   <div class="section-inner">
     <p class="section-eyebrow">Transparent Pricing</p>
-    <h2 class="section-title">Bulk Banner <span>Pricing</span></h2>
-    <p class="section-desc">Bulk pricing applies to orders of 4 or more banners. All banners are high-quality vinyl with vibrant, weatherproof printing. No hidden fees.</p>
+    <h2 class="section-title" id="cms-title-3">Bulk Banner <span>Pricing</span></h2>
+    <p class="section-desc" id="cms-desc-2">Bulk pricing applies to orders of 4 or more banners. All banners are high-quality vinyl with vibrant, weatherproof printing. No hidden fees.</p>
 
     <!-- INDIVIDUAL / SENIOR BANNERS -->
     <div class="pricing-block" id="senior">
@@ -291,8 +291,8 @@
 <section class="section">
   <div class="section-inner">
     <p class="section-eyebrow">More Examples</p>
-    <h2 class="section-title">Every Sport. <span>Every Athlete.</span></h2>
-    <p class="section-desc">From football to marching band, basketball to track — we make every athlete look elite on their banner.</p>
+    <h2 class="section-title" id="cms-title-4">Every Sport. <span>Every Athlete.</span></h2>
+    <p class="section-desc" id="cms-desc-3">From football to marching band, basketball to track — we make every athlete look elite on their banner.</p>
     <div class="gallery-grid">
       <div class="gallery-item tall">
         <img data-lightbox src="assets/images/banner-ind-deervalley-basketball.jpg" alt="Deer Valley Skyhawks Basketball — Simon Gonzales individual banner" loading="lazy">
@@ -322,8 +322,8 @@
 <section class="section" id="non-bulk" style="background:var(--ash);">
   <div class="section-inner">
     <p class="section-eyebrow">Ordering 1&ndash;3 Banners?</p>
-    <h2 class="section-title">Non-Bulk <span>Pricing</span></h2>
-    <p class="section-desc">Need just 1 to 3 banners? Non-bulk orders are priced at <strong style="color:var(--ember);">+$15 more per banner</strong> than the bulk prices listed above. Submit your request and we'll send a custom quote.</p>
+    <h2 class="section-title" id="cms-title-5">Non-Bulk <span>Pricing</span></h2>
+    <p class="section-desc" id="cms-desc-4">Need just 1 to 3 banners? Non-bulk orders are priced at <strong style="color:var(--ember);">+$15 more per banner</strong> than the bulk prices listed above. Submit your request and we'll send a custom quote.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:800px;margin-bottom:32px;">
       <div style="background:var(--steel);padding:32px;">
@@ -357,7 +357,7 @@
 <section class="section">
   <div class="section-inner">
     <p class="section-eyebrow">Important Information</p>
-    <h2 class="section-title">Session <span>Policy</span></h2>
+    <h2 class="section-title" id="cms-title-6">Session <span>Policy</span></h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:900px;">
       <div style="background:var(--ash);padding:32px;border-top:3px solid var(--ember);">
         <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--ember);text-transform:uppercase;margin-bottom:12px;">Team Photo Day Sessions</div>
@@ -472,5 +472,28 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/banners.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow);
+  s('cms-headline',d.headline);
+  s('cms-sub',d.sub);
+  if(d.types){
+    const cards=document.querySelectorAll('.banner-type-card, .banner-type');
+    d.types.forEach((t,i)=>{
+      if(cards[i]){
+        const title=cards[i].querySelector('.banner-type-title, h3');
+        const desc=cards[i].querySelector('.banner-type-desc, p');
+        const price=cards[i].querySelector('.banner-type-price, .price');
+        if(title)title.textContent=t.title;
+        if(desc)desc.textContent=t.desc;
+        if(price&&t.price)price.textContent=t.price;
+      }
+    });
+  }
+}).catch(()=>{});
+</script>
 </body>
 </html>
