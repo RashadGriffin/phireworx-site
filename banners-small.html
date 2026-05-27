@@ -134,7 +134,6 @@
   letter-spacing: 0.01em !important;
   line-height: 1 !important;
 }
-#nav-mobile > a:first-child { color: #FFB347 !important; }
 #nav-mobile > a:active { color: #FFB347 !important; }
 
 /* Book Now CTA button */
@@ -418,6 +417,51 @@ fetch('/data/booking.json').then(r=>r.json()).then(d=>{
     ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
     ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
     ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+  }
+})();
+</script>
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
   }
 })();
 </script>
