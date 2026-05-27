@@ -1204,18 +1204,27 @@ footer {
   font-weight: 400;
 }
 .booking-card-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 15px 20px;
+  background: var(--ember);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 12px;
   font-weight: 700;
+  font-style: italic;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ember);
-  margin-top: 8px;
-  transition: gap 0.2s;
+  text-align: center;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.15s;
+  box-sizing: border-box;
 }
-.booking-card:hover .booking-card-action { gap: 13px; }
+.booking-card:hover .booking-card-action {
+  background: var(--ember-dk);
+  transform: translateY(-1px);
+}
 
 /* ── ABOUT ── */
 .about-grid {
