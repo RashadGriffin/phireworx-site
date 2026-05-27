@@ -74,9 +74,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero" style="padding-bottom:0;">
   <div class="page-hero-inner" style="padding-bottom:60px;">
-    <p class="page-hero-eyebrow">Services</p>
-    <h1 class="page-hero-title">Team &amp; Individual<br><span>Photo Day</span></h1>
-    <p class="page-hero-sub" style="max-width:640px;">Fast, fun, and stress-free picture days that capture every athlete at their best. We come to you — natural on-location shoots or dramatic composite sessions, all with online ordering for every family.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Services</p>
+    <h1 class="page-hero-title" id="cms-headline">Team &amp; Individual<br><span>Photo Day</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Fast, fun, and stress-free picture days that capture every athlete at their best. We come to you — natural on-location shoots or dramatic composite sessions, all with online ordering for every family.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
       <a href="booking.html" class="btn-primary">Book Your Photo Day &rarr;</a>
       <a href="#natural" class="btn-ghost">See Shoot Styles</a>
@@ -162,8 +162,8 @@
 <section class="section">
   <div class="section-inner">
     <p class="section-eyebrow">The Flexibility Your Program Needs</p>
-    <h2 class="section-title">Two Shoot <span>Styles</span></h2>
-    <p class="section-desc">Whether you want real on-location images or dramatic composite sessions, we deliver high-level results for any program in any setting.</p>
+    <h2 class="section-title" id="cms-title-1">Two Shoot <span>Styles</span></h2>
+    <p class="section-desc" id="cms-desc-1">Whether you want real on-location images or dramatic composite sessions, we deliver high-level results for any program in any setting.</p>
 
     <div class="shoot-grid" id="natural">
       <div class="shoot-card">
@@ -216,8 +216,8 @@
 <section class="section" style="background:var(--ash);" id="ordering">
   <div class="section-inner">
     <p class="section-eyebrow">For Families &amp; Coaches</p>
-    <h2 class="section-title">EZ Online <span>Ordering</span></h2>
-    <p class="section-desc">No paper forms. No collecting cash. No distribution headaches. We built a process that works for everyone.</p>
+    <h2 class="section-title" id="cms-title-2">EZ Online <span>Ordering</span></h2>
+    <p class="section-desc" id="cms-desc-2">No paper forms. No collecting cash. No distribution headaches. We built a process that works for everyone.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
@@ -258,8 +258,8 @@
 <section class="section" style="background: var(--ash);">
   <div class="section-inner">
     <p class="section-eyebrow">How It Works</p>
-    <h2 class="section-title">Simple <span>Process</span></h2>
-    <p class="section-desc">We handle everything so coaches can focus on their program — not logistics.</p>
+    <h2 class="section-title" id="cms-title-3">Simple <span>Process</span></h2>
+    <p class="section-desc" id="cms-desc-3">We handle everything so coaches can focus on their program — not logistics.</p>
     <div class="process-grid">
       <div class="process-step">
         <div class="process-num" style="color:var(--ember);">01</div>
@@ -425,5 +425,51 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/photo-day.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  const sh=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.innerHTML=v};
+  s('cms-eyebrow', d.eyebrow);
+  s('cms-headline', d.headline);
+  s('cms-sub', d.sub);
+  if(d.descriptions){d.descriptions.forEach((v,i)=>s('cms-desc-'+(i+1),v))}
+  if(d.section_titles){d.section_titles.forEach((v,i)=>sh('cms-title-'+(i+1),v))}
+  if(d.steps){
+    const steps=document.querySelectorAll('.process-item');
+    d.steps.forEach((step,i)=>{
+      if(steps[i]){
+        const t=steps[i].querySelector('.process-title');
+        const desc=steps[i].querySelector('.process-desc');
+        if(t)t.textContent=step.title;
+        if(desc)desc.textContent=step.desc;
+      }
+    });
+  }
+  if(d.features){
+    const cards=document.querySelectorAll('.feature-card');
+    d.features.forEach((f,i)=>{
+      if(cards[i]){
+        const t=cards[i].querySelector('.feature-title');
+        const desc=cards[i].querySelector('.feature-desc');
+        if(t)t.textContent=f.title;
+        if(desc)desc.textContent=f.desc;
+      }
+    });
+  }
+  if(d.styles){
+    const cards=document.querySelectorAll('.shoot-card, .shoot-type-card');
+    d.styles.forEach((s,i)=>{
+      if(cards[i]){
+        const t=cards[i].querySelector('.shoot-title, h3');
+        const desc=cards[i].querySelector('.shoot-desc, p');
+        if(t)t.textContent=s.title;
+        if(desc)desc.textContent=s.desc;
+      }
+    });
+  }
+}).catch(()=>{});
+</script>
 </body>
 </html>
