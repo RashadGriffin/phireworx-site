@@ -72,9 +72,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Support</p>
-    <h1 class="page-hero-title">Frequently Asked<br><span>Questions</span></h1>
-    <p class="page-hero-sub">Everything coaches, ADs, and parents ask us most. Can't find what you need? Call or email us directly.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Support</p>
+    <h1 class="page-hero-title" id="cms-headline">Frequently Asked<br><span>Questions</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Everything coaches, ADs, and parents ask us most. Can't find what you need? Call or email us directly.</p>
   </div>
 </div>
 
@@ -347,5 +347,50 @@
   <span class="lb-next" id="lb-next">&#8250;</span>
 </div>
 
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/faq.json').then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow||'Frequently Asked Questions');
+  s('cms-headline',d.headline);
+  s('cms-sub',d.sub);
+  const container=document.getElementById('cms-faq-sections');
+  if(container&&d.categories&&d.categories.length){
+    container.innerHTML=d.categories.map(cat=>`
+      <div class="faq-category">
+        <h3 class="faq-category-title">${cat.category}</h3>
+        <div class="faq-list">
+          ${(cat.questions||[]).map(q=>`
+            <div class="acc-item">
+              <button class="acc-q" aria-expanded="false">
+                ${q.q}
+                <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body" hidden>
+                <p class="acc-text">${q.a}</p>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+    // Re-init accordion JS
+    container.querySelectorAll('.acc-q').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const body=this.nextElementSibling;
+        const open=this.getAttribute('aria-expanded')==='true';
+        container.querySelectorAll('.acc-q').forEach(b=>{
+          b.setAttribute('aria-expanded','false');
+          b.nextElementSibling.hidden=true;
+        });
+        if(!open){
+          this.setAttribute('aria-expanded','true');
+          body.hidden=false;
+        }
+      });
+    });
+  }
+}).catch(()=>{});
+</script>
 </body>
 </html>
