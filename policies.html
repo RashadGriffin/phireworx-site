@@ -243,45 +243,31 @@
     var hamburger = document.getElementById('hamburger');
     var navMobile = document.getElementById('nav-mobile');
 
-    // Create backdrop dynamically
-    var backdrop = document.createElement('div');
-    backdrop.className = 'nav-mobile-backdrop';
-    backdrop.id = 'nav-backdrop';
-    document.body.appendChild(backdrop);
+    if (!hamburger || !navMobile) return;
 
     function openMenu() {
       navMobile.classList.add('open');
-      backdrop.classList.add('open');
       hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // prevent page scroll when menu open
+      // Change hamburger to X
+      hamburger.innerHTML = '<span style="display:block;width:22px;height:2px;background:currentColor;transform:rotate(45deg) translate(5px,5px)"></span><span style="display:block;width:22px;height:2px;background:currentColor;opacity:0"></span><span style="display:block;width:22px;height:2px;background:currentColor;transform:rotate(-45deg) translate(5px,-5px)"></span>';
     }
+
     function closeMenu() {
       navMobile.classList.remove('open');
-      backdrop.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      // Restore hamburger lines
+      hamburger.innerHTML = '<span></span><span></span><span></span>';
     }
 
-    if (hamburger && navMobile) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (navMobile.classList.contains('open')) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      });
-    }
-
-    // Close when tapping backdrop
-    backdrop.addEventListener('click', closeMenu);
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMobile.classList.contains('open') ? closeMenu() : openMenu();
+    });
 
     // Close when a nav link is tapped
-    if (navMobile) {
-      navMobile.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-      });
-    }
+    navMobile.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
 
     // Mobile services accordion
     var mobTrigger = document.getElementById('mob-svc-trigger');
