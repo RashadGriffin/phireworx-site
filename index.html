@@ -127,6 +127,7 @@
 }
 #mob-svc-sub a:last-child { border-bottom: none !important; }
 </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -513,6 +514,28 @@
           }
         });
       }, 10);
+    });
+  }
+})();
+</script>
+
+<script>
+(function() {
+  var hash = window.location.hash;
+  if (hash && (
+    hash.indexOf('recovery_token') > -1 ||
+    hash.indexOf('invite_token') > -1 ||
+    hash.indexOf('confirmation_token') > -1 ||
+    hash.indexOf('access_token') > -1
+  )) {
+    // Token found — open Identity widget to handle it
+    window.addEventListener('load', function() {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open();
+        window.netlifyIdentity.on('login', function() {
+          window.location.href = '/admin/';
+        });
+      }
     });
   }
 })();
