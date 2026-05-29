@@ -527,28 +527,37 @@
     msg.style.color = '#888';
     msg.textContent = 'Verifying token...';
 
+    // For invites: password goes IN the verify call
+    // For recovery: verify first, then update password separately
+    var verifyBody = {token: activeToken, type: tokenType};
+    if (tokenType === 'signup') verifyBody.password = pw;
+
     fetch('https://phireworxphoto.com/.netlify/identity/verify', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({token: activeToken, type: tokenType})
+      body: JSON.stringify(verifyBody)
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (!data.access_token) throw new Error(data.msg || 'Token invalid or expired. Request a new invite.');
+      if (tokenType === 'signup') {
+        // Password already set in verify call — done
+        return data;
+      }
+      // Recovery flow: set password separately
       msg.textContent = 'Setting password...';
       return fetch('https://phireworxphoto.com/.netlify/identity/user', {
         method: 'PUT',
         headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + data.access_token},
         body: JSON.stringify({password: pw})
-      });
+      }).then(function(r) { return r.json(); });
     })
-    .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (data.email) {
+      if (data.email || data.access_token) {
         msg.style.color = '#4caf50';
         msg.textContent = 'Password set! Redirecting to admin...';
         setTimeout(function() { window.location.href = '/admin/'; }, 1500);
-      } else { throw new Error(data.msg || 'Failed to update password'); }
+      } else { throw new Error(data.msg || 'Failed to set password'); }
     })
     .catch(function(err) {
       msg.style.color = '#e55';
