@@ -488,6 +488,41 @@
 <!-- CMS DATA LOADER -->
 
 
+
+<!-- REVIEWS LOADER -->
+<script>
+(function() {
+  var reviewFiles = [
+    'dawnyale-m','quinn-tompkins','natali-olveda','basha-boosters',
+    'kapiolani-kaowili','mindy-williams','aaron-upsher','xavier-flores',
+    'jamie-converti','craig-marcus'
+  ];
+  var grid = document.getElementById('cms-testimonials-grid');
+  if (!grid) return;
+  var cb = Math.floor(Date.now()/60000);
+  Promise.all(reviewFiles.map(function(f) {
+    return fetch('/data/reviews/' + f + '.json?cb=' + cb)
+      .then(function(r) { return r.json(); })
+      .catch(function() { return null; });
+  })).then(function(reviews) {
+    var featured = reviews.filter(function(r) { return r && r.homepage; });
+    if (!featured.length) return;
+    grid.innerHTML = featured.map(function(r) {
+      var stars = '';
+      for (var i = 0; i < (r.stars || 5); i++) stars += '<div class="star"></div>';
+      return '<div class="testimonial-card">' +
+        '<div class="testimonial-stars">' + stars + '</div>' +
+        '<p class="testimonial-quote">"' + r.quote + '"</p>' +
+        '<div class="testimonial-divider"></div>' +
+        '<div class="testimonial-author">' +
+          '<div class="testimonial-name">' + r.name + '</div>' +
+          '<div class="testimonial-role">' + r.role + ' &middot; Google Review</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }).catch(function() {});
+})();
+</script>
 <script id="active-nav-js">
 (function() {
   // Highlight current page link in mobile menu as amber
