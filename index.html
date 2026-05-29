@@ -489,6 +489,76 @@
 
 
 
+
+<script>
+(function() {
+  var recoveryToken = sessionStorage.getItem('netlify_recovery_token');
+  var inviteToken = sessionStorage.getItem('netlify_invite_token');
+  var activeToken = recoveryToken || inviteToken;
+  var tokenType = inviteToken ? 'signup' : 'recovery';
+
+  if (!activeToken) return;
+
+  sessionStorage.removeItem('netlify_recovery_token');
+  sessionStorage.removeItem('netlify_invite_token');
+
+  var overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:999999999;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif';
+  overlay.innerHTML = '<div style="background:#1a1a1a;border:1px solid #333;padding:40px;width:380px;max-width:90vw;text-align:center;">' +
+    '<img src="/assets/images/logo-full.png" style="height:48px;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;">' +
+    '<h2 style="color:#fff;font-size:20px;margin:0 0 8px;font-family:Rajdhani,sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;">Set Your Password</h2>' +
+    '<p style="color:#888;font-size:13px;margin:0 0 24px;">Create a password for your Decap CMS account</p>' +
+    '<input id="pw-input" type="password" placeholder="New password (8+ characters)" style="width:100%;padding:14px;background:#0d0d0d;border:1px solid #444;color:#fff;font-size:15px;margin-bottom:12px;box-sizing:border-box;">' +
+    '<input id="pw-confirm" type="password" placeholder="Confirm password" style="width:100%;padding:14px;background:#0d0d0d;border:1px solid #444;color:#fff;font-size:15px;margin-bottom:20px;box-sizing:border-box;">' +
+    '<div id="pw-msg" style="color:#e55;font-size:13px;margin-bottom:12px;min-height:18px;"></div>' +
+    '<button id="pw-btn" style="width:100%;padding:15px;background:#FFB347;color:#000;border:none;font-family:Rajdhani,sans-serif;font-style:italic;font-weight:700;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">Set Password</button>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  document.getElementById('pw-btn').addEventListener('click', function() {
+    var pw = document.getElementById('pw-input').value;
+    var conf = document.getElementById('pw-confirm').value;
+    var msg = document.getElementById('pw-msg');
+    var btn = document.getElementById('pw-btn');
+    if (pw.length < 8) { msg.textContent = 'Password must be at least 8 characters.'; return; }
+    if (pw !== conf) { msg.textContent = 'Passwords do not match.'; return; }
+    btn.textContent = 'Setting password...';
+    btn.disabled = true;
+    msg.style.color = '#888';
+    msg.textContent = 'Verifying token...';
+
+    fetch('https://phireworxphoto.com/.netlify/identity/verify', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({token: activeToken, type: tokenType})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.access_token) throw new Error(data.msg || 'Token invalid or expired. Request a new invite.');
+      msg.textContent = 'Setting password...';
+      return fetch('https://phireworxphoto.com/.netlify/identity/user', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + data.access_token},
+        body: JSON.stringify({password: pw})
+      });
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.email) {
+        msg.style.color = '#4caf50';
+        msg.textContent = 'Password set! Redirecting to admin...';
+        setTimeout(function() { window.location.href = '/admin/'; }, 1500);
+      } else { throw new Error(data.msg || 'Failed to update password'); }
+    })
+    .catch(function(err) {
+      msg.style.color = '#e55';
+      msg.textContent = err.message;
+      btn.textContent = 'Set Password';
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
 <!-- REVIEWS LOADER -->
 <script>
 (function() {
@@ -569,95 +639,5 @@
 </script>
 
 
-<script>
-(function() {
-  var recoveryToken = sessionStorage.getItem('netlify_recovery_token');
-  var inviteToken = sessionStorage.getItem('netlify_invite_token');
-  var activeToken = recoveryToken || inviteToken;
-  var tokenType = recoveryToken ? 'recovery' : 'invite';
-
-  if (!activeToken) return;
-
-  // Clear stored token
-  sessionStorage.removeItem('netlify_recovery_token');
-  sessionStorage.removeItem('netlify_invite_token');
-
-  // Build a clean custom password form overlay
-  var overlay = document.createElement('div');
-  overlay.id = 'pw-reset-overlay';
-  overlay.style.cssText = [
-    'position:fixed','top:0','left:0','right:0','bottom:0',
-    'background:rgba(0,0,0,0.92)','z-index:999999999',
-    'display:flex','align-items:center','justify-content:center',
-    'font-family:Inter,sans-serif'
-  ].join(';');
-
-  overlay.innerHTML = [
-    '<div style="background:#1a1a1a;border:1px solid #333;padding:40px;width:380px;max-width:90vw;text-align:center;">',
-      '<img src="/assets/images/logo-full.png" style="height:48px;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;">',
-      '<h2 style="color:#fff;font-size:20px;margin:0 0 8px;font-family:Rajdhani,sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Set Your Password</h2>',
-      '<p style="color:#888;font-size:13px;margin:0 0 24px;">Enter a new password for phireworxbusiness@gmail.com</p>',
-      '<input id="pw-input" type="password" placeholder="New password" style="width:100%;padding:14px;background:#0d0d0d;border:1px solid #444;color:#fff;font-size:15px;margin-bottom:12px;box-sizing:border-box;outline:none;">',
-      '<input id="pw-confirm" type="password" placeholder="Confirm password" style="width:100%;padding:14px;background:#0d0d0d;border:1px solid #444;color:#fff;font-size:15px;margin-bottom:20px;box-sizing:border-box;outline:none;">',
-      '<div id="pw-msg" style="color:#e55;font-size:13px;margin-bottom:12px;min-height:18px;"></div>',
-      '<button id="pw-btn" style="width:100%;padding:15px;background:#FFB347;color:#000;border:none;font-family:Rajdhani,sans-serif;font-style:italic;font-weight:700;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">Set Password</button>',
-    '</div>'
-  ].join('');
-
-  document.body.appendChild(overlay);
-
-  document.getElementById('pw-btn').addEventListener('click', function() {
-    var pw = document.getElementById('pw-input').value;
-    var conf = document.getElementById('pw-confirm').value;
-    var msg = document.getElementById('pw-msg');
-    var btn = document.getElementById('pw-btn');
-
-    if (pw.length < 8) { msg.textContent = 'Password must be at least 8 characters.'; return; }
-    if (pw !== conf) { msg.textContent = 'Passwords do not match.'; return; }
-
-    btn.textContent = 'Setting password...';
-    btn.disabled = true;
-    msg.style.color = '#888';
-    msg.textContent = 'Please wait...';
-
-    // Step 1: verify token to get access token
-    fetch('https://phireworxphoto.com/.netlify/identity/verify', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({token: activeToken, type: tokenType})
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (!data.access_token) throw new Error(data.msg || 'Token invalid or expired');
-      // Step 2: update password
-      return fetch('https://phireworxphoto.com/.netlify/identity/user', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + data.access_token
-        },
-        body: JSON.stringify({password: pw})
-      });
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.email) {
-        msg.style.color = '#4caf50';
-        msg.textContent = 'Password set! Redirecting to admin...';
-        setTimeout(function() { window.location.href = '/admin/'; }, 1500);
-      } else {
-        throw new Error(data.msg || 'Failed to set password');
-      }
-    })
-    .catch(function(err) {
-      msg.style.color = '#e55';
-      msg.textContent = 'Error: ' + err.message;
-      btn.textContent = 'Set Password';
-      btn.disabled = false;
-    });
-  });
-
-})();
-</script>
 </body>
 </html>
