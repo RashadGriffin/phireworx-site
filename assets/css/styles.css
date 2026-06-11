@@ -2127,3 +2127,164 @@ img, video, iframe {
   .gallery-item.wide { grid-column: span 1; }
   .banner-row-grid { grid-template-columns: 1fr; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   PHIREWORX MOTION SYSTEM — v44
+   All reveal classes are added by JS only; if JS fails to load
+   the site renders exactly as before. Honors reduced motion.
+   ════════════════════════════════════════════════════════════ */
+
+html.pw-motion { scroll-behavior: smooth; }
+html.pw-motion ::selection { background: var(--ember); color: #000; }
+
+/* ── Scroll progress bar ── */
+#pw-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--ember), #ffd28a);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 2147483646;
+  pointer-events: none;
+}
+
+/* ── Nav scrolled state ── */
+.nav { transition: box-shadow 0.35s ease, background 0.35s ease; }
+.nav.pw-scrolled {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Hero entrance ── */
+.pw-hero-item {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.pw-hero-visual {
+  opacity: 0;
+  transform: translateX(44px) scale(0.985);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.pw-hero-in .pw-hero-item { opacity: 1; transform: none; }
+.pw-hero-in .pw-hero-visual { opacity: 1; transform: none; }
+
+/* ── Scroll reveals ── */
+.pw-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.pw-reveal.pw-in { opacity: 1; transform: none; }
+
+/* ── Card hover micro-interactions ── */
+html.pw-motion .service-card,
+html.pw-motion .testimonial-card,
+html.pw-motion .booking-card,
+html.pw-motion .feature-card,
+html.pw-motion .banner-type-card,
+html.pw-motion .ideal-program-card,
+html.pw-motion .pricing-tier {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+html.pw-motion .service-card:hover,
+html.pw-motion .testimonial-card:hover,
+html.pw-motion .booking-card:hover,
+html.pw-motion .feature-card:hover,
+html.pw-motion .banner-type-card:hover,
+html.pw-motion .ideal-program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 179, 71, 0.25);
+}
+
+/* ── Image zoom on hover (gallery + cards) ── */
+html.pw-motion .gallery-item,
+html.pw-motion .shoot-gallery-item,
+html.pw-motion .media-gallery-cell,
+html.pw-motion .photo-strip-cell,
+html.pw-motion .hero-visual-cell,
+html.pw-motion .service-card-img,
+html.pw-motion [class*="card-visual"] {
+  overflow: hidden;
+}
+html.pw-motion .gallery-item img,
+html.pw-motion .shoot-gallery-item img,
+html.pw-motion .media-gallery-cell img,
+html.pw-motion .photo-strip-cell img,
+html.pw-motion .hero-visual-cell img,
+html.pw-motion .service-card img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.pw-motion .gallery-item:hover img,
+html.pw-motion .shoot-gallery-item:hover img,
+html.pw-motion .media-gallery-cell:hover img,
+html.pw-motion .photo-strip-cell:hover img,
+html.pw-motion .hero-visual-cell:hover img,
+html.pw-motion .service-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ── Button shine sweep ── */
+html.pw-motion .btn-primary,
+html.pw-motion .booking-card-action,
+html.pw-motion .nav-cta {
+  position: relative;
+  overflow: hidden;
+}
+html.pw-motion .btn-primary::after,
+html.pw-motion .booking-card-action::after,
+html.pw-motion .nav-cta::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+html.pw-motion .btn-primary:hover::after,
+html.pw-motion .booking-card-action:hover::after,
+html.pw-motion .nav-cta:hover::after,
+html.pw-motion .booking-card:hover .booking-card-action::after {
+  left: 130%;
+}
+
+/* ── Badge dot pulse ── */
+.pw-pulse {
+  animation: pwPulse 2s ease-in-out infinite;
+}
+@keyframes pwPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ── Process / step number accent on reveal ── */
+html.pw-motion .process-num,
+html.pw-motion .how-step-num {
+  transition: color 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.pw-motion .pw-reveal.pw-in .process-num,
+html.pw-motion .pw-reveal.pw-in .how-step-num {
+  color: var(--ember);
+}
+
+/* ── Reduced motion: kill everything ── */
+@media (prefers-reduced-motion: reduce) {
+  .pw-reveal, .pw-hero-item, .pw-hero-visual {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  #pw-progress { display: none; }
+  .pw-pulse { animation: none; }
+  html { scroll-behavior: auto; }
+}
