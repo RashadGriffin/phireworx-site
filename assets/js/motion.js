@@ -11,7 +11,11 @@
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var docEl = document.documentElement;
   docEl.classList.add(REDUCED ? 'pw-reduced' : 'pw-motion');
-  if (REDUCED) return; // honor user preference — site behaves exactly as before
+  if (REDUCED) {
+    // Still enable the lightbox utility (not decoration) under reduced motion
+    onReady(function () { try { initLightbox(); } catch (e) {} });
+    return;
+  }
 
   /* ───────────────────────────── helpers ───────────────────────────── */
   function onReady(fn) {
@@ -278,6 +282,80 @@
     }, 4000);
   }
 
+
+  /* ════════════════════════════════════════════════════════════
+     9. LIGHTBOX — click any [data-lightbox] image to enlarge.
+        Uses the .lb-overlay markup already on every page.
+        Works regardless of reduced-motion (it's a utility, not decoration).
+     ════════════════════════════════════════════════════════════ */
+  function initLightbox() {
+    var overlay = document.getElementById('lb-overlay');
+    var lbImg = document.getElementById('lb-img');
+    if (!overlay || !lbImg) return;
+    var closeBtn = document.getElementById('lb-close');
+    var prevBtn = document.getElementById('lb-prev');
+    var nextBtn = document.getElementById('lb-next');
+
+    var gallery = [];
+    var current = -1;
+
+    function collect() {
+      gallery = Array.prototype.slice.call(document.querySelectorAll('img[data-lightbox]'));
+    }
+    function show(i) {
+      if (!gallery.length) return;
+      current = (i + gallery.length) % gallery.length;
+      var src = gallery[current].getAttribute('src');
+      var alt = gallery[current].getAttribute('alt') || '';
+      lbImg.setAttribute('src', src);
+      lbImg.setAttribute('alt', alt);
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // toggle arrows if only one image
+      var multi = gallery.length > 1;
+      if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
+      if (nextBtn) nextBtn.style.display = multi ? '' : 'none';
+    }
+    function hide() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      lbImg.setAttribute('src', '');
+      current = -1;
+    }
+
+    // Delegate clicks so async-injected images (CMS galleries) work too
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.tagName === 'IMG' && t.hasAttribute('data-lightbox')) {
+        e.preventDefault();
+        collect();
+        var idx = gallery.indexOf(t);
+        show(idx < 0 ? 0 : idx);
+      }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); hide(); });
+    if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
+
+    // Click backdrop (but not the image) closes
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || (e.target.classList && e.target.classList.contains('lb-img-wrap'))) hide();
+    });
+
+    // Keyboard: Esc closes, arrows navigate
+    document.addEventListener('keydown', function (e) {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') hide();
+      else if (e.key === 'ArrowLeft') show(current - 1);
+      else if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    // expose for any external re-init
+    window.initLightbox = function () { collect(); };
+    collect();
+  }
+
   /* ───────────────────────────── boot ───────────────────────────── */
   onReady(function () {
     try { initProgressBar(); } catch (e) {}
@@ -287,6 +365,7 @@
     try { initCounters(); } catch (e) {}
     try { initParallax(); } catch (e) {}
     try { initBadgePulse(); } catch (e) {}
+    try { initLightbox(); } catch (e) {}
     try { watchAsyncContent(); } catch (e) {}
     try { safetyNet(); } catch (e) {}
   });
