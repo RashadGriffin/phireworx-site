@@ -128,18 +128,19 @@
 #mob-svc-sub a:last-child { border-bottom: none !important; }
 </style>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
+    <script>
     // Grab recovery token IMMEDIATELY — before widget or anything else runs
     (function() {
       var h = window.location.hash || '';
-      var m = h.match(/recovery_token=([^&]+)/);
-      if (m) {
-        sessionStorage.setItem('netlify_recovery_token', m[1]);
-        // Replace hash so widget sees clean state, we handle it ourselves
-      }
+      var rec = h.match(/recovery_token=([^&]+)/);
       var inv = h.match(/invite_token=([^&]+)/);
+      if (rec) sessionStorage.setItem('netlify_recovery_token', rec[1]);
       if (inv) sessionStorage.setItem('netlify_invite_token', inv[1]);
+      // Strip the token from the URL IMMEDIATELY so nothing else can consume it.
+      if (rec || inv) {
+        try { history.replaceState(null, '', window.location.pathname + window.location.search); }
+        catch (e) { window.location.hash = ''; }
+      }
     })();
   </script>
 </head>
