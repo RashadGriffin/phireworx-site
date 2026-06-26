@@ -1,0 +1,63 @@
+{
+  "eyebrow": "Team Photo Day",
+  "headline": "Photo Day, *Done Right.*",
+  "sub": "Free to your organization. Families pay for what they want. Online ordering for every athlete.",
+  "steps": [
+    {
+      "title": "Book Your Date",
+      "desc": "Fill out the booking form and we confirm your date, time, and setup details."
+    },
+    {
+      "title": "We Show Up Ready",
+      "desc": "We arrive with everything needed — backdrops, lighting, props. You just bring the athletes."
+    },
+    {
+      "title": "Athletes Get Photographed",
+      "desc": "Individual portraits, team shots, and action poses. We move fast and keep energy high."
+    },
+    {
+      "title": "Online Gallery Goes Live",
+      "desc": "Families receive a link to order prints, digitals, and packages directly. No paper forms."
+    }
+  ],
+  "features": [
+    {
+      "title": "Mobile-Friendly Ordering",
+      "desc": "Parents order from their phone the same day photos go live."
+    },
+    {
+      "title": "Fast Turnaround",
+      "desc": "Galleries live within 1-2 weeks of your photo day."
+    },
+    {
+      "title": "No Upfront Cost",
+      "desc": "Your organization pays nothing. Families purchase what they want."
+    },
+    {
+      "title": "Secure Delivery",
+      "desc": "Every order delivered digitally or shipped directly to the family."
+    },
+    {
+      "title": "Multiple Packages",
+      "desc": "Digitals, prints, and custom packages available for every budget."
+    },
+    {
+      "title": "Satisfaction Guaranteed",
+      "desc": "Any issues with an order, we make it right."
+    }
+  ],
+  "styles": [
+    {
+      "title": "Natural Style",
+      "desc": "Clean, classic portraits using the natural environment — gym floors, fields, courts. Timeless look that works for any sport."
+    },
+    {
+      "title": "Composite Style",
+      "desc": "Athletes photographed individually then composited into a dramatic team image. High-impact visuals with professional backgrounds and lighting effects."
+    }
+  ],
+  "section_titles": {
+    "main": "Picture Day, Done Right.",
+    "upsell": "Want to Take It Further?"
+  }
+}

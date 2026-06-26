@@ -1,0 +1,51 @@
+{
+  "eyebrow": "We Offer",
+  "headline": "Our *Services*",
+  "sub": "Three services built for different programs and goals. Read through, find what fits your program, and go from there.",
+  "services": [
+    {
+      "number": "01",
+      "title": "Team & Individual Photo Day",
+      "sub": "The Foundation of What We Do",
+      "desc": "We come to you. No cost to your organization — families pay for what they want through a secure online gallery. Works for any sport, any level, any roster size.",
+      "features": [
+        "Free to your organization",
+        "Online ordering for families",
+        "Individual + team shots",
+        "Natural and composite options",
+        "1–2 week gallery turnaround"
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Pro Banners",
+      "sub": "Vinyl Banners That Last",
+      "desc": "Individual athlete banners, traditional team banners, and full composite designs. 3–7 business day production. Bulk pricing available for 4+ banners.",
+      "features": [
+        "Individual & senior banners",
+        "Traditional team banners",
+        "Composite team banners",
+        "3–7 day turnaround",
+        "Bulk pricing for 4+ orders"
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Phireworx Media Day Experience",
+      "sub": "Premium Prepaid Production",
+      "desc": "One flat rate. Paid by the program. Every photo from the shoot goes directly to your team. No packages, no ordering, no waiting. Advanced lighting, smoke, dramatic setups.",
+      "features": [
+        "Program pays one flat rate",
+        "Every digital delivered",
+        "Advanced production setup",
+        "Smoke, gels, dramatic lighting",
+        "7–10 business day delivery"
+      ]
+    }
+  ],
+  "compare_section": {
+    "eyebrow": "Side by Side",
+    "headline": "Not Sure Which One?",
+    "sub": "A quick comparison to help you figure out which service fits your program best."
+  }
+}

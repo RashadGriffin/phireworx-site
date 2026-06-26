@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Team & Individual Photo Day | Phireworx Photography Arizona</title>
+  <meta name="description" content="Professional team and individual sports photo days for high school programs and youth leagues across Phoenix, AZ. Natural shoots, composite sessions, and EZ online ordering.">
+  <link rel="stylesheet" href="assets/css/styles.css?v=45">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
+
+
+<style id="mobile-menu-styles">
+/* NAV — always on top */
+#nav { z-index: 2147483645 !important; }
+
+/* HAMBURGER — always visible above menu */
+#hamburger {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #hamburger { display: flex !important; }
+}
+
+/* FULLSCREEN MENU — starts below nav bar */
+#nav-mobile {
+  display: none !important;
+  position: fixed !important;
+  top: 68px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 68px) !important;
+  z-index: 2147483644 !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  background: #0d0d0d !important;
+  padding: 32px 28px 40px !important;
+  gap: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+#nav-mobile.open { display: flex !important; }
+
+/* Main nav links — large, amber on tap */
+#nav-mobile > a {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+}
+#nav-mobile > a:active { color: #FFB347 !important; }
+
+/* Book Now CTA button */
+#nav-mobile a.nav-mobile-cta {
+  background: #FFB347 !important;
+  color: #000000 !important;
+  text-align: center !important;
+  padding: 16px !important;
+  margin-top: 28px !important;
+  border: none !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  display: block !important;
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+/* Services trigger button */
+.nav-mobile-services-trigger {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+}
+.nav-mobile-services-trigger.open { color: #FFB347 !important; }
+
+/* Services sub-menu — amber accent links */
+#mob-svc-sub {
+  display: none !important;
+  flex-direction: column !important;
+  padding: 8px 0 8px 16px !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+#mob-svc-sub.open { display: flex !important; }
+#mob-svc-sub a {
+  font-size: 17px !important;
+  font-style: italic !important;
+  color: #FFB347 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,179,71,0.12) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+#mob-svc-sub a:last-child { border-bottom: none !important; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="/services.html">All Services Overview</a>
+          </div>
+          <a href="/photoday" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="/media" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+          <a href="banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/book" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="/services.html">All Services</a>
+    <a href="/photoday">Team Photo Day</a>
+    <a href="/media">Media Day Experience</a>
+    <a href="banners.html">Pro Banners</a>
+  </div>
+  <a href="/reviews">Reviews</a>
+  <a href="support.html">Support</a>
+  <a href="/book" class="nav-mobile-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="padding-bottom:0;">
+  <div class="page-hero-inner" style="padding-bottom:60px;">
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Services</p>
+    <h1 class="page-hero-title" id="cms-headline">Team &amp; Individual<br><span>Photo Day</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Fast, fun, and stress-free picture days that capture every athlete at their best. We come to you — natural on-location shoots or dramatic composite sessions, all with online ordering for every family.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+      <a href="/book" class="btn-primary">Book Your Photo Day &rarr;</a>
+      <a href="#natural" class="btn-ghost">See Shoot Styles</a>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+    <div class="photo-strip-cell">
+    <img data-lightbox src="assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural outdoor shoot" loading="lazy">
+  </div>
+  <div class="photo-strip-cell">
+    <img data-lightbox src="assets/images/hero-action-soccer-kick.jpg" alt="Soccer player action kick at sunset" loading="lazy">
+  </div>
+  <div class="photo-strip-cell">
+    <img data-lightbox src="assets/images/strip-natural-basketball-vikings.jpg" alt="Vikings basketball player — natural gym shoot" loading="lazy">
+  </div>
+  <div class="photo-strip-cell">
+    <img data-lightbox src="assets/images/strip-natural-soccer-girl.jpg" alt="Soccer player — natural outdoor shoot" loading="lazy">
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <div class="split-intro">
+      <div class="split-intro-left">
+        <p class="section-eyebrow" style="margin-bottom:20px;">What It Is</p>
+        <h2 class="section-title" style="margin-bottom:20px;">Picture Day,<br><span>Done Right.</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:20px;">Team Photo Day is a <strong style="color:var(--white);">no-cost service for your organization</strong> — families pay directly for the packages they want, with zero hassle for coaches or ADs. We handle everything from setup to gallery delivery.</p>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:28px;">Choose from two shoot styles: real on-location natural shoots on your field or court, or high-impact composite sessions with dramatic studio backgrounds. Both deliver professional results your athletes will be proud of.</p>
+        <a href="#natural" class="service-link" style="display:inline-flex;align-items:center;gap:6px;">See Both Styles &rarr;</a>
+      </div>
+      <div class="split-intro-right">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box">
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Online Ordering</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Families browse and order directly from their phone. No paper forms, no collecting envelopes, no chasing payments.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box">
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">1–2 Week Delivery</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">Online gallery goes live within 1–2 weeks. Orders ship directly to families — coaches have zero post-shoot work.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box">
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Free to Your Program</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">No upfront cost to the organization. Families pay for what they want — your program pays nothing.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div class="icon-box ember-box">
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:4px;font-style:italic;">Professional Results</div>
+              <p style="font-size:13px;color:var(--mist);line-height:1.65;">14+ years photographing Arizona athletes. Every shot is lit, composed, and edited to make your athletes look elite.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SHOOT TYPES -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">The Flexibility Your Program Needs</p>
+    <h2 class="section-title" id="cms-title-1">Two Shoot <span>Styles</span></h2>
+    <p class="section-desc" id="cms-desc-1">Whether you want real on-location images or dramatic composite sessions, we deliver high-level results for any program in any setting.</p>
+
+    <div class="shoot-grid" id="natural">
+      <div class="shoot-card">
+        <div class="shoot-label">Option 01</div>
+        <h3 class="shoot-title">Natural Shoots</h3>
+        <p class="shoot-desc">Athletes are photographed on your team's actual field, court, or playing surface. Professional lighting brings a dramatic, high-end look to your home environment.</p>
+        <div class="shoot-features">
+          <div class="shoot-feature">Real on-location images on your field or court</div>
+          <div class="shoot-feature">Professional lighting with our signature dramatic look</div>
+          <div class="shoot-feature">Showcases your team's home environment and identity</div>
+          <div class="shoot-feature">Team and individual shots in the same session</div>
+        </div>
+        <!-- GALLERY: Replace placeholders with real photos -->
+        <div class="shoot-gallery">
+          <div class="shoot-gallery-item">
+            <img data-lightbox src="assets/images/composite-baseball-dugout.jpg" alt="Baseball player — natural dugout shoot" loading="lazy">
+          </div>
+          <div class="shoot-gallery-item">
+            <img data-lightbox src="assets/images/natural-baseball-knights.jpg" alt="Knights baseball player — natural outdoor shoot" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="shoot-card" id="composite">
+        <div class="shoot-label">Option 02</div>
+        <h3 class="shoot-title">Composite Shoots</h3>
+        <p class="shoot-desc">Athletes are photographed individually on a backdrop, then seamlessly placed onto custom digital backgrounds. The result is a cinematic, consistent look for every athlete.</p>
+        <div class="shoot-features">
+          <div class="shoot-feature">Each athlete photographed individually with consistent lighting</div>
+          <div class="shoot-feature">Custom digital backgrounds matched to your team's colors and identity</div>
+          <div class="shoot-feature">Multiple pose options and background designs per athlete</div>
+          <div class="shoot-feature">Perfect for indoor shoots — beat the Arizona heat</div>
+          <div class="shoot-feature">Lighting, color, and shadows matched for a natural, high-end look</div>
+        </div>
+        <div class="shoot-gallery">
+          <div class="shoot-gallery-item">
+            <img data-lightbox src="assets/images/composite-football-tolleson.jpg" alt="Tolleson football player — composite smoke portrait" loading="lazy">
+          </div>
+          <div class="shoot-gallery-item">
+            <img data-lightbox src="assets/images/strip-natural-track.jpg" alt="Track athlete — composite shoot" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE ORDERING -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);" id="ordering">
+  <div class="section-inner">
+    <p class="section-eyebrow">For Families &amp; Coaches</p>
+    <h2 class="section-title" id="cms-title-2">EZ Online <span>Ordering</span></h2>
+    <p class="section-desc" id="cms-desc-2">No paper forms. No collecting cash. No distribution headaches. We built a process that works for everyone.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="feature-title">Order From Anywhere</div>
+        <p class="feature-desc">Families browse and purchase photos directly from their phone or computer. No account required, no app to download.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="feature-title">1–2 Week Turnaround</div>
+        <p class="feature-desc">Online galleries go live within 1–2 weeks of picture day. Parents are notified the moment their gallery is ready to view.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M21 10V20a2 2 0 01-2 2H5a2 2 0 01-2-2V10"/><rect x="1" y="6" width="22" height="4"/><line x1="12" y1="22" x2="12" y2="6"/></svg></div>
+        <div class="feature-title">Direct Delivery</div>
+        <p class="feature-desc">Photos ship directly to each family's door. Coaches and ADs have zero post-shoot responsibilities — zero.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div class="feature-title">No Upfront Payment</div>
+        <p class="feature-desc">Families see their photos before they pay. Orders are placed and paid for after viewing — no prepayment required from coaches.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="feature-title">Multiple Products</div>
+        <p class="feature-desc">Families can order digital downloads, prints, and other photo products — all from the same gallery, in one transaction.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="feature-title">Coach-Friendly</div>
+        <p class="feature-desc">No managing distribution. No chasing families for payment. We handle the entire post-shoot experience from start to finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<div class="divider"></div>
+<section class="section" style="background: var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 class="section-title" id="cms-title-3">Simple <span>Process</span></h2>
+    <p class="section-desc" id="cms-desc-3">We handle everything so coaches can focus on their program — not logistics.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num" style="color:var(--ember);">01</div>
+        <div class="process-title">Book Your Date</div>
+        <p class="process-desc">Fill out our quick booking request form. We'll confirm your date, review your program's needs, and lock everything in — usually within one business day.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num" style="color:var(--ember);">02</div>
+        <div class="process-title">We Handle Picture Day</div>
+        <p class="process-desc">We arrive with professional lighting, backdrops, and a plan. Fast, organized, and fun. We work with every athlete to get a great shot — no one gets a bad photo.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num" style="color:var(--ember);">03</div>
+        <div class="process-title">Gallery Goes Live</div>
+        <p class="process-desc">Within 1–2 weeks, your online gallery is ready. Families get notified automatically. They browse, select, and order directly from their phone or computer.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num" style="color:var(--ember);">04</div>
+        <div class="process-title">Photos Delivered</div>
+        <p class="process-desc">Orders ship directly to families. No collecting packages, no distributing envelopes. Coaches and ADs have zero post-shoot responsibilities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA DAY CROSSLINK -->
+<div class="divider"></div>
+<section class="section" style="background:var(--steel);">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;align-items:stretch;">
+
+      <div style="padding:48px 52px;">
+        <p class="section-eyebrow" style="margin-bottom:16px;">Looking for Something Different?</p>
+        <h2 class="section-title" style="margin-bottom:20px;">Want to Take It<br><span>Further?</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:12px;">Picture Day is built around volume — efficient, professional, and family-friendly. But some programs want something more than documentation.</p>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:32px;">The <strong style="color:var(--white);">Phireworx Media Day Experience</strong> is a different product entirely — a prepaid, creative-first production shoot where the organization funds the session and gets every digital from the shoot. Advanced lighting, flexible locations, and a visual identity built specifically for your program.</p>
+        <a href="/media" class="btn-primary">See the Media Day Experience &rarr;</a>
+      </div>
+
+      <div style="background:var(--ash);padding:48px 44px;display:flex;flex-direction:column;gap:20px;justify-content:center;">
+
+        <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--slate);">
+          <div style="width:3px;background:var(--ember);flex-shrink:0;align-self:stretch;border-radius:2px;"></div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:5px;font-style:italic;">Picture Day</div>
+            <p style="font-size:13px;color:var(--mist);line-height:1.65;margin:0;">Families pay per package. Volume workflow. Standard setup. Online gallery ordering for every athlete. Coaches handle zero logistics after booking.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:3px;background:var(--ember);flex-shrink:0;align-self:stretch;border-radius:2px;"></div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:5px;font-style:italic;">Media Day Experience</div>
+            <p style="font-size:13px;color:var(--mist);line-height:1.65;margin-bottom:12px;">Organization pays upfront. Every digital delivered to the team. Advanced lighting and effects. Creative-first approach with more time per athlete. Built for content, not keepsakes.</p>
+            <a href="/media" class="service-link" style="font-size:12px;">View pricing &amp; details &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="divider"></div>
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2 class="cta-title">Ready to Book<br>Your <span>Photo Day?</span></h2>
+    <p class="cta-desc">Fill out our quick booking request and we'll be in touch within one business day to confirm your date and details.</p>
+    <div class="cta-btns">
+      <a href="/book" class="btn-primary">Book Now &rarr;</a>
+      <a href="tel:4807099969" class="btn-ghost">(480) 709-9969</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="/photoday">Team Photo Days</a></li>
+          <li><a href="/media">Media Day Experience</a></li>
+          <li><a href="/banners.html">Pro Banners</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/policies.html">Policies</a></li>
+          <li><a href="/book">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+      <p class="footer-areas">Serving: Phoenix &middot; Scottsdale &middot; Chandler &middot; Mesa &middot; Gilbert &middot; Peoria &middot; Goodyear &middot; Avondale &middot; Surprise &middot; Buckeye &middot; Litchfield Park &middot; Tolleson &middot; Laveen &middot; Ahwatukee &middot; Fountain Hills &middot; Paradise Valley &middot; El Mirage &middot; Waddell &middot; Maricopa</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+<script id="mobile-menu-js">
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('nav-mobile');
+  if (!hamburger || !navMobile) return;
+
+  var spans = hamburger.querySelectorAll('span');
+
+  function openMenu() {
+    navMobile.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    if (spans[0]) spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px);transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'opacity:0;transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px);transition:all 0.2s';
+  }
+
+  function closeMenu() {
+    navMobile.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    if (spans[0]) spans[0].style.cssText = 'transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transition:all 0.2s';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navMobile.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  var mobTrigger = document.getElementById('mob-svc-trigger');
+  var mobSub = document.getElementById('mob-svc-sub');
+  if (mobTrigger && mobSub) {
+    mobTrigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobTrigger.classList.toggle('open');
+      mobSub.classList.toggle('open');
+    });
+  }
+
+  var ddLi = document.querySelector('.nav-dropdown');
+  var ddMenu = document.querySelector('.nav-dropdown-menu');
+  var ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+    ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+  }
+})();
+</script>
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/photo-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  const sh=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.innerHTML=v};
+  s('cms-eyebrow', d.eyebrow);
+  (function(){var e=document.getElementById('cms-headline');if(e&&d.headline!=null){e.innerHTML=String(d.headline).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*([^*]+)\*/g,'<span>$1</span>');}})();
+  s('cms-sub', d.sub);
+  if(d.descriptions){d.descriptions.forEach((v,i)=>s('cms-desc-'+(i+1),v))}
+  if(d.section_titles){d.section_titles.forEach((v,i)=>sh('cms-title-'+(i+1),v))}
+  if(d.steps){
+    const steps=document.querySelectorAll('.process-item');
+    d.steps.forEach((step,i)=>{
+      if(steps[i]){
+        const t=steps[i].querySelector('.process-title');
+        const desc=steps[i].querySelector('.process-desc');
+        if(t)t.textContent=step.title;
+        if(desc)desc.textContent=step.desc;
+      }
+    });
+  }
+  if(d.features){
+    const cards=document.querySelectorAll('.feature-card');
+    d.features.forEach((f,i)=>{
+      if(cards[i]){
+        const t=cards[i].querySelector('.feature-title');
+        const desc=cards[i].querySelector('.feature-desc');
+        if(t)t.textContent=f.title;
+        if(desc)desc.textContent=f.desc;
+      }
+    });
+  }
+  if(d.styles){
+    const cards=document.querySelectorAll('.shoot-card, .shoot-type-card');
+    d.styles.forEach((s,i)=>{
+      if(cards[i]){
+        const t=cards[i].querySelector('.shoot-title, h3');
+        const desc=cards[i].querySelector('.shoot-desc, p');
+        if(t)t.textContent=s.title;
+        if(desc)desc.textContent=s.desc;
+      }
+    });
+  }
+}).catch(()=>{});
+</script>
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
+  }
+})();
+</script>
+<script src="/assets/js/motion.js?v=2" defer></script>
+</body>
+</html>

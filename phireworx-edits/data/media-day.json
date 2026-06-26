@@ -1,0 +1,109 @@
+{
+  "eyebrow": "Premium Service",
+  "headline": "Phireworx Media Day *Experience*",
+  "sub": "A prepaid, creative-first media production shoot where the organization funds the session. Full digital access. Advanced lighting. A distinct visual identity built for your program.",
+  "core_heading": "Not a Picture Day. A Production.",
+  "core_body": "The Media Day Experience is a full creative shoot — smoke machines, colored gels, dramatic lighting, and intentional direction. Every athlete leaves with images that look like they belong in a press kit, not a school hallway.",
+  "what_you_get": [
+    {
+      "title": "Every Image Delivered",
+      "desc": "Every edited photo from the shoot is yours. Complete usage rights. Use them however, whenever, for anything."
+    },
+    {
+      "title": "Advanced Production",
+      "desc": "Smoke machines, colored gels, dramatic lighting setups — effects not feasible in high-volume picture day workflows."
+    },
+    {
+      "title": "Full Digital Ownership",
+      "desc": "Every edited image from the shoot is delivered to you. Complete usage rights for recruiting, press, social media, and promotions."
+    },
+    {
+      "title": "Flexible Locations",
+      "desc": "Gyms, fields, custom setups, or off-site environments. We build the look around your team's environment and identity."
+    }
+  ],
+  "ideal_programs": [
+    {
+      "title": "High School Varsity Programs",
+      "desc": "Give your varsity program the professional visual identity to match their level of competition."
+    },
+    {
+      "title": "Club & Travel Teams",
+      "desc": "Stand out in recruiting, attract sponsors, and give your club team the professional look that elite organizations deserve."
+    },
+    {
+      "title": "Athletic Departments",
+      "desc": "Cover multiple programs in a single day. Athletic directors use media shoots to refresh their entire department's visual assets for the season."
+    },
+    {
+      "title": "Booster & Spirit Groups",
+      "desc": "Build booster materials, game programs, and spirit merch with professionally licensed photography."
+    },
+    {
+      "title": "College Recruiting Prep",
+      "desc": "Athletes with professional-quality photos stand out in recruiting profiles."
+    },
+    {
+      "title": "Youth Elite Programs",
+      "desc": "Top-tier youth programs deserve top-tier photos. Media shoots work for any roster size."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Book & Pay Upfront",
+      "desc": "Submit a booking request. We confirm availability, review your program's needs, and invoice you. One flat rate, no surprises."
+    },
+    {
+      "title": "Pre-Shoot Planning",
+      "desc": "We connect before the shoot to plan setup, location, roster size, and any custom looks or themes."
+    },
+    {
+      "title": "Media Day",
+      "desc": "We handle everything on-site. Professional lighting, equipment, and direction. Athletes move through quickly."
+    },
+    {
+      "title": "Editing & Delivery",
+      "desc": "All images professionally edited and delivered to your private download gallery within 7-10 business days."
+    }
+  ],
+  "gallery": [
+    {
+      "image": "/assets/images/mediaday-basketball-chavez-dunk.jpg",
+      "alt": "Cesar Chavez basketball team dunk — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-track-javelin.jpg",
+      "alt": "Track athlete with javelin — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-locker.jpg",
+      "alt": "Saguaro player holding jersey in locker room — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-basha-team.jpg",
+      "alt": "Basha basketball team group — Media Day Experience",
+      "wide": true
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-throne.jpg",
+      "alt": "Saguaro football player on throne — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-tigers-girl.jpg",
+      "alt": "Tigers basketball player dribbling — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-volleyball-red-smoke.jpg",
+      "alt": "Volleyball player with red smoke — Media Day"
+    }
+  ],
+  "section_titles": {
+    "production": "Not a Picture Day. A Production.",
+    "gallery": "Media Day Gallery",
+    "pricing": "Per-Athlete Rates",
+    "included": "What You Walk Away With",
+    "ideal": "Ideal Programs",
+    "how": "How It Works",
+    "book": "Book Your Media Day"
+  }
+}

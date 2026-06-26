@@ -1,0 +1,22 @@
+{
+  "eyebrow": "Pro Banners",
+  "headline": "Banners That *Hit Different.*",
+  "sub": "Professional vinyl banners for individual athletes, senior nights, and full team composites. Designed and printed to last.",
+  "types": [
+    {
+      "title": "Individual Athlete Banner",
+      "desc": "Single athlete portrait on a high-quality vinyl banner. Perfect for senior nights, gym displays, and personal keepsakes.",
+      "price": "From $50"
+    },
+    {
+      "title": "Traditional Team Banner",
+      "desc": "Full team photo on a large format vinyl banner. Great for gym walls, booster displays, and program identity.",
+      "price": "From $90"
+    },
+    {
+      "title": "Composite Team Banner",
+      "desc": "Individual athletes photographed separately then composited into a single dramatic team image. The premium option.",
+      "price": "From $250"
+    }
+  ]
+}

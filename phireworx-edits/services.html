@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Services | Phireworx Photography</title>
+  <meta name="description" content="Phireworx Photography offers three core services for Arizona sports programs — Team Photo Day, Media Day Experience, and Pro Banners. See what's right for your program.">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=45">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,0 20,10 31,7 25,16 28,27 16,22 4,27 7,16 1,7 12,10' fill='%23FF5A1F'/></svg>">
+  <style>
+    /* Service feature block */
+    .svc-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .svc-block-text {
+      background: var(--ash);
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .svc-block-visual {
+      background: var(--steel);
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+    }
+    .svc-block-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.5s ease;
+      cursor: zoom-in;
+    }
+    .svc-block-visual:hover img { transform: scale(1.04); }
+
+    .svc-block-visual-ph {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+      opacity: 0.3; z-index: 1;
+    }
+    .svc-block-visual-mark {
+      width: 40px; height: 40px;
+      clip-path: polygon(50% 0%,62% 32%,98% 22%,78% 50%,90% 85%,50% 68%,10% 85%,22% 50%,2% 22%,38% 32%);
+    }
+    /* Reversed layout for alternating blocks */
+    .svc-block.reversed .svc-block-text { order: 2; }
+    .svc-block.reversed .svc-block-visual { order: 1; }
+    /* Number accent */
+    .svc-num-accent {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 10vw, 130px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      opacity: 0.06;
+      position: absolute;
+      top: 16px; right: 20px;
+      color: var(--white);
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Quick facts pills */
+    .svc-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+    .svc-fact {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--steel);
+      border: 1px solid var(--slate);
+      padding: 7px 14px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+    .svc-fact-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .svc-fact-dot.flame { background: var(--ember); }
+    .svc-fact-dot.ember { background: var(--ember); }
+    /* Who it's for tags */
+    .svc-for {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .svc-for-tag {
+      font-size: 11px;
+      color: var(--mist);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--slate);
+      padding: 4px 12px;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .compare-table thead th {
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 1px solid var(--slate);
+    }
+    .compare-table thead .th-feature { color: var(--mist); width: 28%; }
+    .compare-table thead .th-photoday { color: var(--ember); }
+    .compare-table thead .th-mediaday { color: var(--ember); }
+    .compare-table thead .th-banners  { color: var(--silver); }
+    .compare-table tbody tr { border-bottom: 1px solid var(--slate); }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+    .compare-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+    .compare-table tbody td {
+      padding: 15px 20px;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    .compare-table .td-feature {
+      font-weight: 600;
+      color: var(--silver);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .compare-table .td-yes { color: var(--ember); font-weight: 700; }
+    .compare-table .td-yes.ember { color: var(--ember); }
+    .compare-table .td-val { color: var(--white); }
+    .compare-table .td-no { color: var(--iron); }
+    /* CTA strip at bottom of each service */
+    .svc-cta-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px;
+      background: var(--steel);
+      border-top: 1px solid var(--slate);
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .svc-cta-strip-text {
+      font-size: 13px;
+      color: var(--mist);
+    }
+    .svc-cta-strip-text strong { color: var(--white); }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .svc-block, .svc-block.reversed {
+        grid-template-columns: 1fr;
+      }
+      .svc-block.reversed .svc-block-text { order: 0; }
+      .svc-block.reversed .svc-block-visual { order: 0; }
+      .svc-block-visual { min-height: 220px; aspect-ratio: 4/3; }
+    }
+    @media (max-width: 768px) {
+      /* Comparison table — scroll horizontally in a contained box */
+      .compare-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid var(--slate);
+        margin: 0 -4px;
+      }
+      .compare-table { min-width: 480px; }
+      .compare-table thead th,
+      .compare-table tbody td { padding: 12px 14px; font-size: 11px; }
+      /* Service blocks */
+      .svc-block { grid-template-columns: 1fr; gap: 20px; }
+      .svc-block-visual { aspect-ratio: 3/2; min-height: auto; }
+      .svc-cta-strip { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+
+
+<style id="mobile-menu-styles">
+/* NAV — always on top */
+#nav { z-index: 2147483645 !important; }
+
+/* HAMBURGER — always visible above menu */
+#hamburger {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #hamburger { display: flex !important; }
+}
+
+/* FULLSCREEN MENU — starts below nav bar */
+#nav-mobile {
+  display: none !important;
+  position: fixed !important;
+  top: 68px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 68px) !important;
+  z-index: 2147483644 !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  background: #0d0d0d !important;
+  padding: 32px 28px 40px !important;
+  gap: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+#nav-mobile.open { display: flex !important; }
+
+/* Main nav links — large, amber on tap */
+#nav-mobile > a {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+}
+#nav-mobile > a:active { color: #FFB347 !important; }
+
+/* Book Now CTA button */
+#nav-mobile a.nav-mobile-cta {
+  background: #FFB347 !important;
+  color: #000000 !important;
+  text-align: center !important;
+  padding: 16px !important;
+  margin-top: 28px !important;
+  border: none !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  display: block !important;
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+/* Services trigger button */
+.nav-mobile-services-trigger {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+}
+.nav-mobile-services-trigger.open { color: #FFB347 !important; }
+
+/* Services sub-menu — amber accent links */
+#mob-svc-sub {
+  display: none !important;
+  flex-direction: column !important;
+  padding: 8px 0 8px 16px !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+#mob-svc-sub.open { display: flex !important; }
+#mob-svc-sub a {
+  font-size: 17px !important;
+  font-style: italic !important;
+  color: #FFB347 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,179,71,0.12) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+#mob-svc-sub a:last-child { border-bottom: none !important; }
+
+  @media (max-width: 768px) {
+    .svc-nav { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    .svc-nav-inner { min-width: max-content; }
+    .svc-block { overflow: hidden !important; max-width: 100% !important; }
+    .svc-block-visual { max-width: 100% !important; overflow: hidden !important; }
+    .compare-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    .compare-table { min-width: 480px; }
+    section, .section { max-width: 100vw !important; overflow-x: hidden !important; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger active" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="/services.html">All Services Overview</a>
+          </div>
+          <a href="/photoday" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="/media" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+          <a href="banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/book" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="/services.html">All Services</a>
+    <a href="/photoday">Team Photo Day</a>
+    <a href="/media">Media Day Experience</a>
+    <a href="banners.html">Pro Banners</a>
+  </div>
+  <a href="/reviews">Reviews</a>
+  <a href="support.html">Support</a>
+  <a href="/book" class="nav-mobile-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Everything We Offer</p>
+    <h1 class="page-hero-title" id="cms-headline">Our <span>Services</span></h1>
+    <p class="page-hero-sub" id="cms-sub">Three distinct services built for different programs and different goals. Read through, find what fits your situation, and go from there — or <a href="general.html" style="color:var(--ember);">reach out</a> if you're not sure which one is right for you.</p>
+  </div>
+</div>
+
+<!-- QUICK PICKER -->
+<div class="divider"></div>
+<section class="section" style="background:var(--steel);padding-top:32px;padding-bottom:32px;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+      <a href="#photo-day" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:20px 24px;background:var(--ash);border-top:3px solid var(--ember);transition:background 0.2s;" onmouseover="this.style.background='#191919'" onmouseout="this.style.background='var(--ash)'">
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--ember);line-height:1;flex-shrink:0;">01</div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;line-height:1.1;font-style:italic;">Team Photo Day</div>
+          <div style="font-size:11px;color:var(--mist);margin-top:3px;">Volume shoots · family ordering</div>
+        </div>
+        <div style="margin-left:auto;color:var(--ember);font-size:16px;">↓</div>
+      </a>
+      <a href="#media-day" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:20px 24px;background:var(--ash);border-top:3px solid var(--ember);transition:background 0.2s;" onmouseover="this.style.background='#191919'" onmouseout="this.style.background='var(--ash)'">
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--ember);line-height:1;flex-shrink:0;">02</div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;line-height:1.1;font-style:italic;">Media Day Experience</div>
+          <div style="font-size:11px;color:var(--mist);margin-top:3px;">Prepaid · all digitals included</div>
+        </div>
+        <div style="margin-left:auto;color:var(--ember);font-size:16px;">↓</div>
+      </a>
+      <a href="#banners" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:20px 24px;background:var(--ash);border-top:3px solid var(--silver);transition:background 0.2s;" onmouseover="this.style.background='#191919'" onmouseout="this.style.background='var(--ash)'">
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--silver);line-height:1;flex-shrink:0;">03</div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;line-height:1.1;font-style:italic;">Pro Banners</div>
+          <div style="font-size:11px;color:var(--mist);margin-top:3px;">Custom vinyl · 3–7 day turnaround</div>
+        </div>
+        <div style="margin-left:auto;color:var(--silver);font-size:16px;">↓</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICE 01 — TEAM PHOTO DAY
+══════════════════════════════════════ -->
+<div id="photo-day" class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px;">
+      <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;color:var(--ember);text-transform:uppercase;">Service 01</span>
+      <div style="height:1px;background:var(--slate);flex:1;"></div>
+    </div>
+
+    <div class="svc-block">
+      <div class="svc-block-text" style="position:relative;">
+        <div class="svc-num-accent">01</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;margin-bottom:16px;font-style:italic;">Team &amp;<br>Individual<br><span style="color:var(--ember);">Photo Day</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:0;">The core of what we do. We come to your school or facility, photograph your entire program — team shots and individual portraits — and handle all delivery through an online gallery. Families browse and order directly from their phone. Coaches and athletic directors handle zero post-shoot logistics.</p>
+
+        <div class="svc-facts">
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>1–2 week gallery delivery</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>100% online ordering</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Natural &amp; composite options</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>No paper forms or cash</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Families pay per package</div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/photoday" class="btn-primary">Full Details &rarr;</a>
+          <a href="/book" class="btn-ghost">Book Now</a>
+        </div>
+
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--slate);">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;color:var(--mist);text-transform:uppercase;margin-bottom:10px;">Ideal For</div>
+          <div class="svc-for">
+            <span class="svc-for-tag">High School Programs</span>
+            <span class="svc-for-tag">Youth Leagues</span>
+            <span class="svc-for-tag">Club Teams</span>
+            <span class="svc-for-tag">Rec Organizations</span>
+            <span class="svc-for-tag">Any Team Needing Family Ordering</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-block-visual">
+        <img data-lightbox src="/assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural Photo Day shoot" loading="lazy">
+      </div>
+    </div>
+
+    <div class="svc-cta-strip">
+      <div class="svc-cta-strip-text"><strong>Team Photo Day</strong> — Professional, efficient, and zero hassle for coaches.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="/photoday" class="btn-ghost" style="font-size:12px;">Learn More &rarr;</a>
+        <a href="/book" class="btn-primary" style="font-size:12px;">Book a Photo Day &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICE 02 — PRO BANNERS
+══════════════════════════════════════ -->
+<div id="banners" class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px;">
+      <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;color:var(--ember);text-transform:uppercase;">Service 02</span>
+      <div style="height:1px;background:var(--slate);flex:1;"></div>
+    </div>
+
+    <div class="svc-block">
+      <div class="svc-block-text" style="position:relative;">
+        <div class="svc-num-accent">03</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;margin-bottom:16px;font-style:italic;">Phireworx<br><span style="color:var(--ember);">Pro Banners</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:0;">Custom vinyl banners for seniors, varsity teams, and full programs. We handle the photography, the graphic design, and the printing — all in one. Bold visuals, professional quality, and fast turnaround. Your athletes on the wall, looking like the athletes they are.</p>
+
+        <div class="svc-facts">
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>3–7 business day turnaround</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Individual, team &amp; composite</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Bulk pricing from $50</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Weatherproof vinyl print</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div>Non-bulk available (+$15)</div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="banners.html" class="btn-primary">See All Pricing &rarr;</a>
+          <a href="banners.html#book" class="btn-ghost">Request a Quote</a>
+        </div>
+
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--slate);">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;color:var(--mist);text-transform:uppercase;margin-bottom:10px;">Banner Types</div>
+          <div class="svc-for">
+            <span class="svc-for-tag">Individual / Senior Banners</span>
+            <span class="svc-for-tag">Traditional Team Banners</span>
+            <span class="svc-for-tag">Composite Team Banners</span>
+            <span class="svc-for-tag">Custom Sizes Available</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-block-visual">
+        <img data-lightbox src="/assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Pro Banner example" loading="lazy">
+        <div class="svc-block-visual-ph" style="display:none;">
+          <div class="svc-block-visual-mark" style="background:var(--silver);"></div>
+          <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Banner Sample</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta-strip">
+      <div class="svc-cta-strip-text"><strong>Pro Banners</strong> — Photography, design, and print. All in one.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="banners.html" class="btn-ghost" style="font-size:12px;">See Pricing &rarr;</a>
+        <a href="banners.html#pricing" class="btn-primary" style="font-size:12px;">Request a Banner &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<div class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Side by Side</p>
+    <h2 class="section-title">Not Sure Which <span>One?</span></h2>
+    <p class="section-desc" style="margin-bottom:36px;">Here's a quick comparison to help you figure out which service fits your program best.</p>
+
+    <div style="overflow-x:auto;">
+      <div class="compare-table-wrap"><div class="compare-table-wrap"><table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-feature"></th>
+            <th class="th-photoday">Photo Day</th>
+            <th class="th-mediaday">Media Day</th>
+            <th class="th-banners">Pro Banners</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-feature">Who pays</td>
+            <td class="td-val">Individual families</td>
+            <td class="td-val">The organization upfront</td>
+            <td class="td-val">Organization or booster</td>
+          </tr>
+          <tr>
+            <td class="td-feature">What you get</td>
+            <td class="td-val">Online ordering gallery</td>
+            <td class="td-val">Every digital delivered to team</td>
+            <td class="td-val">Printed vinyl banner(s)</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Style</td>
+            <td class="td-val">Standard &amp; composite options</td>
+            <td class="td-val">Creative, production-level</td>
+            <td class="td-val">Custom designed &amp; printed</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Best for</td>
+            <td class="td-val">Full roster, family keepsakes</td>
+            <td class="td-val">Content, social, brand building</td>
+            <td class="td-val">Senior nights, gym displays</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Turnaround</td>
+            <td class="td-val">1–2 week gallery</td>
+            <td class="td-val">7–10 day delivery</td>
+            <td class="td-val">3–7 business days</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Pricing model</td>
+            <td class="td-val">Families pay per package</td>
+            <td class="td-val">Flat rate / per athlete</td>
+            <td class="td-val">Per banner (bulk &amp; non-bulk)</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Can be combined?</td>
+            <td><span class="td-yes">✓</span> Yes</td>
+            <td><span class="td-yes ember">✓</span> Yes</td>
+            <td><span class="td-yes">✓</span> Yes — pairs with either</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div style="margin-top:28px;padding:20px 28px;background:var(--steel);border-left:4px solid var(--ember);max-width:700px;">
+      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">Still not sure?</strong> Reach out and tell us about your program — what sport, how many athletes, and what you're trying to accomplish. We'll point you in the right direction. <a href="general.html" style="color:var(--ember);">Contact us here.</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="divider"></div>
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2 class="cta-title">Know What You<br><span>Need?</span></h2>
+    <p class="cta-desc">Head straight to booking and get your date locked in. If you still have questions, we're a phone call or email away.</p>
+    <div class="cta-btns">
+      <a href="/book" class="btn-primary">Book Now &rarr;</a>
+      <a href="tel:4807099969" class="btn-ghost">(480) 709-9969</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SERVICE 03 — MEDIA DAY EXPERIENCE
+══════════════════════════════════════ -->
+<div id="media-day" class="divider"></div>
+<section class="section" style="background:var(--ash);">
+  <div class="section-inner">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px;">
+      <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;color:var(--ember);text-transform:uppercase;">Service 03</span>
+      <div style="height:1px;background:var(--slate);flex:1;"></div>
+    </div>
+
+    <div class="svc-block reversed">
+      <div class="svc-block-text" style="position:relative;">
+        <div class="svc-num-accent">02</div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,179,71,0.08);border:1px solid rgba(255,179,71,0.2);padding:5px 12px;margin-bottom:16px;">
+          <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;color:var(--ember);text-transform:uppercase;">Not the same as Picture Day</span>
+        </div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;margin-bottom:16px;font-style:italic;">Team Media Day<br><span style="color:var(--ember);">Experience</span></h2>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:14px;">A completely different product from Picture Day. The Media Day Experience is a <strong style="color:var(--white);">prepaid, creative-first production shoot</strong> where the organization — not parents — funds the session. Every edited digital from the shoot is delivered directly to the team. No ordering portal. No packages. No per-photo fees.</p>
+        <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:0;">Advanced lighting setups, flexible locations, and more time per athlete for intentional, personality-driven shots. Built for programs that want high-impact content for social, branding, recruiting, and promotions.</p>
+
+        <div class="svc-facts">
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div>Organization pays upfront</div>
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div>Every digital delivered to team</div>
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div>Advanced lighting &amp; effects</div>
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div>Flexible locations</div>
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div>From $45 per athlete</div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/media" class="btn-primary" style="background:var(--ember);border-color:var(--ember);">Full Details &amp; Pricing &rarr;</a>
+          <a href="/media#book" class="btn-ghost">Book a Media Day</a>
+        </div>
+
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--slate);">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;color:var(--mist);text-transform:uppercase;margin-bottom:10px;">Ideal For</div>
+          <div class="svc-for">
+            <span class="svc-for-tag">Senior Classes</span>
+            <span class="svc-for-tag">Varsity Programs</span>
+            <span class="svc-for-tag">Star Athletes</span>
+            <span class="svc-for-tag">Club &amp; Travel Teams</span>
+            <span class="svc-for-tag">Programs Building a Brand</span>
+            <span class="svc-for-tag">Social-Forward Programs</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-block-visual">
+        <img data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player — Phireworx Media Day Experience" loading="lazy">
+        <div class="svc-block-visual-ph" style="display:none;">
+          <div class="svc-block-visual-mark" style="background:var(--ember);"></div>
+          <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Media Day Sample</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta-strip">
+      <div class="svc-cta-strip-text"><strong>Media Day Experience</strong> — Creative-first. Prepaid. Every digital yours.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="/media" class="btn-ghost" style="font-size:12px;">Learn More &rarr;</a>
+        <a href="/media#book" class="btn-primary" style="font-size:12px;background:var(--ember);border-color:var(--ember);">Book a Media Day &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="/services.html">All Services</a></li>
+          <li><a href="/photoday">Team Photo Day</a></li>
+          <li><a href="/media">Media Day Experience</a></li>
+          <li><a href="banners.html">Pro Banners</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="/book">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+      <p class="footer-areas">Serving: Phoenix &middot; Scottsdale &middot; Chandler &middot; Mesa &middot; Gilbert &middot; Peoria &middot; Goodyear &middot; Avondale &middot; Surprise &middot; Buckeye &middot; Litchfield Park &middot; Tolleson &middot; Laveen &middot; Ahwatukee &middot; Fountain Hills &middot; Paradise Valley &middot; El Mirage &middot; Waddell &middot; Maricopa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navMobile.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    navMobile.setAttribute('aria-hidden', !isOpen);
+  });
+
+  // Mobile services accordion
+  const mobTrigger = document.getElementById('mob-svc-trigger');
+  const mobSub = document.getElementById('mob-svc-sub');
+  mobTrigger.addEventListener('click', () => {
+    mobTrigger.classList.toggle('open');
+    mobSub.classList.toggle('open');
+  });
+
+  // Desktop dropdown with JS timeout so mouse can cross the gap
+  const ddLi = document.querySelector('.nav-dropdown');
+  const ddMenu = document.querySelector('.nav-dropdown-menu');
+  let ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', () => { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
+    ddMenu.addEventListener('mouseenter', () => clearTimeout(ddTimer));
+    ddMenu.addEventListener('mouseleave', () => { ddTimer = setTimeout(() => ddLi.classList.remove('is-open'), 150); });
+  }
+</script>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+<script id="mobile-menu-js">
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('nav-mobile');
+  if (!hamburger || !navMobile) return;
+
+  var spans = hamburger.querySelectorAll('span');
+
+  function openMenu() {
+    navMobile.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    if (spans[0]) spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px);transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'opacity:0;transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px);transition:all 0.2s';
+  }
+
+  function closeMenu() {
+    navMobile.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    if (spans[0]) spans[0].style.cssText = 'transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transition:all 0.2s';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navMobile.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  var mobTrigger = document.getElementById('mob-svc-trigger');
+  var mobSub = document.getElementById('mob-svc-sub');
+  if (mobTrigger && mobSub) {
+    mobTrigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobTrigger.classList.toggle('open');
+      mobSub.classList.toggle('open');
+    });
+  }
+
+  var ddLi = document.querySelector('.nav-dropdown');
+  var ddMenu = document.querySelector('.nav-dropdown-menu');
+  var ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+    ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+  }
+})();
+</script>
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
+  }
+})();
+</script>
+
+<!-- CMS DATA LOADER -->
+<script>
+fetch('/data/services.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
+  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
+  s('cms-eyebrow',d.eyebrow);
+  (function(){var e=document.getElementById('cms-headline');if(e&&d.headline!=null){e.innerHTML=String(d.headline).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*([^*]+)\*/g,'<span>$1</span>');}})();
+  s('cms-sub',d.sub);
+
+  if(d.services){
+    const blocks=document.querySelectorAll('.svc-block');
+    d.services.forEach((svc,i)=>{
+      if(blocks[i]){
+        const num=blocks[i].querySelector('.svc-num');
+        const title=blocks[i].querySelector('.svc-title');
+        const sub=blocks[i].querySelector('.svc-sub');
+        const desc=blocks[i].querySelector('.svc-desc');
+        if(num)num.textContent=svc.number;
+        if(title)title.textContent=svc.title;
+        if(sub)sub.textContent=svc.sub;
+        if(desc)desc.textContent=svc.desc;
+        if(svc.features){
+          const list=blocks[i].querySelector('.svc-features,.feature-list');
+          if(list){
+            const items=list.querySelectorAll('li');
+            svc.features.forEach((feat,j)=>{
+              if(items[j])items[j].textContent=feat.item||feat;
+            });
+          }
+        }
+      }
+    });
+  }
+}).catch(()=>{});
+</script>
+<script src="/assets/js/motion.js?v=2" defer></script>
+</body>
+</html>
