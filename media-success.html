@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Request Received | Phireworx Photography</title>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=45">
+  <style>
+    .success-wrap {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .success-inner { max-width: 560px; }
+    .success-check {
+      width: 72px; height: 72px;
+      margin: 0 auto 28px;
+      border: 2px solid var(--ember);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .success-check svg { width: 34px; height: 34px; stroke: var(--ember); }
+    .success-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: clamp(30px, 6vw, 52px);
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      padding-right: 0.08em;
+    }
+    .success-title em { color: var(--ember); font-style: italic; }
+    .success-sub {
+      color: var(--mist);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-cta">Back to Home</a>
+    </div>
+  </div>
+</nav>
+
+<div class="success-wrap">
+  <div class="success-inner">
+    <div class="success-check">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1 class="success-title">Request <em>Received.</em></h1>
+    <p class="success-sub">Thanks for reaching out about the Phireworx Media Day Experience. We've got your request and we'll follow up within 1 business day to lock in the details.</p>
+    <a href="/" class="btn-primary">Back to Home &rarr;</a>
+  </div>
+</div>
+
+<script src="/assets/js/motion.js?v=2" defer></script>
+</body>
+</html>

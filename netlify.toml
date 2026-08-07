@@ -10,6 +10,10 @@
   from = "/media"
   to = "/media-day.html"
   status = 200
+[[redirects]]
+  from = "/media-success"
+  to = "/media-success.html"
+  status = 200
 
 [[redirects]]
   from = "/mediaday"
