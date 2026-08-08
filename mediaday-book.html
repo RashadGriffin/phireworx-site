@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- build:1786189995 -->
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Book Your Media Day | Phireworx Photography</title>
+  <meta name="description" content="Ready to book your Phireworx Media Day? Fill out this quick form and we'll confirm your date within one business day.">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=45">
+  <style>
+
+    /* ── PAGE-SPECIFIC COMPONENTS ── */
+
+    /* SPLIT INTRO BLOCK */
+    .split-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .split-intro-left {
+      background: var(--ash);
+      padding: 56px 52px;
+    }
+    .split-intro-right {
+      background: var(--steel);
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* DIFF TABLE */
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .diff-table thead tr th {
+      padding: 14px 20px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 2px solid var(--slate);
+    }
+    .diff-table thead .th-media { color: var(--ember); border-bottom-color: var(--ember); }
+    .diff-table thead .th-trad  { color: var(--iron); }
+    .diff-table tbody tr {
+      border-bottom: 1px solid var(--slate);
+    }
+    .diff-table tbody tr:last-child { border-bottom: none; }
+    .diff-table tbody td {
+      padding: 16px 20px;
+      font-size: 14px;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+    .diff-table tbody .td-label {
+      color: var(--silver);
+      font-weight: 600;
+      font-family: var(--font-body);
+      width: 22%;
+      white-space: nowrap;
+    }
+    .diff-table tbody .td-media { color: var(--white); width: 39%; }
+    .diff-table tbody .td-trad  { color: var(--iron); width: 39%; }
+    .diff-check { color: var(--ember); font-size: 13px; margin-right: 6px; }
+    .diff-x     { color: var(--iron); font-size: 13px; margin-right: 6px; }
+
+    /* FEATURE TILES */
+    .feature-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .feature-tile {
+      background: var(--ash);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .feature-tile:hover { background: #191919; }
+    .feature-tile-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--ember);
+    }
+    .feature-tile-accent.ember { background: var(--ember); }
+    .feature-tile-num {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--ember);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .feature-tile-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .feature-tile-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    /* PRICING TIERS */
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .pricing-tier {
+      background: var(--ash);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      border-top: 3px solid var(--slate);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pricing-tier:hover {
+      border-top-color: var(--ember);
+      background: #191919;
+    }
+    .pricing-tier.featured {
+      border-top: 3px solid var(--ember);
+      background: var(--steel);
+    }
+    .pricing-tier-badge {
+      position: absolute;
+      top: -1px; right: 20px;
+      background: var(--ember);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    .pricing-tier-range {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--ember);
+      text-transform: uppercase;
+    }
+    .pricing-tier-price {
+      font-family: var(--font-display);
+      font-size: 58px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-tier-price span {
+      font-size: 22px;
+      color: var(--ember);
+      vertical-align: super;
+      font-weight: 600;
+    }
+    .pricing-tier-per {
+      font-size: 12px;
+      color: var(--mist);
+      margin-top: -6px;
+    }
+    .pricing-tier-divider {
+      height: 1px;
+      background: var(--slate);
+    }
+    .pricing-tier-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pricing-tier-item {
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--silver);
+      line-height: 1.4;
+    }
+    .pricing-tier-item::before {
+      content: '✓';
+      color: var(--ember);
+      flex-shrink: 0;
+      font-size: 11px;
+    }
+
+    /* IDEAL USE CARDS */
+    .use-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .use-card {
+      background: var(--steel);
+      padding: 32px 28px;
+      border-bottom: 3px solid var(--slate);
+      transition: border-color 0.2s;
+    }
+    .use-card:hover { border-bottom-color: var(--ember); }
+    .use-card-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .use-card-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .use-card-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.65;
+    }
+
+    /* WHAT YOU GET CHECKLIST */
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .checklist-item {
+      background: var(--ash);
+      padding: 22px 26px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .checklist-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--ember);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #fff;
+      margin-top: 1px;
+    }
+    .checklist-icon.ember { background: var(--ember); }
+    .checklist-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+    .checklist-desc {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+
+    /* PHOTO GALLERY STRIP */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2px;
+      height: 280px;
+    }
+    .photo-strip-cell {
+      background: var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-strip-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover; position: absolute; inset: 0;
+    }
+    .photo-ph {
+      opacity: 0.3;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    .photo-ph-mark {
+      width: 22px; height: 22px;
+      background: var(--ember);
+      clip-path: polygon(50% 0%,62% 32%,98% 22%,78% 50%,90% 85%,50% 68%,10% 85%,22% 50%,2% 22%,38% 32%);
+    }
+    .photo-ph-mark.e { background: var(--ember); }
+    .photo-ph-label {
+      font-family: var(--font-mono);
+      font-size: 8px; letter-spacing: 0.12em;
+      color: var(--iron); text-transform: uppercase;
+    }
+
+    /* FORM */
+    .mf-group { display:flex;flex-direction:column;gap:8px;margin-bottom:20px; }
+    .mf-row { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+    .mf-label { font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--silver); }
+    .mf-label span { color:var(--ember); }
+    .mf-input, .mf-textarea, .mf-select {
+      background:var(--steel);border:1px solid var(--iron);color:var(--white);
+      font-family:var(--font-body);font-size:14px;padding:12px 16px;border-radius:2px;
+      outline:none;transition:border-color 0.2s;width:100%;box-sizing:border-box;
+    }
+    .mf-input:focus,.mf-textarea:focus,.mf-select:focus { border-color:var(--ember); }
+    .mf-textarea { resize:vertical;min-height:110px; }
+    .mf-select option { background:var(--steel); }
+    @media (max-width:600px) { .mf-row { grid-template-columns:1fr; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .split-intro { grid-template-columns: 1fr; }
+      .pricing-tiers { grid-template-columns: 1fr 1fr; }
+      .feature-tiles { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .use-cards { grid-template-columns: 1fr 1fr; }
+      .checklist { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .photo-strip-cell { height: 160px; }
+    }
+    @media (max-width: 600px) {
+      .pricing-tiers { grid-template-columns: 1fr 1fr; }
+      .feature-tiles { grid-template-columns: 1fr; }
+      .use-cards { grid-template-columns: 1fr; }
+      .diff-table tbody .td-trad { display: none; }
+      .diff-table thead .th-trad { display: none; }
+    }
+  </style>
+
+
+<style id="mobile-menu-styles">
+/* NAV — always on top */
+#nav { z-index: 2147483645 !important; }
+
+/* HAMBURGER — always visible above menu */
+#hamburger {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #hamburger { display: flex !important; }
+}
+
+/* FULLSCREEN MENU — starts below nav bar */
+#nav-mobile {
+  display: none !important;
+  position: fixed !important;
+  top: 68px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 68px) !important;
+  z-index: 2147483644 !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  background: #0d0d0d !important;
+  padding: 32px 28px 40px !important;
+  gap: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+#nav-mobile.open { display: flex !important; }
+
+/* Main nav links — large, amber on tap */
+#nav-mobile > a {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+}
+#nav-mobile > a:active { color: #FFB347 !important; }
+
+/* Book Now CTA button */
+#nav-mobile a.nav-mobile-cta {
+  background: #FFB347 !important;
+  color: #000000 !important;
+  text-align: center !important;
+  padding: 16px !important;
+  margin-top: 28px !important;
+  border: none !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  display: block !important;
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+/* Services trigger button */
+.nav-mobile-services-trigger {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+}
+.nav-mobile-services-trigger.open { color: #FFB347 !important; }
+
+/* Services sub-menu — amber accent links */
+#mob-svc-sub {
+  display: none !important;
+  flex-direction: column !important;
+  padding: 8px 0 8px 16px !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+#mob-svc-sub.open { display: flex !important; }
+#mob-svc-sub a {
+  font-size: 17px !important;
+  font-style: italic !important;
+  color: #FFB347 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,179,71,0.12) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+#mob-svc-sub a:last-child { border-bottom: none !important; }
+</style>
+  <meta name="robots" content="noindex, follow">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="/services.html">All Services Overview</a>
+          </div>
+          <a href="/photoday" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Photo Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+          <a href="/media" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#book" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="/services.html">All Services</a>
+    <a href="/photoday">Team Photo Day</a>
+    <a href="banners.html">Pro Banners</a>
+    <a href="/media">Media Day Experience</a>
+  </div>
+  <a href="/reviews">Reviews</a>
+  <a href="support.html">Support</a>
+  <a href="#book" class="nav-mobile-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Media Day Booking</p>
+    <h1 class="page-hero-title">Book Your <span>Media Day</span></h1>
+    <p class="page-hero-sub">You're ready to lock in a date — let's make it happen. Fill out the form below and we'll confirm availability and next steps within one business day.</p>
+  </div>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div class="divider"></div>
+<section class="section" style="padding-top:44px;padding-bottom:0;">
+  <div class="section-inner">
+    <div style="max-width:700px;">
+      <p class="section-eyebrow" style="margin-bottom:16px;">Before You Start</p>
+      <h2 class="section-title" style="margin-bottom:20px;">A Few Quick <span>Details</span></h2>
+      <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:20px;">
+        This form takes about two minutes. To give you the most accurate quote and lock in your date quickly, have the following ready:
+      </p>
+      <ul style="list-style:none;padding:0;margin:0 0 8px 0;display:flex;flex-direction:column;gap:14px;">
+        <li style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--ember);font-size:18px;line-height:1.4;flex-shrink:0;">&#10003;</span>
+          <span style="font-size:15px;color:var(--silver);line-height:1.6;"><strong style="color:var(--white);">Your roster size.</strong> The number of athletes determines your per-athlete rate — the bigger the group, the lower the price per athlete.</span>
+        </li>
+        <li style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--ember);font-size:18px;line-height:1.4;flex-shrink:0;">&#10003;</span>
+          <span style="font-size:15px;color:var(--silver);line-height:1.6;"><strong style="color:var(--white);">Your timing.</strong> Whether it's ASAP or planning ahead for a future season, let us know your window so we can check availability.</span>
+        </li>
+        <li style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--ember);font-size:18px;line-height:1.4;flex-shrink:0;">&#10003;</span>
+          <span style="font-size:15px;color:var(--silver);line-height:1.6;"><strong style="color:var(--white);">Your vision.</strong> Any location ideas, themes, lighting styles, or specific shots you want — the more detail, the better we can prepare.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="section" style="padding-top:36px;">
+  <div class="section-inner">
+    <form style="max-width:700px;" name="media-day-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/media-success">
+      <input type="hidden" name="form-name" value="media-day-booking">
+      <p style="display:none;"><input name="bot-field"></p>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-name">Your Name <span>*</span></label>
+          <input type="text" id="md-name" name="name" class="mf-input" placeholder="First and last name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-email">Email <span>*</span></label>
+          <input type="email" id="md-email" name="email" class="mf-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-phone">Phone</label>
+          <input type="tel" id="md-phone" name="phone" class="mf-input" placeholder="(480) 000-0000">
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-role">Your Role</label>
+          <select id="md-role" name="role" class="mf-select">
+            <option value="" disabled selected>Select your role</option>
+            <option>Head Coach</option>
+            <option>Athletic Director</option>
+            <option>Club / Travel Team Director</option>
+            <option>Assistant Coach</option>
+            <option>Parent / Booster</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-school">School or Organization <span>*</span></label>
+          <input type="text" id="md-school" name="school" class="mf-input" placeholder="School or team name" required>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-sport">Sport / Program <span>*</span></label>
+          <input type="text" id="md-sport" name="sport" class="mf-input" placeholder="e.g. Varsity Football" required>
+        </div>
+      </div>
+
+      <div class="mf-row">
+        <div class="mf-group">
+          <label class="mf-label" for="md-athletes">Number of Athletes <span>*</span></label>
+          <select id="md-athletes" name="athlete_count" class="mf-select" required>
+            <option value="" disabled selected>Select roster size</option>
+            <option value="5-10">5–10 athletes ($85/athlete)</option>
+            <option value="11-15">11–15 athletes ($70/athlete)</option>
+            <option value="16-24">16–24 athletes ($55/athlete)</option>
+            <option value="25+">25+ athletes ($45/athlete)</option>
+            <option value="custom">Other / Need custom quote</option>
+          </select>
+        </div>
+        <div class="mf-group">
+          <label class="mf-label" for="md-timing">When Are You Looking? <span>*</span></label>
+          <select id="md-timing" name="timing" class="mf-select" required>
+            <option value="" disabled selected>Select timing</option>
+            <option>ASAP / this month</option>
+            <option>Next 1–2 months</option>
+            <option>Pre-season (fall)</option>
+            <option>Pre-season (winter)</option>
+            <option>Pre-season (spring)</option>
+            <option>Flexible / planning ahead</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mf-group">
+        <label class="mf-label" for="md-vision">Tell Us Your Vision</label>
+        <textarea id="md-vision" name="vision" class="mf-textarea" placeholder="Location ideas, lighting style, theme or vibe, special effects you want, any specific shots needed... the more detail the better."></textarea>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <button type="submit" class="btn-primary">Submit Booking Request &rarr;</button>
+        <span style="font-size:12px;color:var(--iron);">We'll follow up within 1 business day</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="/photoday">Team Photo Day</a></li>
+          <li><a href="/media">Media Day Experience</a></li>
+          <li><a href="/book">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+      <p class="footer-areas">Serving: Phoenix &middot; Scottsdale &middot; Chandler &middot; Mesa &middot; Gilbert &middot; Peoria &middot; Goodyear &middot; Avondale &middot; Surprise &middot; Buckeye &middot; Litchfield Park &middot; Tolleson &middot; Laveen &middot; Ahwatukee &middot; Fountain Hills &middot; Paradise Valley &middot; El Mirage &middot; Waddell &middot; Maricopa</p>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+<script id="mobile-menu-js">
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('nav-mobile');
+  if (!hamburger || !navMobile) return;
+
+  var spans = hamburger.querySelectorAll('span');
+
+  function openMenu() {
+    navMobile.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    if (spans[0]) spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px);transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'opacity:0;transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px);transition:all 0.2s';
+  }
+
+  function closeMenu() {
+    navMobile.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    if (spans[0]) spans[0].style.cssText = 'transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transition:all 0.2s';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navMobile.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  var mobTrigger = document.getElementById('mob-svc-trigger');
+  var mobSub = document.getElementById('mob-svc-sub');
+  if (mobTrigger && mobSub) {
+    mobTrigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobTrigger.classList.toggle('open');
+      mobSub.classList.toggle('open');
+    });
+  }
+
+  var ddLi = document.querySelector('.nav-dropdown');
+  var ddMenu = document.querySelector('.nav-dropdown-menu');
+  var ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+    ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+  }
+})();
+</script>
+<!-- CMS DATA LOADER -->
+
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
+  }
+})();
+</script>
+<script src="/assets/js/motion.js?v=2" defer></script>
+</body>
+</html>
