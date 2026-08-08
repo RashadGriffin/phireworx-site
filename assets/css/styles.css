@@ -2054,6 +2054,7 @@ img, video, iframe {
   /* SERVICES */
   .services-grid { grid-template-columns: 1fr; }
   .service-card { padding: 24px 20px; }
+  .quick-picker-grid { grid-template-columns: 1fr !important; }
 
   /* BOOKING */
   .booking-grid { grid-template-columns: 1fr; gap: 2px; }
