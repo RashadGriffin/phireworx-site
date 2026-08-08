@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- build:1786189995 -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -423,7 +424,27 @@ fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json())
 fetch('/data/book-hs.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
   s('cms-eyebrow',d.eyebrow);
-  s('cms-headline',d.headline);
+  (function(){
+    var e=document.getElementById('cms-headline');
+    if(!e || d.headline===undefined) return;
+    var span=e.querySelector('span');
+    var accent=span?span.textContent.trim():'';
+    var full=String(d.headline).trim();
+    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
+      // re-wrap the matching accent portion, keep the rest plain
+      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
+      var before=full.slice(0,idx);
+      var match=full.slice(idx,idx+accent.length);
+      var after=full.slice(idx+accent.length);
+      e.innerHTML=before+'<span>'+match+'</span>'+after;
+    } else if(!span){
+      // no static accent to preserve; wrap the last word
+      var w=full.split(/\s+/);
+      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
+      else{e.textContent=full;}
+    }
+    // else: JSON headline differs from static accent — keep the static HTML as-is
+  })();
   s('cms-sub',d.sub);
   s('cms-notice-label',d.notice_label);
   s('cms-notice-title',d.notice_title);
