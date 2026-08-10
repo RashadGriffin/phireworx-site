@@ -17,5 +17,41 @@
   <input type="text" name="timing">
   <textarea name="vision"></textarea>
 </form>
+
+<!-- Hidden static forms so Netlify's build bot registers the banner request forms.
+     Live, styled versions live on banners-bulk.html and banners-small.html. Field names must match exactly. -->
+<form name="banner-request-bulk" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="banner-request-bulk">
+  <input name="bot-field">
+  <input type="text" name="name">
+  <input type="text" name="role">
+  <input type="email" name="email">
+  <input type="text" name="phone">
+  <input type="text" name="school">
+  <input type="text" name="sport">
+  <input type="text" name="individual_banner_size">
+  <input type="text" name="individual_quantity">
+  <input type="text" name="team_banner_size">
+  <input type="text" name="payment_method">
+  <input type="text" name="deadline">
+  <textarea name="additional_info"></textarea>
+</form>
+<form name="banner-request-small" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="banner-request-small">
+  <input name="bot-field">
+  <input type="text" name="name">
+  <input type="text" name="role">
+  <input type="email" name="email">
+  <input type="text" name="phone">
+  <input type="text" name="school">
+  <input type="text" name="sport">
+  <input type="text" name="individual_banner_size">
+  <input type="text" name="individual_quantity">
+  <input type="text" name="team_banner_size">
+  <input type="text" name="payment_method">
+  <input type="text" name="deadline">
+  <textarea name="additional_info"></textarea>
+</form>
+
 </body>
 </html>

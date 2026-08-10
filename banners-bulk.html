@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- build:1786390288 -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Bulk Banner Request | Phireworx Photography</title>
   <meta name="description" content="Request bulk banner pricing for 4 or more banners. Best pricing available for full senior classes and team programs.">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=46">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=47">
   <style>
     /* ── NOTICE BOX ── */
     .hs-notice {
@@ -288,10 +289,107 @@
     <!-- 17HATS FORM -->
     <div class="hs-form-section">
       <span class="hs-form-label" id="cms-form-label">Complete the form below to submit your bulk banner request</span>
-      <div class="hs-form-embed">
-        <iframe name="lc_contact_form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/frtprznfgdcngpbtkfhfdxrbhxhtzwgr"></iframe>
-        <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
-      </div>
+      <form class="banner-form" name="banner-request-bulk" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/banner-success" style="max-width:760px;">
+        <input type="hidden" name="form-name" value="banner-request-bulk">
+        <p style="display:none;"><input name="bot-field"></p>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-name">First and Last Name <span>*</span></label>
+          <input type="text" id="bf-name" name="name" class="mf-input" required>
+        </div>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-role">I am a...</label>
+          <select id="bf-role" name="role" class="mf-select">
+            <option value="" disabled selected>-- Select --</option>
+            <option>Coach</option>
+            <option>Team Manager</option>
+            <option>League Administrator</option>
+            <option>Parent</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="mf-row">
+          <div class="mf-group">
+            <label class="mf-label" for="bf-email">Email Address <span>*</span></label>
+            <input type="email" id="bf-email" name="email" class="mf-input" required>
+          </div>
+          <div class="mf-group">
+            <label class="mf-label" for="bf-phone">Phone Number</label>
+            <input type="tel" id="bf-phone" name="phone" class="mf-input">
+          </div>
+        </div>
+
+        <div class="mf-row">
+          <div class="mf-group">
+            <label class="mf-label" for="bf-school">School (or Team Name)</label>
+            <input type="text" id="bf-school" name="school" class="mf-input">
+          </div>
+          <div class="mf-group">
+            <label class="mf-label" for="bf-sport">Sport/Club</label>
+            <input type="text" id="bf-sport" name="sport" class="mf-input">
+          </div>
+        </div>
+
+        <div class="mf-row">
+          <div class="mf-group">
+            <label class="mf-label" for="bf-indsize">Individual Banner Size <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+            <select id="bf-indsize" name="individual_banner_size" class="mf-select">
+            <option value="" disabled selected>-- Select --</option>
+            <option>2x3ft ($50 + tax)</option>
+            <option>2.5x4ft ($60 + tax)</option>
+            <option>3x5ft ($90 + tax)</option>
+            <option>4x6ft ($140 + tax)</option>
+            <option>Custom Size</option>
+            <option>Same as last year</option>
+            <option>Not Sure</option>
+            </select>
+          </div>
+          <div class="mf-group">
+            <label class="mf-label" for="bf-qty">Quantity (Individual Banners) <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+            <input type="text" id="bf-qty" name="individual_quantity" class="mf-input">
+          </div>
+        </div>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-teamsize">Team Banner Size <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+          <select id="bf-teamsize" name="team_banner_size" class="mf-select">
+            <option value="" disabled selected>-- Select --</option>
+            <option>6x4ft Composite Team Banner - $300</option>
+            <option>8x4ft Composite Team Banner - $350</option>
+            <option>10x6ft Composite Team Banner - $450</option>
+            <option>5x3ft Traditional Team Banner - $90</option>
+            <option>6x4ft Traditional Team Banner - $140</option>
+            <option>8x4ft Traditional Team Banner - $200</option>
+            <option>Custom Size</option>
+            <option>Same as last year</option>
+            <option>N/A</option>
+          </select>
+        </div>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-payment">Payment Method</label>
+          <p class="mf-note">Will the banners be paid for directly via credit/debit or via a purchase order? Payment IS NOT due at this moment. Pay directly — we send you an invoice to pay by card. Pay via purchase order — we send you a quote to submit to your organization.</p>
+          <select id="bf-payment" name="payment_method" class="mf-select">
+            <option value="" disabled selected>-- Select --</option>
+            <option>Pay Directly (invoice paid by credit/debit card)</option>
+            <option>Purchase Order (quote submitted to your organization)</option>
+          </select>
+        </div>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-deadline">Deadline: When do you need the banners delivered by? <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+          <input type="text" id="bf-deadline" name="deadline" class="mf-input" placeholder="e.g. before playoffs, by Oct 15, end of season">
+        </div>
+
+        <div class="mf-group">
+          <label class="mf-label" for="bf-info">Additional Info <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+          <textarea id="bf-info" name="additional_info" class="mf-textarea" placeholder="Please include anything else you would like us to know."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;">Submit Banner Request &rarr;</button>
+      </form>
     </div>
 
   </div>

@@ -16,6 +16,11 @@
   status = 200
 
 [[redirects]]
+  from = "/banner-success"
+  to = "/banner-success.html"
+  status = 200
+
+[[redirects]]
   from = "/mediaday/book"
   to = "/mediaday-book.html"
   status = 200
