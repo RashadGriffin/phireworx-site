@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- build:1786390288 -->
+<!-- build:1786410890 -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -334,8 +334,8 @@
 
         <div class="mf-row">
           <div class="mf-group">
-            <label class="mf-label" for="bf-indsize">Individual Banner Size <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
-            <select id="bf-indsize" name="individual_banner_size" class="mf-select">
+            <label class="mf-label" for="bf-indsize">Individual Banner Size <span>*</span></label>
+            <select id="bf-indsize" name="individual_banner_size" class="mf-select" required>
             <option value="" disabled selected>-- Select --</option>
             <option>2x3ft ($50 + tax)</option>
             <option>2.5x4ft ($60 + tax)</option>
@@ -347,13 +347,14 @@
             </select>
           </div>
           <div class="mf-group">
-            <label class="mf-label" for="bf-qty">Quantity (Individual Banners) <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
-            <input type="text" id="bf-qty" name="individual_quantity" class="mf-input">
+            <label class="mf-label" for="bf-qty">Quantity (Individual Banners) <span>*</span></label>
+            <p class="mf-note">Enter the TOTAL number of banners you need — not the count per athlete.</p>
+            <input type="text" id="bf-qty" name="individual_quantity" class="mf-input" placeholder="e.g. 24" required>
           </div>
         </div>
 
         <div class="mf-group">
-          <label class="mf-label" for="bf-teamsize">Team Banner Size <span style="color:var(--silver);font-weight:400;">(optional)</span></label>
+          <label class="mf-label" for="bf-teamsize">Team Banner Size <span style="color:var(--silver);font-weight:400;">(if applicable)</span></label>
           <select id="bf-teamsize" name="team_banner_size" class="mf-select">
             <option value="" disabled selected>-- Select --</option>
             <option>6x4ft Composite Team Banner - $300</option>
