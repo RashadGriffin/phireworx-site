@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- build:1786209965 -->
+<!-- build:1786474598 -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -618,14 +618,8 @@
       <div class="mf-row">
         <div class="mf-group">
           <label class="mf-label" for="md-athletes">Number of Athletes <span>*</span></label>
-          <select id="md-athletes" name="athlete_count" class="mf-select" required>
-            <option value="" disabled selected>Select roster size</option>
-            <option value="5-10">5–10 athletes ($85/athlete)</option>
-            <option value="11-15">11–15 athletes ($70/athlete)</option>
-            <option value="16-24">16–24 athletes ($55/athlete)</option>
-            <option value="25+">25+ athletes ($45/athlete)</option>
-            <option value="custom">Other / Need custom quote</option>
-          </select>
+          <input type="number" id="md-athletes" name="athlete_count" class="mf-input" min="1" step="1" placeholder="Enter exact number of athletes" required>
+          <p class="mf-note">1–9 athletes: $95 each · 10–19: $80 each · 20+: $65 each. $700 minimum booking.</p>
         </div>
         <div class="mf-group">
           <label class="mf-label" for="md-timing">When Are You Looking? <span>*</span></label>

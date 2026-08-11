@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- build:1786209965 -->
+<!-- build:1786474598 -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -610,14 +610,18 @@
   <div class="section-inner">
     <p class="section-eyebrow">Transparent Pricing</p>
     <h2 class="section-title" id="cms-title-2">Per-Athlete <span>Rates</span></h2>
-    <p class="section-desc" style="margin-bottom:40px;">Pricing scales with roster size — the larger the team, the lower the per-athlete rate. All tiers include every digital from the shoot, full editing, and complete usage rights.</p>
+    <p class="section-desc" style="margin-bottom:20px;">Pricing scales with roster size — the larger the team, the lower the per-athlete rate. All tiers include every digital from the shoot, full editing, and complete usage rights.</p>
+    <div style="display:inline-block;margin-bottom:36px;padding:12px 22px;background:var(--ash);border:1px solid var(--ember);border-radius:4px;">
+      <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ember);">Minimum Booking</span>
+      <span style="font-size:20px;font-weight:800;color:var(--white);margin-left:12px;vertical-align:middle;">$700</span>
+    </div>
 
     <div class="pricing-tiers">
-      <!-- LARGEST -->
+      <!-- LARGEST / BEST VALUE -->
       <div class="pricing-tier featured">
         <div class="pricing-tier-badge">Best Value</div>
-        <div class="pricing-tier-range">25+ Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>45</div>
+        <div class="pricing-tier-range">20+ Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>65</div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -630,26 +634,10 @@
         <a href="#book" class="btn-primary" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
       </div>
 
-      <!-- MID-HIGH -->
-      <div class="pricing-tier">
-        <div class="pricing-tier-range">16–24 Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>55</div>
-        <div class="pricing-tier-per">per athlete</div>
-        <div class="pricing-tier-divider"></div>
-        <div class="pricing-tier-includes">
-          <div class="pricing-tier-item">Every edited digital included</div>
-          <div class="pricing-tier-item">Individual portrait per athlete</div>
-          <div class="pricing-tier-item">Team & group shots</div>
-          <div class="pricing-tier-item">Full commercial usage rights</div>
-          <div class="pricing-tier-item">Private gallery delivery</div>
-        </div>
-        <a href="#book" class="btn-ghost" style="margin-top:8px;text-align:center;">Book This Tier &rarr;</a>
-      </div>
-
       <!-- MID -->
       <div class="pricing-tier">
-        <div class="pricing-tier-range">11–15 Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>70</div>
+        <div class="pricing-tier-range">10–19 Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>80</div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -664,8 +652,8 @@
 
       <!-- SMALL -->
       <div class="pricing-tier">
-        <div class="pricing-tier-range">5–10 Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>85</div>
+        <div class="pricing-tier-range">1–9 Athletes</div>
+        <div class="pricing-tier-price"><span>$</span>95</div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -681,7 +669,7 @@
 
     <!-- PRICING FOOTNOTE -->
     <div style="margin-top:24px;padding:20px 28px;background:var(--ash);border-left:4px solid var(--ember);max-width:780px;">
-      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">How pricing works:</strong> Multiply the per-athlete rate by your roster size to get your total. Payment is collected upfront before the shoot date. The rate is locked at booking — no surprise fees, no per-image charges, no upsells. <strong style="color:var(--white);">Need fewer than 5 athletes or more than 50?</strong> <a href="mailto:service@phireworxphoto.com" style="color:var(--ember);">Contact us</a> for a custom quote.</p>
+      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">How pricing works:</strong> Multiply the per-athlete rate by your roster size to get your total. <strong style="color:var(--white);">A $700 minimum booking applies to all Media Day sessions.</strong> Payment is collected upfront before the shoot date. The rate is locked at booking — no surprise fees, no per-image charges, no upsells. Have a large program or a special request? <a href="mailto:service@phireworxphoto.com" style="color:var(--ember);">Contact us</a> for a custom quote.</p>
     </div>
   </div>
 </section>
@@ -876,14 +864,8 @@
       <div class="mf-row">
         <div class="mf-group">
           <label class="mf-label" for="md-athletes">Number of Athletes <span>*</span></label>
-          <select id="md-athletes" name="athlete_count" class="mf-select" required>
-            <option value="" disabled selected>Select roster size</option>
-            <option value="5-10">5–10 athletes ($85/athlete)</option>
-            <option value="11-15">11–15 athletes ($70/athlete)</option>
-            <option value="16-24">16–24 athletes ($55/athlete)</option>
-            <option value="25+">25+ athletes ($45/athlete)</option>
-            <option value="custom">Other / Need custom quote</option>
-          </select>
+          <input type="number" id="md-athletes" name="athlete_count" class="mf-input" min="1" step="1" placeholder="Enter exact number of athletes" required>
+          <p class="mf-note">1–9 athletes: $95 each · 10–19: $80 each · 20+: $65 each. $700 minimum booking.</p>
         </div>
         <div class="mf-group">
           <label class="mf-label" for="md-timing">When Are You Looking? <span>*</span></label>
