@@ -1,11 +1,11 @@
 {
   "sub": "For high school varsity, JV, and freshman programs. Fill out the form below and we'll confirm your date, review your program's needs, and get everything scheduled.",
   "eyebrow": "Photo Day Bookings",
-  "notice_label": "Important Note:",
+  "notice_label": "Important Note",
   "notice_title": "Minimum Athlete Requirement",
   "headline": "High School Booking Request Form",
-  "notice_line1": "A session fee of up to $250 may apply to programs with fewer than 40 athletes. This fee helps covers travel, setup, and staff costs.",
-  "notice_line2": "To avoid this fee, we encourage schools and organizations to schedule multiple teams on the same day.",
-  "notice_line3": "Thank you for your understanding and cooperation!",
+  "notice_line1": "A session fee of $250 may apply to programs with fewer than 40 athletes.",
+  "notice_line2": "Athlete counts combine across every team photographed on the same day at the same location. Scheduling multiple teams together is the easiest way to clear the minimum.",
+  "notice_line3": "",
   "form_label": "Complete the form below to request a Picture Day with Phireworx"
 }
