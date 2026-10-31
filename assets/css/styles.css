@@ -3120,3 +3120,6 @@ body .media-h1, body .tm-h1, body .success-title {
 }
 body .media-h1 em, body .media-h1 .amber, body .tm-h1 em, body .tm-h1 .amber,
 body .success-title em { color: inherit; font-style: inherit; }
+.about-stats { padding: clamp(28px, 3.4vw, 44px) 28px; margin-top: 8px; }
+.rating-summary { align-items: start; }
+.rating-summary .rating-label { font-size: clamp(18px, 1.5vw, 22px) !important; line-height: 1.1; }
