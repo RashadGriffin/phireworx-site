@@ -3137,3 +3137,21 @@ body .md-form-embed {
 }
 body .hs-form-embed iframe,
 body .md-form-embed iframe { display: block; width: 100%; border: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   PHOTO PAIRS v62 — show photos at their own proportions
+   Each image's width follows its aspect ratio (--ar), so a pair
+   lines up at the same height with nothing cropped off.
+   ════════════════════════════════════════════════════════════ */
+.hp-svc-media.hp-svc-pair { min-height: 0; height: auto; align-self: center; align-items: flex-start; }
+.hp-svc-media.hp-svc-pair > img {
+  flex: var(--ar, 0.667) 1 0;
+  width: 0;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: var(--ar, 0.667);
+  object-fit: cover;
+}
+@media (max-width: 860px) {
+  .hp-svc-media.hp-svc-pair { height: auto; }
+}

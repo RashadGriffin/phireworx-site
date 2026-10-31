@@ -8,7 +8,7 @@
   <title>Private Sessions | Phireworx Photography</title>
   <meta name="description" content="One-on-one, on-location sessions from Phireworx Photography: Signature Sessions for seniors and individuals, and Brand Sessions for NIL, sponsors, and creators.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="stylesheet" href="assets/css/styles.css?v=61">
+  <link rel="stylesheet" href="assets/css/styles.css?v=62">
   <style>
     /* ── PRIVATE SESSIONS (ps-*) ── */
     .ps-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin: 36px 0 0 8px; }
@@ -18,10 +18,6 @@
     .ps-sessions .hp-svc-copy .btn-primary,
     .ps-sessions .hp-svc-copy .btn-ghost { align-self: flex-start; margin-top: 6px; }
     .ps-quote-note { color: var(--bone) !important; font-weight: 600; }
-
-    /* Captioned photo pair */
-    .ps-fig { position: relative; flex: 1 1 0; min-width: 0; margin: 0; }
-    .ps-fig img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; cursor: zoom-in; display: block; }
 
     /* Packages */
     .ps-packages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: clamp(44px, 5vw, 64px); }
@@ -74,8 +70,8 @@
     .ps-fine a:hover { color: #fff; }
 
     /* Photo band */
-    .ps-band { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #000; }
-    .ps-band img { width: 100%; height: clamp(420px, 52vw, 760px); object-fit: cover; object-position: 50% 30%; cursor: zoom-in; display: block; }
+    .ps-band { display: flex; align-items: flex-start; gap: 6px; background: #000; }
+    .ps-band img { flex: var(--ar) 1 0; width: 0; min-width: 0; height: auto; aspect-ratio: var(--ar); object-fit: cover; cursor: zoom-in; display: block; }
 
     /* Forms */
     .ps-forms { display: grid; gap: clamp(72px, 8vw, 112px); margin-top: clamp(40px, 5vw, 56px); }
@@ -100,8 +96,8 @@
     }
     @media (max-width: 860px) {
       .ps-fine { grid-template-columns: 1fr; }
-      .ps-band { grid-template-columns: 1fr; }
-      .ps-band img { height: min(120vw, 620px); }
+      .ps-band { flex-direction: column; }
+      .ps-band img { flex: none; width: 100%; }
     }
     @media (max-width: 640px) {
       .ps-packages { grid-template-columns: 1fr; }
@@ -305,13 +301,9 @@
 <section class="ps-sessions" aria-label="Session types">
   <div class="hp-svc-list">
     <div class="hp-svc">
-      <div class="hp-svc-media">
-        <figure class="ps-fig">
-          <img data-lightbox src="/assets/images/private-football-throne.jpg" alt="Saguaro football player seated on a gold throne in a smoke-filled locker room" loading="lazy" style="object-position:38% 25%;">
-        </figure>
-        <figure class="ps-fig">
-          <img data-lightbox src="/assets/images/private-lifestyle-suit.jpg" alt="Man in a tailored plaid suit seated on a concrete ledge downtown" loading="lazy">
-        </figure>
+      <div class="hp-svc-media hp-svc-pair">
+        <img data-lightbox src="/assets/images/private-football-throne.jpg" width="1440" height="1800" style="--ar:0.8" alt="Saguaro football player seated on a gold throne in a smoke-filled locker room" loading="lazy">
+        <img data-lightbox src="/assets/images/private-lifestyle-suit.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Man in a tailored plaid suit seated on a concrete ledge downtown" loading="lazy">
       </div>
       <div class="hp-svc-copy">
         <h3 class="hp-svc-title">Signature Session</h3>
@@ -320,13 +312,8 @@
       </div>
     </div>
     <div class="hp-svc hp-svc-alt">
-      <div class="hp-svc-media">
-        <figure class="ps-fig">
-          <img data-lightbox src="/assets/images/private-brand-stadium-lights.jpg" alt="Football player flexing in front of stadium lights and smoke" loading="lazy" style="object-position:50% 20%;">
-        </figure>
-        <figure class="ps-fig">
-          <img data-lightbox src="/assets/images/private-boxing-heavy-bag.jpg" alt="Young boxer throwing a jab into a heavy bag" loading="lazy" style="object-position:62% 40%;">
-        </figure>
+      <div class="hp-svc-media hp-svc-pair">
+        <img data-lightbox src="/assets/images/private-brand-stadium-lights.jpg" width="1800" height="1440" style="--ar:1.25" alt="Football player flexing in front of stadium lights and smoke" loading="lazy">
       </div>
       <div class="hp-svc-copy">
         <h3 class="hp-svc-title">Brand Session</h3>
@@ -397,8 +384,9 @@
 
 <!-- PHOTO BAND -->
 <div class="ps-band">
-  <img data-lightbox src="/assets/images/private-boxing-corner.jpg" alt="Young boxer resting in the corner of the ring while his coach gives instructions" loading="lazy">
-  <img data-lightbox src="/assets/images/private-couple-court.jpg" alt="Couple posed on a basketball court in smoke, holding baby shoes and a basketball" loading="lazy">
+  <img data-lightbox src="/assets/images/private-boxing-corner.jpg" width="1440" height="1800" style="--ar:0.8" alt="Young boxer resting in the corner of the ring while his coach gives instructions" loading="lazy">
+  <img data-lightbox src="/assets/images/private-boxing-heavy-bag.jpg" width="1800" height="1200" style="--ar:1.5" alt="Young boxer throwing a jab into a heavy bag" loading="lazy">
+  <img data-lightbox src="/assets/images/private-couple-court.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Couple posed on a basketball court in smoke, holding baby shoes and a basketball" loading="lazy">
 </div>
 
 <!-- PROCESS -->
