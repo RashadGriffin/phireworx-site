@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Private Sessions | Phireworx Photography</title>
+  <meta name="description" content="One-on-one, on-location sessions from Phireworx Photography: Signature Sessions for seniors and individuals, and Brand Sessions for NIL, sponsors, and creators.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/css/styles.css?v=61">
+  <style>
+    /* ── PRIVATE SESSIONS (ps-*) ── */
+    .ps-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin: 36px 0 0 8px; }
+
+    .ps-sessions { padding: clamp(72px, 9vw, 128px) 0 0; }
+    .ps-sessions > .hp-inner { width: calc(100% - 2 * var(--gutter)); }
+    .ps-sessions .hp-svc-copy .btn-primary,
+    .ps-sessions .hp-svc-copy .btn-ghost { align-self: flex-start; margin-top: 6px; }
+    .ps-looks { display: grid; gap: 18px; margin: 4px 0 0; padding: 0; list-style: none; max-width: 480px; }
+    .ps-looks li { border-left: 3px solid var(--ember); padding: 2px 0 2px 18px; color: var(--muted); font-size: 16px; }
+    .ps-looks strong {
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      color: var(--bone);
+      margin-bottom: 2px;
+    }
+    .ps-quote-note { color: var(--bone) !important; font-weight: 600; }
+
+    /* Captioned photo pair */
+    .ps-fig { position: relative; flex: 1 1 0; min-width: 0; margin: 0; }
+    .ps-fig img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; cursor: zoom-in; display: block; }
+    .ps-fig figcaption { position: absolute; left: 14px; bottom: 14px; pointer-events: none; }
+
+    /* Packages */
+    .ps-packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: clamp(48px, 5.5vw, 72px); }
+    .ps-pkg { border-top: 2px solid #3A3A3A; padding-top: 36px; position: relative; display: flex; flex-direction: column; gap: 18px; }
+    .ps-pkg .hp-tab { position: absolute; top: -18px; left: 6px; }
+    .ps-pkg-price {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(56px, 5.6vw, 76px);
+      line-height: 1;
+      color: var(--bone);
+    }
+    .ps-pkg ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .ps-pkg li { color: var(--muted); font-size: 16px; display: flex; gap: 12px; align-items: baseline; }
+    .ps-pkg li::before {
+      content: '';
+      flex: 0 0 14px;
+      height: 6px;
+      background: var(--ember);
+      transform: translateY(-3px) skewX(calc(-1 * var(--slant)));
+    }
+    .ps-pkg .btn-primary, .ps-pkg .btn-ghost { align-self: flex-start; margin-top: 8px; }
+    .ps-fine {
+      margin-top: clamp(40px, 4.5vw, 56px);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 48px;
+      border-top: 2px solid #2A2A2A;
+      padding-top: 32px;
+    }
+    .ps-fine p { margin: 0; color: var(--muted); font-size: 16px; max-width: 520px; }
+    .ps-fine strong { color: var(--bone); }
+    .ps-fine a { color: var(--ember); }
+    .ps-fine a:hover { color: #fff; }
+
+    /* Photo band */
+    .ps-band { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #000; }
+    .ps-band img { width: 100%; height: clamp(420px, 52vw, 760px); object-fit: cover; object-position: 50% 30%; cursor: zoom-in; display: block; }
+
+    /* Forms */
+    .ps-forms { display: grid; gap: clamp(72px, 8vw, 112px); margin-top: clamp(40px, 5vw, 56px); }
+    .ps-form-head { max-width: 780px; margin-bottom: 24px; }
+    .ps-form-head h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      -webkit-text-stroke: 0.035em currentColor;
+      font-size: clamp(30px, 3vw, 42px);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      color: var(--bone);
+      margin: 18px 0 12px;
+      padding-right: 0.08em;
+    }
+    .ps-form-head p { margin: 0; color: var(--muted); font-size: 17px; }
+    [id$="-form"] { scroll-margin-top: 96px; }
+
+    @media (max-width: 1024px) {
+      .ps-packages { grid-template-columns: 1fr; gap: 56px; max-width: 560px; }
+    }
+    @media (max-width: 860px) {
+      .ps-fine { grid-template-columns: 1fr; }
+      .ps-band { grid-template-columns: 1fr; }
+      .ps-band img { height: min(120vw, 620px); }
+    }
+    @media (max-width: 640px) {
+      .ps-hero-btns { margin-left: 0; }
+    }
+  </style>
+
+
+<style id="mobile-menu-styles">
+/* NAV — always on top */
+#nav { z-index: 2147483645 !important; }
+
+/* HAMBURGER — always visible above menu */
+#hamburger {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #hamburger { display: flex !important; }
+}
+
+/* FULLSCREEN MENU — starts below nav bar */
+#nav-mobile {
+  display: none !important;
+  position: fixed !important;
+  top: 68px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 68px) !important;
+  z-index: 2147483644 !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  background: #0d0d0d !important;
+  padding: 32px 28px 40px !important;
+  gap: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+#nav-mobile.open { display: flex !important; }
+
+/* Main nav links — large, amber on tap */
+#nav-mobile > a {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+}
+#nav-mobile > a:active { color: #FFB347 !important; }
+
+/* Book Now CTA button */
+#nav-mobile a.nav-mobile-cta {
+  background: #FFB347 !important;
+  color: #000000 !important;
+  text-align: center !important;
+  padding: 16px !important;
+  margin-top: 28px !important;
+  border: none !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  display: block !important;
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+/* Services trigger button */
+.nav-mobile-services-trigger {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+}
+.nav-mobile-services-trigger.open { color: #FFB347 !important; }
+
+/* Services sub-menu — amber accent links */
+#mob-svc-sub {
+  display: none !important;
+  flex-direction: column !important;
+  padding: 8px 0 8px 16px !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+#mob-svc-sub.open { display: flex !important; }
+#mob-svc-sub a {
+  font-size: 17px !important;
+  font-style: italic !important;
+  color: #FFB347 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,179,71,0.12) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+#mob-svc-sub a:last-child { border-bottom: none !important; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Phireworx Photography Home">
+      <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="nav-logo-img" style="height:42px;max-height:42px;width:auto;max-width:200px;display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Services <span class="nav-dropdown-caret"></span>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-header">
+            <a href="/services.html">All Services Overview</a>
+          </div>
+          <a href="/photoday" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 01</span>
+            <span class="nav-dropdown-item-title">Team Picture Day</span>
+            <span class="nav-dropdown-item-desc">Volume shoots with online ordering for families</span>
+          </a>
+          <a href="/banners.html" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 02</span>
+            <span class="nav-dropdown-item-title">Pro Banners</span>
+            <span class="nav-dropdown-item-desc">Custom vinyl banners with 3–7 day turnaround</span>
+          </a>
+          <a href="/media" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-item-label">Service 03</span>
+            <span class="nav-dropdown-item-title">Media Day Experience</span>
+            <span class="nav-dropdown-item-desc">Prepaid, creative-first shoot — every digital included</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="/support.html">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#book" class="nav-cta">Request a Session</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="/">Home</a>
+  <button class="nav-mobile-services-trigger" id="mob-svc-trigger">
+    Services <span class="caret"></span>
+  </button>
+  <div class="nav-mobile-services-sub" id="mob-svc-sub">
+    <a href="/services.html">All Services</a>
+    <a href="/photoday">Team Picture Day</a>
+    <a href="/banners.html">Pro Banners</a>
+    <a href="/media">Media Day Experience</a>
+  </div>
+  <a href="/reviews">Reviews</a>
+  <a href="/support.html">Support</a>
+  <a href="#book" class="nav-mobile-cta">Request a Session</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Private Sessions</p>
+    <h1 class="page-hero-title">Built Around<br>Your Story.</h1>
+    <p class="page-hero-sub">One-on-one sessions, shot on location with the same lighting and edge we bring to every Phireworx shoot. Bring your jersey, your gear, or just your style.</p>
+    <div class="ps-hero-btns">
+      <a href="#signature-form" class="btn-primary">Book a Signature Session</a>
+      <a href="#brand-form" class="btn-ghost">Start a Brand Project</a>
+    </div>
+  </div>
+</div>
+
+<!-- SESSION TYPES -->
+<section class="ps-sessions" aria-labelledby="ps-sessions-title">
+  <div class="hp-inner">
+    <h2 class="hp-title" id="ps-sessions-title">Two Ways to Shoot</h2>
+  </div>
+  <div class="hp-svc-list">
+    <div class="hp-svc">
+      <div class="hp-svc-media">
+        <figure class="ps-fig">
+          <img data-lightbox src="/assets/images/private-football-throne.jpg" alt="Saguaro football player seated on a gold throne in a smoke-filled locker room" loading="lazy" style="object-position:38% 25%;">
+          <figcaption><span class="hp-tab">Game Day</span></figcaption>
+        </figure>
+        <figure class="ps-fig">
+          <img data-lightbox src="/assets/images/private-lifestyle-suit.jpg" alt="Man in a tailored plaid suit seated on a concrete ledge downtown" loading="lazy">
+          <figcaption><span class="hp-tab">Off the Field</span></figcaption>
+        </figure>
+      </div>
+      <div class="hp-svc-copy">
+        <h3 class="hp-svc-title">Signature Session</h3>
+        <p>The shoot built around you, your senior year, your season, or whatever you're about. Pick your look or do both.</p>
+        <ul class="ps-looks">
+          <li><strong>Game Day</strong>Your jersey, your gear, dramatic light and smoke at a spot that means something to you.</li>
+          <li><strong>Off the Field</strong>Your style, your city. Streetwear, desert golden hour, or downtown.</li>
+        </ul>
+        <a href="#packages" class="btn-primary">See Packages</a>
+      </div>
+    </div>
+    <div class="hp-svc hp-svc-alt">
+      <div class="hp-svc-media">
+        <figure class="ps-fig">
+          <img data-lightbox src="/assets/images/private-brand-stadium-lights.jpg" alt="Football player flexing in front of stadium lights and smoke" loading="lazy" style="object-position:50% 20%;">
+        </figure>
+        <figure class="ps-fig">
+          <img data-lightbox src="/assets/images/private-boxing-heavy-bag.jpg" alt="Young boxer throwing a jab into a heavy bag" loading="lazy" style="object-position:62% 40%;">
+        </figure>
+      </div>
+      <div class="hp-svc-copy">
+        <h3 class="hp-svc-title">Brand Session</h3>
+        <p>For athletes, creators, and businesses who need images that work: NIL deals, sponsor content, personal branding, and content libraries.</p>
+        <p class="ps-quote-note">Pricing is built around your project: what you need, where it runs, and for how long. Tell us about it and we'll send a custom quote.</p>
+        <a href="#brand-form" class="btn-ghost">Start a Brand Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE PACKAGES -->
+<section class="hp-section" id="packages" aria-labelledby="ps-packages-title">
+  <div class="hp-inner">
+    <div class="hp-head-split">
+      <h2 class="hp-title" id="ps-packages-title">Signature Packages</h2>
+      <p>Every Signature Session is shot on location. Pick the package that fits, then tell us your dates.</p>
+    </div>
+    <div class="ps-packages">
+      <div class="ps-pkg">
+        <span class="hp-tab">Option A</span>
+        <div class="ps-pkg-price">$500</div>
+        <ul>
+          <li>1-hour session</li>
+          <li>20 edited digital images</li>
+        </ul>
+        <a href="#signature-form" class="btn-ghost">Book Option A</a>
+      </div>
+      <div class="ps-pkg">
+        <span class="hp-tab">Option B</span>
+        <div class="ps-pkg-price">$750</div>
+        <ul>
+          <li>1-hour session</li>
+          <li>Every edited digital image</li>
+        </ul>
+        <a href="#signature-form" class="btn-primary">Book Option B</a>
+      </div>
+      <div class="ps-pkg">
+        <span class="hp-tab">The Duo</span>
+        <div class="ps-pkg-price">$900</div>
+        <ul>
+          <li>2-hour session</li>
+          <li>Two seniors, one session</li>
+          <li>Every edited digital image</li>
+        </ul>
+        <a href="#signature-form" class="btn-ghost">Book The Duo</a>
+      </div>
+    </div>
+    <div class="ps-fine">
+      <p><strong>Your images, your use.</strong> Signature Session images are for personal use: recruiting profiles, social posts, announcements, and prints. Shooting for a brand, sponsor, or paid partnership? That's a <a href="#brand-form">Brand Session</a>.</p>
+      <p><strong>Make it a banner.</strong> Turn your favorite shot into a Pro Banner. Mention it on your request and we'll set it up. <a href="/banners.html#pricing">See banner pricing</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BAND -->
+<div class="ps-band">
+  <img data-lightbox src="/assets/images/private-boxing-corner.jpg" alt="Young boxer resting in the corner of the ring while his coach gives instructions" loading="lazy">
+  <img data-lightbox src="/assets/images/private-couple-court.jpg" alt="Couple posed on a basketball court in smoke, holding baby shoes and a basketball" loading="lazy">
+</div>
+
+<!-- PROCESS -->
+<section class="hp-section hp-process" aria-labelledby="ps-process-title">
+  <div class="hp-inner">
+    <h2 class="hp-title" id="ps-process-title">How It Works</h2>
+    <ol class="hp-steps">
+      <li class="hp-step">
+        <span class="hp-step-num">1</span>
+        <h3>Send Your Request</h3>
+        <p>Fill out the form below with your package or project and a few dates that work for you.</p>
+      </li>
+      <li class="hp-step">
+        <span class="hp-step-num">2</span>
+        <h3>Plan the Shoot</h3>
+        <p>We lock in your location, looks, and outfits together so the day runs smooth.</p>
+      </li>
+      <li class="hp-step">
+        <span class="hp-step-num">3</span>
+        <h3>Shoot on Location</h3>
+        <p>We bring the lighting and the direction. You bring the energy.</p>
+      </li>
+      <li class="hp-step">
+        <span class="hp-step-num">4</span>
+        <h3>Get Your Gallery</h3>
+        <p>Fast turnaround. Your edited images delivered to a private online gallery.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- REQUEST FORMS -->
+<section class="hp-section" id="book" aria-labelledby="ps-book-title">
+  <div class="hp-inner">
+    <h2 class="hp-title" id="ps-book-title">Let's Build It</h2>
+    <div class="ps-forms">
+      <div id="signature-form">
+        <div class="ps-form-head">
+          <span class="hp-tab">Signature Session</span>
+          <h3>Book a Signature Session</h3>
+          <p>Choose your package and send a few dates. We'll confirm within one business day.</p>
+        </div>
+        <div class="hs-form-section">
+          <div class="hs-form-embed">
+            <iframe name="lc_contact_form" title="Signature Session request form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/sUkrJLEopkCI"></iframe>
+          </div>
+        </div>
+      </div>
+      <div id="brand-form">
+        <div class="ps-form-head">
+          <span class="hp-tab">Brand Session</span>
+          <h3>Start a Brand Project</h3>
+          <p>Tell us what you need and how the images will be used. We'll follow up with a custom quote.</p>
+        </div>
+        <div class="hs-form-section">
+          <div class="hs-form-embed">
+            <iframe name="lc_contact_form" title="Brand Session inquiry form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/P-DyXvhFCy7d"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom:14px;">
+          <img src="/assets/images/logo-full.png" alt="Phireworx Photography" class="footer-logo-img" style="height:30px;max-height:30px;width:auto;max-width:180px;display:block;">
+        </div>
+        <p class="footer-tagline">Arizona's premier volume sports photography. Making athletes shine since 2012.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/phireworx_photo" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/Phireworx" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Support</div>
+        <ul class="footer-links">
+          <li><a href="/support.html">Support Hub</a></li>
+          <li><a href="/galleryaccess.html">Gallery Access</a></li>
+          <li><a href="/orderissues.html">Order Issues</a></li>
+          <li><a href="/general.html">General Inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Company</div>
+        <ul class="footer-links">
+          <li><a href="/policies.html">Policies</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/book">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact">
+          <p><a href="tel:4807099969">(480) 709-9969</a></p>
+          <p><a href="mailto:service@phireworxphoto.com">service@phireworxphoto.com</a></p>
+          <p style="margin-top:12px;">Phoenix, Arizona</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Phireworx Photography &nbsp;&middot;&nbsp; Phoenix, AZ &nbsp;&middot;&nbsp; All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <span class="lb-prev" id="lb-prev">&#8249;</span>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <span class="lb-next" id="lb-next">&#8250;</span>
+</div>
+
+<script id="mobile-menu-js">
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('nav-mobile');
+  if (!hamburger || !navMobile) return;
+
+  var spans = hamburger.querySelectorAll('span');
+
+  function openMenu() {
+    navMobile.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    if (spans[0]) spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px);transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'opacity:0;transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px);transition:all 0.2s';
+  }
+
+  function closeMenu() {
+    navMobile.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    if (spans[0]) spans[0].style.cssText = 'transition:all 0.2s';
+    if (spans[1]) spans[1].style.cssText = 'transition:all 0.2s';
+    if (spans[2]) spans[2].style.cssText = 'transition:all 0.2s';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navMobile.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  var mobTrigger = document.getElementById('mob-svc-trigger');
+  var mobSub = document.getElementById('mob-svc-sub');
+  if (mobTrigger && mobSub) {
+    mobTrigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobTrigger.classList.toggle('open');
+      mobSub.classList.toggle('open');
+    });
+  }
+
+  var ddLi = document.querySelector('.nav-dropdown');
+  var ddMenu = document.querySelector('.nav-dropdown-menu');
+  var ddTimer;
+  if (ddLi && ddMenu) {
+    ddLi.addEventListener('mouseenter', function() { clearTimeout(ddTimer); ddLi.classList.add('is-open'); });
+    ddLi.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+    ddMenu.addEventListener('mouseenter', function() { clearTimeout(ddTimer); });
+    ddMenu.addEventListener('mouseleave', function() { ddTimer = setTimeout(function() { ddLi.classList.remove('is-open'); }, 150); });
+  }
+})();
+</script>
+
+<script id="active-nav-js">
+(function() {
+  // Highlight current page link in mobile menu as amber
+  var path = window.location.pathname;
+  // Normalize: strip trailing slash except root
+  if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+  
+  var navMobile = document.getElementById('nav-mobile');
+  if (!navMobile) return;
+  
+  var links = navMobile.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Exact match, or current path starts with link href (for sub-pages)
+    var isActive = (href === path) || 
+                   (href !== '/' && path.startsWith(href));
+    if (isActive) {
+      link.style.color = '#FFB347';
+    } else {
+      link.style.color = '';  // reset to CSS default (white)
+    }
+  });
+  
+  // Also trigger on mobile menu open so it re-evaluates
+  var hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      // Re-run after a tick to ensure menu is open
+      setTimeout(function() {
+        navMobile.querySelectorAll('a').forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (!href) return;
+          var isActive = (href === path) || 
+                         (href !== '/' && path.startsWith(href));
+          if (isActive) {
+            link.style.color = '#FFB347';
+          }
+        });
+      }, 10);
+    });
+  }
+})();
+</script>
+<script src="/assets/js/motion.js?v=2" defer></script>
+</body>
+</html>
