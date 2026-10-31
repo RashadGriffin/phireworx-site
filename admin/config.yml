@@ -60,12 +60,12 @@ collections:
       - { label: "Show on Homepage", name: "homepage", widget: "boolean", default: false }
       - { label: "Show on Reviews Page", name: "reviews_page", widget: "boolean", default: true }
 
-  # ── PHOTO DAY ──
+  # ── PICTURE DAY ──
   - name: "photo_day"
-    label: "📸 Photo Day Page"
+    label: "📸 Picture Day Page"
     files:
       - name: "photo_day"
-        label: "Photo Day Content"
+        label: "Picture Day Content"
         file: "data/photo-day.json"
         format: json
         fields:

@@ -14,7 +14,7 @@
           "a": "The entire Phoenix metro — Phoenix, Scottsdale, Chandler, Mesa, Gilbert, Peoria, Goodyear, Avondale, Surprise, Buckeye, Litchfield Park, Tolleson, Laveen, Ahwatukee, Fountain Hills, Paradise Valley, El Mirage, Waddell, Maricopa, and more. Outside the metro? Reach out and we'll let you know."
         },
         {
-          "q": "Is there a minimum number of athletes for Photo Day?",
+          "q": "Is there a minimum number of athletes for Picture Day?",
           "a": "A $250 session fee may apply to high school programs with fewer than 40 athletes, and to youth and club organizations with fewer than 50. Athlete counts combine across every team photographed on the same day at the same location, so booking your teams together is the easiest way to clear the minimum."
         },
         {
@@ -28,18 +28,18 @@
       ]
     },
     {
-      "category": "Photo Day",
+      "category": "Picture Day",
       "questions": [
         {
-          "q": "What does Photo Day cost our program?",
-          "a": "Nothing. Team Photo Day is free to your organization. Families see their photos first and pay only for what they want. No upfront payment, no collecting money, no paper forms."
+          "q": "What does Picture Day cost our program?",
+          "a": "Nothing. Team Picture Day is free to your organization. Families see their photos first and pay only for what they want. No upfront payment, no collecting money, no paper forms."
         },
         {
           "q": "What's the difference between a natural shoot and a composite shoot?",
           "a": "A natural shoot photographs athletes on your actual field or court with professional lighting — your home environment, captured at a high level. A composite shoot photographs each athlete on a backdrop, then places them onto a custom digital background built around your team's colors. Composites work anywhere indoors and deliver a consistent, dramatic look for every athlete."
         },
         {
-          "q": "How long does Photo Day take?",
+          "q": "How long does Picture Day take?",
           "a": "We move fast. A varsity team of 12–15 athletes takes about 20–30 minutes for individual and team photos combined. Programs with 40 or more athletes are usually finished in under 90 minutes. You'll get an estimated timeline when we confirm your date."
         },
         {
@@ -47,7 +47,7 @@
           "a": "Full game uniform, plus any gear that's part of their standard look — helmets, gloves, poms, and so on."
         },
         {
-          "q": "What if an athlete misses Photo Day?",
+          "q": "What if an athlete misses Picture Day?",
           "a": "Contact us at service@phireworxphoto.com and we'll do our best to get them photographed. Make-ups depend on our schedule and aren't guaranteed, so the best plan is having every athlete there on the day."
         }
       ]
@@ -57,11 +57,11 @@
       "questions": [
         {
           "q": "How long until photos are ready?",
-          "a": "Online galleries go live within 1–2 weeks of Photo Day. Families are notified as soon as their gallery is ready."
+          "a": "Online galleries go live within 1–2 weeks of Picture Day. Families are notified as soon as their gallery is ready."
         },
         {
           "q": "How do families find their photos?",
-          "a": "Galleries are hosted on PhotoDay. Text your team's access code to 90738 and you'll get a link to your gallery. Codes are handed out on Photo Day — check the flyer from your coach. No code? <a href=\"/galleryaccess.html\">Request it here</a> and we'll send it, usually within one business day."
+          "a": "Galleries are hosted on PhotoDay. Text your team's access code to 90738 and you'll get a link to your gallery. Codes are handed out on Picture Day — check the flyer from your coach. No code? <a href=\"/galleryaccess.html\">Request it here</a> and we'll send it, usually within one business day."
         },
         {
           "q": "How do families order?",
@@ -93,8 +93,8 @@
           "a": "Individual banners are $25 more each on orders of 1–3. Team banners are the same price at any quantity."
         },
         {
-          "q": "Do we need a Photo Day to order banners?",
-          "a": "No, but it's the best value. Banners added to a Photo Day have no session minimum. Banner-only sessions require a $600 minimum order; orders under $600 are invoiced the difference."
+          "q": "Do we need a Picture Day to order banners?",
+          "a": "No, but it's the best value. Banners added to a Picture Day have no session minimum. Banner-only sessions require a $600 minimum order; orders under $600 are invoiced the difference."
         },
         {
           "q": "How long do banners take?",
@@ -114,8 +114,8 @@
       "category": "Media Day Experience",
       "questions": [
         {
-          "q": "How is Media Day different from Photo Day?",
-          "a": "Photo Day is a fast, high-volume session where families buy the photos they want. Media Day is a creative production shoot — advanced lighting, dramatic setups, and intentional direction — that your program pays for upfront. Every edited image is delivered to the team."
+          "q": "How is Media Day different from Picture Day?",
+          "a": "Picture Day is a fast, high-volume session where families buy the photos they want. Media Day is a creative production shoot — advanced lighting, dramatic setups, and intentional direction — that your program pays for upfront. Every edited image is delivered to the team."
         },
         {
           "q": "How is Media Day priced?",
@@ -126,8 +126,8 @@
           "a": "Every edited image from the shoot in full resolution through a private gallery — individual portraits, team shots, and creative content — with full usage rights for social media, recruiting, print, and promotion."
         },
         {
-          "q": "Can we do both Photo Day and Media Day?",
-          "a": "Yes. Many programs book Photo Day for the full roster and add a Media Day for varsity or featured athletes."
+          "q": "Can we do both Picture Day and Media Day?",
+          "a": "Yes. Many programs book Picture Day for the full roster and add a Media Day for varsity or featured athletes."
         }
       ]
     }
