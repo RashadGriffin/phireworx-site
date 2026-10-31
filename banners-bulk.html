@@ -280,8 +280,8 @@
       <p class="hs-notice-label" id="cms-notice-label">Banner Pricing</p>
       <h2 class="hs-notice-title" id="cms-notice-title">What You Should Know Before Ordering</h2>
       <div class="hs-notice-body">
-        <p><strong>Ordering fewer than 4 banners?</strong> Individual banners are <strong>$25 more each</strong> on orders of 1&ndash;3. Team banners are the same price at any quantity. <a href="/banners.html#pricing" style="color:var(--ember);">See full pricing</a>.</p>
-        <p><strong>No session minimum</strong> when your banner order is paired with a Picture Day booking. Banner-only sessions require a <strong>$600 minimum order</strong>; orders under $600 are invoiced the difference.</p>
+        <p><strong>Ordering fewer than 4 banners?</strong> Individual banners are <strong>$<data data-cms="prices:banners.small_order_upcharge">25</data> more each</strong> on orders of 1&ndash;3. Team banners are the same price at any quantity. <a href="/banners.html#pricing" style="color:var(--ember);">See full pricing</a>.</p>
+        <p><strong>No session minimum</strong> when your banner order is paired with a Picture Day booking. Banner-only sessions require a <strong>$<data data-cms="prices:banners.minimum_order">600</data> minimum order</strong>; orders under $<data data-cms="prices:banners.minimum_order">600</data> are invoiced the difference.</p>
         
       </div>
     </div>
@@ -352,18 +352,6 @@
     <img src="" alt="" id="lb-img">
   </div>
 
-<script>
-fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-booking-headline',d.headline);
-  s('cms-card-eyebrow-1',d.hs_eyebrow);
-  s('cms-card-title-1',d.hs_title);
-  s('cms-card-desc-1',d.hs_desc);
-  s('cms-card-eyebrow-2',d.youth_eyebrow);
-  s('cms-card-title-2',d.youth_title);
-  s('cms-card-desc-2',d.youth_desc);
-}).catch(()=>{});
-</script>
 
 <script id="mobile-menu-js">
 (function() {
@@ -464,7 +452,8 @@ fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json())
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 
 </html>

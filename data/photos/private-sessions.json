@@ -1,0 +1,28 @@
+{
+  "signature_left": {
+    "image": "/assets/images/private-football-throne.jpg",
+    "alt": "Saguaro football player seated on a gold throne in a smoke-filled locker room"
+  },
+  "signature_right": {
+    "image": "/assets/images/private-lifestyle-suit.jpg",
+    "alt": "Man in a tailored plaid suit seated on a concrete ledge downtown"
+  },
+  "brand": {
+    "image": "/assets/images/private-brand-stadium-lights.jpg",
+    "alt": "Football player flexing in front of stadium lights and smoke"
+  },
+  "strip": [
+    {
+      "image": "/assets/images/private-boxing-corner.jpg",
+      "alt": "Young boxer resting in the corner of the ring while his coach gives instructions"
+    },
+    {
+      "image": "/assets/images/private-boxing-heavy-bag.jpg",
+      "alt": "Young boxer throwing a jab into a heavy bag"
+    },
+    {
+      "image": "/assets/images/private-couple-court.jpg",
+      "alt": "Couple posed on a basketball court in smoke, holding baby shoes and a basketball"
+    }
+  ]
+}

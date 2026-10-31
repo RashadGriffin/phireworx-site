@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "image": "/assets/images/hero-composite-saguaro.jpg",
+    "alt": "Saguaro football player — composite portrait in a light tunnel"
+  },
+  "picture_day_left": {
+    "image": "/assets/images/natural-baseball-verrado.jpg",
+    "alt": "Verrado baseball player — natural on-location shoot"
+  },
+  "picture_day_right": {
+    "image": "/assets/images/natural-soccer-foothills.jpg",
+    "alt": "Foothills soccer player at sunset — natural shoot"
+  },
+  "media_day_left": {
+    "image": "/assets/images/mediaday-saguaro-throne.jpg",
+    "alt": "Saguaro football player on a throne — Phireworx Media Day Experience"
+  },
+  "media_day_right": {
+    "image": "/assets/images/mediaday-volleyball-red-smoke.jpg",
+    "alt": "Volleyball player in red smoke — Media Day portrait"
+  },
+  "banner_wall": [
+    {
+      "image": "/assets/images/banner-ind-dragons-football.jpg",
+      "alt": "Dragons football senior banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-canyonview-track.jpg",
+      "alt": "Canyon View track and field senior banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-liberty-basketball.jpg",
+      "alt": "Liberty basketball senior banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-desertvista-football.jpg",
+      "alt": "Desert Vista football senior banner"
+    }
+  ],
+  "portfolio": [
+    {
+      "image": "/assets/images/hero-composite-football-99.jpg",
+      "alt": "Football player number 99 — composite portrait in a light tunnel"
+    },
+    {
+      "image": "/assets/images/natural-wrestling-owls.jpg",
+      "alt": "Owls wrestler in stance — natural shoot"
+    },
+    {
+      "image": "/assets/images/mediaday-cheer-gold-smoke.jpg",
+      "alt": "Cheer athlete with gold poms in smoke"
+    },
+    {
+      "image": "/assets/images/composite-baseball-dugout.jpg",
+      "alt": "Baseball player — dugout composite portrait"
+    },
+    {
+      "image": "/assets/images/mediaday-track-javelin.jpg",
+      "alt": "Javelin thrower in red light — Media Day portrait"
+    },
+    {
+      "image": "/assets/images/natural-baseball-knights.jpg",
+      "alt": "Knights baseball player at the fence — natural shoot"
+    },
+    {
+      "image": "/assets/images/composite-football-tolleson.jpg",
+      "alt": "Tolleson football player — composite portrait with smoke"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-tigers-girl.jpg",
+      "alt": "Tigers basketball player in purple smoke"
+    }
+  ]
+}

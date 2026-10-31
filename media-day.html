@@ -539,7 +539,7 @@
   <div class="page-hero-inner" style="padding-bottom:60px;">
     <p class="page-hero-eyebrow" id="cms-eyebrow">Premium Service</p>
     <h1 class="page-hero-title" id="cms-headline">Phireworx Media&nbsp;Day<br><span>Experience</span></h1>
-    <p class="page-hero-sub" id="cms-sub">A prepaid, creative-first media production shoot where the organization—not parents—funds the session. Full digital access. Advanced lighting. A distinct visual identity built for your program.</p>
+    <p class="page-hero-sub" id="cms-sub">A prepaid, creative-first media production shoot where the organization funds the session. Full digital access. Advanced lighting. A distinct visual identity built for your program.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
       <a href="#pricing" class="btn-primary">See Pricing</a>
       <a href="#gallery" class="btn-ghost">See the Work</a>
@@ -605,7 +605,27 @@
     <h2 class="section-title" id="cms-title-1">Media Day <span>Gallery</span></h2>
     <p class="section-desc" id="cms-desc-1">Every image from a Phireworx Media Day is intentional — lit, directed, and built to make your program look elite.</p>
     <div class="gallery-grid" id="cms-gallery-grid">
-      <!-- loaded from CMS -->
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[0]" data-lightbox src="/assets/images/mediaday-basketball-chavez-dunk.jpg" alt="Cesar Chavez basketball team dunk — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[1]" data-lightbox src="/assets/images/mediaday-track-javelin.jpg" alt="Track athlete with javelin — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[2]" data-lightbox src="/assets/images/mediaday-saguaro-locker.jpg" alt="Saguaro player holding jersey in locker room — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item wide">
+        <img data-cms-img="photos/media-day:gallery[3]" data-lightbox src="/assets/images/mediaday-basketball-basha-team.jpg" alt="Basha basketball team group — Media Day Experience" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[4]" data-lightbox src="/assets/images/mediaday-saguaro-throne.jpg" alt="Saguaro football player on throne — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[5]" data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player dribbling — Media Day" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img data-cms-img="photos/media-day:gallery[6]" data-lightbox src="/assets/images/mediaday-volleyball-red-smoke.jpg" alt="Volleyball player with red smoke — Media Day" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -619,7 +639,7 @@
     <p class="section-desc" style="margin-bottom:20px;">Pricing scales with roster size — the larger the team, the lower the per-athlete rate. All tiers include every digital from the shoot, full editing, and complete usage rights.</p>
     <div style="display:inline-block;margin-bottom:36px;padding:12px 22px;background:var(--ash);border:1px solid var(--ember);border-radius:4px;">
       <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ember);">Minimum Booking</span>
-      <span style="font-size:20px;font-weight:800;color:var(--white);margin-left:12px;vertical-align:middle;">$600</span>
+      <span style="font-size:20px;font-weight:800;color:var(--white);margin-left:12px;vertical-align:middle;">$<data data-cms="prices:media_day.minimum">600</data></span>
     </div>
 
     <div class="pricing-tiers">
@@ -627,7 +647,7 @@
       <div class="pricing-tier featured">
         <div class="pricing-tier-badge">Best Value</div>
         <div class="pricing-tier-range">20+ Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>65</div>
+        <div class="pricing-tier-price"><span>$</span><data data-cms="prices:media_day.tier_20_plus">65</data></div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -643,7 +663,7 @@
       <!-- MID -->
       <div class="pricing-tier">
         <div class="pricing-tier-range">10–19 Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>80</div>
+        <div class="pricing-tier-price"><span>$</span><data data-cms="prices:media_day.tier_10_19">80</data></div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -659,7 +679,7 @@
       <!-- SMALL -->
       <div class="pricing-tier">
         <div class="pricing-tier-range">5–9 Athletes</div>
-        <div class="pricing-tier-price"><span>$</span>95</div>
+        <div class="pricing-tier-price"><span>$</span><data data-cms="prices:media_day.tier_5_9">95</data></div>
         <div class="pricing-tier-per">per athlete</div>
         <div class="pricing-tier-divider"></div>
         <div class="pricing-tier-includes">
@@ -675,7 +695,7 @@
 
     <!-- PRICING FOOTNOTE -->
     <div style="margin-top:24px;padding:20px 28px;background:var(--ash);border-left:4px solid var(--ember);max-width:780px;">
-      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">How pricing works:</strong> Multiply the per-athlete rate by your roster size to get your total. <strong style="color:var(--white);">A $600 minimum booking applies to all Media Day sessions (5-athlete minimum roster).</strong> Payment is collected upfront before the shoot date. The rate is locked at booking — no surprise fees, no per-image charges, no upsells. Have a large program or a special request? <a href="#book" style="color:var(--ember);">Contact us</a> for a custom quote.</p>
+      <p style="font-size:13px;color:var(--mist);line-height:1.7;margin:0;"><strong style="color:var(--white);">How pricing works:</strong> Multiply the per-athlete rate by your roster size to get your total. <strong style="color:var(--white);">A $<data data-cms="prices:media_day.minimum">600</data> minimum booking applies to all Media Day sessions (5-athlete minimum roster).</strong> Payment is collected upfront before the shoot date. The rate is locked at booking — no surprise fees, no per-image charges, no upsells. Have a large program or a special request? <a href="#book" style="color:var(--ember);">Contact us</a> for a custom quote.</p>
     </div>
   </div>
 </section>
@@ -744,12 +764,12 @@
       <div class="ideal-program-card">
         <div class="ideal-program-num">01</div>
         <div class="ideal-program-title">High School Varsity Programs</div>
-        <p class="ideal-program-desc">Give your varsity program the professional visual identity to match their level of competition. Ideal for football, basketball, volleyball, baseball, and soccer programs.</p>
+        <p class="ideal-program-desc">Give your varsity program the professional visual identity to match their level of competition.</p>
       </div>
       <div class="ideal-program-card">
         <div class="ideal-program-num">02</div>
         <div class="ideal-program-title">Club &amp; Travel Teams</div>
-        <p class="ideal-program-desc">Stand out in recruiting, attract sponsors, and give your club team the professional look that elite organizations deserve — all in one shoot.</p>
+        <p class="ideal-program-desc">Stand out in recruiting, attract sponsors, and give your club team the professional look that elite organizations deserve.</p>
       </div>
       <div class="ideal-program-card">
         <div class="ideal-program-num">03</div>
@@ -759,17 +779,17 @@
       <div class="ideal-program-card">
         <div class="ideal-program-num">04</div>
         <div class="ideal-program-title">Booster &amp; Spirit Groups</div>
-        <p class="ideal-program-desc">Build booster materials, game programs, and spirit merch with professionally licensed photography your whole community will be proud of.</p>
+        <p class="ideal-program-desc">Build booster materials, game programs, and spirit merch with professionally licensed photography.</p>
       </div>
       <div class="ideal-program-card">
         <div class="ideal-program-num">05</div>
         <div class="ideal-program-title">College Recruiting Prep</div>
-        <p class="ideal-program-desc">Athletes with professional-quality photos stand out in recruiting profiles. Give your players the edge with imagery that matches their ambition.</p>
+        <p class="ideal-program-desc">Athletes with professional-quality photos stand out in recruiting profiles.</p>
       </div>
       <div class="ideal-program-card">
         <div class="ideal-program-num">06</div>
         <div class="ideal-program-title">Youth Elite Programs</div>
-        <p class="ideal-program-desc">Top-tier youth programs deserve top-tier photos. Media shoots work for any roster size — we work fast and make every athlete feel like a pro.</p>
+        <p class="ideal-program-desc">Top-tier youth programs deserve top-tier photos. Media shoots work for any roster size.</p>
       </div>
     </div>
   </div>
@@ -786,28 +806,28 @@
         <div class="how-step-num" style="color:var(--ember);">01</div>
         <div class="how-step-content">
           <div class="how-step-title">Book &amp; Pay Upfront</div>
-          <p class="how-step-desc">Submit a booking request below. We'll confirm availability, review your program's needs, and invoice you. The shoot is paid upfront — one flat rate, no surprises.</p>
+          <p class="how-step-desc">Submit a booking request. We confirm availability, review your program's needs, and invoice you. One flat rate, no surprises.</p>
         </div>
       </div>
       <div class="how-step">
         <div class="how-step-num" style="color:var(--ember);">02</div>
         <div class="how-step-content">
           <div class="how-step-title">Pre-Shoot Planning</div>
-          <p class="how-step-desc">We'll connect with you before the shoot to plan setup, location, roster size, and any custom looks or themes. We arrive prepared so your time is used efficiently.</p>
+          <p class="how-step-desc">We connect before the shoot to plan setup, location, roster size, and any custom looks or themes.</p>
         </div>
       </div>
       <div class="how-step">
         <div class="how-step-num" style="color:var(--ember);">03</div>
         <div class="how-step-content">
           <div class="how-step-title">Media Day</div>
-          <p class="how-step-desc">We handle everything on-site. Professional lighting, equipment, and direction. Athletes move through quickly — we run an efficient, energetic shoot your team will actually enjoy.</p>
+          <p class="how-step-desc">We handle everything on-site. Professional lighting, equipment, and direction. Athletes move through quickly.</p>
         </div>
       </div>
       <div class="how-step">
         <div class="how-step-num" style="color:var(--ember);">04</div>
         <div class="how-step-content">
           <div class="how-step-title">Editing &amp; Delivery</div>
-          <p class="how-step-desc">All images are professionally edited and delivered to your private download gallery within 7–10 business days. Every photo from the shoot. Yours to use however you want.</p>
+          <p class="how-step-desc">All images professionally edited and delivered to your private download gallery within 7-10 business days.</p>
         </div>
       </div>
     </div>
@@ -952,89 +972,6 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/media-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-eyebrow',d.eyebrow);
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var hadBr=!!e.querySelector('br');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      // keep "Media Day" together and keep the line break before the accent line
-      before=before.replace(/Media Day/gi,function(m){return m.replace(' ','&nbsp;');});
-      if(hadBr) before=before.replace(/\s+$/,'')+'<br>';
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub',d.sub);
-
-  // Gallery images
-  const grid=document.getElementById('cms-gallery-grid');
-  if(grid&&d.gallery&&d.gallery.length){
-    grid.innerHTML=d.gallery.map(img=>`
-      <div class="gallery-item${img.wide?' wide':''}">
-        <img data-lightbox src="${img.image}" alt="${img.alt||''}" loading="lazy">
-      </div>`).join('');
-    // Re-init lightbox if available
-    if(window.initLightbox) window.initLightbox();
-  }
-
-  // What you get items
-  if(d.what_you_get){
-    const items=document.querySelectorAll('.icon-feature,[class*="what-item"],[class*="included-item"]');
-    d.what_you_get.forEach((item,i)=>{
-      if(items[i]){
-        const t=items[i].querySelector('h3,[class*="title"]');
-        const desc=items[i].querySelector('p,[class*="desc"]');
-        if(t)t.textContent=item.title;
-        if(desc)desc.textContent=item.desc;
-      }
-    });
-  }
-
-  // Ideal programs
-  if(d.ideal_programs){
-    const cards=document.querySelectorAll('.ideal-program-card');
-    d.ideal_programs.forEach((p,i)=>{
-      if(cards[i]){
-        const t=cards[i].querySelector('.ideal-program-title');
-        const desc=cards[i].querySelector('.ideal-program-desc');
-        if(t)t.textContent=p.title;
-        if(desc)desc.textContent=p.desc;
-      }
-    });
-  }
-
-  // How it works steps
-  if(d.steps){
-    const steps=document.querySelectorAll('.how-step');
-    d.steps.forEach((step,i)=>{
-      if(steps[i]){
-        const t=steps[i].querySelector('.how-step-title,[class*="step-title"]');
-        const desc=steps[i].querySelector('.how-step-desc,[class*="step-desc"]');
-        if(t)t.textContent=step.title;
-        if(desc)desc.textContent=step.desc;
-      }
-    });
-  }
-
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -1080,6 +1017,7 @@ fetch('/data/media-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json(
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+{
+  "top_strip": [
+    {
+      "image": "/assets/images/strip-natural-softball.jpg",
+      "alt": "Knights softball player — natural outdoor shoot"
+    },
+    {
+      "image": "/assets/images/hero-action-soccer-kick.jpg",
+      "alt": "Soccer player action kick at sunset"
+    },
+    {
+      "image": "/assets/images/strip-natural-basketball-vikings.jpg",
+      "alt": "Vikings basketball player — natural gym shoot"
+    },
+    {
+      "image": "/assets/images/strip-natural-soccer-girl.jpg",
+      "alt": "Soccer player — natural outdoor shoot"
+    }
+  ],
+  "natural_1": {
+    "image": "/assets/images/composite-baseball-dugout.jpg",
+    "alt": "Baseball player — natural dugout shoot"
+  },
+  "natural_2": {
+    "image": "/assets/images/natural-baseball-knights.jpg",
+    "alt": "Knights baseball player — natural outdoor shoot"
+  },
+  "composite_1": {
+    "image": "/assets/images/composite-football-tolleson.jpg",
+    "alt": "Tolleson football player — composite smoke portrait"
+  },
+  "composite_2": {
+    "image": "/assets/images/strip-natural-track.jpg",
+    "alt": "Track athlete — composite shoot"
+  }
+}

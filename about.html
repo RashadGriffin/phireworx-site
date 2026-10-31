@@ -192,9 +192,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow" id="cms-eyebrow">Our Story</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">About Phireworx</p>
     <h1 class="page-hero-title" id="cms-headline">Built on Three<br><span>Passions</span></h1>
-    <p class="page-hero-sub" id="cms-sub">Photography. Youth. Sport. When a Phoenix kid fused all three into one vision in 2012, Phireworx was born.</p>
+    <p class="page-hero-sub" id="cms-sub">Phoenix-based sports photography team serving high school programs and youth leagues since 2012.</p>
   </div>
 </div>
 
@@ -394,51 +394,6 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/about.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-eyebrow',d.eyebrow||'About Phireworx');
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub',d.sub);
-  if(d.story){
-    const storyEl=document.querySelector('.about-story, .story-text, [class*="story"] p');
-    if(storyEl)storyEl.textContent=d.story;
-  }
-  if(d.team){
-    const members=document.querySelectorAll('.team-member, .staff-card, [class*="team-card"]');
-    d.team.forEach((m,i)=>{
-      if(members[i]){
-        const name=members[i].querySelector('[class*="name"], h3');
-        const role=members[i].querySelector('[class*="role"], [class*="title"]');
-        const bio=members[i].querySelector('[class*="bio"], p');
-        if(name)name.textContent=m.name;
-        if(role)role.textContent=m.role;
-        if(bio)bio.textContent=m.bio;
-      }
-    });
-  }
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -484,6 +439,6 @@ fetch('/data/about.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).t
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
 </body>
 </html>

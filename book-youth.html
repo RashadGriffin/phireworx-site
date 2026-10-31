@@ -280,7 +280,7 @@
       <p class="hs-notice-label" id="cms-notice-label">Important Note</p>
       <h2 class="hs-notice-title" id="cms-notice-title">Minimum Athlete Requirement</h2>
       <div class="hs-notice-body">
-        <p>A session fee of <strong>$250</strong> may apply to organizations with fewer than <strong>50 athletes</strong>.</p>
+        <p>A session fee of <strong>$<data data-cms="prices:picture_day.small_program_fee">250</data></strong> may apply to organizations with fewer than <strong><data data-cms="prices:picture_day.youth_min_athletes">50</data> athletes</strong>.</p>
         <p>Athlete counts combine across every team photographed on the same day at the same location. Most leagues clear the minimum easily by booking their teams together, so bring the whole organization and we will run them all in one day.</p>
       </div>
     </div>
@@ -351,18 +351,6 @@
     <img src="" alt="" id="lb-img">
   </div>
 
-<script>
-fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-booking-headline',d.headline);
-  s('cms-card-eyebrow-1',d.hs_eyebrow);
-  s('cms-card-title-1',d.hs_title);
-  s('cms-card-desc-1',d.hs_desc);
-  s('cms-card-eyebrow-2',d.youth_eyebrow);
-  s('cms-card-title-2',d.youth_title);
-  s('cms-card-desc-2',d.youth_desc);
-}).catch(()=>{});
-</script>
 
 <script id="mobile-menu-js">
 (function() {
@@ -419,43 +407,6 @@ fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json())
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/book-youth.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-eyebrow',d.eyebrow);
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub',d.sub);
-  s('cms-notice-label',d.notice_label);
-  s('cms-notice-title',d.notice_title);
-  s('cms-form-label',d.form_label);
-  // Update notice body paragraphs
-  const body=document.querySelector('.hs-notice-body');
-  if(body&&(d.notice_line1||d.notice_line2||d.notice_line3)){
-    const lines=[d.notice_line1,d.notice_line2,d.notice_line3].filter(l=>l&&l.trim());
-    body.innerHTML=lines.map(l=>'<p>'+l+'</p>').join('');
-  }
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -501,7 +452,8 @@ fetch('/data/book-youth.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 
 </html>

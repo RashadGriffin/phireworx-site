@@ -302,8 +302,8 @@
   <div class="hp-svc-list">
     <div class="hp-svc">
       <div class="hp-svc-media hp-svc-pair">
-        <img data-lightbox src="/assets/images/private-football-throne.jpg" width="1440" height="1800" style="--ar:0.8" alt="Saguaro football player seated on a gold throne in a smoke-filled locker room" loading="lazy">
-        <img data-lightbox src="/assets/images/private-lifestyle-suit.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Man in a tailored plaid suit seated on a concrete ledge downtown" loading="lazy">
+        <img data-cms-img="photos/private-sessions:signature_left" data-lightbox src="/assets/images/private-football-throne.jpg" width="1440" height="1800" style="--ar:0.8" alt="Saguaro football player seated on a gold throne in a smoke-filled locker room" loading="lazy">
+        <img data-cms-img="photos/private-sessions:signature_right" data-lightbox src="/assets/images/private-lifestyle-suit.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Man in a tailored plaid suit seated on a concrete ledge downtown" loading="lazy">
       </div>
       <div class="hp-svc-copy">
         <h3 class="hp-svc-title">Signature Session</h3>
@@ -313,7 +313,7 @@
     </div>
     <div class="hp-svc hp-svc-alt">
       <div class="hp-svc-media hp-svc-pair">
-        <img data-lightbox src="/assets/images/private-brand-stadium-lights.jpg" width="1800" height="1440" style="--ar:1.25" alt="Football player flexing in front of stadium lights and smoke" loading="lazy">
+        <img data-cms-img="photos/private-sessions:brand" data-lightbox src="/assets/images/private-brand-stadium-lights.jpg" width="1800" height="1440" style="--ar:1.25" alt="Football player flexing in front of stadium lights and smoke" loading="lazy">
       </div>
       <div class="hp-svc-copy">
         <h3 class="hp-svc-title">Brand Session</h3>
@@ -335,27 +335,27 @@
     </div>
     <div class="ps-packages">
       <div class="ps-pkg">
-        <span class="hp-tab">Signature</span>
-        <div class="ps-pkg-price">$600</div>
-        <ul>
+        <span class="hp-tab" data-cms="prices:private_sessions.packages[0].name">Signature</span>
+        <div class="ps-pkg-price">$<data data-cms="prices:private_sessions.packages[0].price">600</data></div>
+        <ul data-cms-list="prices:private_sessions.packages[0].items">
           <li>1-hour session</li>
           <li>1 location</li>
           <li>25 edited digital images</li>
         </ul>
       </div>
       <div class="ps-pkg">
-        <span class="hp-tab">Signature Plus</span>
-        <div class="ps-pkg-price">$850</div>
-        <ul>
+        <span class="hp-tab" data-cms="prices:private_sessions.packages[1].name">Signature Plus</span>
+        <div class="ps-pkg-price">$<data data-cms="prices:private_sessions.packages[1].price">850</data></div>
+        <ul data-cms-list="prices:private_sessions.packages[1].items">
           <li>90-minute session</li>
           <li>Up to 2 locations</li>
           <li>Every edited digital image</li>
         </ul>
       </div>
       <div class="ps-pkg">
-        <span class="hp-tab">Cover Story</span>
-        <div class="ps-pkg-price">$1,200</div>
-        <ul>
+        <span class="hp-tab" data-cms="prices:private_sessions.packages[2].name">Cover Story</span>
+        <div class="ps-pkg-price">$<data data-cms="prices:private_sessions.packages[2].price">1,200</data></div>
+        <ul data-cms-list="prices:private_sessions.packages[2].items">
           <li>2-hour session</li>
           <li>Up to 2 locations</li>
           <li>Every edited digital image</li>
@@ -363,9 +363,9 @@
         </ul>
       </div>
       <div class="ps-pkg">
-        <span class="hp-tab">The Duo</span>
-        <div class="ps-pkg-price">$1,000</div>
-        <ul>
+        <span class="hp-tab" data-cms="prices:private_sessions.packages[3].name">The Duo</span>
+        <div class="ps-pkg-price">$<data data-cms="prices:private_sessions.packages[3].price">1,000</data></div>
+        <ul data-cms-list="prices:private_sessions.packages[3].items">
           <li>Two people, one session</li>
           <li>2-hour session</li>
           <li>1 location</li>
@@ -384,9 +384,9 @@
 
 <!-- PHOTO BAND -->
 <div class="ps-band">
-  <img data-lightbox src="/assets/images/private-boxing-corner.jpg" width="1440" height="1800" style="--ar:0.8" alt="Young boxer resting in the corner of the ring while his coach gives instructions" loading="lazy">
-  <img data-lightbox src="/assets/images/private-boxing-heavy-bag.jpg" width="1800" height="1200" style="--ar:1.5" alt="Young boxer throwing a jab into a heavy bag" loading="lazy">
-  <img data-lightbox src="/assets/images/private-couple-court.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Couple posed on a basketball court in smoke, holding baby shoes and a basketball" loading="lazy">
+  <img data-cms-img="photos/private-sessions:strip[0]" data-lightbox src="/assets/images/private-boxing-corner.jpg" width="1440" height="1800" style="--ar:0.8" alt="Young boxer resting in the corner of the ring while his coach gives instructions" loading="lazy">
+  <img data-cms-img="photos/private-sessions:strip[1]" data-lightbox src="/assets/images/private-boxing-heavy-bag.jpg" width="1800" height="1200" style="--ar:1.5" alt="Young boxer throwing a jab into a heavy bag" loading="lazy">
+  <img data-cms-img="photos/private-sessions:strip[2]" data-lightbox src="/assets/images/private-couple-court.jpg" width="1200" height="1800" style="--ar:0.6667" alt="Couple posed on a basketball court in smoke, holding baby shoes and a basketball" loading="lazy">
 </div>
 
 <!-- PROCESS -->
@@ -607,6 +607,7 @@
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

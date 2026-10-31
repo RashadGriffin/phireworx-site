@@ -207,6 +207,10 @@
     function ease(t) { return 1 - Math.pow(1 - t, 4); } // easeOutQuart
     function frame(ts) {
       if (!start) start = ts;
+      var fin = el.getAttribute('data-final'); // set by cms.js when /admin changes the number
+      if (fin && fin !== targetStr && !isNaN(parseFloat(fin))) {
+        targetStr = fin; target = parseFloat(fin); decimals = (fin.split('.')[1] || '').length;
+      }
       var p = Math.min(1, (ts - start) / dur);
       var val = (target * ease(p)).toFixed(decimals);
       node.textContent = prefix + val;

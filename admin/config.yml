@@ -1,368 +1,788 @@
+# Phireworx /admin
+# Every field here is wired to the live site (assets/js/cms.js reads these files).
+# Add a field only together with a data-cms binding on the page.
+
 backend:
   name: git-gateway
   branch: main
-
-media_folder: "assets/images"
-public_folder: "/assets/images"
-
+media_folder: assets/images
+public_folder: /assets/images
 collections:
-
-  # ── HOMEPAGE ──
-  - name: "homepage"
-    label: "🏠 Homepage"
-    files:
-      - name: "homepage"
-        label: "Homepage Content"
-        file: "data/homepage.json"
-        format: json
-        fields:
-          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
-          - { label: "Hero Line 1 (white)", name: "hero_line1", widget: "string" }
-          - { label: "Hero Line 2 (amber)", name: "hero_line2", widget: "string" }
-          - { label: "Hero Line 3 (white)", name: "hero_line3", widget: "string" }
-          - { label: "Hero Subheadline", name: "hero_sub", widget: "text" }
-          - { label: "Primary Button Text", name: "hero_btn1", widget: "string" }
-          - { label: "Secondary Button Text", name: "hero_btn2", widget: "string" }
-          - { label: "Stat 1 — Number", name: "stat1_num", widget: "string" }
-          - { label: "Stat 1 — Suffix", name: "stat1_suffix", widget: "string" }
-          - { label: "Stat 1 — Label", name: "stat1_label", widget: "string" }
-          - { label: "Stat 2 — Number", name: "stat2_num", widget: "string" }
-          - { label: "Stat 2 — Suffix", name: "stat2_suffix", widget: "string" }
-          - { label: "Stat 2 — Label", name: "stat2_label", widget: "string" }
-          - { label: "Stat 3 — Number", name: "stat3_num", widget: "string" }
-          - { label: "Stat 3 — Suffix", name: "stat3_suffix", widget: "string" }
-          - { label: "Stat 3 — Label", name: "stat3_label", widget: "string" }
-          - { label: "Stat 4 — Number", name: "stat4_num", widget: "string" }
-          - { label: "Stat 4 — Suffix", name: "stat4_suffix", widget: "string" }
-          - { label: "Stat 4 — Label", name: "stat4_label", widget: "string" }
-          - label: "How It Works Steps"
-            name: "process_steps"
-            widget: "list"
-            label_singular: "Step"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-
-  # ── REVIEWS ──
-  - name: "reviews"
-    label: "⭐ Reviews"
-    folder: "data/reviews"
-    create: true
-    slug: "{{slug}}"
-    label_singular: "Review"
+- name: homepage
+  label: Homepage
+  editor:
+    preview: false
+  files:
+  - name: homepage
+    label: 'Homepage: Headline & Stats'
+    file: data/homepage.json
     format: json
-    summary: "{{name}} — {{role}}"
     fields:
-      - { label: "Reviewer Name", name: "name", widget: "string" }
-      - { label: "Role / Organization", name: "role", widget: "string" }
-      - { label: "Review Text", name: "quote", widget: "text", hint: "Do not include quotation marks" }
-      - { label: "Star Rating", name: "stars", widget: "number", default: 5, value_type: "int", min: 1, max: 5 }
-      - { label: "Show on Homepage", name: "homepage", widget: "boolean", default: false }
-      - { label: "Show on Reviews Page", name: "reviews_page", widget: "boolean", default: true }
-
-  # ── PICTURE DAY ──
-  - name: "photo_day"
-    label: "📸 Picture Day Page"
-    files:
-      - name: "photo_day"
-        label: "Picture Day Content"
-        file: "data/photo-day.json"
-        format: json
+    - label: Line under "Est. 2012"
+      name: hero_eyebrow
+      widget: string
+    - label: Headline line 1
+      name: hero_line1
+      widget: string
+    - label: Headline line 2
+      name: hero_line2
+      widget: string
+    - label: Headline line 3
+      name: hero_line3
+      widget: string
+    - label: Text under the headline
+      name: hero_sub
+      widget: text
+    - label: Main button text
+      name: hero_btn1
+      widget: string
+    - label: Second button text
+      name: hero_btn2
+      widget: string
+    - label: Stat 1 number
+      name: stat1_num
+      widget: string
+      pattern: &id001
+      - ^[0-9][0-9,.]*$
+      - Numbers only, no $ sign
+    - label: Stat 1 after the number (like + or %)
+      name: stat1_suffix
+      widget: string
+      required: false
+    - label: Stat 1 label
+      name: stat1_label
+      widget: string
+    - label: Stat 2 number
+      name: stat2_num
+      widget: string
+      pattern: *id001
+    - label: Stat 2 after the number
+      name: stat2_suffix
+      widget: string
+      required: false
+    - label: Stat 2 label
+      name: stat2_label
+      widget: string
+    - label: Stat 3 number (shows with a star)
+      name: stat3_num
+      widget: string
+      pattern: *id001
+    - label: Stat 3 label
+      name: stat3_label
+      widget: string
+    - label: Stat 4 number
+      name: stat4_num
+      widget: string
+      pattern: *id001
+    - label: Stat 4 after the number
+      name: stat4_suffix
+      widget: string
+      required: false
+    - label: Stat 4 label
+      name: stat4_label
+      widget: string
+- name: prices
+  label: Prices
+  editor:
+    preview: false
+  files:
+  - name: prices
+    label: All Prices
+    file: data/prices.json
+    format: json
+    fields:
+    - label: Pro Banners
+      name: banners
+      widget: object
+      collapsed: true
+      fields:
+      - label: Individual 2×3 ft
+        name: individual_2x3
+        widget: string
+        pattern: *id001
+        hint: Also the "from" price on the Banners and Services pages
+      - label: Individual 2.5×4 ft
+        name: individual_25x4
+        widget: string
+        pattern: *id001
+      - label: Individual 3×5 ft
+        name: individual_3x5
+        widget: string
+        pattern: *id001
+      - label: Individual 4×6 ft
+        name: individual_4x6
+        widget: string
+        pattern: *id001
+      - label: Traditional team 5×3 ft
+        name: team_5x3
+        widget: string
+        pattern: *id001
+      - label: Traditional team 6×4 ft
+        name: team_6x4
+        widget: string
+        pattern: *id001
+      - label: Traditional team 7×5 ft
+        name: team_7x5
+        widget: string
+        pattern: *id001
+      - label: Traditional team 10×6 ft
+        name: team_10x6
+        widget: string
+        pattern: *id001
+      - label: Composite team 5×3 ft
+        name: composite_5x3
+        widget: string
+        pattern: *id001
+      - label: Composite team 6×4 ft
+        name: composite_6x4
+        widget: string
+        pattern: *id001
+      - label: Composite team 7×5 ft
+        name: composite_7x5
+        widget: string
+        pattern: *id001
+      - label: Composite team 10×6 ft
+        name: composite_10x6
+        widget: string
+        pattern: *id001
+      - label: Extra per banner on orders of 1–3
+        name: small_order_upcharge
+        widget: string
+        pattern: *id001
+      - label: Banner-only minimum order
+        name: minimum_order
+        widget: string
+        pattern: *id001
+      - label: Shipping charge
+        name: shipping
+        widget: string
+        pattern: *id001
+      - label: Free shipping at
+        name: free_shipping_at
+        widget: string
+        pattern: *id001
+    - label: Media Day
+      name: media_day
+      widget: object
+      collapsed: true
+      fields:
+      - label: Per athlete, 20+ athletes
+        name: tier_20_plus
+        widget: string
+        pattern: *id001
+        hint: Also the "starting at" price on the Services and Booking pages
+      - label: Per athlete, 10–19 athletes
+        name: tier_10_19
+        widget: string
+        pattern: *id001
+      - label: Per athlete, 5–9 athletes
+        name: tier_5_9
+        widget: string
+        pattern: *id001
+      - label: Minimum booking
+        name: minimum
+        widget: string
+        pattern: *id001
+    - label: Picture Day
+      name: picture_day
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small-program session fee
+        name: small_program_fee
+        widget: string
+        pattern: *id001
+      - label: High school athlete minimum (no fee at or above)
+        name: hs_min_athletes
+        widget: string
+        pattern: *id001
+      - label: Youth/club athlete minimum (no fee at or above)
+        name: youth_min_athletes
+        widget: string
+        pattern: *id001
+    - label: Team Media Images
+      name: team_media
+      widget: object
+      collapsed: true
+      fields:
+      - label: Per image, 1–9 images
+        name: per_image_1_9
+        widget: string
+        pattern: *id001
+      - label: Per image, 10–19 images
+        name: per_image_10_19
+        widget: string
+        pattern: *id001
+      - label: Per image, 20+ images
+        name: per_image_20_plus
+        widget: string
+        pattern: *id001
+      - label: Hi-res upgrade per image
+        name: hires_upgrade
+        widget: string
+        pattern: *id001
+      - label: PNG cutout per image
+        name: png_cutout
+        widget: string
+        pattern: *id001
+      - label: Player headshots, full team
+        name: headshots_flat
+        widget: string
+        pattern: *id001
+    - label: Private Sessions (Signature packages)
+      name: private_sessions
+      widget: object
+      collapsed: true
+      fields:
+      - label: Packages
+        name: packages
+        widget: list
+        allow_add: false
+        allow_remove: false
+        label_singular: Package
+        summary: '{{fields.name}}: ${{fields.price}}'
+        hint: The four package cards, in order.
         fields:
-          - { label: "Hero Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Hero Headline", name: "headline", widget: "string" }
-          - { label: "Hero Subheadline", name: "sub", widget: "text" }
-          - label: "How It Works Steps"
-            name: "steps"
-            widget: "list"
-            label_singular: "Step"
-            fields:
-              - { label: "Step Title", name: "title", widget: "string" }
-              - { label: "Step Description", name: "desc", widget: "text" }
-          - label: "EZ Ordering Features"
-            name: "features"
-            widget: "list"
-            label_singular: "Feature"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-          - label: "Shoot Style Cards"
-            name: "styles"
-            widget: "list"
-            label_singular: "Style"
-            fields:
-              - { label: "Style Name", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-
-  # ── MEDIA DAY ──
-  - name: "media_day"
-    label: "🎬 Media Day Page"
-    files:
-      - name: "media_day"
-        label: "Media Day Content"
-        file: "data/media-day.json"
-        format: json
+        - label: Package name
+          name: name
+          widget: string
+        - label: Price
+          name: price
+          widget: string
+          pattern: *id001
+        - label: What's included
+          name: items
+          widget: list
+          field:
+            label: Line
+            name: item
+            widget: string
+  description: Every price on the site. Change a number here and it updates on every page that shows it. Numbers only, no $ sign.
+- name: photos
+  label: Photos
+  editor:
+    preview: false
+  description: Swap any photo on the site. Open a page, pick a spot, and upload a new photo.
+  files:
+  - name: home
+    label: Homepage
+    file: data/photos/home.json
+    format: json
+    fields:
+    - label: Big photo at the top
+      name: hero
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Picture Day row, left photo
+      name: picture_day_left
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Picture Day row, right photo
+      name: picture_day_right
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Media Day row, left photo
+      name: media_day_left
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Media Day row, right photo
+      name: media_day_right
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Pro Banners row (banner wall)
+      name: banner_wall
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Banner
+      summary: '{{fields.alt}}'
+      hint: 4 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Our Portfolio grid
+      name: portfolio
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Photo
+      summary: '{{fields.alt}}'
+      hint: 8 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+  - name: picture-day
+    label: Picture Day page
+    file: data/photos/picture-day.json
+    format: json
+    fields:
+    - label: Photo strip near the top
+      name: top_strip
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Photo
+      summary: '{{fields.alt}}'
+      hint: 4 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Natural Shoots, photo 1
+      name: natural_1
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Natural Shoots, photo 2
+      name: natural_2
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Composite Shoots, photo 1
+      name: composite_1
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Composite Shoots, photo 2
+      name: composite_2
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+  - name: media-day
+    label: Media Day page
+    file: data/photos/media-day.json
+    format: json
+    fields:
+    - label: Media Day Gallery
+      name: gallery
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Photo
+      summary: '{{fields.alt}}'
+      hint: 7 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+  - name: banners
+    label: Banners page
+    file: data/photos/banners.json
+    format: json
+    fields:
+    - label: Banner Gallery (top)
+      name: top_gallery
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Banner
+      summary: '{{fields.alt}}'
+      hint: 4 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: 'Banner Types: Individual Athlete'
+      name: type_individual
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: 'Banner Types: Traditional Team (wide photo)'
+      name: type_traditional_team
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: 'Banner Types: Composite Team (wide photo)'
+      name: type_composite_team
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: '"Every Sport. Every Athlete." gallery'
+      name: bottom_gallery
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Banner
+      summary: '{{fields.alt}}'
+      hint: 6 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+  - name: services
+    label: Services page
+    file: data/photos/services.json
+    format: json
+    fields:
+    - label: Team & Individual Picture Day
+      name: picture_day
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Pro Banners
+      name: pro_banners
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Media Day Experience
+      name: media_day
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+  - name: private-sessions
+    label: Private Sessions page
+    file: data/photos/private-sessions.json
+    format: json
+    fields:
+    - label: Signature Session, left photo
+      name: signature_left
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Signature Session, right photo
+      name: signature_right
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Brand Session photo
+      name: brand
+      widget: object
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+    - label: Photo strip
+      name: strip
+      widget: list
+      allow_add: false
+      allow_remove: false
+      collapsed: true
+      label_singular: Photo
+      summary: '{{fields.alt}}'
+      hint: 3 photos in this spot. Drag to reorder.
+      fields:
+      - label: Photo
+        name: image
+        widget: image
+        choose_url: false
+        hint: Upload a JPG. The site resizes it automatically.
+      - label: Description
+        name: alt
+        widget: string
+        required: false
+        hint: One short line describing the photo (used by Google and screen readers).
+- name: reviews
+  label: Reviews
+  folder: data/reviews
+  create: true
+  slug: '{{slug}}'
+  label_singular: Review
+  format: json
+  summary: '{{name}} — {{role}}'
+  fields:
+  - label: Reviewer Name
+    name: name
+    widget: string
+  - label: Role / Organization
+    name: role
+    widget: string
+  - label: Review Text
+    name: quote
+    widget: text
+    hint: Do not include quotation marks
+  - label: Star Rating
+    name: stars
+    widget: number
+    default: 5
+    value_type: int
+    min: 1
+    max: 5
+  - label: Show on Homepage
+    name: homepage
+    widget: boolean
+    default: false
+  - label: Show on Reviews Page
+    name: reviews_page
+    widget: boolean
+    default: true
+- name: faq
+  label: FAQ
+  files:
+  - name: faq
+    label: FAQ Content
+    file: data/faq.json
+    format: json
+    fields:
+    - label: Page Subheadline
+      name: sub
+      widget: text
+    - label: FAQ Categories
+      name: categories
+      widget: list
+      label_singular: Category
+      fields:
+      - label: Category Name
+        name: category
+        widget: string
+      - label: Questions
+        name: questions
+        widget: list
+        label_singular: Question
         fields:
-          - { label: "Hero Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Hero Headline", name: "headline", widget: "string" }
-          - { label: "Hero Subheadline", name: "sub", widget: "text" }
-          - { label: "Core Section Heading", name: "core_heading", widget: "string" }
-          - { label: "Core Section Body", name: "core_body", widget: "text" }
-          - label: "Gallery Images"
-            name: "gallery"
-            widget: "list"
-            label_singular: "Image"
-            hint: "Add, remove, or reorder gallery photos. Recommended: 7 images."
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt Text", name: "alt", widget: "string", hint: "Describe the photo for accessibility" }
-              - { label: "Wide (spans 2 columns)", name: "wide", widget: "boolean", default: false }
-          - label: "What You Get Items"
-            name: "what_you_get"
-            widget: "list"
-            label_singular: "Item"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-          - label: "Ideal Programs"
-            name: "ideal_programs"
-            widget: "list"
-            label_singular: "Program"
-            fields:
-              - { label: "Program Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-          - label: "How It Works Steps"
-            name: "steps"
-            widget: "list"
-            label_singular: "Step"
-            fields:
-              - { label: "Step Title", name: "title", widget: "string" }
-              - { label: "Step Description", name: "desc", widget: "text" }
-
-  # ── BANNERS ──
-  - name: "banners"
-    label: "🖼️ Banners Page"
-    files:
-      - name: "banners"
-        label: "Banners Content"
-        file: "data/banners.json"
-        format: json
-        fields:
-          - { label: "Hero Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Hero Headline", name: "headline", widget: "string" }
-          - { label: "Hero Subheadline", name: "sub", widget: "text" }
-          - label: "Banner Types"
-            name: "types"
-            widget: "list"
-            label_singular: "Type"
-            fields:
-              - { label: "Type Name", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Starting Price", name: "price", widget: "string" }
-
-  # ── BOOKING ──
-  - name: "booking"
-    label: "📅 Booking Page"
-    files:
-      - name: "booking"
-        label: "Booking Content"
-        file: "data/booking.json"
-        format: json
-        fields:
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "HS Card Eyebrow", name: "hs_eyebrow", widget: "string" }
-          - { label: "HS Card Title", name: "hs_title", widget: "string" }
-          - { label: "HS Card Description", name: "hs_desc", widget: "text" }
-          - { label: "Youth Card Eyebrow", name: "youth_eyebrow", widget: "string" }
-          - { label: "Youth Card Title", name: "youth_title", widget: "string" }
-          - { label: "Youth Card Description", name: "youth_desc", widget: "text" }
-          - label: "What Happens Next Steps"
-            name: "next_steps"
-            widget: "list"
-            label_singular: "Step"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-
-  # ── SERVICES ──
-  - name: "services"
-    label: "📋 Services Page"
-    files:
-      - name: "services"
-        label: "Services Content"
-        file: "data/services.json"
-        format: json
-        fields:
-          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - label: "Services"
-            name: "services"
-            widget: "list"
-            label_singular: "Service"
-            fields:
-              - { label: "Number", name: "number", widget: "string", hint: "e.g. 01" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Sub-heading", name: "sub", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - label: "Feature Bullets"
-                name: "features"
-                widget: "list"
-                label_singular: "Feature"
-                field: { label: "Feature", name: "item", widget: "string" }
-
-  # ── FAQ ──
-  - name: "faq"
-    label: "❓ FAQ Page"
-    files:
-      - name: "faq"
-        label: "FAQ Content"
-        file: "data/faq.json"
-        format: json
-        fields:
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - label: "FAQ Categories"
-            name: "categories"
-            widget: "list"
-            label_singular: "Category"
-            fields:
-              - { label: "Category Name", name: "category", widget: "string" }
-              - label: "Questions"
-                name: "questions"
-                widget: "list"
-                label_singular: "Question"
-                fields:
-                  - { label: "Question", name: "q", widget: "string" }
-                  - { label: "Answer", name: "a", widget: "text" }
-
-  # ── ABOUT ──
-  - name: "about"
-    label: "👥 About Page"
-    files:
-      - name: "about"
-        label: "About Content"
-        file: "data/about.json"
-        format: json
-        fields:
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "Company Story", name: "story", widget: "text" }
-          - label: "Team Members"
-            name: "team"
-            widget: "list"
-            label_singular: "Team Member"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Title / Role", name: "role", widget: "string" }
-              - { label: "Bio", name: "bio", widget: "text" }
-              - { label: "Photo", name: "photo", widget: "image", required: false }
-
-  # ── HS BOOKING FORM PAGE ──
-  - name: "book_hs"
-    label: "📋 HS Booking Form Page"
-    files:
-      - name: "book_hs"
-        label: "High School Booking Page"
-        file: "data/book-hs.json"
-        format: json
-        fields:
-          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "Notice Label", name: "notice_label", widget: "string" }
-          - { label: "Notice Title", name: "notice_title", widget: "string" }
-          - { label: "Notice Line 1", name: "notice_line1", widget: "text" }
-          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false }
-          - { label: "Notice Line 3", name: "notice_line3", widget: "text" }
-          - { label: "Form Label", name: "form_label", widget: "string" }
-
-  # ── YOUTH BOOKING FORM PAGE ──
-  - name: "book_youth"
-    label: "📋 Youth & Club Form Page"
-    files:
-      - name: "book_youth"
-        label: "Youth & Club Booking Page"
-        file: "data/book-youth.json"
-        format: json
-        fields:
-          - { label: "Page Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Page Headline", name: "headline", widget: "string" }
-          - { label: "Page Subheadline", name: "sub", widget: "text" }
-          - { label: "Notice Label", name: "notice_label", widget: "string" }
-          - { label: "Notice Title", name: "notice_title", widget: "string" }
-          - { label: "Notice Line 1", name: "notice_line1", widget: "text" }
-          - { label: "Notice Line 2", name: "notice_line2", widget: "text", required: false }
-          - { label: "Notice Line 3", name: "notice_line3", widget: "text" }
-          - { label: "Form Label", name: "form_label", widget: "string" }
-
-  # ── PRICING ──
-  - name: "pricing"
-    label: "💰 Pricing"
-    files:
-      - name: "media_day_pricing"
-        label: "Media Day Pricing"
-        file: "data/pricing-mediaday.json"
-        format: json
-        fields:
-          - label: "Pricing Tiers"
-            name: "tiers"
-            widget: "list"
-            label_singular: "Tier"
-            fields:
-              - { label: "Roster Size", name: "range", widget: "string" }
-              - { label: "Price Per Athlete", name: "price", widget: "string" }
-              - { label: "Notes", name: "notes", widget: "string", required: false }
-      - name: "banner_pricing"
-        label: "Pro Banner Pricing"
-        file: "data/pricing-banners.json"
-        format: json
-        fields:
-          - label: "Banner Sizes & Prices"
-            name: "bulk"
-            widget: "list"
-            label_singular: "Size"
-            fields:
-              - { label: "Banner Size", name: "size", widget: "string" }
-              - { label: "Price", name: "price", widget: "string" }
-              - { label: "Notes", name: "notes", widget: "string", required: false }
-          - { label: "Non-Bulk Upcharge", name: "nonbulk_upcharge", widget: "string" }
-          - { label: "Turnaround Time", name: "turnaround", widget: "string" }
-          - { label: "Shipping Note", name: "shipping", widget: "string" }
-      - name: "team_media_pricing"
-        label: "Team Media Image Pricing"
-        file: "data/pricing-teammedia.json"
-        format: json
-        fields:
-          - label: "Per-Image Tiers"
-            name: "tiers"
-            widget: "list"
-            label_singular: "Tier"
-            fields:
-              - { label: "Quantity Range", name: "range", widget: "string" }
-              - { label: "Price Per Image", name: "price", widget: "string" }
-          - label: "Add-Ons"
-            name: "addons"
-            widget: "list"
-            label_singular: "Add-On"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Price", name: "price", widget: "string" }
-              - { label: "Description", name: "desc", widget: "string" }
-
-  # ── CONTACT INFO ──
-  - name: "contact"
-    label: "📞 Contact Info"
-    files:
-      - name: "contact"
-        label: "Contact Details"
-        file: "data/contact.json"
-        format: json
-        fields:
-          - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Phone Display Format", name: "phone_display", widget: "string" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "Instagram Handle", name: "instagram", widget: "string" }
-          - { label: "Facebook URL", name: "facebook", widget: "string" }
-          - { label: "City & State", name: "location", widget: "string" }
+        - label: Question
+          name: q
+          widget: string
+        - label: Answer
+          name: a
+          widget: text

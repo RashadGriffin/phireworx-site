@@ -192,9 +192,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow" id="cms-eyebrow">Services</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Pro Banners</p>
     <h1 class="page-hero-title" id="cms-headline">Phireworx<br><span>Pro Banners</span></h1>
-    <p class="page-hero-sub" id="cms-sub">High-quality custom vinyl banners that make a bold statement. Elite photography, professional graphics, and vibrant print quality that commands attention in any gym or field.</p>
+    <p class="page-hero-sub" id="cms-sub">Professional vinyl banners for individual athletes, senior nights, and full team composites. Designed and printed to last.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
       <a href="/banners/form" class="btn-primary">Order Banners</a>
       <a href="#pricing" class="btn-ghost">See Pricing</a>
@@ -209,16 +209,16 @@
     <h2 class="section-title" id="cms-title-1">Banner <span>Gallery</span></h2>
     <div class="banner-row-grid">
       <div class="banner-row-item">
-        <img data-lightbox src="assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Conner Secor individual senior banner" loading="lazy">
+        <img data-cms-img="photos/banners:top_gallery[0]" data-lightbox src="assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Conner Secor individual senior banner" loading="lazy">
       </div>
       <div class="banner-row-item">
-        <img data-lightbox src="assets/images/banner-ind-dragons-football.jpg" alt="Dragons Football — individual senior banner with fire design" loading="lazy">
+        <img data-cms-img="photos/banners:top_gallery[1]" data-lightbox src="assets/images/banner-ind-dragons-football.jpg" alt="Dragons Football — individual senior banner with fire design" loading="lazy">
       </div>
       <div class="banner-row-item">
-        <img data-lightbox src="assets/images/banner-ind-wolves-football.jpg" alt="Estrella Foothills Wolves — Will Davis individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:top_gallery[2]" data-lightbox src="assets/images/banner-ind-wolves-football.jpg" alt="Estrella Foothills Wolves — Will Davis individual banner" loading="lazy">
       </div>
       <div class="banner-row-item">
-        <img data-lightbox src="assets/images/banner-ind-shadowridge-track-girl.jpg" alt="Shadow Ridge Stallions Track — Gianna Gutierrez individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:top_gallery[3]" data-lightbox src="assets/images/banner-ind-shadowridge-track-girl.jpg" alt="Shadow Ridge Stallions Track — Gianna Gutierrez individual banner" loading="lazy">
       </div>
     </div>
   </div>
@@ -236,14 +236,14 @@
       <!-- INDIVIDUAL / SENIOR -->
       <div class="banner-type-card">
         <div class="banner-type-img">
-          <img data-lightbox src="assets/images/banner-ind-basha-football.jpg" alt="Basha Football — To'omalatzi Tuitele individual senior banner" loading="lazy">
+          <img data-cms-img="photos/banners:type_individual" data-lightbox src="assets/images/banner-ind-basha-football.jpg" alt="Basha Football — To'omalatzi Tuitele individual senior banner" loading="lazy">
         </div>
         <div class="banner-type-content">
           <div class="banner-type-label">Type 01</div>
-          <h3 class="banner-type-title">Individual &amp; Senior Banners</h3>
-          <p class="banner-type-desc">Celebrate individual athletes with a personalized banner featuring their photo, name, number, and custom design. Perfect for senior nights, gym displays, or athlete recognition programs.</p>
+          <h3 class="banner-type-title">Individual Athlete Banner</h3>
+          <p class="banner-type-desc">Single athlete portrait on a high-quality vinyl banner. Perfect for senior nights, gym displays, and personal keepsakes.</p>
           <div class="banner-type-specs">
-            <span class="banner-spec-tag">2×3 ft. from $50</span>
+            <span class="banner-spec-tag">2×3 ft. from $<data data-cms="prices:banners.individual_2x3">50</data></span>
             <span class="banner-spec-tag">Up to 4×6 ft.</span>
             <span class="banner-spec-tag">Weatherproof vinyl</span>
           </div>
@@ -253,14 +253,14 @@
       <!-- TRADITIONAL TEAM -->
       <div class="banner-type-card">
         <div class="banner-type-img landscape">
-          <img data-lightbox src="assets/images/banner-team-aguafria-volleyball.jpg" alt="Agua Fria Volleyball — traditional team banner" loading="lazy">
+          <img data-cms-img="photos/banners:type_traditional_team" data-lightbox src="assets/images/banner-team-aguafria-volleyball.jpg" alt="Agua Fria Volleyball — traditional team banner" loading="lazy">
         </div>
         <div class="banner-type-content">
           <div class="banner-type-label" style="color:var(--ember);">Type 02</div>
-          <h3 class="banner-type-title">Traditional Team Banners</h3>
-          <p class="banner-type-desc">The entire team photographed together on location in a single, powerful unified shot. Professional lighting, polished design, and the energy of the full roster captured in one image.</p>
+          <h3 class="banner-type-title">Traditional Team Banner</h3>
+          <p class="banner-type-desc">Full team photo on a large format vinyl banner. Great for gym walls, booster displays, and program identity.</p>
           <div class="banner-type-specs">
-            <span class="banner-spec-tag">5×3 ft. from $115</span>
+            <span class="banner-spec-tag">5×3 ft. from $<data data-cms="prices:banners.team_5x3">115</data></span>
             <span class="banner-spec-tag">Up to 10×6 ft.</span>
             <span class="banner-spec-tag">On-location shoot</span>
             <span class="banner-spec-tag">Weatherproof vinyl</span>
@@ -271,14 +271,14 @@
       <!-- COMPOSITE TEAM -->
       <div class="banner-type-card">
         <div class="banner-type-img landscape">
-          <img data-lightbox src="assets/images/banner-team-canyonview-basketball.jpg" alt="Canyon View Jaguars Girls Basketball — composite team banner" loading="lazy">
+          <img data-cms-img="photos/banners:type_composite_team" data-lightbox src="assets/images/banner-team-canyonview-basketball.jpg" alt="Canyon View Jaguars Girls Basketball — composite team banner" loading="lazy">
         </div>
         <div class="banner-type-content">
           <div class="banner-type-label">Type 03</div>
-          <h3 class="banner-type-title">Composite Team Banners</h3>
-          <p class="banner-type-desc">Each athlete is photographed individually in a controlled studio environment, then seamlessly combined into one elite team image. Custom backgrounds, pro graphics, and maximum creative freedom.</p>
+          <h3 class="banner-type-title">Composite Team Banner</h3>
+          <p class="banner-type-desc">Individual athletes photographed separately then composited into a single dramatic team image. The premium option.</p>
           <div class="banner-type-specs">
-            <span class="banner-spec-tag">5×3 ft. from $250</span>
+            <span class="banner-spec-tag">5×3 ft. from $<data data-cms="prices:banners.composite_5x3">250</data></span>
             <span class="banner-spec-tag">Up to 10×6 ft.</span>
             <span class="banner-spec-tag">Green screen studio</span>
             <span class="banner-spec-tag">Any theme possible</span>
@@ -299,7 +299,7 @@
     <h2 class="section-title" id="cms-title-3">Banner <span>Pricing</span></h2>
     <p class="section-desc" id="cms-desc-2">All banners are high-quality vinyl with vibrant, weatherproof printing. No hidden fees.</p>
     <div class="info-banner" style="margin-bottom:40px;">
-      <strong>Ordering fewer than 4 banners?</strong> Individual banners are $25 more each on orders of 1&ndash;3. Team banners are the same price at any quantity.
+      <strong>Ordering fewer than 4 banners?</strong> Individual banners are $<data data-cms="prices:banners.small_order_upcharge">25</data> more each on orders of 1&ndash;3. Team banners are the same price at any quantity.
     </div>
 
     <!-- INDIVIDUAL / SENIOR BANNERS -->
@@ -310,25 +310,25 @@
       <div class="pricing-rows">
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">2 &times; 3 ft.</div></div>
-          <div class="pricing-row-price">$50</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.individual_2x3">50</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">2.5 &times; 4 ft.</div></div>
-          <div class="pricing-row-price">$60</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.individual_25x4">60</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left">
             <div class="pricing-row-size">3 &times; 5 ft.</div>
             <div class="pricing-row-note">Includes free social media digital copies of your banners</div>
           </div>
-          <div class="pricing-row-price">$90</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.individual_3x5">90</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left">
             <div class="pricing-row-size">4 &times; 6 ft.</div>
             <div class="pricing-row-note">Includes free social media digital copies of your banners</div>
           </div>
-          <div class="pricing-row-price">$120</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.individual_4x6">120</data></div>
         </div>
       </div>
       <p class="pricing-fine-print">* Custom sizes available upon request</p>
@@ -347,19 +347,19 @@
       <div class="pricing-rows">
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">5 &times; 3 ft.</div></div>
-          <div class="pricing-row-price">$115</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.team_5x3">115</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">6 &times; 4 ft.</div></div>
-          <div class="pricing-row-price">$165</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.team_6x4">165</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">7 &times; 5 ft.</div></div>
-          <div class="pricing-row-price">$205</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.team_7x5">205</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">10 &times; 6 ft.</div></div>
-          <div class="pricing-row-price">$325</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.team_10x6">325</data></div>
         </div>
       </div>
       <p class="pricing-fine-print">* Custom sizes available upon request</p>
@@ -378,19 +378,19 @@
       <div class="pricing-rows">
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">5 &times; 3 ft.</div></div>
-          <div class="pricing-row-price">$250</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.composite_5x3">250</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">6 &times; 4 ft.</div></div>
-          <div class="pricing-row-price">$300</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.composite_6x4">300</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">7 &times; 5 ft.</div></div>
-          <div class="pricing-row-price">$350</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.composite_7x5">350</data></div>
         </div>
         <div class="pricing-row">
           <div class="pricing-row-left"><div class="pricing-row-size">10 &times; 6 ft.</div></div>
-          <div class="pricing-row-price">$450</div>
+          <div class="pricing-row-price">$<data data-cms="prices:banners.composite_10x6">450</data></div>
         </div>
       </div>
       <p class="pricing-fine-print">* Prices include composite artwork fee &nbsp;&middot;&nbsp; Custom sizes available upon request</p>
@@ -423,23 +423,23 @@
     <p class="section-desc" id="cms-desc-3">From football to marching band, basketball to track — we make every athlete look elite on their banner.</p>
     <div class="gallery-grid">
       <div class="gallery-item tall">
-        <img data-lightbox src="assets/images/banner-ind-deervalley-basketball.jpg" alt="Deer Valley Skyhawks Basketball — Simon Gonzales individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[0]" data-lightbox src="assets/images/banner-ind-deervalley-basketball.jpg" alt="Deer Valley Skyhawks Basketball — Simon Gonzales individual banner" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/banner-ind-desertvista-football.jpg" alt="Desert Vista Thunder Football — Braylon Edwards individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[1]" data-lightbox src="assets/images/banner-ind-desertvista-football.jpg" alt="Desert Vista Thunder Football — Braylon Edwards individual banner" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/banner-ind-millennium-basketball.jpg" alt="Millennium Tigers Basketball — Elli Guiney individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[2]" data-lightbox src="assets/images/banner-ind-millennium-basketball.jpg" alt="Millennium Tigers Basketball — Elli Guiney individual banner" loading="lazy">
       </div>
 
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/banner-ind-chavez-football.jpg" alt="Chavez Football — Tyes Graves individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[3]" data-lightbox src="assets/images/banner-ind-chavez-football.jpg" alt="Chavez Football — Tyes Graves individual banner" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/banner-ind-desertvista-band.jpg" alt="Desert Vista Marching Band — Zachary Chavez individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[4]" data-lightbox src="assets/images/banner-ind-desertvista-band.jpg" alt="Desert Vista Marching Band — Zachary Chavez individual banner" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img data-lightbox src="assets/images/banner-ind-liberty-basketball.jpg" alt="Liberty Lions Basketball — Kallee Hilt individual banner" loading="lazy">
+        <img data-cms-img="photos/banners:bottom_gallery[5]" data-lightbox src="assets/images/banner-ind-liberty-basketball.jpg" alt="Liberty Lions Basketball — Kallee Hilt individual banner" loading="lazy">
       </div>
     </div>
   </div>
@@ -458,7 +458,7 @@
       </div>
       <div style="background:var(--ash);padding:32px;border-top:3px solid var(--ember);">
         <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--ember);text-transform:uppercase;margin-bottom:12px;">Banner-Only Sessions</div>
-        <p style="font-size:14px;color:var(--mist);line-height:1.7;font-weight:400;">A <strong style="color:var(--white);">minimum banner order of $600</strong> is required for banner-only sessions. If your total order is below $600, you will be invoiced the difference to meet the minimum.<br><br>A $10 shipping charge applies to all banner orders under $350.</p>
+        <p style="font-size:14px;color:var(--mist);line-height:1.7;font-weight:400;">A <strong style="color:var(--white);">minimum banner order of $<data data-cms="prices:banners.minimum_order">600</data></strong> is required for banner-only sessions. If your total order is below $<data data-cms="prices:banners.minimum_order">600</data>, you will be invoiced the difference to meet the minimum.<br><br>A $<data data-cms="prices:banners.shipping">10</data> shipping charge applies to all banner orders under $<data data-cms="prices:banners.free_shipping_at">350</data>.</p>
       </div>
     </div>
   </div>
@@ -589,47 +589,6 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/banners.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-eyebrow',d.eyebrow);
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub',d.sub);
-  if(d.types){
-    const cards=document.querySelectorAll('.banner-type-card, .banner-type');
-    d.types.forEach((t,i)=>{
-      if(cards[i]){
-        const title=cards[i].querySelector('.banner-type-title, h3');
-        const desc=cards[i].querySelector('.banner-type-desc, p');
-        const price=cards[i].querySelector('.banner-type-price, .price');
-        if(title)title.textContent=t.title;
-        if(desc)desc.textContent=t.desc;
-        if(price&&t.price)price.textContent=t.price;
-      }
-    });
-  }
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -675,6 +634,7 @@ fetch('/data/banners.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json())
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

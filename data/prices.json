@@ -1,0 +1,81 @@
+{
+  "banners": {
+    "individual_2x3": "50",
+    "individual_25x4": "60",
+    "individual_3x5": "90",
+    "individual_4x6": "120",
+    "team_5x3": "115",
+    "team_6x4": "165",
+    "team_7x5": "205",
+    "team_10x6": "325",
+    "composite_5x3": "250",
+    "composite_6x4": "300",
+    "composite_7x5": "350",
+    "composite_10x6": "450",
+    "small_order_upcharge": "25",
+    "minimum_order": "600",
+    "shipping": "10",
+    "free_shipping_at": "350"
+  },
+  "media_day": {
+    "tier_20_plus": "65",
+    "tier_10_19": "80",
+    "tier_5_9": "95",
+    "minimum": "600"
+  },
+  "picture_day": {
+    "small_program_fee": "250",
+    "hs_min_athletes": "40",
+    "youth_min_athletes": "50"
+  },
+  "team_media": {
+    "per_image_1_9": "15",
+    "per_image_10_19": "12",
+    "per_image_20_plus": "10",
+    "hires_upgrade": "5",
+    "png_cutout": "2",
+    "headshots_flat": "40"
+  },
+  "private_sessions": {
+    "packages": [
+      {
+        "name": "Signature",
+        "price": "600",
+        "items": [
+          "1-hour session",
+          "1 location",
+          "25 edited digital images"
+        ]
+      },
+      {
+        "name": "Signature Plus",
+        "price": "850",
+        "items": [
+          "90-minute session",
+          "Up to 2 locations",
+          "Every edited digital image"
+        ]
+      },
+      {
+        "name": "Cover Story",
+        "price": "1,200",
+        "items": [
+          "2-hour session",
+          "Up to 2 locations",
+          "Every edited digital image",
+          "3×5 Pro Banner included"
+        ]
+      },
+      {
+        "name": "The Duo",
+        "price": "1,000",
+        "items": [
+          "Two people, one session",
+          "2-hour session",
+          "1 location",
+          "Every edited digital image for both"
+        ]
+      }
+    ]
+  }
+}

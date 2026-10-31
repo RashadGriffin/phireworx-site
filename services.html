@@ -381,9 +381,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow" id="cms-eyebrow">Everything We Offer</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">We Offer</p>
     <h1 class="page-hero-title" id="cms-headline">Our <span>Services</span></h1>
-    <p class="page-hero-sub" id="cms-sub">Three distinct services built for different programs and different goals. Read through, find what fits your situation, and go from there — or <a href="general.html" style="color:var(--ember);">reach out</a> if you're not sure which one is right for you.</p>
+    <p class="page-hero-sub" id="cms-sub">Three services built for different programs and goals. Read through, find what fits your program, and go from there.</p>
   </div>
 </div>
 
@@ -458,7 +458,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="/assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural Picture Day shoot" loading="lazy">
+        <img data-cms-img="photos/services:picture_day" data-lightbox src="/assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural Picture Day shoot" loading="lazy">
       </div>
     </div>
 
@@ -481,7 +481,7 @@
         <div class="svc-facts">
           <div class="svc-fact"><div class="svc-fact-dot flame"></div>3–7 business day turnaround</div>
           <div class="svc-fact"><div class="svc-fact-dot flame"></div>Individual, team &amp; composite</div>
-          <div class="svc-fact"><div class="svc-fact-dot flame"></div>From $50 per banner</div>
+          <div class="svc-fact"><div class="svc-fact-dot flame"></div><span>From $<data data-cms="prices:banners.individual_2x3">50</data> per banner</span></div>
           <div class="svc-fact"><div class="svc-fact-dot flame"></div>Weatherproof vinyl print</div>
         </div>
 
@@ -501,7 +501,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="/assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Pro Banner example" loading="lazy">
+        <img data-cms-img="photos/services:pro_banners" data-lightbox src="/assets/images/banner-ind-horizon-football.jpg" alt="Horizon Football — Pro Banner example" loading="lazy">
         <div class="svc-block-visual-ph" style="display:none;">
           <div class="svc-block-visual-mark" style="background:var(--silver);"></div>
           <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Banner Sample</span>
@@ -532,7 +532,7 @@
           <div class="svc-fact"><div class="svc-fact-dot ember"></div>Every digital delivered to team</div>
           <div class="svc-fact"><div class="svc-fact-dot ember"></div>Advanced lighting &amp; effects</div>
           <div class="svc-fact"><div class="svc-fact-dot ember"></div>Flexible locations</div>
-          <div class="svc-fact"><div class="svc-fact-dot ember"></div>From $65 per athlete</div>
+          <div class="svc-fact"><div class="svc-fact-dot ember"></div><span>From $<data data-cms="prices:media_day.tier_20_plus">65</data> per athlete</span></div>
         </div>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -553,7 +553,7 @@
         </div>
       </div>
       <div class="svc-block-visual">
-        <img data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player — Phireworx Media Day Experience" loading="lazy">
+        <img data-cms-img="photos/services:media_day" data-lightbox src="/assets/images/mediaday-basketball-tigers-girl.jpg" alt="Tigers basketball player — Phireworx Media Day Experience" loading="lazy">
         <div class="svc-block-visual-ph" style="display:none;">
           <div class="svc-block-visual-mark" style="background:var(--ember);"></div>
           <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;color:var(--iron);text-transform:uppercase;">Add Media Day Sample</span>
@@ -838,59 +838,7 @@
 </script>
 
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/services.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-eyebrow',d.eyebrow);
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub',d.sub);
-
-  if(d.services){
-    const blocks=document.querySelectorAll('.svc-block');
-    d.services.forEach((svc,i)=>{
-      if(blocks[i]){
-        const num=blocks[i].querySelector('.svc-num');
-        const title=blocks[i].querySelector('.svc-title');
-        const sub=blocks[i].querySelector('.svc-sub');
-        const desc=blocks[i].querySelector('.svc-desc');
-        if(num)num.textContent=svc.number;
-        if(title)title.textContent=svc.title;
-        if(sub)sub.textContent=svc.sub;
-        if(desc)desc.textContent=svc.desc;
-        if(svc.features){
-          const list=blocks[i].querySelector('.svc-features,.feature-list');
-          if(list){
-            const items=list.querySelectorAll('li');
-            svc.features.forEach((feat,j)=>{
-              if(items[j])items[j].textContent=feat.item||feat;
-            });
-          }
-        }
-      }
-    });
-  }
-}).catch(()=>{});
-</script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

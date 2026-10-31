@@ -1,0 +1,58 @@
+{
+  "top_gallery": [
+    {
+      "image": "/assets/images/banner-ind-horizon-football.jpg",
+      "alt": "Horizon Football — Conner Secor individual senior banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-dragons-football.jpg",
+      "alt": "Dragons Football — individual senior banner with fire design"
+    },
+    {
+      "image": "/assets/images/banner-ind-wolves-football.jpg",
+      "alt": "Estrella Foothills Wolves — Will Davis individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-shadowridge-track-girl.jpg",
+      "alt": "Shadow Ridge Stallions Track — Gianna Gutierrez individual banner"
+    }
+  ],
+  "type_individual": {
+    "image": "/assets/images/banner-ind-basha-football.jpg",
+    "alt": "Basha Football — To'omalatzi Tuitele individual senior banner"
+  },
+  "type_traditional_team": {
+    "image": "/assets/images/banner-team-aguafria-volleyball.jpg",
+    "alt": "Agua Fria Volleyball — traditional team banner"
+  },
+  "type_composite_team": {
+    "image": "/assets/images/banner-team-canyonview-basketball.jpg",
+    "alt": "Canyon View Jaguars Girls Basketball — composite team banner"
+  },
+  "bottom_gallery": [
+    {
+      "image": "/assets/images/banner-ind-deervalley-basketball.jpg",
+      "alt": "Deer Valley Skyhawks Basketball — Simon Gonzales individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-desertvista-football.jpg",
+      "alt": "Desert Vista Thunder Football — Braylon Edwards individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-millennium-basketball.jpg",
+      "alt": "Millennium Tigers Basketball — Elli Guiney individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-chavez-football.jpg",
+      "alt": "Chavez Football — Tyes Graves individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-desertvista-band.jpg",
+      "alt": "Desert Vista Marching Band — Zachary Chavez individual banner"
+    },
+    {
+      "image": "/assets/images/banner-ind-liberty-basketball.jpg",
+      "alt": "Liberty Lions Basketball — Kallee Hilt individual banner"
+    }
+  ]
+}

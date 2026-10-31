@@ -192,9 +192,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero" style="padding-bottom:0;">
   <div class="page-hero-inner" style="padding-bottom:60px;">
-    <p class="page-hero-eyebrow" id="cms-eyebrow">Services</p>
-    <h1 class="page-hero-title" id="cms-headline">Team &amp; Individual<br><span>Picture Day</span></h1>
-    <p class="page-hero-sub" id="cms-sub">Fast, fun, and stress-free picture days that capture every athlete at their best. We come to you — natural on-location shoots or dramatic composite sessions, all with online ordering for every family.</p>
+    <p class="page-hero-eyebrow" id="cms-eyebrow">Team Picture Day</p>
+    <h1 class="page-hero-title" id="cms-headline"><span>Picture Day</span>, Done Right.</h1>
+    <p class="page-hero-sub" id="cms-sub">Free to your organization. Families pay for what they want. Online ordering for every athlete.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
       <a href="/book" class="btn-primary">Book Your Picture Day</a>
       <a href="#natural" class="btn-ghost">See Shoot Styles</a>
@@ -205,16 +205,16 @@
 <!-- PHOTO STRIP -->
 <div class="photo-strip">
     <div class="photo-strip-cell">
-    <img data-lightbox src="assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural outdoor shoot" loading="lazy">
+    <img data-cms-img="photos/picture-day:top_strip[0]" data-lightbox src="assets/images/strip-natural-softball.jpg" alt="Knights softball player — natural outdoor shoot" loading="lazy">
   </div>
   <div class="photo-strip-cell">
-    <img data-lightbox src="assets/images/hero-action-soccer-kick.jpg" alt="Soccer player action kick at sunset" loading="lazy">
+    <img data-cms-img="photos/picture-day:top_strip[1]" data-lightbox src="assets/images/hero-action-soccer-kick.jpg" alt="Soccer player action kick at sunset" loading="lazy">
   </div>
   <div class="photo-strip-cell">
-    <img data-lightbox src="assets/images/strip-natural-basketball-vikings.jpg" alt="Vikings basketball player — natural gym shoot" loading="lazy">
+    <img data-cms-img="photos/picture-day:top_strip[2]" data-lightbox src="assets/images/strip-natural-basketball-vikings.jpg" alt="Vikings basketball player — natural gym shoot" loading="lazy">
   </div>
   <div class="photo-strip-cell">
-    <img data-lightbox src="assets/images/strip-natural-soccer-girl.jpg" alt="Soccer player — natural outdoor shoot" loading="lazy">
+    <img data-cms-img="photos/picture-day:top_strip[3]" data-lightbox src="assets/images/strip-natural-soccer-girl.jpg" alt="Soccer player — natural outdoor shoot" loading="lazy">
   </div>
 </div>
 
@@ -297,10 +297,10 @@
         <!-- GALLERY: Replace placeholders with real photos -->
         <div class="shoot-gallery">
           <div class="shoot-gallery-item">
-            <img data-lightbox src="assets/images/composite-baseball-dugout.jpg" alt="Baseball player — natural dugout shoot" loading="lazy">
+            <img data-cms-img="photos/picture-day:natural_1" data-lightbox src="assets/images/composite-baseball-dugout.jpg" alt="Baseball player — natural dugout shoot" loading="lazy">
           </div>
           <div class="shoot-gallery-item">
-            <img data-lightbox src="assets/images/natural-baseball-knights.jpg" alt="Knights baseball player — natural outdoor shoot" loading="lazy">
+            <img data-cms-img="photos/picture-day:natural_2" data-lightbox src="assets/images/natural-baseball-knights.jpg" alt="Knights baseball player — natural outdoor shoot" loading="lazy">
           </div>
         </div>
       </div>
@@ -318,10 +318,10 @@
         </div>
         <div class="shoot-gallery">
           <div class="shoot-gallery-item">
-            <img data-lightbox src="assets/images/composite-football-tolleson.jpg" alt="Tolleson football player — composite smoke portrait" loading="lazy">
+            <img data-cms-img="photos/picture-day:composite_1" data-lightbox src="assets/images/composite-football-tolleson.jpg" alt="Tolleson football player — composite smoke portrait" loading="lazy">
           </div>
           <div class="shoot-gallery-item">
-            <img data-lightbox src="assets/images/strip-natural-track.jpg" alt="Track athlete — composite shoot" loading="lazy">
+            <img data-cms-img="photos/picture-day:composite_2" data-lightbox src="assets/images/strip-natural-track.jpg" alt="Track athlete — composite shoot" loading="lazy">
           </div>
         </div>
       </div>
@@ -564,70 +564,6 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/photo-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  const sh=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.innerHTML=v};
-  s('cms-eyebrow', d.eyebrow);
-  (function(){
-    var e=document.getElementById('cms-headline');
-    if(!e || d.headline===undefined) return;
-    var span=e.querySelector('span');
-    var accent=span?span.textContent.trim():'';
-    var full=String(d.headline).trim();
-    if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
-      // re-wrap the matching accent portion, keep the rest plain
-      var idx=full.toLowerCase().lastIndexOf(accent.toLowerCase());
-      var before=full.slice(0,idx);
-      var match=full.slice(idx,idx+accent.length);
-      var after=full.slice(idx+accent.length);
-      e.innerHTML=before+'<span>'+match+'</span>'+after;
-    } else if(!span){
-      // no static accent to preserve; wrap the last word
-      var w=full.split(/\s+/);
-      if(w.length>1){var last=w.pop();e.innerHTML=w.join(' ')+' <span>'+last+'</span>';}
-      else{e.textContent=full;}
-    }
-    // else: JSON headline differs from static accent — keep the static HTML as-is
-  })();
-  s('cms-sub', d.sub);
-  if(d.descriptions){d.descriptions.forEach((v,i)=>s('cms-desc-'+(i+1),v))}
-  if(d.section_titles){d.section_titles.forEach((v,i)=>sh('cms-title-'+(i+1),v))}
-  if(d.steps){
-    const steps=document.querySelectorAll('.process-item');
-    d.steps.forEach((step,i)=>{
-      if(steps[i]){
-        const t=steps[i].querySelector('.process-title');
-        const desc=steps[i].querySelector('.process-desc');
-        if(t)t.textContent=step.title;
-        if(desc)desc.textContent=step.desc;
-      }
-    });
-  }
-  if(d.features){
-    const cards=document.querySelectorAll('.feature-card');
-    d.features.forEach((f,i)=>{
-      if(cards[i]){
-        const t=cards[i].querySelector('.feature-title');
-        const desc=cards[i].querySelector('.feature-desc');
-        if(t)t.textContent=f.title;
-        if(desc)desc.textContent=f.desc;
-      }
-    });
-  }
-  if(d.styles){
-    const cards=document.querySelectorAll('.shoot-card, .shoot-type-card');
-    d.styles.forEach((s,i)=>{
-      if(cards[i]){
-        const t=cards[i].querySelector('.shoot-title, h3');
-        const desc=cards[i].querySelector('.shoot-desc, p');
-        if(t)t.textContent=s.title;
-        if(desc)desc.textContent=s.desc;
-      }
-    });
-  }
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -673,6 +609,7 @@ fetch('/data/photo-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json(
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

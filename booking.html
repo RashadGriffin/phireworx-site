@@ -226,7 +226,7 @@
       <a href="/banners/form" class="booking-card">
         <div class="booking-card-tag">Individual &amp; Team Banners</div>
         <h3 class="booking-card-title">Banner<br>Request</h3>
-        <p class="booking-card-desc" id="cms-card-desc-3">Individual, senior, and team banners. Orders of 1&ndash;3 individual banners are $25 more each. No session minimum when paired with a picture day; banner-only sessions require a $600 minimum order.</p>
+        <p class="booking-card-desc" id="cms-card-desc-3">Individual, senior, and team banners. Orders of 1&ndash;3 individual banners are $<data data-cms="prices:banners.small_order_upcharge">25</data> more each. No session minimum when paired with a picture day; banner-only sessions require a $<data data-cms="prices:banners.minimum_order">600</data> minimum order.</p>
         <div class="booking-card-action">Submit Banner Request</div>
       </a>
     </div>
@@ -243,7 +243,7 @@
       <a href="/media" class="booking-card" style="text-decoration:none;">
         <div class="booking-card-tag">Prepaid &middot; All Digitals Included</div>
         <h3 class="booking-card-title">Phireworx Media Day<br>Experience</h3>
-        <p class="booking-card-desc" id="cms-card-desc-5">A creative-first production shoot for programs that want to elevate their visual identity. Advanced lighting, flexible locations, and every final image delivered to your team. Starting at $65/athlete for rosters of 20+.</p>
+        <p class="booking-card-desc" id="cms-card-desc-5">A creative-first production shoot for programs that want to elevate their visual identity. Advanced lighting, flexible locations, and every final image delivered to your team. Starting at $<data data-cms="prices:media_day.tier_20_plus">65</data>/athlete for rosters of 20+.</p>
         <div class="booking-card-action">Learn More &amp; Book</div>
       </a>
     </div>
@@ -405,24 +405,6 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
-<script>
-fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
-  const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
-  s('cms-booking-headline',d.headline);
-  s('cms-card-eyebrow-1',d.hs_eyebrow);
-  s('cms-card-title-1',d.hs_title);
-  s('cms-card-desc-1',d.hs_desc);
-  s('cms-card-eyebrow-2',d.youth_eyebrow);
-  s('cms-card-title-2',d.youth_title);
-  s('cms-card-desc-2',d.youth_desc);
-  if(d.next_steps){
-    d.next_steps.forEach((step,i)=>{
-      s('cms-next-title-'+(i+1),step.title);
-      s('cms-next-desc-'+(i+1),step.desc);
-    });
-  }
-}).catch(()=>{});
-</script>
 
 <script id="active-nav-js">
 (function() {
@@ -468,6 +450,7 @@ fetch('/data/booking.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json())
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

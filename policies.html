@@ -249,10 +249,10 @@
         <h2 class="policy-h2">Pro Banner Policies</h2>
 
         <h3 class="policy-h3">Banner Session Minimums</h3>
-        <p class="policy-p">For banner-only sessions (sessions not combined with a team picture day), a minimum order of $600 is required. If the total order falls below $600, the client will be invoiced the difference to meet the minimum. This minimum does not apply when banners are ordered as an add-on to an existing picture day session.</p>
+        <p class="policy-p">For banner-only sessions (sessions not combined with a team picture day), a minimum order of $<data data-cms="prices:banners.minimum_order">600</data> is required. If the total order falls below $<data data-cms="prices:banners.minimum_order">600</data>, the client will be invoiced the difference to meet the minimum. This minimum does not apply when banners are ordered as an add-on to an existing picture day session.</p>
 
         <h3 class="policy-h3">Shipping on Small Banner Orders</h3>
-        <p class="policy-p">A shipping charge of $10 applies to all banner orders totaling less than $350. Orders of $350 or more are shipped at no additional charge.</p>
+        <p class="policy-p">A shipping charge of $<data data-cms="prices:banners.shipping">10</data> applies to all banner orders totaling less than $<data data-cms="prices:banners.free_shipping_at">350</data>. Orders of $<data data-cms="prices:banners.free_shipping_at">350</data> or more are shipped at no additional charge.</p>
 
         <h3 class="policy-h3">Production Timelines</h3>
         <p class="policy-p">Banner production timelines vary depending on order type, size, and quantity. You will receive an estimated production and delivery timeline when your banner order is confirmed. If you have a hard deadline (senior night, banquet, opening game, etc.), you must communicate this at the time of booking. While we make every effort to meet hard deadlines, they cannot always be guaranteed.</p>
@@ -448,6 +448,7 @@
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

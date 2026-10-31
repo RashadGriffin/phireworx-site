@@ -453,7 +453,7 @@
             <div class="tm-tier-name">1–9 Images</div>
             <div class="tm-tier-sub">Standard rate</div>
           </div>
-          <div class="tm-tier-price">$15 <span>/ image</span></div>
+          <div class="tm-tier-price">$<data data-cms="prices:team_media.per_image_1_9">15</data> <span>/ image</span></div>
         </div>
 
         <div class="tm-tier-row">
@@ -461,7 +461,7 @@
             <div class="tm-tier-name">10–19 Images</div>
             <div class="tm-tier-sub">Volume rate</div>
           </div>
-          <div class="tm-tier-price">$12 <span>/ image</span></div>
+          <div class="tm-tier-price">$<data data-cms="prices:team_media.per_image_10_19">12</data> <span>/ image</span></div>
         </div>
 
         <div class="tm-tier-row">
@@ -469,7 +469,7 @@
             <div class="tm-tier-name">20+ Images</div>
             <div class="tm-tier-sub">Best value</div>
           </div>
-          <div class="tm-tier-price">$10 <span>/ image</span></div>
+          <div class="tm-tier-price">$<data data-cms="prices:team_media.per_image_20_plus">10</data> <span>/ image</span></div>
         </div>
       </div>
 
@@ -481,7 +481,7 @@
             <div class="tm-addon-name">Hi-Res Upgrade</div>
             <div class="tm-addon-desc">300 DPI — print-ready</div>
           </div>
-          <div class="tm-addon-price">+$5 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
+          <div class="tm-addon-price">+$<data data-cms="prices:team_media.hires_upgrade">5</data> <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
         </div>
 
         <div class="tm-addon">
@@ -489,7 +489,7 @@
             <div class="tm-addon-name">Transparent Cutout</div>
             <div class="tm-addon-desc">Background removed — PNG, ideal for graphics &amp; posters</div>
           </div>
-          <div class="tm-addon-price">+$2 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
+          <div class="tm-addon-price">+$<data data-cms="prices:team_media.png_cutout">2</data> <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">/ img</span></div>
         </div>
 
         <div class="tm-addon">
@@ -497,7 +497,7 @@
             <div class="tm-addon-name">Player Headshots</div>
             <div class="tm-addon-desc">Clean headshot — entire team, web-res</div>
           </div>
-          <div class="tm-addon-price">$40 <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">flat</span></div>
+          <div class="tm-addon-price">$<data data-cms="prices:team_media.headshots_flat">40</data> <span style="font-size:10px;color:var(--iron);font-family:var(--font-mono);">flat</span></div>
         </div>
 
         <div class="tm-addon">
@@ -525,7 +525,7 @@
         </div>
         <div>
           <div class="tm-term-title">Web Resolution (72 DPI)</div>
-          <p class="tm-term-desc">All images are delivered web-ready. Perfect for social media, websites, and digital programs. Add the hi-res upgrade (+$5/image) if you need print-quality files.</p>
+          <p class="tm-term-desc">All images are delivered web-ready. Perfect for social media, websites, and digital programs. Add the hi-res upgrade (+$<data data-cms="prices:team_media.hires_upgrade">5</data>/image) if you need print-quality files.</p>
         </div>
       </div>
       <div class="tm-term">
@@ -618,10 +618,10 @@
           <label class="mf-label" for="tm-qty">How Many Images? <span>*</span></label>
           <select id="tm-qty" name="image_count" class="mf-select" required>
             <option value="" disabled selected>Select a range</option>
-            <option value="1-9">1–9 images ($15 each)</option>
-            <option value="10-19">10–19 images ($12 each)</option>
-            <option value="20+">20+ images ($10 each)</option>
-            <option value="headshots">Player Headshots — full team ($40 flat)</option>
+            <option value="1-9" data-cms-tpl="prices|1–9 images ($${team_media.per_image_1_9} each)">1–9 images ($15 each)</option>
+            <option value="10-19" data-cms-tpl="prices|10–19 images ($${team_media.per_image_10_19} each)">10–19 images ($12 each)</option>
+            <option value="20+" data-cms-tpl="prices|20+ images ($${team_media.per_image_20_plus} each)">20+ images ($10 each)</option>
+            <option value="headshots" data-cms-tpl="prices|Player Headshots — full team ($${team_media.headshots_flat} flat)">Player Headshots — full team ($40 flat)</option>
             <option value="full-gallery">Full Team Gallery (custom quote)</option>
             <option value="unsure">Not sure — help me figure it out</option>
           </select>
@@ -637,11 +637,11 @@
         <div style="display:flex;flex-direction:column;gap:10px;padding:16px 18px;background:var(--steel);border:1px solid var(--iron);">
           <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
             <input type="checkbox" name="addon_hires" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
-            Hi-res upgrade (+$5/image) — 300 DPI, print-ready
+            <span>Hi-res upgrade (+$<data data-cms="prices:team_media.hires_upgrade">5</data>/image) — 300 DPI, print-ready</span>
           </label>
           <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
             <input type="checkbox" name="addon_cutout" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
-            Transparent PNG cutouts (+$2/image) — background removed
+            <span>Transparent PNG cutouts (+$<data data-cms="prices:team_media.png_cutout">2</data>/image) — background removed</span>
           </label>
         </div>
       </div>
@@ -817,6 +817,7 @@
   }
 })();
 </script>
-<script src="/assets/js/motion.js?v=2" defer></script>
+<script src="/assets/js/motion.js?v=3" defer></script>
+<script src="/assets/js/cms.js?v=1" defer></script>
 </body>
 </html>

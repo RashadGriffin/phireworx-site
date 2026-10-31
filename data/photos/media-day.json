@@ -1,0 +1,32 @@
+{
+  "gallery": [
+    {
+      "image": "/assets/images/mediaday-basketball-chavez-dunk.jpg",
+      "alt": "Cesar Chavez basketball team dunk — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-track-javelin.jpg",
+      "alt": "Track athlete with javelin — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-locker.jpg",
+      "alt": "Saguaro player holding jersey in locker room — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-basha-team.jpg",
+      "alt": "Basha basketball team group — Media Day Experience"
+    },
+    {
+      "image": "/assets/images/mediaday-saguaro-throne.jpg",
+      "alt": "Saguaro football player on throne — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-basketball-tigers-girl.jpg",
+      "alt": "Tigers basketball player dribbling — Media Day"
+    },
+    {
+      "image": "/assets/images/mediaday-volleyball-red-smoke.jpg",
+      "alt": "Volleyball player with red smoke — Media Day"
+    }
+  ]
+}
