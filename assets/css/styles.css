@@ -2492,6 +2492,7 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
+  -webkit-text-stroke: 0.03em currentColor;
   font-size: clamp(56px, 8vw, 120px);
   line-height: 0.9;
   color: var(--bone);
@@ -2790,6 +2791,7 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
+  -webkit-text-stroke: 0.03em currentColor;
   font-size: clamp(52px, 6.6vw, 104px);
   line-height: 0.88;
   color: #000;
