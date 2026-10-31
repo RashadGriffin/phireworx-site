@@ -1,46 +1,112 @@
 {
   "headline": "Frequently Asked Questions",
-  "sub": "Answers to the questions we hear most from coaches, ADs, and families.",
+  "sub": "Straight answers for coaches, athletic directors, boosters, and families.",
   "categories": [
     {
-      "category": "Photo Day \u2014 General",
+      "category": "Booking & Scheduling",
       "questions": [
         {
-          "q": "How much does Photo Day cost our organization?",
-          "a": "Nothing. Photo Day is completely free to your organization. Families pay for the packages and products they want. You provide the athletes and the space \u2014 we handle everything else."
+          "q": "How far in advance should we book?",
+          "a": "Book at least 4–6 weeks out, especially for fall and spring seasons when dates fill fastest. Need something sooner? Submit a request anyway — we fit in last-minute dates whenever the schedule allows."
         },
         {
-          "q": "How long does Photo Day take?",
-          "a": "It depends on your roster size, but we typically photograph 20-25 athletes per hour. A team of 50 athletes usually takes 2-3 hours including setup and breakdown."
+          "q": "What areas do you serve?",
+          "a": "The entire Phoenix metro — Phoenix, Scottsdale, Chandler, Mesa, Gilbert, Peoria, Goodyear, Avondale, Surprise, Buckeye, Litchfield Park, Tolleson, Laveen, Ahwatukee, Fountain Hills, Paradise Valley, El Mirage, Waddell, Maricopa, and more. Outside the metro? Reach out and we'll let you know."
         },
         {
-          "q": "What do athletes need to bring?",
-          "a": "Their uniform and any props they want (ball, helmet, etc.). We handle all the lighting, backdrops, and direction."
+          "q": "Is there a minimum number of athletes for Photo Day?",
+          "a": "A $250 session fee may apply to high school programs with fewer than 40 athletes, and to youth and club organizations with fewer than 50. Athlete counts combine across every team photographed on the same day at the same location, so booking your teams together is the easiest way to clear the minimum."
         },
         {
-          "q": "Can we do both individual and team photos?",
-          "a": "Yes. Our standard Photo Day includes individual portraits and a team group shot. Additional poses and styles can be arranged in advance."
+          "q": "Can we photograph multiple teams or levels in one day?",
+          "a": "Yes. Most programs shoot varsity, JV, and freshman — or every team in the league — on the same day. We run each team in sequence and keep things moving. Just list all your teams on the booking form."
+        },
+        {
+          "q": "What if we need to reschedule or the weather turns?",
+          "a": "Reschedule with at least 7 days' notice at no charge, based on availability. Changes inside 7 days may carry a rescheduling fee, and we'll tell you before confirming. If weather makes an outdoor shoot unsafe, we reschedule at no charge — or switch to an indoor composite shoot so picture day still happens."
         }
       ]
     },
     {
-      "category": "Ordering & Delivery",
+      "category": "Photo Day",
       "questions": [
         {
-          "q": "How do families order photos?",
-          "a": "After the shoot, every family receives a secure link to their private online gallery. They can browse, select, and purchase directly from their phone or computer \u2014 no paper forms."
+          "q": "What does Photo Day cost our program?",
+          "a": "Nothing. Team Photo Day is free to your organization. Families see their photos first and pay only for what they want. No upfront payment, no collecting money, no paper forms."
         },
         {
-          "q": "How long until galleries are ready?",
-          "a": "Galleries are typically live within 1-2 weeks of your Photo Day. We'll notify you and families as soon as they're ready."
+          "q": "What's the difference between a natural shoot and a composite shoot?",
+          "a": "A natural shoot photographs athletes on your actual field or court with professional lighting — your home environment, captured at a high level. A composite shoot photographs each athlete on a backdrop, then places them onto a custom digital background built around your team's colors. Composites work anywhere indoors and deliver a consistent, dramatic look for every athlete."
         },
         {
-          "q": "What formats are available?",
-          "a": "Digital downloads, prints in various sizes, and custom packages. Families can mix and match based on what they need."
+          "q": "How long does Photo Day take?",
+          "a": "We move fast. A varsity team of 12–15 athletes takes about 20–30 minutes for individual and team photos combined. Programs with 40 or more athletes are usually finished in under 90 minutes. You'll get an estimated timeline when we confirm your date."
         },
         {
-          "q": "What if a family has an issue with their order?",
-          "a": "Contact us directly at service@phireworxphoto.com and we'll make it right. We stand behind every order."
+          "q": "What should athletes wear?",
+          "a": "Full game uniform, plus any gear that's part of their standard look — helmets, gloves, poms, and so on."
+        },
+        {
+          "q": "What if an athlete misses Photo Day?",
+          "a": "Contact us at service@phireworxphoto.com and we'll do our best to get them photographed. Make-ups depend on our schedule and aren't guaranteed, so the best plan is having every athlete there on the day."
+        }
+      ]
+    },
+    {
+      "category": "Galleries & Ordering",
+      "questions": [
+        {
+          "q": "How long until photos are ready?",
+          "a": "Online galleries go live within 1–2 weeks of Photo Day. Families are notified as soon as their gallery is ready."
+        },
+        {
+          "q": "How do families find their photos?",
+          "a": "Galleries are hosted on PhotoDay. Text your team's access code to 90738 and you'll get a link to your gallery. Codes are handed out on Photo Day — check the flyer from your coach. No code? <a href=\"/galleryaccess.html\">Request it here</a> and we'll send it, usually within one business day."
+        },
+        {
+          "q": "How do families order?",
+          "a": "Right from the gallery on a phone or computer — no account or app required. Families can order digital downloads, prints, and other photo products in one checkout, and orders ship directly to their home."
+        },
+        {
+          "q": "How long can families order?",
+          "a": "Galleries stay open for ordering for at least 4 months after they go live. We'll share the exact deadline when the gallery launches, and we recommend ordering early."
+        },
+        {
+          "q": "What if there's a problem with an order?",
+          "a": "Missing, damaged, or wrong item? <a href=\"/orderissues.html\">Submit an order issue</a> or email service@phireworxphoto.com. We respond within one business day and we'll make it right."
+        }
+      ]
+    },
+    {
+      "category": "Pro Banners",
+      "questions": [
+        {
+          "q": "What banners do you offer?",
+          "a": "Individual and senior banners (2×3 to 4×6 ft.), traditional team banners (the whole team photographed together), and composite team banners (each athlete photographed individually and combined into one custom design). Team banners come in 5×3, 6×4, 7×5, and 10×6 ft. See full <a href=\"/banners.html#pricing\">banner pricing</a>."
+        },
+        {
+          "q": "Who places banner orders?",
+          "a": "Banners are ordered by the coach, booster club, or program for the team or senior class — not by individual families. One person submits the full order on the <a href=\"/banners/form\">banner request form</a>."
+        },
+        {
+          "q": "What if we need fewer than 4 banners?",
+          "a": "Individual banners are $25 more each on orders of 1–3. Team banners are the same price at any quantity."
+        },
+        {
+          "q": "Do we need a Photo Day to order banners?",
+          "a": "No, but it's the best value. Banners added to a Photo Day have no session minimum. Banner-only sessions require a $600 minimum order; orders under $600 are invoiced the difference."
+        },
+        {
+          "q": "How long do banners take?",
+          "a": "Production takes 3–7 business days. For composite and custom designs, we send a digital proof first — production starts once you approve it, so check names, numbers, and details carefully. Have a hard deadline like senior night? Tell us when you order."
+        },
+        {
+          "q": "Do banners come with digital copies?",
+          "a": "Yes. 3×5 and 4×6 individual banners and all team banners include free social media digital copies of your banners. Digital copies of smaller individual banners are $5 each."
+        },
+        {
+          "q": "Is there a shipping charge?",
+          "a": "Banner orders under $350 have a $10 shipping charge. Orders of $350 or more ship free."
         }
       ]
     },
@@ -48,33 +114,20 @@
       "category": "Media Day Experience",
       "questions": [
         {
-          "q": "What's the difference between Photo Day and Media Day?",
-          "a": "Photo Day is a high-volume individual portrait session \u2014 great for every athlete on the roster. Media Day is a full creative production with advanced lighting, smoke effects, and dramatic setups. It's prepaid by the program and every image is delivered digitally."
+          "q": "How is Media Day different from Photo Day?",
+          "a": "Photo Day is a fast, high-volume session where families buy the photos they want. Media Day is a creative production shoot — advanced lighting, dramatic setups, and intentional direction — that your program pays for upfront. Every edited image is delivered to the team."
         },
         {
           "q": "How is Media Day priced?",
-          "a": "Media Day is priced per athlete based on roster size. The program pays one flat rate upfront \u2014 no packages for families to navigate, no per-image fees."
+          "a": "Per athlete, based on roster size: $65 per athlete for 20+, $80 for 10–19, and $95 for 5–9. Every session has a $600 minimum, and payment is collected before the shoot. No per-image fees. <a href=\"/media-day.html\">See what's included</a>."
+        },
+        {
+          "q": "What do we get from a Media Day?",
+          "a": "Every edited image from the shoot in full resolution through a private gallery — individual portraits, team shots, and creative content — with full usage rights for social media, recruiting, print, and promotion."
         },
         {
           "q": "Can we do both Photo Day and Media Day?",
-          "a": "Yes. Many programs book a standard Photo Day for their full roster and add a Media Day shoot for their varsity or featured athletes."
-        }
-      ]
-    },
-    {
-      "category": "Banners",
-      "questions": [
-        {
-          "q": "What sizes do banners come in?",
-          "a": "We offer banners ranging from 2x3 ft. to 4x6 ft. for individuals, and larger formats for team banners. Custom sizes available \u2014 contact us to discuss."
-        },
-        {
-          "q": "How long does banner production take?",
-          "a": "3-7 business days after your order is confirmed and payment received."
-        },
-        {
-          "q": "Do I need to provide photos for a banner?",
-          "a": "Not necessarily. If you've already had a Photo Day or Media Day with us, we can pull from your existing images. If not, we can schedule a quick individual shoot."
+          "a": "Yes. Many programs book Photo Day for the full roster and add a Media Day for varsity or featured athletes."
         }
       ]
     }
