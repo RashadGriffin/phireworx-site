@@ -3123,3 +3123,17 @@ body .success-title em { color: inherit; font-style: inherit; }
 .about-stats { padding: clamp(28px, 3.4vw, 44px) 28px; margin-top: 8px; }
 .rating-summary { align-items: start; }
 .rating-summary .rating-label { font-size: clamp(18px, 1.5vw, 22px) !important; line-height: 1.1; }
+
+/* 17hats lead forms — shown as a white card with the amber top bar.
+   17hats form colors: button #FFB347, text #0D0D0D (set in each 17hats form's branding). */
+body .hs-form-section { max-width: 780px; }
+body .hs-form-embed,
+body .md-form-embed {
+  max-width: 780px;
+  background: #FFFFFF; /* 17hats always paints the embedded form white, so the card matches it */
+  border: 0;
+  border-top: 6px solid var(--ember);
+  padding: clamp(8px, 1.6vw, 20px) clamp(8px, 2.2vw, 28px) clamp(8px, 1.4vw, 16px);
+}
+body .hs-form-embed iframe,
+body .md-form-embed iframe { display: block; width: 100%; border: 0; }
