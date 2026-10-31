@@ -346,6 +346,12 @@
       .diff-table tbody .td-trad { display: none; }
       .diff-table thead .th-trad { display: none; }
     }
+    .md-form-embed {
+      max-width: 780px;
+      background: var(--ash);
+      border: 1px solid var(--slate);
+      padding: 8px;
+    }
   </style>
 
 
@@ -570,81 +576,10 @@
 <!-- BOOKING FORM -->
 <section class="section" style="padding-top:36px;">
   <div class="section-inner">
-    <form style="max-width:700px;" name="media-day-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/media-success">
-      <input type="hidden" name="form-name" value="media-day-booking">
-      <p style="display:none;"><input name="bot-field"></p>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="md-name">Your Name <span>*</span></label>
-          <input type="text" id="md-name" name="name" class="mf-input" placeholder="First and last name" required>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="md-email">Email <span>*</span></label>
-          <input type="email" id="md-email" name="email" class="mf-input" placeholder="your@email.com" required>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="md-phone">Phone</label>
-          <input type="tel" id="md-phone" name="phone" class="mf-input" placeholder="(480) 000-0000">
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="md-role">Your Role</label>
-          <select id="md-role" name="role" class="mf-select">
-            <option value="" disabled selected>Select your role</option>
-            <option>Head Coach</option>
-            <option>Athletic Director</option>
-            <option>Club / Travel Team Director</option>
-            <option>Assistant Coach</option>
-            <option>Parent / Booster</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="md-school">School or Organization <span>*</span></label>
-          <input type="text" id="md-school" name="school" class="mf-input" placeholder="School or team name" required>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="md-sport">Sport / Program <span>*</span></label>
-          <input type="text" id="md-sport" name="sport" class="mf-input" placeholder="e.g. Varsity Football" required>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="md-athletes">Number of Athletes <span>*</span></label>
-          <input type="number" id="md-athletes" name="athlete_count" class="mf-input" min="5" step="1" placeholder="Enter exact number of athletes (5+)" required>
-          <p class="mf-note">5–9 athletes: $95 each · 10–19: $80 each · 20+: $65 each. $600 minimum booking.</p>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="md-timing">When Are You Looking? <span>*</span></label>
-          <select id="md-timing" name="timing" class="mf-select" required>
-            <option value="" disabled selected>Select timing</option>
-            <option>ASAP / this month</option>
-            <option>Next 1–2 months</option>
-            <option>Pre-season (fall)</option>
-            <option>Pre-season (winter)</option>
-            <option>Pre-season (spring)</option>
-            <option>Flexible / planning ahead</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="mf-group">
-        <label class="mf-label" for="md-vision">Tell Us Your Vision</label>
-        <textarea id="md-vision" name="vision" class="mf-textarea" placeholder="Location ideas, lighting style, theme or vibe, special effects you want, any specific shots needed... the more detail the better."></textarea>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <button type="submit" class="btn-primary">Submit Booking Request &rarr;</button>
-        <span style="font-size:12px;color:var(--iron);">We'll follow up within 1 business day</span>
-      </div>
-    </form>
+    <div class="md-form-embed">
+      <iframe name="lc_contact_form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/i-cNqldBu5oP"></iframe>
+      <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
+    </div>
   </div>
 </section>
 
