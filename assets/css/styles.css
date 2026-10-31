@@ -2397,9 +2397,10 @@ html.pw-motion .pw-reveal.pw-in .how-step-num {
 .nav-dropdown-trigger {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 700;
+  -webkit-text-stroke: 0.02em currentColor;
   font-size: 19px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.045em;
   text-transform: none;
   color: #D9D4CA;
 }
