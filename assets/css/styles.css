@@ -2495,8 +2495,9 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   font-style: italic;
   font-weight: 700;
   -webkit-text-stroke: 0.03em currentColor;
-  font-size: clamp(56px, 8vw, 120px);
+  font-size: clamp(46px, 6.4vw, 94px);
   line-height: 0.9;
+  letter-spacing: 0.02em;
   color: var(--bone);
   margin: 0;
   padding-right: 0.08em;
@@ -2577,9 +2578,9 @@ footer { background: #000; border-top: 4px solid var(--ember); }
 .hp-hero .hero-eyebrow::before { display: none; }
 .hp-hero .hero-h1 {
   -webkit-text-stroke: 0.03em currentColor; /* thickens Chosence Bold past its heaviest weight */
-  font-size: clamp(56px, 7.4vw, 112px);
+  font-size: clamp(54px, 7.1vw, 108px);
   line-height: 0.86;
-  letter-spacing: 0;
+  letter-spacing: 0.025em; /* room for the stroke so letters don't touch */
   margin: 0;
   padding-right: 0;
 }
@@ -2802,6 +2803,7 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   -webkit-text-stroke: 0.03em currentColor;
   font-size: clamp(52px, 6.6vw, 104px);
   line-height: 0.88;
+  letter-spacing: 0.02em;
   color: #000;
   margin: 0;
   padding-right: 0.08em;
