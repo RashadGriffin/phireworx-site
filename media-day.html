@@ -538,7 +538,7 @@
 <div class="page-hero" style="padding-bottom:0;">
   <div class="page-hero-inner" style="padding-bottom:60px;">
     <p class="page-hero-eyebrow" id="cms-eyebrow">Premium Service</p>
-    <h1 class="page-hero-title" id="cms-headline">Phireworx Media Day<br><span>Experience</span></h1>
+    <h1 class="page-hero-title" id="cms-headline">Phireworx Media&nbsp;Day<br><span>Experience</span></h1>
     <p class="page-hero-sub" id="cms-sub">A prepaid, creative-first media production shoot where the organization—not parents—funds the session. Full digital access. Advanced lighting. A distinct visual identity built for your program.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
       <a href="#pricing" class="btn-primary">See Pricing</a>
@@ -559,7 +559,7 @@
         <h2 class="section-title section-title--sm" style="margin-bottom:20px;">Not a Picture Day.<br><span>A Production.</span></h2>
         <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:20px;">The Phireworx Media Day Experience is a <strong style="color:var(--white);">prepaid, team-funded shoot</strong> where the organization covers the cost upfront — not parents, not individual ordering. No volume sales model. No assembly-line photos. No pay-per-image.</p>
         <p style="font-size:15px;color:var(--silver);line-height:1.75;margin-bottom:28px;">Instead, every final image is delivered in full resolution to the team. Your program walks away with a complete library of high-impact visuals ready to use anywhere — social, print, flyers, recruiting, press coverage.</p>
-        <a href="#what-you-get" class="service-link" style="display:inline-flex;align-items:center;gap:6px;">See What You Get</a>
+        <a href="#what-you-get" class="btn-ghost">See What&rsquo;s Included</a>
       </div>
       <div class="split-intro-right">
         <div style="display:flex;flex-direction:column;gap:20px;">
@@ -969,6 +969,7 @@ fetch('/data/media-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json(
     var e=document.getElementById('cms-headline');
     if(!e || d.headline===undefined) return;
     var span=e.querySelector('span');
+    var hadBr=!!e.querySelector('br');
     var accent=span?span.textContent.trim():'';
     var full=String(d.headline).trim();
     if(accent && full.toLowerCase().indexOf(accent.toLowerCase())!==-1){
@@ -977,6 +978,9 @@ fetch('/data/media-day.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json(
       var before=full.slice(0,idx);
       var match=full.slice(idx,idx+accent.length);
       var after=full.slice(idx+accent.length);
+      // keep "Media Day" together and keep the line break before the accent line
+      before=before.replace(/Media Day/gi,function(m){return m.replace(' ','&nbsp;');});
+      if(hadBr) before=before.replace(/\s+$/,'')+'<br>';
       e.innerHTML=before+'<span>'+match+'</span>'+after;
     } else if(!span){
       // no static accent to preserve; wrap the last word
