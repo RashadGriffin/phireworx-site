@@ -494,6 +494,25 @@
 })();
 </script>
 <!-- CMS DATA LOADER -->
+<script id="faq-accordion">
+function toggleAcc(header){
+  var item=header.closest('.acc-item'); if(!item) return;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.acc-item.open').forEach(function(i){
+    i.classList.remove('open');
+    var h=i.querySelector('.acc-header'); if(h) h.setAttribute('aria-expanded','false');
+  });
+  if(!wasOpen){ item.classList.add('open'); header.setAttribute('aria-expanded','true'); }
+}
+function initAcc(){
+  document.querySelectorAll('.acc-header').forEach(function(h){
+    if(h.dataset.accReady) return; h.dataset.accReady='1';
+    h.setAttribute('role','button'); h.setAttribute('tabindex','0'); h.setAttribute('aria-expanded','false');
+    h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleAcc(h); } });
+  });
+}
+document.addEventListener('DOMContentLoaded',initAcc);
+</script>
 <script>
 fetch('/data/faq.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).then(d=>{
   const s=(id,v)=>{const e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v};
@@ -525,35 +544,21 @@ fetch('/data/faq.json?cb=' + Math.floor(Date.now()/60000)).then(r=>r.json()).the
     container.innerHTML=d.categories.map(cat=>`
       <div class="faq-category">
         <h3 class="faq-category-title">${cat.category}</h3>
-        <div class="faq-list">
+        <div class="faq-list accordion">
           ${(cat.questions||[]).map(q=>`
             <div class="acc-item">
-              <button class="acc-q" aria-expanded="false">
-                ${q.q}
-                <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="acc-body" hidden>
-                <p class="acc-text">${q.a}</p>
+              <div class="acc-header" onclick="toggleAcc(this)">
+                <span class="acc-q">${q.q}</span>
+                <span class="acc-icon">+</span>
+              </div>
+              <div class="acc-body">
+                <p class="acc-a">${q.a}</p>
               </div>
             </div>`).join('')}
         </div>
       </div>`).join('');
 
-    // Re-init accordion JS
-    container.querySelectorAll('.acc-q').forEach(btn=>{
-      btn.addEventListener('click',function(){
-        const body=this.nextElementSibling;
-        const open=this.getAttribute('aria-expanded')==='true';
-        container.querySelectorAll('.acc-q').forEach(b=>{
-          b.setAttribute('aria-expanded','false');
-          b.nextElementSibling.hidden=true;
-        });
-        if(!open){
-          this.setAttribute('aria-expanded','true');
-          body.hidden=false;
-        }
-      });
-    });
+    initAcc();
   }
 }).catch(()=>{});
 </script>
