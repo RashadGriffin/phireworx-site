@@ -2416,6 +2416,7 @@ html.pw-motion .pw-reveal.pw-in .how-step-num {
   clip-path: polygon(0.75em 0, 100% 0, calc(100% - 0.75em) 100%, 0 100%);
 }
 .nav-cta:hover { color: #000; }
+@media (max-width: 768px) { .nav-inner { padding: 0 var(--gutter); } }
 
 /* Phone menu (overrides the per-page inline menu styles) */
 html body #nav-mobile > a,
@@ -2444,6 +2445,7 @@ html body #nav-mobile a.nav-mobile-cta {
 
 /* Footer */
 footer { background: #000; border-top: 4px solid var(--ember); }
+.footer-inner { max-width: calc(var(--content-max) - 2 * var(--gutter)); }
 .footer-top { border-bottom-color: #1F1F1F; }
 .footer-logo-img { opacity: 1; }
 .footer-tagline { color: var(--muted); font-size: 15px; max-width: 280px; }
@@ -2635,11 +2637,19 @@ footer { background: #000; border-top: 4px solid var(--ember); }
 /* Services */
 .hp-services { padding: clamp(72px, 9vw, 128px) 0 0; }
 .hp-services > .hp-inner { width: calc(100% - 2 * var(--gutter)); }
-.hp-svc-list { margin-top: clamp(40px, 5vw, 64px); }
-.hp-svc { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
-.hp-svc-alt { grid-template-columns: 1fr 1.15fr; background: #151515; }
+.hp-svc-list {
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--content-max) - 2 * var(--gutter));
+  margin: clamp(40px, 5vw, 64px) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 6vw, 88px);
+}
+.hp-svc { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 4.5vw, 72px); align-items: stretch; }
+.hp-svc-alt { grid-template-columns: 1fr 1.1fr; }
+.hp-svc-banners { grid-template-columns: 1.45fr 1fr; }
 .hp-svc-alt .hp-svc-media { order: 2; }
-.hp-svc-media { min-height: clamp(380px, 44vw, 640px); display: flex; gap: 6px; }
+.hp-svc-media { min-height: clamp(360px, 38vw, 560px); display: flex; gap: 6px; }
 .hp-svc-pair img {
   flex: 1 1 0;
   min-width: 0;
@@ -2654,7 +2664,6 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   flex-direction: column;
   justify-content: center;
   gap: 22px;
-  padding: clamp(36px, 5vw, 80px) clamp(20px, 5vw, 96px);
 }
 .hp-svc-title {
   font-family: var(--font-display);
@@ -2672,12 +2681,11 @@ footer { background: #000; border-top: 4px solid var(--ember); }
 
 /* Banner wall (Pro Banners row) */
 .hp-wall {
-  background: #000;
   flex-direction: column;
   justify-content: center;
+  align-self: center;
   gap: 0;
   min-height: 0;
-  padding: clamp(32px, 4.5vw, 72px) clamp(20px, 3vw, 48px);
 }
 .hp-wall-row { display: flex; gap: clamp(8px, 1.2vw, 16px); }
 .hp-wall figure { margin: 0; flex: 1 1 0; min-width: 0; }
@@ -2816,7 +2824,7 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   .hp-hero-wrap { flex-direction: column; }
   .hp-hero-copy { flex: none; padding: 36px var(--gutter) 48px; }
   .hp-hero-photo.hero-visual { order: -1; min-height: 0; height: min(118vw, 560px); }
-  .hp-svc, .hp-svc-alt { grid-template-columns: 1fr; }
+  .hp-svc, .hp-svc-alt, .hp-svc-banners { grid-template-columns: 1fr; gap: 28px; }
   .hp-svc-alt .hp-svc-media { order: 0; }
   .hp-svc-media { min-height: 0; height: min(110vw, 560px); }
   .hp-wall { height: auto; }
