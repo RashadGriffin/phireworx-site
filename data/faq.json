@@ -48,7 +48,7 @@
         },
         {
           "q": "What if an athlete misses Picture Day?",
-          "a": "Contact us at service@phireworxphoto.com and we'll do our best to get them photographed. Make-ups depend on our schedule and aren't guaranteed, so the best plan is having every athlete there on the day."
+          "a": "<a href=\"/general.html\">Send us a message</a> and we'll do our best to get them photographed. Make-ups depend on our schedule and aren't guaranteed, so the best plan is having every athlete there on the day."
         }
       ]
     },
@@ -73,7 +73,7 @@
         },
         {
           "q": "What if there's a problem with an order?",
-          "a": "Missing, damaged, or wrong item? <a href=\"/orderissues.html\">Submit an order issue</a> or email service@phireworxphoto.com. We respond within one business day and we'll make it right."
+          "a": "Missing, damaged, or wrong item? <a href=\"/orderissues.html\">Submit an order issue</a>. We respond within one business day and we'll make it right."
         }
       ]
     },
