@@ -3,7 +3,7 @@
    Chosence · Evogria · Barlow · Ember on Coal
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* Brand fonts (self-hosted, same faces as print: banners, pose sheets) */
 @font-face { font-family: 'Chosence'; src: url('/assets/fonts/chosence-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -29,7 +29,7 @@
   --font-display: 'Chosence', 'Barlow', sans-serif;
   --font-body:    'Barlow', system-ui, sans-serif;
   --font-accent:  'Evogria', 'Barlow', sans-serif;
-  --font-mono:    'DM Mono', monospace;
+  --font-mono:    'Chosence', 'Barlow', sans-serif; /* labels now use the brand display face */
   --slant:        11.86deg;
   --bone:         #F3EFE6;
   --muted:        #B9B4AA;
@@ -37,6 +37,7 @@
   --section-pad: clamp(60px, 8vw, 100px);
   --content-max: 1200px;
   --gutter:      clamp(20px, 5vw, 72px);
+  --content-inner: calc(var(--content-max) - 2 * var(--gutter)); /* content edge = menu logo edge */
 }
 
 /* ── RESET ── */
@@ -81,7 +82,7 @@ ul { list-style: none; }
   padding: var(--section-pad) var(--gutter);
   isolation: auto;
 }
-.section-inner { max-width: var(--content-max); margin: 0 auto; }
+.section-inner { max-width: var(--content-inner); margin: 0 auto; }
 .divider { height: 1px; background: var(--steel); }
 
 .section-eyebrow {
@@ -962,7 +963,7 @@ footer {
   border-bottom: 1px solid var(--steel);
 }
 .page-hero-inner {
-  max-width: var(--content-max);
+  max-width: var(--content-inner);
   margin: 0 auto;
 }
 .page-hero-eyebrow {
@@ -2842,3 +2843,280 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   .hp-hero .hero-btns { padding-left: 0; }
 }
 
+
+/* ════════════════════════════════════════════════════════════
+   SITE-WIDE DESIGN SYSTEM v56 — every page follows the homepage
+   · one content edge (--content-inner = menu logo edge)
+   · Chosence Bold headings, thickened, no one-word amber accents
+   · amber marker bar replaces small eyebrow labels
+   · Barlow body copy at readable sizes
+   ════════════════════════════════════════════════════════════ */
+
+/* Main headings */
+.page-hero-title, .section-title, .cta-title, .media-h1, .tm-h1, .success-title {
+  font-weight: 700;
+  -webkit-text-stroke: 0.03em currentColor;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+.page-hero-title span, .page-hero-title em,
+.section-title span, .section-title em,
+.cta-title span, .cta-title em,
+.media-h1 span, .media-h1 em, .tm-h1 span, .tm-h1 em, .tm-h1 .amber,
+.success-title em { color: inherit; font-style: inherit; }
+
+/* Page top (inner pages) */
+.page-hero { background: #000; border-bottom: 0; padding: clamp(56px, 7vw, 104px) var(--gutter) clamp(56px, 6vw, 88px); }
+.page-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 18px;
+  margin: 0 0 24px 6px;
+  background: var(--ember);
+  color: #000;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
+}
+.page-hero-eyebrow::before { display: none; }
+.page-hero-title { font-size: clamp(52px, 7vw, 104px); line-height: 0.88; margin-bottom: 24px; padding-right: 0.1em; }
+.page-hero-sub { font-size: clamp(17px, 1.3vw, 19px); color: var(--muted); max-width: 600px; line-height: 1.6; }
+
+/* Section headings */
+.section-title { font-size: clamp(46px, 6.4vw, 94px); line-height: 0.9; margin-bottom: 20px; padding-right: 0.08em; }
+.section-eyebrow { font-size: 0; line-height: 0; letter-spacing: 0; gap: 0; height: 12px; margin-bottom: 18px; }
+.section-eyebrow::before { width: 44px; height: 12px; margin-left: 4px; transform: skewX(calc(-1 * var(--slant))); }
+.section-desc { font-size: 17px; color: var(--muted); max-width: 600px; }
+
+/* Subheadings */
+.shoot-title, .service-title, .booking-card-title, .banner-type-title,
+.pricing-header-title, .faq-category-title, .feature-title, .process-title,
+.ideal-program-title, .how-step-title, .about-pillar-title, .review-name,
+.testimonial-name, .turnaround-title, .policy-h2, .policy-h3, .acc-q,
+.tm-tier-name, .use-case-title, .included-title, .deliverable-title,
+.addon-name, .tm-addon-name, .tm-term-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  -webkit-text-stroke: 0.035em currentColor;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+.shoot-title, .booking-card-title, .banner-type-title, .service-title { font-size: clamp(28px, 2.6vw, 38px); line-height: 0.95; }
+.pricing-header-title, .faq-category-title, .policy-h2 { font-size: clamp(26px, 2.4vw, 34px); line-height: 1; }
+.feature-title, .process-title, .ideal-program-title, .how-step-title,
+.about-pillar-title, .review-name, .testimonial-name, .turnaround-title,
+.policy-h3, .tm-tier-name, .use-case-title, .included-title,
+.deliverable-title, .addon-name, .tm-addon-name, .tm-term-title { font-size: 23px; line-height: 1.05; }
+.acc-q { font-size: clamp(19px, 1.6vw, 22px); line-height: 1.1; -webkit-text-stroke: 0.02em currentColor; }
+
+/* Small labels (formerly typewriter-style) */
+.shoot-label, .booking-card-tag, .banner-type-label, .banner-spec-tag,
+.review-role, .review-source, .rating-label, .testimonial-role,
+.ideal-program-num, .service-num, .about-img-label, .photo-ph-label,
+.hs-form-label, .hs-notice-label, .svc-fact, .feature-tile-num,
+.pricing-tier-badge, .pricing-tier-range, .compare-table thead th,
+.diff-table thead tr th, .media-badge, .media-hero-stat-label,
+.ideal-item-label, .pricing-big-label, .tm-badge, .tm-pricing-eyebrow,
+.tm-tier-sub, .use-case-label, [style*="font-mono"] {
+  font-family: var(--font-display) !important;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+}
+[style*="font-mono"][style*="--iron"] { color: var(--muted) !important; }
+.nav-dropdown-item-label { display: none; }
+.nav-dropdown-header a { font-family: var(--font-display); font-style: italic; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; }
+.nav-dropdown-header a::after { content: none; }
+.nav-dropdown-item-title { -webkit-text-stroke: 0.02em currentColor; font-size: 19px; }
+
+/* Body copy */
+.process-desc, .feature-desc, .shoot-desc, .shoot-feature, .booking-card-desc,
+.ideal-program-desc, .how-step-desc, .about-pillar-desc, .review-text,
+.banner-type-desc, .acc-a, .policy-p, .policy-ul li, .info-banner,
+.turnaround-desc, .testimonial-quote { font-size: 16px; }
+.review-text, .testimonial-quote { font-style: normal; color: #DAD5CB; }
+
+/* Text links */
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 6px;
+  color: var(--ember);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px !important;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.service-link::before {
+  content: '';
+  width: 22px;
+  height: 8px;
+  background: currentColor;
+  transform: skewX(calc(-1 * var(--slant)));
+  flex-shrink: 0;
+}
+.service-link:hover { gap: 12px; color: #fff; }
+
+/* Buttons: one size everywhere (pages had inline 12px overrides) */
+.btn-primary[style*="font-size"], .btn-ghost[style*="font-size"] { font-size: 15px !important; }
+.booking-card-action {
+  display: inline-flex;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 34px;
+  background: var(--ember);
+  color: #000;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  border-radius: 0;
+  clip-path: polygon(0.8em 0, 100% 0, calc(100% - 0.8em) 100%, 0 100%);
+}
+
+/* Numbered steps (same as homepage Simple Process) */
+.process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px 28px; margin-top: 24px; }
+.process-step { position: relative; background: none; padding: 30px 0 0; border-top: 2px solid #3A3A3A; gap: 14px; }
+.process-num {
+  position: absolute;
+  top: -21px;
+  left: 6px;
+  width: 58px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ember);
+  color: #000 !important;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+.process-title { margin-top: 12px; font-size: 28px; }
+.how-step-num { font-family: var(--font-accent); font-style: italic; font-weight: 400; color: var(--ember); letter-spacing: 0; }
+
+/* Flatter cards — open layout like the homepage reviews */
+.features-grid, .ideal-programs-grid, .testimonials-page-grid, .testimonials-grid { gap: 44px 48px; }
+.feature-card, .ideal-program-card, .review-card, .testimonial-card {
+  background: none;
+  border: 0;
+  border-top: 2px solid #2A2A2A;
+  padding: 28px 0 0;
+}
+.review-card:hover { background: none; }
+html.pw-motion .feature-card:hover,
+html.pw-motion .ideal-program-card:hover,
+html.pw-motion .testimonial-card:hover { transform: none; box-shadow: none; }
+
+/* Closing call to action (same as homepage) */
+.cta-band { background: var(--ember); color: #000; text-align: left; padding: clamp(64px, 8vw, 112px) var(--gutter); }
+.cta-band::before { display: none; }
+.cta-band-inner {
+  max-width: var(--content-inner);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 64px;
+  align-items: end;
+  text-align: left;
+}
+.cta-band .cta-title { grid-column: 1; color: #000; font-size: clamp(52px, 6.6vw, 104px); line-height: 0.88; margin: 0; padding-right: 0.08em; }
+.cta-band .cta-desc { grid-column: 1; color: #1A1A1A; font-size: 18px; margin: 22px 0 0; max-width: 560px; }
+.cta-band .cta-btns { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding-left: 10px; }
+.cta-band .btn-primary { background: #000; color: var(--ember); font-size: 19px; padding: 20px 44px; }
+.cta-band .btn-primary:hover { background: #1A1A1A; color: var(--ember); }
+.cta-band .btn-ghost { color: #000; }
+.cta-band .btn-ghost:hover { color: var(--ember); }
+.cta-band .btn-ghost:hover::before { background: #000; border-color: #000; }
+.cta-band .cta-btns a[href^="tel:"] { display: none; }
+
+@media (max-width: 1024px) {
+  .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .cta-band-inner { grid-template-columns: 1fr; row-gap: 28px; text-align: left; }
+  .cta-band .cta-btns { grid-column: 1; grid-row: auto; align-items: flex-start; }
+  .cta-band .cta-btns a { text-align: center; }
+}
+@media (max-width: 640px) {
+  .process-grid { grid-template-columns: 1fr; gap: 52px; }
+}
+/* Headings that sit in a half-width column */
+.section-title.section-title--sm { font-size: clamp(40px, 4.6vw, 66px); }
+/* Headings that sit in a half-width column */
+.section-title.section-title--sm { font-size: clamp(40px, 4.6vw, 66px); }
+.ideal-program-num { display: none; }
+@media (max-width: 768px) {
+  .shoot-grid { grid-template-columns: 1fr; }
+  .policy-pair { grid-template-columns: 1fr !important; }
+}
+
+/* Services page */
+.svc-h {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  -webkit-text-stroke: 0.03em currentColor;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: clamp(40px, 4.6vw, 66px);
+  line-height: 0.9;
+  color: var(--bone);
+  margin-bottom: 18px;
+  padding-right: 0.08em;
+}
+.svc-num-accent { display: none; }
+
+/* Ratings strip (Reviews page) — same as the homepage stats strip */
+.rating-summary {
+  background: var(--ember);
+  color: #000;
+  text-align: left;
+  padding: clamp(28px, 3.4vw, 44px) 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 0;
+}
+.rating-divider { display: none; }
+.rating-summary > div { padding: 0 14px; }
+.rating-summary > div + div + div { border-left: 3px solid #000; }
+.rating-num, .rating-num span { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); color: #000 !important; letter-spacing: 0; }
+.rating-summary .rating-label { color: #000; margin-top: 6px; }
+.rating-summary .rating-stars { justify-content: flex-start; }
+.rating-summary .rating-stars .star { background: #000; }
+
+@media (max-width: 768px) {
+  .stack-sm { grid-template-columns: 1fr !important; }
+  .two-sm { grid-template-columns: 1fr 1fr !important; }
+  .rating-summary { grid-template-columns: 1fr; }
+  .rating-summary > div + div + div { border-left: 0; border-top: 3px solid #000; padding-top: 20px; }
+}
+.included-icon { color: var(--ember); }
+/* Page-level <style> blocks load after this file; body-prefixed rules keep these headings on the system */
+body .media-h1, body .tm-h1, body .success-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  -webkit-text-stroke: 0.03em currentColor;
+  letter-spacing: 0.02em;
+  color: var(--bone);
+}
+body .media-h1 em, body .media-h1 .amber, body .tm-h1 em, body .tm-h1 .amber,
+body .success-title em { color: inherit; font-style: inherit; }
