@@ -63,8 +63,15 @@
 
 [[redirects]]
   from = "/banners/smallform"
-  to = "/banners-small.html"
-  status = 200
+  to = "/banners/form"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/banners-small.html"
+  to = "/banners/form"
+  status = 301
+  force = true
 
 # ── 404 CATCH-ALL ──
 [[redirects]]
