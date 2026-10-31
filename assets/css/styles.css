@@ -2675,12 +2675,8 @@ footer { background: #000; border-top: 4px solid var(--ember); }
   min-height: 0;
   padding: clamp(32px, 4.5vw, 72px) clamp(20px, 3vw, 48px);
 }
-.hp-wall-rail { height: 8px; background: var(--ember); border-radius: 4px; margin: 0 -10px; }
 .hp-wall-row { display: flex; gap: clamp(8px, 1.2vw, 16px); }
 .hp-wall figure { margin: 0; flex: 1 1 0; min-width: 0; }
-.hp-wall-clips { height: 14px; display: flex; justify-content: space-between; padding: 0 16%; }
-.hp-wall-clips::before,
-.hp-wall-clips::after { content: ''; width: 10px; background: var(--ember); }
 .hp-wall img {
   width: 100%;
   height: auto;
@@ -2801,19 +2797,9 @@ footer { background: #000; border-top: 4px solid var(--ember); }
 .hp-cta-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; padding-left: 10px; }
 .hp-cta .btn-primary { background: #000; color: var(--ember); font-size: 19px; padding: 20px 44px; }
 .hp-cta .btn-primary:hover { background: #1A1A1A; color: var(--ember); }
-.hp-phone {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: #000;
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: clamp(22px, 2vw, 28px);
-}
 
 .hp-section a:focus-visible,
-.hp-services a:focus-visible,
-.hp-cta a.hp-phone:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.hp-services a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 
 /* Homepage — tablet */
 @media (max-width: 1024px) {
