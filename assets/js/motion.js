@@ -302,6 +302,17 @@
 
     var gallery = [];
     var current = -1;
+    var historyPushed = false;
+
+    if (closeBtn) {
+      closeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6l12 12"/></svg>';
+      closeBtn.setAttribute('role', 'button');
+      closeBtn.setAttribute('tabindex', '0');
+      closeBtn.setAttribute('aria-label', 'Close photo');
+      closeBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }
+      });
+    }
 
     function collect() {
       gallery = Array.prototype.slice.call(document.querySelectorAll('img[data-lightbox]'));
@@ -313,8 +324,13 @@
       var alt = gallery[current].getAttribute('alt') || '';
       lbImg.setAttribute('src', src);
       lbImg.setAttribute('alt', alt);
+      var opening = !overlay.classList.contains('active');
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      // Phone Back button closes the photo instead of leaving the page
+      if (opening && !historyPushed && window.history && history.pushState) {
+        try { history.pushState({ lb: true }, ''); historyPushed = true; } catch (err) {}
+      }
       // toggle arrows if only one image
       var multi = gallery.length > 1;
       if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
@@ -324,8 +340,42 @@
       overlay.classList.remove('active');
       document.body.style.overflow = '';
       lbImg.setAttribute('src', '');
+      lbImg.style.transform = '';
+      lbImg.style.opacity = '';
       current = -1;
     }
+    // Close from the X, backdrop or Esc: also drop the history entry we added
+    function close() {
+      if (!overlay.classList.contains('active')) return;
+      if (historyPushed) { historyPushed = false; history.back(); }
+      hide();
+    }
+    window.addEventListener('popstate', function () {
+      if (historyPushed) { historyPushed = false; hide(); }
+    });
+
+    // Swipe down to close, swipe left/right for next/previous (touch)
+    var sx = 0, sy = 0, tracking = false;
+    overlay.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { tracking = false; return; }
+      tracking = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    overlay.addEventListener('touchmove', function (e) {
+      if (!tracking) return;
+      var dy = e.touches[0].clientY - sy, dx = e.touches[0].clientX - sx;
+      if (dy > 0 && dy > Math.abs(dx)) {
+        lbImg.style.transform = 'translateY(' + dy + 'px)';
+        lbImg.style.opacity = String(Math.max(0.3, 1 - dy / 400));
+      }
+    }, { passive: true });
+    overlay.addEventListener('touchend', function (e) {
+      if (!tracking) return;
+      tracking = false;
+      var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (dy > 90 && dy > Math.abs(dx)) { close(); return; }
+      lbImg.style.transform = ''; lbImg.style.opacity = '';
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) && gallery.length > 1) show(current + (dx < 0 ? 1 : -1));
+    });
 
     // Delegate clicks so async-injected images (CMS galleries) work too
     document.addEventListener('click', function (e) {
@@ -338,19 +388,19 @@
       }
     });
 
-    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); hide(); });
+    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); close(); });
     if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
     if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
 
     // Click backdrop (but not the image) closes
     overlay.addEventListener('click', function (e) {
-      if (e.target === overlay || (e.target.classList && e.target.classList.contains('lb-img-wrap'))) hide();
+      if (e.target === overlay || (e.target.classList && e.target.classList.contains('lb-img-wrap'))) close();
     });
 
     // Keyboard: Esc closes, arrows navigate
     document.addEventListener('keydown', function (e) {
       if (!overlay.classList.contains('active')) return;
-      if (e.key === 'Escape') hide();
+      if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') show(current - 1);
       else if (e.key === 'ArrowRight') show(current + 1);
     });
