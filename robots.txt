@@ -1,0 +1,51 @@
+# Phireworx Photography: high school & youth sports photography, Phoenix AZ
+# Search engines and AI assistants are welcome to read and cite this site.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# AI crawlers and assistants (explicitly welcome)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://phireworxphoto.com/sitemap.xml

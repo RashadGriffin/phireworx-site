@@ -1,3 +1,10 @@
+# ── BUILD ──
+# Writes /admin content, reviews, structured data, sitemap.xml and llms.txt
+# into the pages before each deploy (see _build/prerender.py).
+[build]
+  publish = "."
+  command = "python3 _build/prerender.py"
+
 # ── CLEAN URL REDIRECTS ──
 
 # Service pages
@@ -81,6 +88,13 @@
   from = "/banners-small.html"
   to = "/banners/form"
   status = 301
+  force = true
+
+# Build script is not part of the site
+[[redirects]]
+  from = "/_build/*"
+  to = "/404.html"
+  status = 404
   force = true
 
 # ── 404 CATCH-ALL ──

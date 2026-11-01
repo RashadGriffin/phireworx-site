@@ -37,8 +37,12 @@
     var p = path.charAt(0) === '/' ? path : '/' + path;
     return '/.netlify/images?url=' + encodeURIComponent(p) + '&w=' + width + '&q=82';
   }
+  function plain(src) { // '/.netlify/images?url=%2Fassets%2F...' -> 'assets/...'
+    var m = String(src || '').match(/[?&]url=([^&]+)/);
+    return (m ? decodeURIComponent(m[1]) : String(src || '')).replace(/^\//, '');
+  }
   function samePath(a, b) {
-    return String(a || '').replace(/^\//, '') === String(b || '').replace(/^\//, '');
+    return plain(a) === plain(b);
   }
 
   function apply(file, data) {
