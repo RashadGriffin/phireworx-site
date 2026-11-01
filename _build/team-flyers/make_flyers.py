@@ -13,9 +13,10 @@ team.json:
   team_name     "Verrado"
   program       "Cross Country"
   season_label  "Picture Day 2026-27"
-  access_code   optional; taken from the end of the gallery link if left out
+  access_code   taken from the end of the gallery link if left out
                 (.../gallery/vcc26 -> VCC26). Also starts every file name.
-  gallery_url   "https://my.photoday.com/gallery/vcc26"
+  gallery_url   optional; built from the access code if left out
+                (VCC26 -> https://my.photoday.com/gallery/vcc26)
   logo          path to the team logo (png/jpg/svg); leave out if there isn't one
   team_colors   optional ["#hex", "#hex"]: primary then secondary. Colors the
                 no-logo monogram badge and, if no team_color, the band.
@@ -51,6 +52,7 @@ NEUTRAL_STRIPE = "#F5F4F0"   # thin accent beside the team band
 NEUTRAL_LABEL = "#BDB9B0"    # season label on the dark background
 FALLBACK_BAND = "#3C3C3C"    # logo has no clear team color (all black/white)
 COAL = "#0D0D0D"
+PHOTODAY_GALLERY = "https://my.photoday.com/gallery/"
 
 COPY = {
     "post": {"tag": "Your photos are live",
@@ -439,6 +441,12 @@ def code_from_url(url):
 def main(cfg_path, outdir):
     cfg = json.loads(Path(cfg_path).read_text())
     base = Path(cfg_path).resolve().parent
+    if not cfg.get("gallery_url") and not cfg.get("access_code"):
+        raise SystemExit("Give gallery_url or access_code")
+    if not cfg.get("gallery_url"):
+        code = re.sub(r"[^A-Za-z0-9-]+", "", cfg["access_code"])
+        cfg["gallery_url"] = f"{PHOTODAY_GALLERY}{code.lower()}"
+        print("gallery link (from code):", cfg["gallery_url"])
     if not cfg.get("access_code"):
         cfg["access_code"] = code_from_url(cfg["gallery_url"])
         print("access code (from link):", cfg["access_code"])
