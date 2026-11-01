@@ -237,7 +237,7 @@ def font_css():
     return f"""
 @font-face{{font-family:'Chosence';src:url('{f("chosence-bold-italic.woff2")}');font-weight:700;font-style:italic}}
 @font-face{{font-family:'ChosenceUpright';src:url('{f("chosence-bold.woff2")}');font-weight:700;font-style:normal}}
-@font-face{{font-family:'Evogria';src:url('{f("evogria-italic.woff2")}');font-weight:400;font-style:italic}}
+@font-face{{font-family:'Bebas Neue';src:url('{f("bebas-neue-regular.woff2")}');font-weight:400;font-style:normal}}
 @font-face{{font-family:'Barlow';src:url('{f("barlow-latin-500-normal.woff2")}');font-weight:500}}
 @font-face{{font-family:'Barlow';src:url('{f("barlow-latin-600-normal.woff2")}');font-weight:600}}
 @font-face{{font-family:'Barlow';src:url('{f("barlow-latin-700-normal.woff2")}');font-weight:700}}
@@ -248,7 +248,9 @@ BASE_CSS = """
 *{box-sizing:border-box}
 body{margin:0;background:#0D0D0D}
 .d{font-family:'Chosence',sans-serif;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.5px}
-.e{font-family:'Evogria',sans-serif;font-style:italic}
+.e{font-family:'Chosence',sans-serif;font-weight:700;font-style:italic;text-transform:uppercase}
+.h{font-family:'Bebas Neue','Chosence',sans-serif;font-weight:400;font-style:normal;text-transform:uppercase;letter-spacing:1px}
+.lean{display:inline-block;transform:skewX(-11.86deg);transform-origin:0 100%}
 .b{font-family:'Barlow',sans-serif}
 .pwx{display:block;mix-blend-mode:lighten}
 .slab{position:absolute;top:-40px;bottom:-40px;transform:skewX(-11.86deg)}
@@ -268,7 +270,7 @@ def square_html(t):
   <div style="position:absolute;left:72px;top:68px;width:520px">
     <img class="pwx" src="{t['pwx']}" style="height:58px">
     <div class="e" style="margin-top:56px;font-size:28px;color:{NEUTRAL_LABEL}">{t['season_label']}</div>
-    <div class="d" style="margin-top:14px;font-size:92px;line-height:.9">{t['team_name_html']}</div>
+    <div class="h" style="margin-top:14px;font-size:112px;line-height:.88">{t['team_name_html']}</div>
     <div class="b" style="margin-top:18px;font-size:32px;font-weight:600;color:#C9C6BE">{t['program']}</div>
     <div class="d" style="display:inline-block;margin-top:40px;font-size:38px;line-height:1;background:#F5F4F0;color:#0D0D0D;padding:10px 20px 8px">{t['copy']['tag']}</div>
     {t['why_square']}
@@ -303,7 +305,7 @@ def story_html(t):
 
   <div style="position:absolute;left:84px;right:84px;top:820px;height:410px;display:flex;flex-direction:column;justify-content:center;text-align:center">
     <div class="e" style="font-size:32px;color:{NEUTRAL_LABEL}">{t['season_label']}</div>
-    <div class="d" style="margin-top:14px;font-size:112px;line-height:.9">{t['team_name_html']}</div>
+    <div class="h" style="margin-top:14px;font-size:136px;line-height:.88">{t['team_name_html']}</div>
     <div class="b" style="margin-top:18px;font-size:36px;font-weight:600;color:#C9C6BE">{t['program']}</div>
     <div style="margin-top:30px"><span class="d" style="display:inline-block;font-size:42px;line-height:1;background:#F5F4F0;color:#0D0D0D;padding:10px 22px 8px">{t['copy']['tag']}</span></div>
     {t['why_story']}
@@ -359,7 +361,7 @@ def print_card(t):
   <div style="margin-top:12px;display:flex;align-items:center;gap:14px">
     <img src="{t['logo_plain']}" style="width:74px;height:74px;object-fit:contain;flex-shrink:0">
     <div style="min-width:0">
-      <div class="d" style="font-size:32px;line-height:.9">{t['team_name_html']}</div>
+      <div class="h" style="font-size:40px;line-height:.88">{t['team_name_html']}</div>
       <div class="b" style="margin-top:4px;font-size:12px;font-weight:600;color:#3C3C3C">{t['program']}</div>
       <div class="d" style="display:inline-block;margin-top:6px;font-size:13px;line-height:1;background:#0D0D0D;color:#fff;padding:4px 8px 3px">{t['copy']['tag']}</div>
     </div>
@@ -484,7 +486,8 @@ def main(cfg_path, outdir):
                  or team_color(logo_raw))
         logo = add_sticker_border(logo_raw) if cfg.get("sticker", True) else logo_raw
         words = cfg["team_name"].split()
-        name_html = " ".join(words) if len(words) < 2 else " ".join(words[:-1]) + "<br>" + words[-1]
+        lines = [" ".join(words)] if len(words) < 2 else [" ".join(words[:-1]), words[-1]]
+        name_html = "<br>".join(f'<span class="lean">{l}</span>' for l in lines)
         shared = dict(cfg, fonts=font_css(), color=color, ink=ink_on(color),
                       logo=data_uri(logo, "image/png"), logo_plain=data_uri(logo_print, "image/png"),
                       pwx=data_uri(ASSETS / "logo-full.png", "image/png"),
