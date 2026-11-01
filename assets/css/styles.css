@@ -3215,3 +3215,9 @@ body .media-h1, body .tm-h1, body .success-title {
 }
 .page-hero::after { background: var(--ghost-on-black); }
 .cta-band::after { background: var(--ghost-on-ember); }
+
+/* Amber key word in a headline (one per headline, dark grounds only).
+   In /admin, wrap the word in *asterisks* to mark it. */
+.hero-h1 .hl-accent, .page-hero-title .hl-accent, .section-title .hl-accent,
+.media-h1 .hl-accent, .tm-h1 .hl-accent, .success-title .hl-accent { color: var(--ember); }
+.cta-band .hl-accent { color: inherit; }

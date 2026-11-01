@@ -203,7 +203,13 @@ def apply_bindings(doc, data_files):
                 v = get(data, path)
                 if isinstance(v, (int, float)):
                     v = str(v)
-                if isinstance(v, str) and v.strip() and '<' not in inner and html.unescape(inner) != v:
+                if isinstance(v, str) and v.strip() and '*' in v:
+                    # *word* in a CMS headline = Amber accent word
+                    rendered = re.sub(r'\*([^*]+)\*', r'<span class="hl-accent">\1</span>', esc(v))
+                    if inner != rendered:
+                        doc = doc[:tag_end] + rendered + doc[close[0]:]
+                        changed += 1
+                elif isinstance(v, str) and v.strip() and '<' not in inner and html.unescape(inner) != v:
                     doc = doc[:tag_end] + esc(v) + doc[close[0]:]
                     changed += 1
             elif kind == '-num':

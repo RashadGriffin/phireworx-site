@@ -51,7 +51,12 @@
       if (t && t.split(':')[0] === file) {
         var v = get(data, t.split(':')[1]);
         if (typeof v === 'number') v = String(v);
-        if (typeof v === 'string' && v.trim() !== '' && el.textContent !== v) el.textContent = v;
+        if (typeof v === 'string' && v.indexOf('*') !== -1) {
+          // *word* in a CMS headline = Amber accent word
+          var safe = v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          var h = safe.replace(/\*([^*]+)\*/g, '<span class="hl-accent">$1</span>');
+          if (el.innerHTML !== h) el.innerHTML = h;
+        } else if (typeof v === 'string' && v.trim() !== '' && el.textContent !== v) el.textContent = v;
       }
       var n = el.getAttribute('data-cms-num');
       if (n && n.split(':')[0] === file) {
