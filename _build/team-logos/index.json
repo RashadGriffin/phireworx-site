@@ -1,10 +1,12 @@
 {
-  "_about": "Team logo library for the gallery access flyer skill. One entry per school or club, reused across its sports. Not served on the live site (/_build/* returns 404).",
+  "_about": "Team logo library for the gallery access flyer skill. One entry per school or club, reused across its sports. A school can have several logos; 'preferred' remembers which one Rashad picked for a program. Not served on the live site (/_build/* returns 404).",
   "verrado": {
     "name": "Verrado",
     "aliases": ["Verrado High School", "Verrado HS"],
-    "file": "verrado.png",
-    "team_colors": ["#0D0D0D", "#D6C469"],
+    "logos": [
+      {"file": "verrado.png", "label": "V with horse head and swoosh", "team_colors": ["#0D0D0D", "#D6C469"]}
+    ],
+    "preferred": {"Cross Country": "verrado.png"},
     "team_color": null,
     "used_for": ["VCC26 Cross Country"]
   }
