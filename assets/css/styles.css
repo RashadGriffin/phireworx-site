@@ -3162,3 +3162,56 @@ body .md-form-embed iframe { display: block; width: 100%; border: 0; }
 @media (max-width: 860px) {
   .hp-svc-media.hp-svc-pair { height: auto; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   BRAND REFRESH v64 — Bebas Neue headlines, Chosence accents,
+   tone-on-tone 3-star ghost. Remove this block to revert.
+   ════════════════════════════════════════════════════════════ */
+@font-face { font-family: 'Bebas Neue'; src: url('/assets/fonts/bebas-neue-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+:root {
+  --font-headline: 'Bebas Neue', 'Chosence', 'Barlow', sans-serif;
+  --font-accent: 'Chosence', 'Barlow', sans-serif;
+  --ghost-on-black: #171717;
+  --ghost-on-ember: #FFC775;
+}
+
+/* Headlines: Bebas has no italic, so the browser slants it (Photoshop-style faux italic) */
+.hero-h1, .hp-hero .hero-h1,
+.page-hero-title, .section-title, .cta-title, .cta-band .cta-title,
+.media-h1, .tm-h1, .success-title,
+body .media-h1, body .tm-h1, body .success-title {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-style: italic;
+  font-synthesis: style;
+  -webkit-text-stroke: 0;
+  letter-spacing: 0.01em;
+}
+.hp-hero .hero-h1 { font-size: clamp(64px, 8.4vw, 128px); line-height: 0.86; }
+.page-hero-title { font-size: clamp(58px, 8vw, 120px); line-height: 0.88; }
+.section-title { font-size: clamp(52px, 7.3vw, 108px); line-height: 0.9; }
+.cta-band .cta-title { font-size: clamp(58px, 7.6vw, 120px); line-height: 0.88; }
+
+/* Accents (buttons, tags, eyebrows) move from Evogria to Chosence, in capitals */
+.btn-primary, .btn-ghost, .nav-cta {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Tone-on-tone ghost mark behind inner-page tops and the CTA band */
+.page-hero, .cta-band { position: relative; overflow: hidden; isolation: isolate; }
+.page-hero::after, .cta-band::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: clamp(320px, 46vw, 700px);
+  aspect-ratio: 1997 / 1592;
+  top: -22%;
+  right: -9%;
+  -webkit-mask: url('/assets/images/stars-ghost-mask.png') center / contain no-repeat;
+  mask: url('/assets/images/stars-ghost-mask.png') center / contain no-repeat;
+}
+.page-hero::after { background: var(--ghost-on-black); }
+.cta-band::after { background: var(--ghost-on-ember); }
