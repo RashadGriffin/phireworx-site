@@ -28,6 +28,11 @@
   status = 200
 
 [[redirects]]
+  from = "/teammedia-success"
+  to = "/teammedia-success.html"
+  status = 200
+
+[[redirects]]
   from = "/banner-success"
   to = "/banner-success.html"
   status = 200

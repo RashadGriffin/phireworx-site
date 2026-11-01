@@ -565,102 +565,19 @@
   <div class="section-inner">
     <p class="section-eyebrow">Let's Get Started</p>
     <h2 class="section-title">Request <span>Your Images</span></h2>
-    <p class="section-desc" style="margin-bottom:36px;">Fill out the form below. We'll review your request and send over an invoice — no payment until you've confirmed the details with us.</p>
+    <p class="section-desc" style="margin-bottom:36px;">Tell us how many images you need and list the file names from your team's gallery. We'll confirm your order and send the invoice — or a quote if you're paying by district PO.</p>
 
-    <form style="max-width:680px;" name="team-media-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="team-media-order">
-      <p style="display:none;"><input name="bot-field"></p>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="tm-name">Your Name <span>*</span></label>
-          <input type="text" id="tm-name" name="name" class="mf-input" placeholder="First and last name" required>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="tm-email">Email <span>*</span></label>
-          <input type="email" id="tm-email" name="email" class="mf-input" placeholder="your@email.com" required>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="tm-phone">Phone</label>
-          <input type="tel" id="tm-phone" name="phone" class="mf-input" placeholder="(480) 000-0000">
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="tm-role">Your Role</label>
-          <select id="tm-role" name="role" class="mf-select">
-            <option value="" disabled selected>Select your role</option>
-            <option>Head Coach</option>
-            <option>Athletic Director</option>
-            <option>Assistant Coach</option>
-            <option>Club / Travel Team Director</option>
-            <option>Booster Club Member</option>
-            <option>Parent</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="tm-school">School or Organization <span>*</span></label>
-          <input type="text" id="tm-school" name="school" class="mf-input" placeholder="School or team name" required>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="tm-sport">Sport / Program <span>*</span></label>
-          <input type="text" id="tm-sport" name="sport" class="mf-input" placeholder="e.g. Varsity Basketball" required>
-        </div>
-      </div>
-
-      <div class="mf-row">
-        <div class="mf-group">
-          <label class="mf-label" for="tm-qty">How Many Images? <span>*</span></label>
-          <select id="tm-qty" name="image_count" class="mf-select" required>
-            <option value="" disabled selected>Select a range</option>
-            <option value="1-9" data-cms-tpl="prices|1–9 images ($${team_media.per_image_1_9} each)">1–9 images ($15 each)</option>
-            <option value="10-19" data-cms-tpl="prices|10–19 images ($${team_media.per_image_10_19} each)">10–19 images ($12 each)</option>
-            <option value="20+" data-cms-tpl="prices|20+ images ($${team_media.per_image_20_plus} each)">20+ images ($10 each)</option>
-            <option value="headshots" data-cms-tpl="prices|Player Headshots — full team ($${team_media.headshots_flat} flat)">Player Headshots — full team ($40 flat)</option>
-            <option value="full-gallery">Full Team Gallery (custom quote)</option>
-            <option value="unsure">Not sure — help me figure it out</option>
-          </select>
-        </div>
-        <div class="mf-group">
-          <label class="mf-label" for="tm-photoday">Your Picture Day Date</label>
-          <input type="text" id="tm-photoday" name="photoday_date" class="mf-input" placeholder="e.g. March 15, 2026">
-        </div>
-      </div>
-
-      <div class="mf-group">
-        <label class="mf-label">Add-Ons</label>
-        <div style="display:flex;flex-direction:column;gap:10px;padding:16px 18px;background:var(--steel);border:1px solid var(--iron);">
-          <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
-            <input type="checkbox" name="addon_hires" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
-            <span>Hi-res upgrade (+$<data data-cms="prices:team_media.hires_upgrade">5</data>/image) — 300 DPI, print-ready</span>
-          </label>
-          <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--silver);cursor:pointer;">
-            <input type="checkbox" name="addon_cutout" value="yes" style="width:15px;height:15px;accent-color:var(--ember);">
-            <span>Transparent PNG cutouts (+$<data data-cms="prices:team_media.png_cutout">2</data>/image) — background removed</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="mf-group">
-        <label class="mf-label" for="tm-details">What are these images for?</label>
-        <textarea id="tm-details" name="details" class="mf-textarea" placeholder="e.g. Senior night graphics, Instagram posts, booster flyer, game program..."></textarea>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <button type="submit" class="btn-primary" style="cursor:pointer;border:none;font-size:14px;">Send My Request</button>
-      </div>
-
+    <div class="md-form-embed" style="max-width:760px;">
+      <iframe name="lc_contact_form" frameborder="0" width="100%" height="600" src="https://phireworx.17hats.com/p#/embed/3oMHJq9DtKjd" title="Team media order form"></iframe>
+      <script type="text/javascript" src="https://phireworx.17hats.com/vendor/iframeSizer.min.js"></script>
+    </div>
+    <div style="max-width:760px;margin-top:20px;">
       <!-- INVOICE NOTE -->
       <div class="invoice-note">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <p><strong>No payment yet.</strong> Once we receive your request we'll review it and send you an invoice directly. Payment is due before image delivery.</p>
       </div>
-    </form>
+    </div>
   </div>
 </section>
 
