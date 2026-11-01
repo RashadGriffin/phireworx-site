@@ -213,7 +213,7 @@ def placeholder_png(page, cfg):
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" width="800" height="920">
   <path d="M200 12 L372 70 L372 220 C372 330 300 405 200 448 C100 405 28 330 28 220 L28 70 Z" fill="{primary}" stroke="{secondary}" stroke-width="18" stroke-linejoin="round"/>
   <path d="M200 50 L340 97 L340 220 C340 313 281 376 200 413 C119 376 60 313 60 220 L60 97 Z" fill="none" stroke="{secondary}" stroke-opacity=".45" stroke-width="5" stroke-linejoin="round"/>
-  <text x="200" y="{232 + size * 0.36:.0f}" text-anchor="middle" font-family="Chosence" font-weight="700" font-style="italic" font-size="{size}" fill="{secondary}">{letters}</text>
+  <text x="200" y="222" text-anchor="middle" dominant-baseline="central" font-family="ChosenceUpright" font-weight="700" font-size="{size}" fill="{secondary}">{letters}</text>
 </svg></div></body></html>""", wait_until="load")
     page.evaluate("document.fonts.ready")
     png = page.locator("#b").screenshot(omit_background=True)
@@ -234,6 +234,7 @@ def font_css():
     f = lambda n: data_uri(ASSETS / n, "font/woff2")
     return f"""
 @font-face{{font-family:'Chosence';src:url('{f("chosence-bold-italic.woff2")}');font-weight:700;font-style:italic}}
+@font-face{{font-family:'ChosenceUpright';src:url('{f("chosence-bold.woff2")}');font-weight:700;font-style:normal}}
 @font-face{{font-family:'Evogria';src:url('{f("evogria-italic.woff2")}');font-weight:400;font-style:italic}}
 @font-face{{font-family:'Barlow';src:url('{f("barlow-latin-500-normal.woff2")}');font-weight:500}}
 @font-face{{font-family:'Barlow';src:url('{f("barlow-latin-600-normal.woff2")}');font-weight:600}}
