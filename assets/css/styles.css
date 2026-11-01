@@ -3221,3 +3221,19 @@ body .media-h1, body .tm-h1, body .success-title {
 .hero-h1 .hl-accent, .page-hero-title .hl-accent, .section-title .hl-accent,
 .media-h1 .hl-accent, .tm-h1 .hl-accent, .success-title .hl-accent { color: var(--ember); }
 .cta-band .hl-accent { color: inherit; }
+
+/* Remaining main headings to slanted Bebas: homepage + area sections, services, private sessions */
+.hp-title, .hp-cta-title, .svc-h, body .ps-box-title {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-style: italic;
+  font-synthesis: style;
+  -webkit-text-stroke: 0;
+  letter-spacing: 0.01em;
+}
+.hp-title { font-size: clamp(52px, 7.3vw, 108px); }
+.hp-cta-title { font-size: clamp(58px, 7.6vw, 120px); }
+.svc-h { font-size: clamp(46px, 5.3vw, 76px); }
+body .ps-box-title { font-size: clamp(34px, 3.4vw, 48px); }
+.hp-title .hl-accent, .svc-h .hl-accent, body .ps-box-title .hl-accent { color: var(--ember); }
+.hp-cta-title .hl-accent { color: inherit; }
