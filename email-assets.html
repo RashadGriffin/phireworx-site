@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <title>Email Assets | Phireworx Photography</title>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=67">
+  <style>
+    body { background: var(--coal); }
+    .ea { max-width: 760px; margin: 0 auto; padding: 56px 16px 80px; }
+    .ea-logo { height: 44px; width: auto; display: block; margin-bottom: 36px; mix-blend-mode: lighten; }
+    .ea h1 { font-family: var(--font-display); font-style: italic; text-transform: uppercase; font-size: 44px; line-height: 1; margin: 0 0 8px; color: var(--chalk, #F5F4F0); }
+    .ea-sub { color: #BDB9B0; margin: 0 0 40px; font-size: 15px; }
+    .ea-group { font-family: var(--font-accent); font-weight: 700; font-style: italic; text-transform: uppercase; color: var(--ember); font-size: 18px; margin: 40px 0 16px; }
+    .ea-item { background: var(--ash); border: 1px solid var(--steel); padding: 20px; margin-bottom: 16px; }
+    .ea-name { color: #F5F4F0; font-weight: 600; margin-bottom: 12px; font-size: 15px; }
+    .ea-item img { display: block; width: 100%; max-width: 600px; height: auto; margin-bottom: 14px; }
+    .ea-row { display: flex; gap: 8px; }
+    .ea-row input { flex: 1; min-width: 0; background: var(--coal); border: 1px solid var(--steel); color: #E8E5DD; font: 13px ui-monospace, Menlo, monospace; padding: 10px 12px; }
+    .ea-row button { background: var(--ember); color: var(--coal); border: 0; font-weight: 700; font-size: 13px; padding: 0 18px; cursor: pointer; white-space: nowrap; }
+    .ea-row button:focus-visible, .ea-row input:focus-visible { outline: 2px solid #F5F4F0; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+<main class="ea">
+  <img class="ea-logo" src="/assets/images/logo-full.png" alt="Phireworx Photography">
+  <h1>Email Assets</h1>
+  <p class="ea-sub">Image links for 17hats templates and email signatures. Paste a link into the Image URL field.</p>
+
+  <div class="ea-group">Email Headers</div>
+  <div class="ea-item" data-path="/assets/images/email/header.jpg" data-name="Phireworx Header (all emails)"></div>
+  <div class="ea-item" data-path="/assets/images/email/pro-banners-header-600.jpg" data-name="Pro Banners Email Header"></div>
+
+  <div class="ea-group">Email Signatures</div>
+  <div class="ea-item" data-path="/assets/images/email/signature-rashad.jpg" data-name="Rashad Griffin"></div>
+  <div class="ea-item" data-path="/assets/images/email/signature-crystal-service.jpg" data-name="Crystal Garcia-Griffin (service@)"></div>
+  <div class="ea-item" data-path="/assets/images/email/signature-crystal.jpg" data-name="Crystal Garcia-Griffin (crystal@)"></div>
+</main>
+<script>
+  document.querySelectorAll('.ea-item').forEach(function (el) {
+    var url = 'https://phireworxphoto.com' + el.dataset.path;
+    el.innerHTML =
+      '<div class="ea-name"></div><img alt="" loading="lazy">' +
+      '<div class="ea-row"><input type="text" readonly aria-label="Image link"><button type="button">Copy link</button></div>';
+    el.querySelector('.ea-name').textContent = el.dataset.name;
+    el.querySelector('img').src = el.dataset.path;
+    el.querySelector('img').alt = el.dataset.name;
+    var input = el.querySelector('input'), btn = el.querySelector('button');
+    input.value = url;
+    input.addEventListener('focus', function () { input.select(); });
+    btn.addEventListener('click', function () {
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy link'; }, 1600); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, function () { input.select(); document.execCommand('copy'); done(); }); }
+      else { input.select(); document.execCommand('copy'); done(); }
+    });
+  });
+</script>
+</body>
+</html>

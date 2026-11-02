@@ -59,6 +59,11 @@
 
 # Direct-link only pages
 [[redirects]]
+  from = "/email-assets"
+  to = "/email-assets.html"
+  status = 200
+
+[[redirects]]
   from = "/about-preview"
   to = "/about-preview.html"
   status = 200
