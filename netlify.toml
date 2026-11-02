@@ -59,6 +59,11 @@
 
 # Direct-link only pages
 [[redirects]]
+  from = "/about-preview"
+  to = "/about-preview.html"
+  status = 200
+
+[[redirects]]
   from = "/sessions"
   to = "/private-sessions.html"
   status = 200
