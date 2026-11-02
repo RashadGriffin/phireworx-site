@@ -3237,3 +3237,8 @@ body .media-h1, body .tm-h1, body .success-title {
 body .ps-box-title { font-size: clamp(34px, 3.4vw, 48px); }
 .hp-title .hl-accent, .svc-h .hl-accent, body .ps-box-title .hl-accent { color: var(--ember); }
 .hp-cta-title .hl-accent { color: inherit; }
+
+/* About: owner titles + mirrored co-owner row */
+.about-role { font-family: var(--font-accent); font-weight: 700; font-style: italic; text-transform: uppercase; font-size: 17px; letter-spacing: 0.03em; color: var(--ember); margin: -8px 0 24px; }
+.about-grid--flip { grid-template-columns: 1.1fr 1fr; }
+@media (max-width: 768px) { .about-grid--flip { grid-template-columns: 1fr; } .about-grid--flip .about-img { order: -1; } }
