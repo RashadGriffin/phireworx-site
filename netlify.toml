@@ -79,6 +79,11 @@
   status = 200
 
 [[redirects]]
+  from = "/banners/templates"
+  to = "/banner-templates.html"
+  status = 200
+
+[[redirects]]
   from = "/banners/form"
   to = "/banners-bulk.html"
   status = 200
