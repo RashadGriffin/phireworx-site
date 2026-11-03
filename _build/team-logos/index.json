@@ -2,12 +2,134 @@
   "_about": "Team logo library for the gallery access flyer skill. One entry per school or club, reused across its sports. A school can have several logos; 'preferred' remembers which one Rashad picked for a program. Not served on the live site (/_build/* returns 404).",
   "verrado": {
     "name": "Verrado",
-    "aliases": ["Verrado High School", "Verrado HS"],
-    "logos": [
-      {"file": "verrado.png", "label": "V with horse head and swoosh", "team_colors": ["#0D0D0D", "#D6C469"]}
+    "aliases": [
+      "Verrado High School",
+      "Verrado HS"
     ],
-    "preferred": {"Cross Country": "verrado.png"},
+    "logos": [
+      {
+        "file": "verrado.png",
+        "label": "V with horse head and swoosh",
+        "team_colors": [
+          "#0D0D0D",
+          "#D6C469"
+        ]
+      }
+    ],
+    "preferred": {
+      "Cross Country": "verrado.png"
+    },
     "team_color": null,
-    "used_for": ["VCC26 Cross Country"]
+    "used_for": [
+      "VCC26 Cross Country"
+    ]
+  },
+  "alhambra": {
+    "name": "Alhambra",
+    "aliases": [
+      "Alhambra High School",
+      "Alhambra HS",
+      "Alhambra Lions"
+    ],
+    "logos": [
+      {
+        "file": "alhambra-lion.png",
+        "label": "lion head",
+        "team_colors": [
+          "#0B6623",
+          "#FFFFFF"
+        ]
+      }
+    ],
+    "preferred": {
+      "Boys Basketball": "alhambra-lion.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "ABB27 Boys Basketball"
+    ]
+  },
+  "estrella-foothills": {
+    "name": "Estrella Foothills",
+    "aliases": [
+      "Estrella Foothills High School",
+      "EFHS"
+    ],
+    "logos": [
+      {
+        "file": "estrella-foothills-ef-wolf.png",
+        "label": "EF with wolf in circle",
+        "team_colors": [
+          "#0D0D0D",
+          "#5B9BD5"
+        ]
+      }
+    ],
+    "preferred": {
+      "Girls Basketball": "estrella-foothills-ef-wolf.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "EFGB27 Girls Basketball"
+    ]
+  },
+  "deer-valley": {
+    "name": "Deer Valley",
+    "aliases": [
+      "Deer Valley High School",
+      "Deer Valley HS"
+    ],
+    "logos": [
+      {
+        "file": "deer-valley-dv.png",
+        "label": "DV monogram",
+        "team_colors": [
+          "#8DB7E0",
+          "#0D0D0D"
+        ]
+      }
+    ],
+    "preferred": {
+      "Boys Basketball": "deer-valley-dv.png",
+      "Girls Basketball": "deer-valley-dv.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "DVBB27 Boys Basketball",
+      "DVGB27 Girls Basketball"
+    ]
+  },
+  "shadow-ridge": {
+    "name": "Shadow Ridge",
+    "aliases": [
+      "Shadow Ridge High School",
+      "Shadow Ridge HS",
+      "Shadow Ridge Stallions"
+    ],
+    "logos": [
+      {
+        "file": "shadow-ridge-sr.png",
+        "label": "SR monogram",
+        "team_colors": [
+          "#7A0C14",
+          "#231F20"
+        ]
+      },
+      {
+        "file": "shadow-ridge-stallion.png",
+        "label": "stallion head",
+        "team_colors": [
+          "#E0C070",
+          "#7A0C14"
+        ]
+      }
+    ],
+    "preferred": {
+      "Girls Basketball": "shadow-ridge-sr.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "SRGB27 Girls Basketball"
+    ]
   }
 }
