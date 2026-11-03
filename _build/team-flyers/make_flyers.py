@@ -501,7 +501,7 @@ def main(cfg_path, outdir):
             # The pre-shoot tagline adds a line under the tag, so a two-line team name
             # needs a taller text area and a slightly smaller name to clear the code card.
             tall = bool(c["why"]) and len(lines) > 1
-            t.update(story_box="top:765px;height:471px" if tall else "top:820px;height:410px",
+            t.update(story_box="top:765px;height:471px" if tall else "top:795px;height:460px",
                      story_name_px=124 if tall else 136)
             stem = f"{code}-{m}-shoot-flyer"
             for name, html, (w, h) in (("square", square_html(t), (1080, 1080)), ("story", story_html(t), (1080, 1920))):
