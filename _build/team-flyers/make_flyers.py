@@ -303,9 +303,9 @@ def story_html(t):
   <div style="position:absolute;left:0;right:0;top:92px;display:flex;justify-content:center"><img class="pwx" src="{t['pwx']}" style="height:88px"></div>
   <img class="logo" src="{t['logo']}" style="position:absolute;left:375px;top:330px;width:330px;height:330px">
 
-  <div style="position:absolute;left:84px;right:84px;top:820px;height:410px;display:flex;flex-direction:column;justify-content:center;text-align:center">
+  <div id="story-head" style="position:absolute;left:84px;right:84px;{t['story_box']};display:flex;flex-direction:column;justify-content:center;text-align:center">
     <div class="e" style="font-size:32px;color:{NEUTRAL_LABEL}">{t['season_label']}</div>
-    <div class="h" style="margin-top:14px;font-size:136px;line-height:.88">{t['team_name_html']}</div>
+    <div class="h" style="margin-top:14px;font-size:{t['story_name_px']}px;line-height:.88">{t['team_name_html']}</div>
     <div class="b" style="margin-top:18px;font-size:36px;font-weight:600;color:#C9C6BE">{t['program']}</div>
     <div style="margin-top:30px"><span class="d" style="display:inline-block;font-size:42px;line-height:1;background:#F5F4F0;color:#0D0D0D;padding:10px 22px 8px">{t['copy']['tag']}</span></div>
     {t['why_story']}
@@ -498,11 +498,22 @@ def main(cfg_path, outdir):
             t = dict(shared, mode=m, copy=c,
                      why_square=(f'<div class="b" style="margin-top:16px;font-size:24px;font-weight:500;color:#C9C6BE">{c["why"]}</div>' if c["why"] else ""),
                      why_story=(f'<div class="b" style="margin-top:16px;font-size:28px;font-weight:500;color:#C9C6BE">{c["why"]}</div>' if c["why"] else ""))
+            # The pre-shoot tagline adds a line under the tag, so a two-line team name
+            # needs a taller text area and a slightly smaller name to clear the code card.
+            tall = bool(c["why"]) and len(lines) > 1
+            t.update(story_box="top:765px;height:471px" if tall else "top:820px;height:410px",
+                     story_name_px=124 if tall else 136)
             stem = f"{code}-{m}-shoot-flyer"
             for name, html, (w, h) in (("square", square_html(t), (1080, 1080)), ("story", story_html(t), (1080, 1920))):
                 page.set_viewport_size({"width": w, "height": h})
                 page.set_content(html, wait_until="load")
                 page.evaluate("document.fonts.ready")
+                if name == "story" and page.evaluate("""() => {
+                    const box = document.getElementById('story-head'), r = box.getBoundingClientRect();
+                    return [...box.children].some(k => { const c = k.getBoundingClientRect();
+                        return c.top < r.top - 1 || c.bottom > r.bottom + 1; });
+                }"""):
+                    raise SystemExit(f"{stem}-story: team text overflows its space; shorten the team name")
                 f = out / f"{stem}-{name}.png"
                 page.screenshot(path=str(f), clip={"x": 0, "y": 0, "width": w, "height": h})
                 to_check.append(f)
