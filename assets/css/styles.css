@@ -14,8 +14,8 @@
 @font-face { font-family: 'Evogria'; src: url('/assets/fonts/evogria-italic.woff2') format('woff2'); font-weight: 100 900; font-style: italic; font-display: swap; }
 
 :root {
-  --flame-lt: #FF7A45;
-  --ember-dk: #D4922A;
+  --spark:    #FFD9A0;
+  --kiln:     #C4622D;
   --ember:    #FFB347;
   --coal:     #0D0D0D;
   --ash:      #141414;
@@ -141,7 +141,7 @@ ul { list-style: none; }
   transition: background 0.2s, transform 0.1s;
   white-space: nowrap;
 }
-.btn-primary:hover { background: var(--ember-dk); }
+.btn-primary:hover { background: var(--kiln); }
 .btn-primary:active { transform: scale(0.98); }
 
 .btn-ghost {
@@ -376,7 +376,7 @@ ul { list-style: none; }
   transition: background 0.2s;
   white-space: nowrap;
 }
-.nav-cta:hover { background: var(--ember-dk); color: #fff; }
+.nav-cta:hover { background: var(--kiln); color: #0D0D0D; }
 .nav-hamburger {
   position: relative;
   z-index: 1002;
@@ -1255,7 +1255,7 @@ footer {
   box-sizing: border-box;
 }
 .booking-card:hover .booking-card-action {
-  background: var(--ember-dk);
+  background: var(--kiln);
   transform: translateY(-1px);
 }
 
@@ -3242,3 +3242,31 @@ body .ps-box-title { font-size: clamp(34px, 3.4vw, 48px); }
 .about-role { font-family: var(--font-accent); font-weight: 700; font-style: italic; text-transform: uppercase; font-size: 17px; letter-spacing: 0.03em; color: var(--ember); margin: -8px 0 24px; }
 .about-grid--flip { grid-template-columns: 1.1fr 1fr; }
 @media (max-width: 768px) { .about-grid--flip { grid-template-columns: 1fr; } .about-grid--flip .about-img { order: -1; } }
+
+/* ── HEAT RANGE v68 (2026-11-06): Spark + Ember + Kiln ── */
+.kx-streak { display: flex; flex-direction: column; gap: 6px; margin: clamp(22px, 2.4vw, 32px) 0 0 8px; }
+.kx-streak i { display: block; height: 6px; transform: skewX(calc(-1 * var(--slant))); }
+.kx-streak i:nth-child(1) { width: min(260px, 52%); background: var(--spark); }
+.kx-streak i:nth-child(2) { width: min(190px, 38%); background: var(--ember); margin-left: 14px; }
+.kx-streak i:nth-child(3) { width: min(120px, 24%); background: var(--kiln); margin-left: 28px; }
+.hp-stats { border-bottom: 5px solid var(--kiln); }
+.hp-step { border-top-color: var(--kiln); }
+.hp-link::before { background: var(--kiln); }
+
+/* ── HEAT RANGE SITE-WIDE v69 (2026-11-06) ── */
+.page-hero-title::after {
+  content: '';
+  display: block;
+  width: min(260px, 60%);
+  height: 30px;
+  margin: clamp(20px, 2.2vw, 28px) 0 0 8px;
+  background:
+    linear-gradient(var(--spark), var(--spark)) 0 0 / 100% 6px no-repeat,
+    linear-gradient(var(--ember), var(--ember)) 14px 12px / 73% 6px no-repeat,
+    linear-gradient(var(--kiln), var(--kiln)) 28px 24px / 46% 6px no-repeat;
+  transform: skewX(calc(-1 * var(--slant)));
+}
+.process-step { border-top-color: var(--kiln); }
+footer { border-top: 5px solid var(--kiln); }
+.pricing-row:hover { border-left-color: var(--kiln); }
+.service-card::after { background: var(--kiln); }
