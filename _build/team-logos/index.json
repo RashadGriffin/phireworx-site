@@ -157,5 +157,28 @@
     "used_for": [
       "LJWS27 Winter Sports"
     ]
+  },
+  "paradise-honors": {
+    "name": "Paradise Honors",
+    "aliases": [
+      "Paradise Honors High School",
+      "PH"
+    ],
+    "logos": [
+      {
+        "file": "paradise-honors-panther.png",
+        "label": "panther",
+        "team_colors": [
+          "#056BB6",
+          "#0D0D0D"
+        ]
+      }
+    ],
+    "preferred": {
+      "Football": "paradise-honors-panther.png"
+    },
+    "used_for": [
+      "PHPN post-shoot (Football Parent Night 2026)"
+    ]
   }
 }
