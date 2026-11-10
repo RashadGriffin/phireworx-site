@@ -69,6 +69,11 @@
   status = 200
 
 [[redirects]]
+  from = "/portfolio-preview"
+  to = "/portfolio-preview.html"
+  status = 200
+
+[[redirects]]
   from = "/sessions"
   to = "/private-sessions.html"
   status = 200
