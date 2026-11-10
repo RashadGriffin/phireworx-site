@@ -57,6 +57,11 @@
   to = "/testimonials.html"
   status = 200
 
+[[redirects]]
+  from = "/portfolio"
+  to = "/portfolio.html"
+  status = 200
+
 # Direct-link only pages
 [[redirects]]
   from = "/email-assets"
@@ -70,8 +75,8 @@
 
 [[redirects]]
   from = "/portfolio-preview"
-  to = "/portfolio-preview.html"
-  status = 200
+  to = "/portfolio"
+  status = 301
 
 [[redirects]]
   from = "/sessions"
