@@ -180,5 +180,30 @@
     "used_for": [
       "PHPN post-shoot (Football Parent Night 2026)"
     ]
+  },
+  "basha": {
+    "name": "Basha",
+    "aliases": [
+      "Basha High School",
+      "Basha HS",
+      "Basha Bears"
+    ],
+    "logos": [
+      {
+        "file": "basha-bear-head.png",
+        "label": "bear head",
+        "team_colors": [
+          "#2B5235",
+          "#1E1E1E"
+        ]
+      }
+    ],
+    "preferred": {
+      "Boys Basketball": "basha-bear-head.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "BBB27 Boys Basketball"
+    ]
   }
 }
