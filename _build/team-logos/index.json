@@ -205,5 +205,30 @@
     "used_for": [
       "BBB27 Boys Basketball"
     ]
+  },
+  "arcadia": {
+    "name": "Arcadia",
+    "aliases": [
+      "Arcadia High School",
+      "Arcadia HS",
+      "Arcadia Titans"
+    ],
+    "logos": [
+      {
+        "file": "arcadia-a.png",
+        "label": "A",
+        "team_colors": [
+          "#E8262D",
+          "#1F4E9C"
+        ]
+      }
+    ],
+    "preferred": {
+      "Boys Soccer": "arcadia-a.png"
+    },
+    "team_color": null,
+    "used_for": [
+      "ABS27 Boys Soccer"
+    ]
   }
 }
