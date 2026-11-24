@@ -199,11 +199,13 @@
       }
     ],
     "preferred": {
-      "Boys Basketball": "basha-bear-head.png"
+      "Boys Basketball": "basha-bear-head.png",
+      "Girls Basketball": "basha-bear-head.png"
     },
     "team_color": null,
     "used_for": [
-      "BBB27 Boys Basketball"
+      "BBB27 Boys Basketball",
+      "BGB27 Girls Basketball"
     ]
   },
   "arcadia": {
